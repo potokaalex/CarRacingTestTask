@@ -1,0 +1,11 @@
+Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState
+
+
+TODO
+    infrastructure: bootstrap, stateMachine, installers, states
+                    + assetsLoader/provider
+    gameplay:
+        scene design
+        car: input, drift, autoDriftControl(?), sounds
+        coinsCount
+    refactoring: 
