@@ -1,0 +1,7 @@
+
+TODO
+    infrastructure: bootstrap, stateMachine and contexts
+    gameplay:
+        scene design
+        car: input, drift, autoDriftControl(?), sounds
+        coinsCount 
