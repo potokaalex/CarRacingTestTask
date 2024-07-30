@@ -6,6 +6,7 @@ using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
 using Client.Code.Services.StateMachine.Global;
+using Client.Common.Services.Updater;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +22,7 @@ namespace Client.Code.Infrastructure.Installers
             Container.BindInterfacesTo<AssetProviderProjectConfig>().AsSingle().WithArguments(_config);
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
+            Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
         }
 
         private void BindStateMachine()

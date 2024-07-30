@@ -1,11 +1,14 @@
-Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState
+Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> 
 
-
+Naming: 
+    Gameplay:
+        Object - just contains MonoBehaviour data. 
+        Controller - for any logic connected with Object
+        
 TODO
-    infrastructure: bootstrap, stateMachine, installers, states
-                    + assetsLoader/provider
+    
     gameplay:
-        scene design
+        car design: physics, materials, prefabs
         car: input, drift, autoDriftControl(?), sounds
         coinsCount
-    refactoring: 
+    refactoring: assetProviders!
