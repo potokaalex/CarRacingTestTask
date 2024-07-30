@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Infrastructure.States;
 using Client.Code.Services.AssetProvider;
 using Sirenix.OdinInspector;
 using UnityEngine;

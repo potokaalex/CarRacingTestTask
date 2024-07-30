@@ -2,13 +2,39 @@ Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller 
 
 Naming: 
     Gameplay:
-        Object - just contains MonoBehaviour data. 
-        Controller - for any logic connected with Object
+        Object - contains only data & inherited from monoBehaviour.
+        Model - contains data
+        System - contains only logic
+        Controller(mb Manager ?) - contains data, logic & public API
+    UI:
+        Model - contains data like in Mvx
+        Presenter - contains business logic like in mvP 
+        UIElement - like view in mVx
         
 TODO
-    
     gameplay:
-        car design: physics, materials, prefabs
-        car: input, drift, autoDriftControl(?), sounds
-        coinsCount
-    refactoring: assetProviders!
+        car: drift check, sounds
+        drift points.
+        game over screen: give cash for drift points, double reward button (IronSource Reward Ad with callback)
+    Refactoring: assetProviders!
+    garage:
+        select level menu: offline level, online level
+        cash view
+        customization menu: upgrade car color & spoiler
+        IAP shop menu: buy coins, buy car spoiler
+        - at last! settings menu: (sound check, optional!)
+    Global: 
+        Save System: save cash, car customizations, settings.
+        Online (Photon): OnlineLevel , sync between players (position, customization )
+        Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
+    Optional:
+        Engine sound system, 
+        Online sync between players (rotation wheels, steering, engine sound)
+        Leaderboard in room (All players drift points)
+        Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
+
+
+Discarded:
+        Important car shop
+        Optional SDKs: Facebook SDK, FirebaseSDK, IAP SDK, GameAnalytics SDK    
+        Optional tyres sound system

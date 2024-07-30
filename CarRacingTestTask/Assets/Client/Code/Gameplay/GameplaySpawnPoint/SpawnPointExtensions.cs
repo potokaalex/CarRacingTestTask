@@ -8,7 +8,7 @@ namespace Client.Code.Gameplay.GameplaySpawnPoint
         {
             return new SpawnPoint
             {
-                Position = transform.position, 
+                Position = transform.position,
                 Rotation = transform.rotation
             };
         }

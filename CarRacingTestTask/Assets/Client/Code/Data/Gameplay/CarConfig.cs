@@ -1,7 +1,5 @@
-﻿using System;
-using Client.Code.Gameplay.Car;
+﻿using Client.Code.Gameplay.Car;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Client.Code.Data.Gameplay
@@ -10,7 +8,16 @@ namespace Client.Code.Data.Gameplay
     public class CarConfig : SerializedScriptableObject
     {
         public CarObject Prefab;
+
         public float MotorForce;
         public float BrakeForce;
+        public float MaxMoveVelocity;
+
+        public float MaxSteerAngle;
+        public float SteerAngleAccelerationTimeSec;
+
+        public float MinVelocityToDrift;
+        public float MinAngleToDrift;
+        public float MaxAngelToDrift;
     }
 }

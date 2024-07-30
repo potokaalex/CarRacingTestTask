@@ -1,11 +1,12 @@
 using System;
 
-namespace Client.Common.Services.Updater
+namespace Client.Code.Services.Updater
 {
     public interface IUpdater
     {
         event Action OnUpdate;
         event Action OnFixedUpdate;
+        event Action<float> OnFixedUpdateWithDelta;
         event Action OnProjectExit;
         void ClearAllListeners();
     }

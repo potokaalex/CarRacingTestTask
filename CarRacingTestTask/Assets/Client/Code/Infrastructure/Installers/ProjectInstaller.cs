@@ -1,12 +1,11 @@
 ﻿using System;
 using Client.Code.Data;
-using Client.Code.Infrastructure.States;
 using Client.Code.Services.AssetProvider;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
 using Client.Code.Services.StateMachine.Global;
-using Client.Common.Services.Updater;
+using Client.Code.Services.Updater;
 using UnityEngine;
 using Zenject;
 
