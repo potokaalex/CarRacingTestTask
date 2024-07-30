@@ -27,8 +27,9 @@ namespace Client.Code.Gameplay.Car.Systems
             var forward = _model.Car.Rigidbody.transform.forward.normalized;
             forward.y = 0;
             var slipAngle = Vector3.SignedAngle(forward, velocity, Vector3.up);
+            var slipAngleAbs = Mathf.Abs(slipAngle);
 
-            if (_model.Car.MoveVelocity > 0.1f && slipAngle > 0.1f)
+            if (Mathf.Abs(_model.Car.MoveVelocity) > 0.1f && slipAngleAbs is > 0.1f and < 170f)
             {
                 var angle = _model.Car.SteerDirection * _model.Car.Config.MaxSteerAngle + slipAngle;
                 SetTargetSteerAngle(angle);
@@ -45,7 +46,7 @@ namespace Client.Code.Gameplay.Car.Systems
 
         private void SetTargetSteerAngle(float value)
         {
-            var angle = MathfExtensions.Round(value, 3);
+            var angle = MathfExtensions.Round(value, 6);
             _model.Car.TargetSteerAngle = angle;
         }
 
@@ -53,9 +54,8 @@ namespace Client.Code.Gameplay.Car.Systems
         {
             var progress = deltaTime / _model.Car.Config.SteerAngleAccelerationTimeSec;
             var newAngle = Mathf.Lerp(_model.Car.CurrentSteerAngle, _model.Car.TargetSteerAngle, progress);
-            if (Mathf.Abs(newAngle - _model.Car.TargetSteerAngle) < 10e-3)
-                newAngle = _model.Car.TargetSteerAngle;
-
+            newAngle = MathfExtensions.Round(newAngle, 6);
+            
             _model.Car.CurrentSteerAngle = Mathf.Clamp(newAngle, -_model.Car.Config.MaxSteerAngle, _model.Car.Config.MaxSteerAngle);
 
             foreach (var wheel in _model.Car.Wheels)
