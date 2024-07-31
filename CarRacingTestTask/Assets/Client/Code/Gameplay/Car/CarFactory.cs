@@ -1,5 +1,7 @@
-﻿using Client.Code.Data.Gameplay;
-using Client.Code.Gameplay.Car.Systems;
+﻿using System.Collections.Generic;
+using Client.Code.Data.Gameplay;
+using Client.Code.Gameplay.Car.Controllers;
+using Client.Code.Gameplay.Car.Controllers.Base;
 using Client.Code.Gameplay.GameplaySpawnPoint;
 using Client.Code.Gameplay.Wheel;
 using Client.Code.Services.Updater;
@@ -12,13 +14,10 @@ namespace Client.Code.Gameplay.Car
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
         private readonly CarModel _model;
+        private readonly List<ICarController> _physicsControllers = new();
+        private readonly List<ICarController> _graphicsControllers = new();
         private CarConfig _config;
-        private CarInputSystem _inputSystem;
-        private CarMoveSystem _moveSystem;
-        private CarGraphicsSystem _graphicsSystem;
-        private CarSteerSystem _steerSystem;
-        private CarDriftCheckSystem _driftSystem;
-
+        
         public CarFactory(IInstantiator instantiator, IUpdater updater, CarModel model)
         {
             _instantiator = instantiator;
@@ -30,18 +29,19 @@ namespace Client.Code.Gameplay.Car
         {
             var car = CreateObject(spawnPoint);
             _model.Initialize(car);
-            CreateSystems();
-            _updater.OnUpdate += GraphicsUpdate;
-            _updater.OnFixedUpdateWithDelta += PhysicsUpdate;
+            CreateControllers();
         }
 
-        private void CreateSystems()
+        private void CreateControllers()
         {
-            _inputSystem = _instantiator.Instantiate<CarInputSystem>();
-            _moveSystem = _instantiator.Instantiate<CarMoveSystem>();
-            _graphicsSystem = _instantiator.Instantiate<CarGraphicsSystem>();
-            _steerSystem = _instantiator.Instantiate<CarSteerSystem>();
-            _driftSystem = _instantiator.Instantiate<CarDriftCheckSystem>();
+            _physicsControllers.Add(_instantiator.Instantiate<CarMoveController>());
+            _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
+            _physicsControllers.Add(_instantiator.Instantiate<CarDriftCheckController>());
+            
+            _graphicsControllers.Add(_instantiator.Instantiate<CarInputController>());
+            _graphicsControllers.Add(_instantiator.Instantiate<CarGraphicsController>());
+            
+            RegisterControllers();
         }
 
         public void Receive(GameplayConfig asset) => _config = asset.Car;
@@ -72,17 +72,21 @@ namespace Client.Code.Gameplay.Car
             return wheels;
         }
 
-        private void GraphicsUpdate()
+        private void RegisterControllers()
         {
-            _inputSystem.InputUpdate();
-            _graphicsSystem.GraphicsUpdate();
-        }
-
-        private void PhysicsUpdate(float deltaTime)
-        {
-            _moveSystem.PhysicsUpdate();
-            _steerSystem.PhysicsUpdate(deltaTime);
-            _driftSystem.PhysicsUpdate();
+            foreach (var controller in _graphicsControllers)
+                if(controller is ICarUpdateController c)
+                    _updater.OnUpdate += c.OnUpdate;
+            
+            
+            foreach (var controller in _physicsControllers)
+            {
+                if(controller is ICarUpdateController c)
+                    _updater.OnFixedUpdate += c.OnUpdate;
+                
+                if(controller is ICarUpdateControllerWithDelta c2)
+                    _updater.OnFixedUpdateWithDelta += c2.OnUpdate;
+            }
         }
     }
 }

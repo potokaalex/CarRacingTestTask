@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Client.Code.Gameplay.Car.Controllers.Base;
+using UnityEngine;
 
-namespace Client.Code.Gameplay.Car.Systems
+namespace Client.Code.Gameplay.Car.Controllers
 {
-    public class CarInputSystem
+    public class CarInputController : ICarUpdateController
     {
         private readonly CarModel _model;
 
-        public CarInputSystem(CarModel model) => _model = model;
+        public CarInputController(CarModel model) => _model = model;
 
-        public void InputUpdate()
+        public void OnUpdate()
         {
             UpdateMoveDirection();
             UpdateBrakeFlag();

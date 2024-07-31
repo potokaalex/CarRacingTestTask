@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Client.Code.Gameplay.Car.Controllers.Base;
+using UnityEngine;
 
-namespace Client.Code.Gameplay.Car.Systems
+namespace Client.Code.Gameplay.Car.Controllers
 {
-    public class CarDriftCheckSystem
+    public class CarDriftCheckController : ICarUpdateController
     {
         private readonly CarModel _model;
 
-        public CarDriftCheckSystem(CarModel model) => _model = model;
+        public CarDriftCheckController(CarModel model) => _model = model;
 
-        public void PhysicsUpdate()
+        public void OnUpdate()
         {
             var config = _model.Car.Config;
             var velocity = _model.Car.Rigidbody.velocity;

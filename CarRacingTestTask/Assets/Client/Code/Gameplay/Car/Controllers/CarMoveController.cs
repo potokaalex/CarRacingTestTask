@@ -1,15 +1,16 @@
-﻿using Client.Code.Utilities;
+﻿using Client.Code.Gameplay.Car.Controllers.Base;
+using Client.Code.Utilities;
 using UnityEngine;
 
-namespace Client.Code.Gameplay.Car.Systems
+namespace Client.Code.Gameplay.Car.Controllers
 {
-    public class CarMoveSystem
+    public class CarMoveController : ICarUpdateController
     {
         private readonly CarModel _model;
 
-        public CarMoveSystem(CarModel model) => _model = model;
+        public CarMoveController(CarModel model) => _model = model;
 
-        public void PhysicsUpdate()
+        public void OnUpdate()
         {
             if (_model.Car.IsBrake)
                 OnBrake();

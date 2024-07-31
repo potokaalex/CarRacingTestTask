@@ -1,15 +1,16 @@
-﻿using Client.Code.Utilities;
+﻿using Client.Code.Gameplay.Car.Controllers.Base;
+using Client.Code.Utilities;
 using UnityEngine;
 
-namespace Client.Code.Gameplay.Car.Systems
+namespace Client.Code.Gameplay.Car.Controllers
 {
-    public class CarSteerSystem
+    public class CarSteerController : ICarUpdateControllerWithDelta
     {
         private readonly CarModel _model;
 
-        public CarSteerSystem(CarModel model) => _model = model;
+        public CarSteerController(CarModel model) => _model = model;
 
-        public void PhysicsUpdate(float deltaTime)
+        public void OnUpdate(float deltaTime)
         {
             if (_model.Car.SteerDirection != 0)
                 ManualSteering();

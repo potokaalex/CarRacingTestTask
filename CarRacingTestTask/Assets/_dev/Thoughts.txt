@@ -2,10 +2,9 @@ Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller 
 
 Naming: 
     Gameplay:
-        Object - contains only data & inherited from monoBehaviour.
+        Object - contains data & inherited from monoBehaviour.
         Model - contains data
-        System - contains only logic
-        Controller(mb Manager ?) - contains data, logic & public API
+        Controller - contains data, logic
     UI:
         Model - contains data like in Mvx
         Presenter - contains business logic like in mvP 
