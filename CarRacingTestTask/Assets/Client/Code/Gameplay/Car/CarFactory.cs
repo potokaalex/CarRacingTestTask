@@ -3,7 +3,6 @@ using Client.Code.Data.Gameplay;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Car.Controllers.Base;
 using Client.Code.Gameplay.GameplaySpawnPoint;
-using Client.Code.Gameplay.Wheel;
 using Client.Code.Services.Updater;
 using Zenject;
 
@@ -13,26 +12,23 @@ namespace Client.Code.Gameplay.Car
     {
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
-        private readonly CarModel _model;
         private readonly List<ICarController> _physicsControllers = new();
         private readonly List<ICarController> _graphicsControllers = new();
         private CarConfig _config;
         
-        public CarFactory(IInstantiator instantiator, IUpdater updater, CarModel model)
+        public CarFactory(IInstantiator instantiator, IUpdater updater)
         {
             _instantiator = instantiator;
             _updater = updater;
-            _model = model;
         }
 
         public void Create(SpawnPoint spawnPoint)
         {
             var car = CreateObject(spawnPoint);
-            _model.Initialize(car);
-            CreateControllers();
+            CreateControllers(car);
         }
 
-        private void CreateControllers()
+        private void CreateControllers(CarObject car)
         {
             _physicsControllers.Add(_instantiator.Instantiate<CarMoveController>());
             _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
@@ -40,6 +36,13 @@ namespace Client.Code.Gameplay.Car
             
             _graphicsControllers.Add(_instantiator.Instantiate<CarInputController>());
             _graphicsControllers.Add(_instantiator.Instantiate<CarGraphicsController>());
+
+            foreach (var controller in _physicsControllers) 
+                controller.Initialize(car);
+            
+            foreach (var controller in _graphicsControllers) 
+                controller.Initialize(car);
+
             
             RegisterControllers();
         }
@@ -52,24 +55,9 @@ namespace Client.Code.Gameplay.Car
             car.transform.position = spawnPoint.Position;
             car.transform.rotation = spawnPoint.Rotation;
             car.Rigidbody.centerOfMass = car.CenterOfMass.position;
-            car.Wheels = CreateWheels(car.WheelObjects);
             car.Config = _config;
 
             return car;
-        }
-
-        private WheelController[] CreateWheels(WheelObject[] wheelObjects)
-        {
-            var wheels = new WheelController[wheelObjects.Length];
-
-            for (var i = 0; i < wheels.Length; i++)
-            {
-                var controller = _instantiator.Instantiate<WheelController>();
-                controller.Initialize(wheelObjects[i]);
-                wheels[i] = controller;
-            }
-
-            return wheels;
         }
 
         private void RegisterControllers()

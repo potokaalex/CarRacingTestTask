@@ -27,6 +27,5 @@ MonoBehaviour:
   MaxMoveVelocity: 200
   MaxSteerAngle: 45
   SteerAngleAccelerationTimeSec: 0.2
-  MinVelocityToDrift: 1
+  MinVelocityToDrift: 5
   MinAngleToDrift: 20
-  MaxAngelToDrift: 160

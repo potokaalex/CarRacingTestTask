@@ -6,22 +6,22 @@ namespace Client.Code.Gameplay.Car.Controllers
 {
     public class CarMoveController : ICarUpdateController
     {
-        private readonly CarModel _model;
-
-        public CarMoveController(CarModel model) => _model = model;
+        private CarObject _car;
+        
+        public void Initialize(CarObject car) => _car = car;
 
         public void OnUpdate()
         {
-            if (_model.Car.IsBrake)
+            if (_car.IsBrake)
                 OnBrake();
             else
             {
                 OffBrake();
 
-                if (_model.Car.MoveDirection == 0)
+                if (_car.MoveDirection == 0)
                     OffGas();
                 else
-                    OnGas(_model.Car.MoveDirection);
+                    OnGas(_car.MoveDirection);
             }
 
             ClampVelocity();
@@ -30,38 +30,38 @@ namespace Client.Code.Gameplay.Car.Controllers
 
         private void ClampVelocity()
         {
-            var velocity = _model.Car.Rigidbody.velocity;
-            var maxVelocity = _model.Car.Config.MaxMoveVelocity;
+            var velocity = _car.Rigidbody.velocity;
+            var maxVelocity = _car.Config.MaxMoveVelocity;
 
             if (velocity.magnitude > maxVelocity)
-                _model.Car.Rigidbody.velocity = velocity.normalized * maxVelocity;
+                _car.Rigidbody.velocity = velocity.normalized * maxVelocity;
         }
 
-        private void OnBrake() => SetBrakeForce(_model.Car.Config.BrakeForce);
+        private void OnBrake() => SetBrakeForce(_car.Config.BrakeForce);
 
         private void OffBrake() => SetBrakeForce(0);
 
-        private void OnGas(float direction) => SetMotorForce(_model.Car.Config.MotorForce * direction);
+        private void OnGas(float direction) => SetMotorForce(_car.Config.MotorForce * direction);
 
         private void OffGas() => SetMotorForce(0);
 
         private void UpdateVelocity()
         {
-            var velocity = _model.Car.Rigidbody.velocity;
-            var forward = _model.Car.Rigidbody.transform.forward;
+            var velocity = _car.Rigidbody.velocity;
+            var forward = _car.Rigidbody.transform.forward;
             var newMoveVelocity = MathfExtensions.Round(Vector3.Dot(velocity, forward), 3);
-            _model.Car.MoveVelocity = newMoveVelocity;
+            _car.MoveVelocity = newMoveVelocity;
         }
 
         private void SetMotorForce(float force)
         {
-            foreach (var wheel in _model.Car.Wheels)
+            foreach (var wheel in _car.Wheels)
                 wheel.SetMotorTorque(force);
         }
 
         private void SetBrakeForce(float force)
         {
-            foreach (var wheel in _model.Car.Wheels)
+            foreach (var wheel in _car.Wheels)
                 wheel.SetBrakeTorque(force);
         }
     }

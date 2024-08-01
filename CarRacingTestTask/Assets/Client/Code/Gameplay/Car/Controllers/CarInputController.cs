@@ -5,9 +5,9 @@ namespace Client.Code.Gameplay.Car.Controllers
 {
     public class CarInputController : ICarUpdateController
     {
-        private readonly CarModel _model;
-
-        public CarInputController(CarModel model) => _model = model;
+        private CarObject _car;
+        
+        public void Initialize(CarObject car) => _car = car;
 
         public void OnUpdate()
         {
@@ -19,17 +19,17 @@ namespace Client.Code.Gameplay.Car.Controllers
         private void UpdateBrakeFlag()
         {
             //BUG: if the car does not have velocity, then brake does not work correctly!
-            var currentMoveVelocity = _model.Car.MoveVelocity;
+            var currentMoveVelocity = _car.MoveVelocity;
             var isBrake = false;
 
             if (Input.GetKey(KeyCode.Space))
                 isBrake = true;
-            else if (currentMoveVelocity > 0.001f && _model.Car.MoveDirection < 0)
+            else if (currentMoveVelocity > 0.001f && _car.MoveDirection < 0)
                 isBrake = true;
-            else if (currentMoveVelocity < -0.001f && _model.Car.MoveDirection > 0)
+            else if (currentMoveVelocity < -0.001f && _car.MoveDirection > 0)
                 isBrake = true;
 
-            _model.Car.IsBrake = isBrake;
+            _car.IsBrake = isBrake;
         }
 
         private void UpdateMoveDirection()
@@ -40,7 +40,7 @@ namespace Client.Code.Gameplay.Car.Controllers
             else if (Input.GetKey(KeyCode.S))
                 moveDirection = -1;
 
-            _model.Car.MoveDirection = moveDirection;
+            _car.MoveDirection = moveDirection;
         }
 
         private void UpdateSteerDirection()
@@ -51,7 +51,7 @@ namespace Client.Code.Gameplay.Car.Controllers
             else if (Input.GetKey(KeyCode.A))
                 steerDirection = -1;
 
-            _model.Car.SteerDirection = steerDirection;
+            _car.SteerDirection = steerDirection;
         }
     }
 }

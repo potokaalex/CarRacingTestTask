@@ -2,7 +2,6 @@ Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller 
 
 Naming: 
     Gameplay:
-        Object - contains data & inherited from monoBehaviour.
         Model - contains data
         Controller - contains data, logic
     UI:
@@ -12,10 +11,10 @@ Naming:
         
 TODO
     gameplay:
-        car: drift check, sounds
+        car: motor sound (?) remove car model 
         drift points.
         game over screen: give cash for drift points, double reward button (IronSource Reward Ad with callback)
-    Refactoring: assetProviders!
+    Refactoring: assetProviders! нет никакого смысла в использовании object->controller для колёс (правда нету ?)
     garage:
         select level menu: offline level, online level
         cash view
@@ -28,10 +27,11 @@ TODO
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
     Optional:
         Engine sound system, 
+        Levels design
         Online sync between players (rotation wheels, steering, engine sound)
         Leaderboard in room (All players drift points)
         Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
-
+        
 
 Discarded:
         Important car shop

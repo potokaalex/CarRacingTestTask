@@ -2,6 +2,6 @@
 {
     public interface ICarController
     {
-
+        void Initialize(CarObject car);
     }
 }

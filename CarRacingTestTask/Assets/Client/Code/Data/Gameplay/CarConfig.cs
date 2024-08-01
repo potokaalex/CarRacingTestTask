@@ -18,6 +18,5 @@ namespace Client.Code.Data.Gameplay
 
         public float MinVelocityToDrift;
         public float MinAngleToDrift;
-        public float MaxAngelToDrift;
     }
 }

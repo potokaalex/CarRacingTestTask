@@ -4,13 +4,13 @@ namespace Client.Code.Gameplay.Car.Controllers
 {
     public class CarGraphicsController : ICarUpdateController
     {
-        private readonly CarModel _model;
-
-        public CarGraphicsController(CarModel model) => _model = model;
+        private CarObject _car;
+        
+        public void Initialize(CarObject car) => _car = car;
 
         public void OnUpdate()
         {
-            foreach (var wheel in _model.Car.Wheels)
+            foreach (var wheel in _car.Wheels)
                 wheel.UpdateMeshTransform();
         }
     }

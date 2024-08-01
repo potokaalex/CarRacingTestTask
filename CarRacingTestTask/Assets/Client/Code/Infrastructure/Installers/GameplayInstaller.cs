@@ -17,17 +17,11 @@ namespace Client.Code.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindStateMachine();
-            BindCar();
 
+            Container.Bind<CarFactory>().AsSingle();
             Container.BindInterfacesTo<AssetProviderGameplayConfig>().AsSingle().WithArguments(_config);
             Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
-        }
-
-        private void BindCar()
-        {
-            Container.Bind<CarFactory>().AsSingle();
-            Container.Bind<CarModel>().AsSingle();
         }
 
         private void BindStateMachine()

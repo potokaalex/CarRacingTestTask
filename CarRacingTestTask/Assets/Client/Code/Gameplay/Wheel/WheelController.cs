@@ -1,26 +1,29 @@
-﻿namespace Client.Code.Gameplay.Wheel
+﻿using UnityEngine;
+
+namespace Client.Code.Gameplay.Wheel
 {
-    public class WheelController
+    public class WheelController : MonoBehaviour
     {
-        private WheelObject _wheel;
+        [SerializeField] private Transform _mesh;
+        [SerializeField] private WheelCollider _collider;
+        [SerializeField] private float _brakeForceRatio;
+        [SerializeField] private bool _isSteering;
 
-        public void Initialize(WheelObject wheel) => _wheel = wheel;
+        public void SetMotorTorque(float value) => _collider.motorTorque = value;
 
-        public void SetMotorTorque(float value) => _wheel.Collider.motorTorque = value;
-
-        public void SetBrakeTorque(float value) => _wheel.Collider.brakeTorque = value * _wheel.BrakeForceRatio;
+        public void SetBrakeTorque(float value) => _collider.brakeTorque = value * _brakeForceRatio;
 
         public void UpdateMeshTransform()
         {
-            _wheel.Collider.GetWorldPose(out var position, out var rotation);
-            _wheel.Mesh.position = position;
-            _wheel.Mesh.rotation = rotation;
+            _collider.GetWorldPose(out var position, out var rotation);
+            _mesh.position = position;
+            _mesh.rotation = rotation;
         }
 
         public void SetSteerAngle(float value)
         {
-            if (_wheel.IsSteering)
-                _wheel.Collider.steerAngle = value;
+            if (_isSteering)
+                _collider.steerAngle = value;
         }
     }
 }

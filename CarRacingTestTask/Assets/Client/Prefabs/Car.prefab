@@ -85,26 +85,23 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Wheels
-      Entry: 6
-      Data: 
+    SerializationNodes: []
   Rigidbody: {fileID: 6250809963216257592}
   CenterOfMass: {fileID: 950624625059740353}
-  WheelObjects:
+  Wheels:
   - {fileID: 2442705302315903899}
   - {fileID: 3432499151429518710}
   - {fileID: 4750782962667693453}
   - {fileID: 2387550903771849461}
+  AudioSource: {fileID: 0}
   Config: {fileID: 0}
-  IsDrift: 0
   MoveDirection: 0
   IsBrake: 0
   MoveVelocity: 0
-  FlatVelocity: {x: 0, y: 0, z: 0}
   SteerDirection: 0
   TargetSteerAngle: 0
   CurrentSteerAngle: 0
+  IsDrift: 0
 --- !u!1 &4411644650344682739
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +244,7 @@ GameObject:
   - component: {fileID: 5937855523106061038}
   - component: {fileID: 836515851878772534}
   - component: {fileID: 6250809963216257592}
+  - component: {fileID: 6460822417626814114}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -321,6 +319,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &6460822417626814114
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417215474243643182}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7147835294641985099, guid: ac4c3140830bc154b878896142c27c25, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7d765f7c1ed32d746aba2dc155fe04c3, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.9
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4864143222308053284
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +673,10 @@ PrefabInstance:
       propertyPath: BrakeForceRatio
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
+      propertyPath: _brakeForceRatio
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -657,11 +755,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
+      propertyPath: _isSteering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
       propertyPath: BrakeForceType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
       propertyPath: BrakeForceRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
+      propertyPath: _brakeForceRatio
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -745,6 +851,10 @@ PrefabInstance:
       propertyPath: BrakeForceRatio
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
+      propertyPath: _brakeForceRatio
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -827,11 +937,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
+      propertyPath: _isSteering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
       propertyPath: BrakeForceType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
       propertyPath: BrakeForceRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135419178129432613, guid: bd1e3f0e2cab38e46abe7dc72701245f, type: 3}
+      propertyPath: _brakeForceRatio
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

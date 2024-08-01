@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4f7ee3fde147548a1e9667fd470894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mesh: {fileID: 7311284427414877623}
-  Collider: {fileID: 2971033692482583488}
-  BrakeForceType: 0
-  IsForward: 0
+  _mesh: {fileID: 7311284427414877623}
+  _collider: {fileID: 2971033692482583488}
+  _brakeForceRatio: 0
+  _isSteering: 0
 --- !u!1 &5663462895229069452
 GameObject:
   m_ObjectHideFlags: 0

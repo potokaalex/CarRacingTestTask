@@ -9,19 +9,17 @@ namespace Client.Code.Gameplay.Car
     {
         [Title("Static")] public Rigidbody Rigidbody;
         public Transform CenterOfMass;
-        public WheelObject[] WheelObjects;
+        public WheelController[] Wheels;
 
         [Title("Runtime")] public CarConfig Config;
-        public WheelController[] Wheels;
-        public bool IsDrift;
-
         public float MoveDirection;
         public bool IsBrake;
         public float MoveVelocity;
-        public Vector3 FlatVelocity;
 
         public float SteerDirection;
         public float TargetSteerAngle;
         public float CurrentSteerAngle;
+        
+        public bool IsDrift;
     }
 }
