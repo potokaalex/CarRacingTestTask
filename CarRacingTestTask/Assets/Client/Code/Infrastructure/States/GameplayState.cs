@@ -1,6 +1,7 @@
 ﻿using Client.Code.Data.Gameplay;
 using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.GameplaySpawnPoint;
+using Client.Code.Gameplay.Player;
 using Client.Code.Services.AssetProvider;
 using Client.Code.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
@@ -12,18 +13,24 @@ namespace Client.Code.Infrastructure.States
         private readonly CarFactory _carFactory;
         private readonly GameplaySceneData _sceneData;
         private readonly IAssetProvider<GameplayConfig> _assetProvider;
+        private readonly PlayerFactory _playerFactory;
 
-        public GameplayState(CarFactory carFactory, GameplaySceneData sceneData, IAssetProvider<GameplayConfig> assetProvider)
+        public GameplayState(CarFactory carFactory, GameplaySceneData sceneData, IAssetProvider<GameplayConfig> assetProvider, PlayerFactory playerFactory)
         {
             _carFactory = carFactory;
             _sceneData = sceneData;
             _assetProvider = assetProvider;
+            _playerFactory = playerFactory;
         }
 
         public UniTask Enter()
         {
             _carFactory.Receive(_assetProvider.Get());
             _carFactory.Create(_sceneData.CarSpawnPoint.ToSpawnPoint());
+            
+            _playerFactory.Receive(_assetProvider.Get());
+            _playerFactory.Create();
+            
             return UniTask.CompletedTask;
         }
 

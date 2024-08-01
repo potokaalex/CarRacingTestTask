@@ -15,6 +15,7 @@ TODO
         drift points.
         game over screen: give cash for drift points, double reward button (IronSource Reward Ad with callback)
     Refactoring: assetProviders! нет никакого смысла в использовании object->controller для колёс (правда нету ?)
+    Refactoring: eventSystem
     garage:
         select level menu: offline level, online level
         cash view

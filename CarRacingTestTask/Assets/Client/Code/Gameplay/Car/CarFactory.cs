@@ -12,14 +12,16 @@ namespace Client.Code.Gameplay.Car
     {
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
+        private readonly CarDriftChecker _driftChecker;
         private readonly List<ICarController> _physicsControllers = new();
         private readonly List<ICarController> _graphicsControllers = new();
         private CarConfig _config;
         
-        public CarFactory(IInstantiator instantiator, IUpdater updater)
+        public CarFactory(IInstantiator instantiator, IUpdater updater, CarDriftChecker driftChecker)
         {
             _instantiator = instantiator;
             _updater = updater;
+            _driftChecker = driftChecker;
         }
 
         public void Create(SpawnPoint spawnPoint)
@@ -32,7 +34,8 @@ namespace Client.Code.Gameplay.Car
         {
             _physicsControllers.Add(_instantiator.Instantiate<CarMoveController>());
             _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
-            _physicsControllers.Add(_instantiator.Instantiate<CarDriftCheckController>());
+            _physicsControllers.Add(_instantiator.Instantiate<CarDriftChecker>());
+            _physicsControllers.Add(_driftChecker);
             
             _graphicsControllers.Add(_instantiator.Instantiate<CarInputController>());
             _graphicsControllers.Add(_instantiator.Instantiate<CarGraphicsController>());

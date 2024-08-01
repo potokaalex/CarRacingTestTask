@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameplayConfig
   m_EditorClassIdentifier: 
   Car: {fileID: 11400000, guid: 33e069369cb6b53438ba06ebe421976f, type: 2}
+  Player: {fileID: 11400000, guid: 512b5bb1bfd75f941bb56286ddcbe335, type: 2}

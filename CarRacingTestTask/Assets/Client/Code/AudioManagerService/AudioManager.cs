@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-namespace CodeBase.Common.Services.AudioManagerService
+namespace Client.Code.AudioManagerService
 {
     public class AudioManager : MonoBehaviour
     {

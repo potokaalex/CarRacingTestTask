@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Client.Code.Gameplay.Car.Controllers
 {
-    public class CarDriftCheckController : ICarUpdateController
+    public class CarDriftChecker : ICarUpdateController
     {
         private CarObject _car;
         
@@ -27,5 +27,7 @@ namespace Client.Code.Gameplay.Car.Controllers
             if (angle >= config.MinAngleToDrift) 
                 _car.IsDrift = true;
         }
+
+        public bool IsDrift() => _car.IsDrift;
     }
 }

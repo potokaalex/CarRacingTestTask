@@ -7,5 +7,6 @@ namespace Client.Code.Data.Gameplay
     public class GameplayConfig : ScriptableObject, IAsset
     {
         public CarConfig Car;
+        public PlayerConfig Player;
     }
 }

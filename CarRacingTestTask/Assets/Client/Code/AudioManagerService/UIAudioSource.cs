@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace CodeBase.Common.Services.AudioManagerService
+namespace Client.Code.AudioManagerService
 {
     public class UIAudioSource : MonoBehaviour
     {
