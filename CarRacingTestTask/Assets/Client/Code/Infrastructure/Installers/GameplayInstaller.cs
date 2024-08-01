@@ -1,10 +1,11 @@
 ﻿using Client.Code.Data.Gameplay;
-using Client.Code.Gameplay;
 using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.Car.Controllers;
+using Client.Code.Gameplay.Game;
+using Client.Code.Gameplay.Game.Over;
 using Client.Code.Gameplay.Player;
 using Client.Code.Gameplay.Player.Time;
-using Client.Code.Infrastructure.States;
+using Client.Code.Infrastructure.States.Gameplay;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.Factory;
@@ -21,13 +22,19 @@ namespace Client.Code.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindStateMachine();
+            Game();
             BindCar();
             BindPlayer();
-
-            Container.Bind<GameplayFactory>().AsSingle();
+            
             Container.BindInterfacesTo<AssetProviderGameplayConfig>().AsSingle().WithArguments(_config);
             Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
+        }
+
+        private void Game()
+        {
+            Container.Bind<GameOverScreenFactory>().AsSingle();
+            Container.Bind<GameFactory>().AsSingle();
         }
 
         private void BindCar()

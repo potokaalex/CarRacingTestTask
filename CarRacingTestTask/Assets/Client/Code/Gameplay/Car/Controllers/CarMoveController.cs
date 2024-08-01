@@ -10,7 +10,7 @@ namespace Client.Code.Gameplay.Car.Controllers
         
         public void Initialize(CarObject car) => _car = car;
 
-        public void OnUpdate()
+        public void OnUpdate(float deltaTime)
         {
             if (_car.IsBrake)
                 OnBrake();

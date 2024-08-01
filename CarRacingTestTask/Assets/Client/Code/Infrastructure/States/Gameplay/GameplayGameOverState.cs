@@ -1,14 +1,20 @@
-﻿using Client.Code.Services.StateMachine.State;
+﻿using Client.Code.Gameplay;
+using Client.Code.Gameplay.Game.Over;
+using Client.Code.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States.Gameplay
 {
     public class GameplayGameOverState : IStateAsync
     {
+        private readonly GameOverScreenFactory _screenFactory;
+
+        public GameplayGameOverState(GameOverScreenFactory screenFactory) => _screenFactory = screenFactory;
+
         public UniTask Enter()
         {
-            //создаю ui конца игры.
-            UnityEngine.Debug.Log("GameEnd!");
+            _screenFactory.Create();
+            UnityEngine.Debug.Log("1");
             return UniTask.CompletedTask;
         }
 

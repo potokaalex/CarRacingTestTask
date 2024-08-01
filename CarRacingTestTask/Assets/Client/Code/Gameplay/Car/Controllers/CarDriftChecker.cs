@@ -11,7 +11,7 @@ namespace Client.Code.Gameplay.Car.Controllers
         
         public void Initialize(CarObject car) => _car = car;
 
-        public void OnUpdate()
+        public void OnUpdate(float deltaTime)
         {
             var config = _car.Config;
             var velocity = _car.Rigidbody.velocity;

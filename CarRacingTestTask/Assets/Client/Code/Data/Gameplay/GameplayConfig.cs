@@ -1,4 +1,7 @@
-﻿using Client.Code.Services.AssetProvider;
+﻿using Client.Code.Gameplay;
+using Client.Code.Gameplay.Game;
+using Client.Code.Gameplay.Game.Over;
+using Client.Code.Services.AssetProvider;
 using UnityEngine;
 
 namespace Client.Code.Data.Gameplay
@@ -8,7 +11,9 @@ namespace Client.Code.Data.Gameplay
     {
         public CarConfig Car;
         public PlayerConfig Player;
-        
+
         public float LevelTimeSec;
+        public GameCanvas CanvasPrefab;
+        public GameOverScreen GameOverScreenPrefab;
     }
 }

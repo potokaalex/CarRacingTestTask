@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Client.Code.Gameplay.Car.Controllers
 {
-    public class CarSteerController : ICarUpdateControllerWithDelta
+    public class CarSteerController : ICarUpdateController
     {
         private CarObject _car;
         

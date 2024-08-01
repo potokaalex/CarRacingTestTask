@@ -13,10 +13,10 @@ namespace Client.Code.Gameplay.Car
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
         private readonly CarDriftChecker _driftChecker;
-        private readonly List<ICarController> _physicsControllers = new();
-        private readonly List<ICarController> _graphicsControllers = new();
+        private readonly List<ICarUpdateController> _physicsControllers = new();
+        private readonly List<ICarUpdateController> _graphicsControllers = new();
         private CarConfig _config;
-        
+
         public CarFactory(IInstantiator instantiator, IUpdater updater, CarDriftChecker driftChecker)
         {
             _instantiator = instantiator;
@@ -28,6 +28,8 @@ namespace Client.Code.Gameplay.Car
         {
             var car = CreateObject(spawnPoint);
             CreateControllers(car);
+            _updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
+            _updater.OnUpdateWithDelta += UpdateGraphicsControllers;
         }
 
         private void CreateControllers(CarObject car)
@@ -36,18 +38,20 @@ namespace Client.Code.Gameplay.Car
             _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
             _physicsControllers.Add(_instantiator.Instantiate<CarDriftChecker>());
             _physicsControllers.Add(_driftChecker);
-            
+
             _graphicsControllers.Add(_instantiator.Instantiate<CarInputController>());
             _graphicsControllers.Add(_instantiator.Instantiate<CarGraphicsController>());
 
-            foreach (var controller in _physicsControllers) 
+            foreach (var controller in _physicsControllers)
                 controller.Initialize(car);
-            
-            foreach (var controller in _graphicsControllers) 
+            foreach (var controller in _graphicsControllers)
                 controller.Initialize(car);
-
-            
-            RegisterControllers();
+        }
+        
+        public void Destroy()
+        {
+            _updater.OnFixedUpdateWithDelta -= UpdatePhysicsControllers;
+            _updater.OnUpdateWithDelta -= UpdateGraphicsControllers;
         }
 
         public void Receive(GameplayConfig asset) => _config = asset.Car;
@@ -63,21 +67,16 @@ namespace Client.Code.Gameplay.Car
             return car;
         }
 
-        private void RegisterControllers()
+        private void UpdatePhysicsControllers(float deltaTime)
+        {
+            foreach (var controller in _physicsControllers) 
+                controller.OnUpdate(deltaTime);
+        }
+
+        private void UpdateGraphicsControllers(float deltaTime)
         {
             foreach (var controller in _graphicsControllers)
-                if(controller is ICarUpdateController c)
-                    _updater.OnUpdate += c.OnUpdate;
-            
-            
-            foreach (var controller in _physicsControllers)
-            {
-                if(controller is ICarUpdateController c)
-                    _updater.OnFixedUpdate += c.OnUpdate;
-                
-                if(controller is ICarUpdateControllerWithDelta c2)
-                    _updater.OnFixedUpdateWithDelta += c2.OnUpdate;
-            }
+                controller.OnUpdate(deltaTime);
         }
     }
 }

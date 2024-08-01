@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Client.Code.Gameplay.Player
 {
-    public class PlayerCanvasObject : MonoBehaviour
+    public class PlayerCanvas : MonoBehaviour
     {
         public PlayerScoreView ScoreView;
         public PlayerTimeView TimeView;

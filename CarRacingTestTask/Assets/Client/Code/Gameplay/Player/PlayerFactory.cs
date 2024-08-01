@@ -12,7 +12,7 @@ namespace Client.Code.Gameplay.Player
         private readonly IUpdater _updater;
         private readonly PlayerTimeController _timeController;
         private PlayerScoreController _scoreController;
-        private PlayerConfig _config;
+        private GameplayConfig _config;
 
         public PlayerFactory(IInstantiator instantiator, IUpdater updater, PlayerTimeController timeController)
         {
@@ -23,21 +23,27 @@ namespace Client.Code.Gameplay.Player
 
         public void Create()
         {
-            var canvas = _instantiator.InstantiatePrefabForComponent<PlayerCanvasObject>(_config.CanvasPrefab);
+            var canvas = _instantiator.InstantiatePrefabForComponent<PlayerCanvas>(_config.Player.CanvasPrefab);
             _scoreController = _instantiator.Instantiate<PlayerScoreController>();
-            
+
             _scoreController.Initialize(canvas.ScoreView);
-            _timeController.Initialize(canvas.TimeView);
-            
+            _timeController.Initialize(canvas.TimeView, _config.LevelTimeSec * 1000);
+
             _updater.OnFixedUpdateWithDelta += OnUpdate;
         }
 
-        public void Receive(GameplayConfig asset) => _config = asset.Player;
+        public void Destroy()
+        {
+            _updater.OnFixedUpdateWithDelta -= OnUpdate;
+            _timeController.Dispose();
+        }
+
+        public void Receive(GameplayConfig asset) => _config = asset;
 
         private void OnUpdate(float deltaTime)
         {
             _scoreController.OnUpdate(deltaTime);
-            _timeController.OnUpdate(deltaTime);
+            _timeController.OnUpdate();
         }
     }
 }

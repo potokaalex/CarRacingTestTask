@@ -6,11 +6,16 @@ namespace Client.Code.Services.Updater
     public class Updater : MonoBehaviour, IUpdater
     {
         public event Action OnUpdate;
+        public event Action<float> OnUpdateWithDelta;
         public event Action OnFixedUpdate;
         public event Action<float> OnFixedUpdateWithDelta;
         public event Action OnProjectExit;
 
-        private void Update() => OnUpdate?.Invoke();
+        private void Update()
+        {
+            OnUpdate?.Invoke();
+            OnUpdateWithDelta?.Invoke(Time.deltaTime);
+        }
 
         private void FixedUpdate()
         {

@@ -9,10 +9,12 @@ namespace Client.Code.Gameplay.Player.Time
     {
         [SerializeField] private TMP_Text _text;
 
-        public void SetTime(float value)
+        public void SetTime(float valueMs)
         {
-            var text = MathfExtensions.Round(value, 2).ToString(CultureInfo.InvariantCulture);
-            _text.SetText(text);
+            var sec = valueMs / 1000;
+            var ms = valueMs % 1000 / 10;
+            var text = $"{(int)sec:D2}:{(int)ms:D2}";
+            _text.SetText(text.ToString(CultureInfo.InvariantCulture));
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface ICarUpdateController : ICarController
     {
-        void OnUpdate();
+        void OnUpdate(float deltaTime);
     }
 }
