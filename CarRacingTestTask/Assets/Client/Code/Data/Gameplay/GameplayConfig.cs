@@ -8,5 +8,7 @@ namespace Client.Code.Data.Gameplay
     {
         public CarConfig Car;
         public PlayerConfig Player;
+        
+        public float LevelTimeSec;
     }
 }

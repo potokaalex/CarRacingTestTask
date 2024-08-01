@@ -1,7 +1,9 @@
 ﻿using Client.Code.Data.Gameplay;
+using Client.Code.Gameplay;
 using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Player;
+using Client.Code.Gameplay.Player.Time;
 using Client.Code.Infrastructure.States;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;
@@ -21,7 +23,8 @@ namespace Client.Code.Infrastructure.Installers
             BindStateMachine();
             BindCar();
             BindPlayer();
-            
+
+            Container.Bind<GameplayFactory>().AsSingle();
             Container.BindInterfacesTo<AssetProviderGameplayConfig>().AsSingle().WithArguments(_config);
             Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
@@ -36,6 +39,7 @@ namespace Client.Code.Infrastructure.Installers
         private void BindPlayer()
         {
             Container.Bind<PlayerFactory>().AsSingle();
+            Container.Bind<PlayerTimeController>().AsSingle();
         }
         
         private void BindStateMachine()

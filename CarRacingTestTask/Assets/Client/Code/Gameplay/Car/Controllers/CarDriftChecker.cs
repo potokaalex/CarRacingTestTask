@@ -7,6 +7,8 @@ namespace Client.Code.Gameplay.Car.Controllers
     {
         private CarObject _car;
         
+        public bool IsDrift => _car.IsDrift;
+        
         public void Initialize(CarObject car) => _car = car;
 
         public void OnUpdate()
@@ -27,7 +29,5 @@ namespace Client.Code.Gameplay.Car.Controllers
             if (angle >= config.MinAngleToDrift) 
                 _car.IsDrift = true;
         }
-
-        public bool IsDrift() => _car.IsDrift;
     }
 }

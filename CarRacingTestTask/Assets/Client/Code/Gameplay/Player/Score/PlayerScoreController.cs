@@ -14,7 +14,7 @@ namespace Client.Code.Gameplay.Player.Score
 
         public void OnUpdate(float deltaTime)
         {
-            if (_carDriftChecker.IsDrift())
+            if (_carDriftChecker.IsDrift)
                 _score += 1f * deltaTime;
             
             _view.SetScore(_score);

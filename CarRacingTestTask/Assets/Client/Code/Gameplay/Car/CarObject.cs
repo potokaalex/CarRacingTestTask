@@ -19,7 +19,7 @@ namespace Client.Code.Gameplay.Car
         public float SteerDirection;
         public float TargetSteerAngle;
         public float CurrentSteerAngle;
-        
+
         public bool IsDrift;
     }
 }
