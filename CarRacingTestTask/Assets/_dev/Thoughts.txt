@@ -1,3 +1,4 @@
+tutorial I used to set up iron source: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
 Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> 
 
 Naming: 
