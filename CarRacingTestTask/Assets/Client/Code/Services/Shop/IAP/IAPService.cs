@@ -19,6 +19,8 @@ namespace Client.Code.Services.Shop.IAP
 
             _iap.Listener.onPurchaseComplete.AddListener(OnPurchaseComplete);
             _iap.Listener.onPurchaseFailed.AddListener(OnPurchaseFailed);
+            
+
         }
 
         public async UniTask<PurchaseResult> BuyAsync(string itemID)

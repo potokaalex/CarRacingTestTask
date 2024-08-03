@@ -23,12 +23,12 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Items
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Services.Shop.ShopItemType,
-        Assembly-CSharp],[Client.Code.Data.Static.Configs.Project.ShopItemData, Assembly-CSharp]],
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Services.Shop.Item.ShopItemType,
+        Assembly-CSharp],[Client.Code.Services.Shop.Item.ShopItemData, Assembly-CSharp]],
         mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Services.Shop.ShopItemType,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Services.Shop.Item.ShopItemType,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -50,7 +50,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 2|Client.Code.Data.Static.Configs.Project.ShopItemData, Assembly-CSharp
+      Data: 2|Client.Code.Services.Shop.Item.ShopItemData, Assembly-CSharp
     - Name: IsIAP
       Entry: 5
       Data: false
@@ -62,10 +62,10 @@ MonoBehaviour:
       Data: false
     - Name: Price
       Entry: 7
-      Data: Client.Code.Hub.Presenters.ItemPriceData, Assembly-CSharp
+      Data: Client.Code.Services.Shop.Item.ItemPriceData, Assembly-CSharp
     - Name: CoinsCount
       Entry: 3
-      Data: 500
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -83,7 +83,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 3|Client.Code.Data.Static.Configs.Project.ShopItemData, Assembly-CSharp
+      Data: 3|Client.Code.Services.Shop.Item.ShopItemData, Assembly-CSharp
     - Name: IsIAP
       Entry: 5
       Data: true
@@ -95,7 +95,7 @@ MonoBehaviour:
       Data: true
     - Name: Price
       Entry: 7
-      Data: Client.Code.Hub.Presenters.ItemPriceData, Assembly-CSharp
+      Data: Client.Code.Services.Shop.Item.ItemPriceData, Assembly-CSharp
     - Name: CoinsCount
       Entry: 3
       Data: -250

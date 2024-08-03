@@ -11,10 +11,10 @@ Naming:
         UIElement - like view in mVx
         
 TODO
-    выключен ли звук при просмотре рекламы ?
-    Refactoring: assemdef!
-    Refactoring: StartLoadState, EndLoadState 
     Refactoring: Unity IAP: Unity In-App Purchasing requires Unity Gaming Services to have been initialized before use.
+    Refactoring: StartLoadState, EndLoadState 
+    Refactoring: assemdef!
+    выключен ли звук при просмотре рекламы ?
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations

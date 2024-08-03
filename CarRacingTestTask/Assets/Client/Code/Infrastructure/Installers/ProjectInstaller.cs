@@ -19,6 +19,7 @@ using Client.Code.Services.Shop.IAP;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
 using Client.Code.Services.StateMachine.Global;
+using Client.Code.Services.Unity;
 using Client.Code.Services.Updater;
 using UnityEngine;
 using Zenject;
@@ -44,6 +45,7 @@ namespace Client.Code.Infrastructure.Installers
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
+            Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
         }
 
         private void BindShop()
