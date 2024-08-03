@@ -23,11 +23,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: SceneNames
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Data.SceneName,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Data.Static.Configs.Project.SceneName,
         Assembly-CSharp],[System.String, mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Data.SceneName,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Data.Static.Configs.Project.SceneName,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -72,3 +72,4 @@ MonoBehaviour:
       Entry: 8
       Data: 
   InputPrefab: {fileID: 6825997568745556542, guid: 0a8f726693f86e949bbbaa5fb0b2c729, type: 3}
+  Shop: {fileID: 11400000, guid: c05fea745be5e12428eed0c9dd26f2e9, type: 2}

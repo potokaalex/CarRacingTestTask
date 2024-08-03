@@ -3,6 +3,7 @@ using Client.Code.Data;
 using Client.Code.Data.Static.Configs;
 using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Data.Static.Configs.Project;
+using Client.Code.Hub.Presenters;
 using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Loader;
@@ -13,6 +14,8 @@ using Client.Code.Services.Logger.Base;
 using Client.Code.Services.Progress.Loader;
 using Client.Code.Services.Progress.Saver;
 using Client.Code.Services.SceneLoader;
+using Client.Code.Services.Shop;
+using Client.Code.Services.Shop.IAP;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
 using Client.Code.Services.StateMachine.Global;
@@ -35,11 +38,19 @@ namespace Client.Code.Infrastructure.Installers
             BindLogger();
             BindAds();
             BindProgress();
-            
+            BindShop();
+
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
+        }
+
+        private void BindShop()
+        {
+            Container.BindInterfacesAndSelfTo<IAPFactory>().AsSingle();
+            Container.BindInterfacesTo<IAPService>().AsSingle();
+            Container.BindInterfacesTo<ShopService>().AsSingle();
         }
 
         private void BindProgress()

@@ -7,6 +7,6 @@ namespace Client.Code.Services.Logger
 
     public class LoggerByUnityLog : ILogHandler
     {
-        public void Handle(LogData log) => Debug.Log($"<color=yellow>Log:</color> {log.Message}");
+        public void Handle(LogData log) => Debug.Log($"<color=green>Log:</color> {log.Message}");
     }
 }

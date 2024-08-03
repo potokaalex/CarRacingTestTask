@@ -12,6 +12,7 @@ using Client.Code.Infrastructure.States.Gameplay;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Progress;
+using Client.Code.Services.Progress.Register;
 using Client.Code.Services.Startup.Auto;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;

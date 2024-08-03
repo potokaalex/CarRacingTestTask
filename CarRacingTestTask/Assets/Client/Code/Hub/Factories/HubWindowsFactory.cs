@@ -2,6 +2,8 @@
 using Client.Code.Data.Static.Configs;
 using Client.Code.Hub.Presenters;
 using Client.Code.Services.Asset.Receiver;
+using Client.Code.Services.Shop;
+using Client.Code.Services.Shop.Item;
 using Client.Code.UI.Windows;
 using Client.Code.UI.Windows.Customization;
 using Client.Code.UI.Windows.SelectLevel;

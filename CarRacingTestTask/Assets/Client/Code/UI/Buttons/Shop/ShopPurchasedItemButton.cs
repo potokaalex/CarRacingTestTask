@@ -1,8 +1,9 @@
-﻿using Client.Code.UI.Buttons;
+﻿using Client.Code.Services.Shop;
+using Client.Code.Services.Shop.Item;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Hub.Presenters
+namespace Client.Code.UI.Buttons.Shop
 {
     public class ShopPurchasedItemButton : ButtonBase
     {

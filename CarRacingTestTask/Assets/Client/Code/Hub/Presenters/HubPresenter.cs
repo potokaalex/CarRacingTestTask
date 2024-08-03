@@ -1,5 +1,7 @@
 ﻿using Client.Code.Infrastructure.States.Gameplay;
+using Client.Code.Infrastructure.States.Hub;
 using Client.Code.Infrastructure.States.Project;
+using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.Global;
 using Client.Code.UI.Buttons.Exit;
 using Client.Code.UI.Buttons.Load;
@@ -16,30 +18,35 @@ namespace Client.Code.Hub.Presenters
     {
         private readonly HubModel _model;
         private readonly ISelectLevelWindowFactory _selectLevelWindowFactory;
-        private readonly IGlobalStateMachine _stateMachine;
+        private readonly IGlobalStateMachine _globalStateMachine;
         private readonly ICustomizationWindowFactory _customizationWindowFactory;
         private readonly ISettingsWindowFactory _settingsWindowFactory;
         private readonly IShopWindowFactory _shopWindowFactory;
+        private readonly IStateMachine _stateMachine;
 
-        public HubPresenter(HubModel model, ISelectLevelWindowFactory selectLevelWindowFactory, IGlobalStateMachine stateMachine,
+        public HubPresenter(HubModel model, ISelectLevelWindowFactory selectLevelWindowFactory, IGlobalStateMachine globalStateMachine,
             ICustomizationWindowFactory customizationWindowFactory, ISettingsWindowFactory settingsWindowFactory,
-            IShopWindowFactory shopWindowFactory)
+            IShopWindowFactory shopWindowFactory, IStateMachine stateMachine)
         {
             _model = model;
             _selectLevelWindowFactory = selectLevelWindowFactory;
-            _stateMachine = stateMachine;
+            _globalStateMachine = globalStateMachine;
             _customizationWindowFactory = customizationWindowFactory;
             _settingsWindowFactory = settingsWindowFactory;
             _shopWindowFactory = shopWindowFactory;
+            _stateMachine = stateMachine;
         }
 
         public void Handle(LoadButtonType type)
         {
             if (type == LoadButtonType.Gameplay)
-                _stateMachine.SwitchTo<GameplayLoadState>();
+            {
+                _stateMachine.SwitchTo<HubExitState>(); 
+                _globalStateMachine.SwitchTo<GameplayLoadState>();
+            }
         }
 
-        public void Handle() => _stateMachine.SwitchTo<ProjectExitState>();
+        public void Handle() => _globalStateMachine.SwitchTo<ProjectExitState>();
 
         public void Handle(WindowType type)
         {

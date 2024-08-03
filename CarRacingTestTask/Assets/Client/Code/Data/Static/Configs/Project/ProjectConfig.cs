@@ -11,5 +11,6 @@ namespace Client.Code.Data.Static.Configs.Project
     {
         public Dictionary<SceneName, string> SceneNames;
         public InputObject InputPrefab;
+        public ShopConfig Shop;
     }
 }

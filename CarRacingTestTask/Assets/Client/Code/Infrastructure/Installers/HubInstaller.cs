@@ -5,6 +5,7 @@ using Client.Code.Hub.Presenters;
 using Client.Code.Infrastructure.States.Hub;
 using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Progress;
+using Client.Code.Services.Progress.Register;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.Factory;

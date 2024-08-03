@@ -1,6 +1,7 @@
 ﻿using Client.Code.Hub;
 using Client.Code.Hub.Factories;
 using Client.Code.Services.StateMachine.State;
+using UnityEngine.Purchasing;
 
 namespace Client.Code.Infrastructure.States.Hub
 {

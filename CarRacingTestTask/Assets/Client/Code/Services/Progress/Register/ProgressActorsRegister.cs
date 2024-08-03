@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
 using Client.Code.Services.Progress.Loader;
 using Client.Code.Services.Progress.Saver;
 using Zenject;
 
-namespace Client.Code.Services.Progress
+namespace Client.Code.Services.Progress.Register
 {
-    public class ProgressActorsRegister : IInitializable, ILateDisposable
+    public class ProgressActorsRegister : IInitializable, IProgressActorsRegister
     {
         private readonly IProgressSaver _saver;
         private readonly IProgressLoader _loader;
@@ -30,8 +29,7 @@ namespace Client.Code.Services.Progress
                 _saver.Register(writer);
         }
 
-        //when game exit, the save is invoked on Dispose, so actors cleared on LateDispose to save their data
-        public void LateDispose()
+        public void UnRegister()
         {
             foreach (var reader in _readers)
                 _loader.UnRegister(reader);
