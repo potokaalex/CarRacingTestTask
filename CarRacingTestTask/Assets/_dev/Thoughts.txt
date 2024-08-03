@@ -11,13 +11,13 @@ Naming:
         UIElement - like view in mVx
         
 TODO
-    Refactoring: assemdef! 
+    выключен ли звук при просмотре рекламы ?
+    Refactoring: assemdef!
     garage:
-        select level menu: offline level, online level
-        cash view
-        customization menu: upgrade car color & spoiler
-        IAP shop menu: buy coins, buy car spoiler
-        settings menu: (sound check)
+        cash view +-
+        customization menu: upgrade car color & spoiler +-
+        IAP shop menu: buy coins, buy car spoiler (IAP SDK ?) +-
+        settings menu: (sound check) +-
     Global: 
         Save System: save cash, car customizations, settings.
         Online (Photon): OnlineLevel , sync between players (position, customization )

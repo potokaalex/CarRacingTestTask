@@ -47,7 +47,7 @@ namespace Client.Code.Hub
         {
             if (type == WindowType.SelectLevel)
                 _selectLevelWindowFactory.Destroy();
-
+            
             _model.CurrentWindow = WindowType.None;
         }
 

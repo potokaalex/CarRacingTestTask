@@ -1,9 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Client.Code.Gameplay.Game.Over
+namespace Client.Code.UI
 {
-    public class GameOverCoinsView : MonoBehaviour
+    public class CoinsView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _coinsText;
 

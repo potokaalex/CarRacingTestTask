@@ -3,6 +3,9 @@
     public enum WindowType
     {
         None = 0,
-        SelectLevel = 1
+        SelectLevel = 1,
+        Customization = 2,
+        Shop = 3,
+        Settings
     }
 }
