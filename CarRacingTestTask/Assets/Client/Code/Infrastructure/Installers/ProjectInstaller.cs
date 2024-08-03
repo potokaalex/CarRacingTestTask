@@ -1,5 +1,7 @@
 ﻿using System;
 using Client.Code.Data;
+using Client.Code.Services.Ads;
+using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.AssetProvider;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;
@@ -18,6 +20,7 @@ namespace Client.Code.Infrastructure.Installers
         public override void InstallBindings()
         {
             BindStateMachine();
+            BindAds();
             Container.BindInterfacesTo<AssetProviderProjectConfig>().AsSingle().WithArguments(_config);
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
@@ -28,6 +31,16 @@ namespace Client.Code.Infrastructure.Installers
         {
             Container.BindInterfacesTo<StateFactory>().AsSingle();
             Container.Bind(typeof(IGlobalStateMachine), typeof(IDisposable)).To<GlobalStateMachine>().AsSingle();
+        }
+
+        private void BindAds()
+        {
+#if UNITY_EDITOR
+            Container.BindInterfacesTo<AdsInterstitialServiceUnityEditor>().AsSingle();
+#else
+            Container.BindInterfacesTo<AdsService>().AsSingle();
+            Container.BindInterfacesTo<AdsInterstitialService>().AsSingle();
+#endif
         }
     }
 }

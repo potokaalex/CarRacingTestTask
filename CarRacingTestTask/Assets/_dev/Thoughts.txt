@@ -16,6 +16,7 @@ TODO
     Refactoring: assetProviders! нет никакого смысла в использовании object->controller для колёс (правда нету ?)
     Refactoring: eventSystem
     Refactoring: notAsyncStates!
+    Refactoring: Vsync
     garage:
         select level menu: offline level, online level
         cash view
@@ -38,3 +39,11 @@ Discarded:
         Important car shop
         Optional SDKs: Facebook SDK, FirebaseSDK, IAP SDK, GameAnalytics SDK    
         Optional tyres sound system
+
+
+Обязательно проверьте наличие gradlew.bat в 
+CarRacingTestTask\CarRacingTestTask\Temp\PlayServicesResolverGradle
+Его можно взять отсюда:
+https://raw.githubusercontent.com/googlesamples/unity-jar-resolver/master/gradlew.bat
+
+ui текст в gameOverScreen обновляется странно. (unity bug ?)

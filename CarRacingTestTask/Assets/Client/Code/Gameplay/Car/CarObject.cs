@@ -10,7 +10,7 @@ namespace Client.Code.Gameplay.Car
         [Title("Static")] public Rigidbody Rigidbody;
         public Transform CenterOfMass;
         public WheelController[] Wheels;
-
+        
         [Title("Runtime")] public CarConfig Config;
         public float MoveDirection;
         public bool IsBrake;

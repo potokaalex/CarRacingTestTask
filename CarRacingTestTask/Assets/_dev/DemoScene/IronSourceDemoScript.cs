@@ -15,6 +15,7 @@ public class IronSourceDemoScript : MonoBehaviour
 
 #if UNITY_ANDROID
         string appKey = "85460dcd";
+        //string appKey = "5669457";
 #elif UNITY_IPHONE
         string appKey = "8545d445";
 #else
@@ -39,7 +40,7 @@ public class IronSourceDemoScript : MonoBehaviour
 
         //Add Init Event
         IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
-        
+        /*
         //Add Rewarded Video Events
         IronSourceEvents.onRewardedVideoAdOpenedEvent += RewardedVideoAdOpenedEvent;
         IronSourceEvents.onRewardedVideoAdClosedEvent += RewardedVideoAdClosedEvent;
@@ -97,6 +98,7 @@ public class IronSourceDemoScript : MonoBehaviour
 
         //Add ImpressionSuccess Event
         IronSourceEvents.onImpressionSuccessEvent += ImpressionSuccessEvent;
+        */
         IronSourceEvents.onImpressionDataReadyEvent += ImpressionDataReadyEvent;
 
 
@@ -137,13 +139,8 @@ public class IronSourceDemoScript : MonoBehaviour
 
     public void OnGUI()
     {
-
         GUI.backgroundColor = Color.blue;
         GUI.skin.button.fontSize = (int)(0.035f * Screen.width);
-
-
-
-
 
         Rect showRewardedVideoButton = new Rect(0.10f * Screen.width, 0.15f * Screen.height, 0.80f * Screen.width, 0.08f * Screen.height);
         if (GUI.Button(showRewardedVideoButton, "Show Rewarded Video"))
@@ -158,8 +155,6 @@ public class IronSourceDemoScript : MonoBehaviour
                 Debug.Log("unity-script: IronSource.Agent.isRewardedVideoAvailable - False");
             }
         }
-       
-        
 
         Rect showOfferwallButton = new Rect(0.10f * Screen.width, 0.25f * Screen.height, 0.80f * Screen.width, 0.08f * Screen.height);
         if (GUI.Button(showOfferwallButton, "Show Offerwall"))
@@ -208,10 +203,6 @@ public class IronSourceDemoScript : MonoBehaviour
             Debug.Log("unity-script: loadBannerButtonClicked");
             IronSource.Agent.destroyBanner();
         }
-
-
-
-
     }
     
     #region Init callback handlers

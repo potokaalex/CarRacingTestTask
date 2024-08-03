@@ -21,9 +21,7 @@ namespace Client.Code.Gameplay
         }
 
         public Transform target; // The target Transform to follow
-
-        public Transform
-            rotationSpace; // If assigned, will use this Transform's rotation as the rotation space instead of the world space. Useful with spherical planets.
+        public Transform rotationSpace; // If assigned, will use this Transform's rotation as the rotation space instead of the world space.
 
         public UpdateMode updateMode = UpdateMode.LateUpdate; // When to update the camera?
         public bool lockCursor = true; // If true, the mouse will be locked to screen center and hidden
@@ -65,21 +63,8 @@ namespace Client.Code.Gameplay
         private Quaternion r = Quaternion.identity;
         private Vector3 lastUp;
         private float blockedDistance = 10f, blockedDistanceV;
+        private bool _isDisposed;
 
-        public void SetAngles(Quaternion rotation)
-        {
-            Vector3 euler = rotation.eulerAngles;
-            this.x = euler.y;
-            this.y = euler.x;
-        }
-
-        public void SetAngles(float yaw, float pitch)
-        {
-            this.x = yaw;
-            this.y = pitch;
-        }
-
-        // Initiate, set the params to the current transformation of the camera relative to the target
         protected virtual void Awake()
         {
             Vector3 angles = transform.eulerAngles;
@@ -123,11 +108,10 @@ namespace Client.Code.Gameplay
         // Read the user input
         public void UpdateInput()
         {
-            if (!cam.enabled) return;
+            if (!cam.enabled || _isDisposed) return;
 
             // Cursors
-            Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
-            Cursor.visible = lockCursor ? false : true;
+            SetCursor(lockCursor);
 
             // Should we rotate the camera?
             bool rotate = rotateAlways || (rotateOnLeftButton && Input.GetMouseButton(0)) || (rotateOnRightButton && Input.GetMouseButton(1)) ||
@@ -152,7 +136,7 @@ namespace Client.Code.Gameplay
 
         public void UpdateTransform(float deltaTime)
         {
-            if (!cam.enabled) return;
+            if (!cam.enabled || _isDisposed) return;
 
             // Rotation
             rotation = Quaternion.AngleAxis(x, Vector3.up) * Quaternion.AngleAxis(y, Vector3.right);
@@ -202,6 +186,12 @@ namespace Client.Code.Gameplay
             transform.rotation = rotation;
         }
 
+        public void Dispose()
+        {
+            _isDisposed = true;
+            SetCursor(false);
+        }
+
         // Zoom input
         private float zoomAdd
         {
@@ -220,6 +210,12 @@ namespace Client.Code.Gameplay
             if (angle < -360) angle += 360;
             if (angle > 360) angle -= 360;
             return Mathf.Clamp(angle, min, max);
+        }
+        
+        private void SetCursor(bool isLock)
+        {
+            Cursor.lockState = isLock ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !isLock;
         }
     }
 }

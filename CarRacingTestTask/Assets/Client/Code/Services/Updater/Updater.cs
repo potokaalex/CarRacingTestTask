@@ -9,7 +9,8 @@ namespace Client.Code.Services.Updater
         public event Action<float> OnUpdateWithDelta;
         public event Action OnFixedUpdate;
         public event Action<float> OnFixedUpdateWithDelta;
-        public event Action OnProjectExit;
+        public event Action<bool> OnApplicationPauseChanged;
+        public event Action OnExit;
 
         private void Update()
         {
@@ -23,13 +24,15 @@ namespace Client.Code.Services.Updater
             OnFixedUpdateWithDelta?.Invoke(Time.fixedDeltaTime);
         }
 
-        private void OnDestroy() => OnProjectExit?.Invoke();
+        public void OnApplicationPause(bool isPaused) => OnApplicationPauseChanged?.Invoke(isPaused);
+
+        private void OnDestroy() => OnExit?.Invoke();
 
         public void ClearAllListeners()
         {
             OnUpdate = null;
             OnFixedUpdate = null;
-            OnProjectExit = null;
+            OnExit = null;
         }
     }
 }

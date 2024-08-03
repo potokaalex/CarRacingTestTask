@@ -10,6 +10,8 @@ namespace Client.Code.Gameplay.Player.Score
 
         public PlayerScoreController(CarDriftChecker carDriftChecker) => _carDriftChecker = carDriftChecker;
 
+        public float Score => _score;
+        
         public void Initialize(PlayerScoreView scoreView) => _view = scoreView;
 
         public void OnUpdate(float deltaTime)

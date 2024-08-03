@@ -14,7 +14,6 @@ namespace Client.Code.Infrastructure.States.Gameplay
         public UniTask Enter()
         {
             _screenFactory.Create();
-            UnityEngine.Debug.Log("1");
             return UniTask.CompletedTask;
         }
 

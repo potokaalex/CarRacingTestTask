@@ -8,7 +8,8 @@ namespace Client.Code.Services.Updater
         event Action<float> OnUpdateWithDelta;
         event Action OnFixedUpdate;
         event Action<float> OnFixedUpdateWithDelta;
-        event Action OnProjectExit;
+        event Action<bool> OnApplicationPauseChanged;
+        event Action OnExit;
         void ClearAllListeners();
     }
 }

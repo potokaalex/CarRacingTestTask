@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Car: {fileID: 11400000, guid: 33e069369cb6b53438ba06ebe421976f, type: 2}
   Player: {fileID: 11400000, guid: 512b5bb1bfd75f941bb56286ddcbe335, type: 2}
-  LevelTimeSec: 10
+  LevelTimeSec: 1
   CanvasPrefab: {fileID: 7545471867776401576, guid: f68dfce098f5fa74d90004cceb68a1bb, type: 3}
   GameOverScreenPrefab: {fileID: 4823452167346483223, guid: 03aaddeba96ed0e4b9d9429c5615f9f9, type: 3}
+  CameraPrefab: {fileID: 54084737953187676, guid: 7e125c2f19acf4b4c9073017730174da, type: 3}

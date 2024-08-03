@@ -3,7 +3,7 @@
 public class IronSourceInitilizer
 {
 #if UNITY_IOS || UNITY_ANDROID
-    [RuntimeInitializeOnLoadMethod]
+    //[RuntimeInitializeOnLoadMethod]
     static void Initilize()
     {
         var developerSettings = Resources.Load<IronSourceMediationSettings>(IronSourceConstants.IRONSOURCE_MEDIATION_SETTING_NAME);

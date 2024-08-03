@@ -3,7 +3,9 @@ using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Game;
 using Client.Code.Gameplay.Game.Over;
+using Client.Code.Gameplay.GameplayCamera;
 using Client.Code.Gameplay.Player;
+using Client.Code.Gameplay.Player.Score;
 using Client.Code.Gameplay.Player.Time;
 using Client.Code.Infrastructure.States.Gameplay;
 using Client.Code.Services.Startup.Delayed;
@@ -25,7 +27,8 @@ namespace Client.Code.Infrastructure.Installers
             Game();
             BindCar();
             BindPlayer();
-            
+
+            Container.Bind<CameraFactory>().AsSingle();
             Container.BindInterfacesTo<AssetProviderGameplayConfig>().AsSingle().WithArguments(_config);
             Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
@@ -33,20 +36,24 @@ namespace Client.Code.Infrastructure.Installers
 
         private void Game()
         {
-            Container.Bind<GameOverScreenFactory>().AsSingle();
-            Container.Bind<GameFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverScreenFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverPresenter>().AsSingle();
         }
 
         private void BindCar()
         {
-            Container.Bind<CarFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CarFactory>().AsSingle();
             Container.Bind<CarDriftChecker>().AsSingle();
+            Container.Bind<CarController>().AsSingle();
         }
 
         private void BindPlayer()
         {
-            Container.Bind<PlayerFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
             Container.Bind<PlayerTimeController>().AsSingle();
+            Container.Bind<PlayerScoreController>().AsSingle();
+            Container.Bind<PlayerCoinsController>().AsSingle();
         }
         
         private void BindStateMachine()

@@ -13,15 +13,17 @@ namespace Client.Code.Gameplay.Car
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
         private readonly CarDriftChecker _driftChecker;
+        private readonly CarController _controller;
         private readonly List<ICarUpdateController> _physicsControllers = new();
         private readonly List<ICarUpdateController> _graphicsControllers = new();
         private CarConfig _config;
 
-        public CarFactory(IInstantiator instantiator, IUpdater updater, CarDriftChecker driftChecker)
+        public CarFactory(IInstantiator instantiator, IUpdater updater, CarDriftChecker driftChecker, CarController controller)
         {
             _instantiator = instantiator;
             _updater = updater;
             _driftChecker = driftChecker;
+            _controller = controller;
         }
 
         public void Create(SpawnPoint spawnPoint)
@@ -46,6 +48,8 @@ namespace Client.Code.Gameplay.Car
                 controller.Initialize(car);
             foreach (var controller in _graphicsControllers)
                 controller.Initialize(car);
+            
+            _controller.Initialize(car);
         }
         
         public void Destroy()

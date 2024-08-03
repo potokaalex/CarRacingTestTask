@@ -11,21 +11,23 @@ namespace Client.Code.Gameplay.Player
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
         private readonly PlayerTimeController _timeController;
-        private PlayerScoreController _scoreController;
+        private readonly PlayerCoinsController _coinsController;
+        private readonly PlayerScoreController _scoreController;
         private GameplayConfig _config;
 
-        public PlayerFactory(IInstantiator instantiator, IUpdater updater, PlayerTimeController timeController)
+        public PlayerFactory(IInstantiator instantiator, IUpdater updater, PlayerTimeController timeController,
+            PlayerScoreController playerScoreController, PlayerCoinsController coinsController)
         {
             _instantiator = instantiator;
             _updater = updater;
             _timeController = timeController;
+            _scoreController = playerScoreController;
+            _coinsController = coinsController;
         }
 
         public void Create()
         {
             var canvas = _instantiator.InstantiatePrefabForComponent<PlayerCanvas>(_config.Player.CanvasPrefab);
-            _scoreController = _instantiator.Instantiate<PlayerScoreController>();
-
             _scoreController.Initialize(canvas.ScoreView);
             _timeController.Initialize(canvas.TimeView, _config.LevelTimeSec * 1000);
 
@@ -36,6 +38,7 @@ namespace Client.Code.Gameplay.Player
         {
             _updater.OnFixedUpdateWithDelta -= OnUpdate;
             _timeController.Dispose();
+            _coinsController.CollectSessionCoins();
         }
 
         public void Receive(GameplayConfig asset) => _config = asset;
