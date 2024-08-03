@@ -14,7 +14,6 @@ TODO
     выключен ли звук при просмотре рекламы ?
     Refactoring: assemdef!
     garage:
-        customization menu: upgrade car color & spoiler +-
         IAP shop menu: buy coins, buy car spoiler (IAP SDK ?) +-
         settings menu: (sound check) +-
     Global:

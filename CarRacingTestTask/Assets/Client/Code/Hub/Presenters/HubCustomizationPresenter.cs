@@ -1,6 +1,7 @@
 ﻿using Client.Code.Gameplay.Car;
 using Client.Code.UI.Dropdowns.Car;
 using Client.Code.UI.Toggles;
+using Client.Code.UI.Toggles.Customization;
 
 namespace Client.Code.Hub.Presenters
 {
@@ -11,7 +12,7 @@ namespace Client.Code.Hub.Presenters
         public HubCustomizationPresenter(HubModel model) => _model = model;
 
         public void HandleSelectedColor(CarColorType color) => _model.CarColor.Value = color;
-        
+
         public void Handle(CustomizationToggleType type, bool isActive)
         {
             if (type == CustomizationToggleType.CarSpoiler)

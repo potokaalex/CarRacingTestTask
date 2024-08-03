@@ -1,4 +1,4 @@
-﻿namespace Client.Code.UI.Toggles
+﻿namespace Client.Code.UI.Toggles.Customization
 {
     public enum CustomizationToggleType
     {

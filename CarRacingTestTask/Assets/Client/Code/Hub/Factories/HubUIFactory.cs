@@ -3,7 +3,7 @@ using Client.Code.Services.Asset.Receiver;
 using UniRx;
 using Zenject;
 
-namespace Client.Code.Hub
+namespace Client.Code.Hub.Factories
 {
     public class HubUIFactory : IAssetReceiver<HubConfig>
     {

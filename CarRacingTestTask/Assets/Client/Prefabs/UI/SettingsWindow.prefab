@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1845827092382355617}
   - component: {fileID: 5689742315036490711}
   - component: {fileID: 1991784914152951070}
+  - component: {fileID: 4200749860820307095}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -34,10 +35,10 @@ RectTransform:
   - {fileID: 607294895233017016}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 100, y: -20}
-  m_SizeDelta: {x: 200, y: 0}
+  m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1845827092382355617
 CanvasRenderer:
@@ -103,6 +104,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4200749860820307095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273175601243287169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ec493e5b864f21894e7ea33ef5ab5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MasterAudioToggle: {fileID: 2719224626886313525}
 --- !u!1 &2729789493521889652
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +203,9 @@ GameObject:
   m_Component:
   - component: {fileID: 607294895233017016}
   - component: {fileID: 3841159961676641324}
+  - component: {fileID: 2719224626886313525}
   m_Layer: 5
-  m_Name: SetMusicToggle
+  m_Name: SetMasterAudioToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,6 +280,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &2719224626886313525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438581677437766213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aed910101df4651b0ca1964c02237ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!1 &4026997687535078938
 GameObject:
   m_ObjectHideFlags: 0

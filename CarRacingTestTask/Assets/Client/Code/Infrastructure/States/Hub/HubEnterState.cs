@@ -1,4 +1,5 @@
 ﻿using Client.Code.Hub;
+using Client.Code.Hub.Factories;
 using Client.Code.Services.StateMachine.State;
 
 namespace Client.Code.Infrastructure.States.Hub

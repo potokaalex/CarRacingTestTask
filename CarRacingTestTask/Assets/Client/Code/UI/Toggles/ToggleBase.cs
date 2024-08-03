@@ -6,13 +6,17 @@ namespace Client.Code.UI.Toggles
     [RequireComponent(typeof(Toggle))]
     public abstract class ToggleBase : MonoBehaviour
     {
-        private protected Toggle BaseToggle;
+        private Toggle _baseToggle;
 
-        private void Awake() => BaseToggle = GetComponent<Toggle>();
+        public void SetWithoutNotify(bool isActive) => _baseToggle.SetIsOnWithoutNotify(isActive);
+        
+        public void Lock(bool isLocked) => _baseToggle.interactable = !isLocked;
+        
+        private void Awake() => _baseToggle = GetComponent<Toggle>();
 
-        private void OnEnable() => BaseToggle.onValueChanged.AddListener(OnToggleValueChanged);
+        private void OnEnable() => _baseToggle.onValueChanged.AddListener(OnToggleValueChanged);
 
-        private void OnDisable() => BaseToggle.onValueChanged.RemoveListener(OnToggleValueChanged);
+        private void OnDisable() => _baseToggle.onValueChanged.RemoveListener(OnToggleValueChanged);
 
         private protected abstract void OnToggleValueChanged(bool isActive);
     }

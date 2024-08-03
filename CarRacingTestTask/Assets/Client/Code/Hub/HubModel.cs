@@ -19,12 +19,15 @@ namespace Client.Code.Hub
         
         public ReactiveProperty<bool> IsCarSpoilerEnabled { get; } = new();
         
+        public ReactiveProperty<bool> IsMasterAudioEnabled { get; } = new();
+        
         public void OnLoad(ProgressData progress)
         {
             CoinsCount.Value = progress.Player.CoinsCount;
             CarColor.Value = progress.Player.CarColor;
             IsCarSpoilerPurchased.Value = progress.Player.Shop.IsCarSpoilerPurchased;
             IsCarSpoilerEnabled.Value = progress.Player.IsCarSpoilerEnabled;
+            IsMasterAudioEnabled.Value = progress.Project.IsMasterAudioEnabled;
         }
 
         public void OnSave(ProgressData progress)
@@ -33,6 +36,7 @@ namespace Client.Code.Hub
             progress.Player.CarColor = CarColor.Value;
             progress.Player.Shop.IsCarSpoilerPurchased = IsCarSpoilerPurchased.Value;
             progress.Player.IsCarSpoilerEnabled = IsCarSpoilerEnabled.Value;
+            progress.Project.IsMasterAudioEnabled = IsMasterAudioEnabled.Value;
         }
     }
 }

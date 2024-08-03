@@ -4,12 +4,13 @@ using Client.Code.Services.Asset.Receiver;
 using Client.Code.UI.Windows;
 using Client.Code.UI.Windows.Customization;
 using Client.Code.UI.Windows.SelectLevel;
+using Client.Code.UI.Windows.Settings;
 using UniRx;
 using Zenject;
 
-namespace Client.Code.Hub
+namespace Client.Code.Hub.Factories
 {
-    public class HubWindowsFactory : IAssetReceiver<HubConfig>, ISelectLevelWindowFactory, ICustomizationWindowFactory
+    public class HubWindowsFactory : IAssetReceiver<HubConfig>, ISelectLevelWindowFactory, ICustomizationWindowFactory, ISettingsWindowFactory
     {
         private readonly List<WindowBase> _windows = new();
         private readonly IInstantiator _instantiator;
@@ -35,8 +36,8 @@ namespace Client.Code.Hub
         {
             var window = (CustomizationWindow)CreateWindow(WindowType.Customization);
 
-            window.CarSelectSpoilerToggle.Set(_model.IsCarSpoilerEnabled.Value);
-            _model.IsCarSpoilerEnabled.Subscribe(window.CarSelectSpoilerToggle.Set);
+            window.CarSelectSpoilerToggle.SetWithoutNotify(_model.IsCarSpoilerEnabled.Value);
+            _model.IsCarSpoilerEnabled.Subscribe(window.CarSelectSpoilerToggle.SetWithoutNotify);
 
             window.CarSelectSpoilerToggle.Lock(!_model.IsCarSpoilerPurchased.Value);
             _model.IsCarSpoilerPurchased.Subscribe(isPurchased => window.CarSelectSpoilerToggle.Lock(!isPurchased));
@@ -46,6 +47,14 @@ namespace Client.Code.Hub
 
         void ICustomizationWindowFactory.Destroy() => DestroyWindow(WindowType.Customization);
 
+        void ISettingsWindowFactory.Create()
+        {
+            var window = (SettingsWindow)CreateWindow(WindowType.Settings);
+            window.MasterAudioToggle.SetWithoutNotify(_model.IsMasterAudioEnabled.Value);
+        }
+
+        void ISettingsWindowFactory.Destroy() => DestroyWindow(WindowType.Settings);
+        
         private WindowBase CreateWindow(WindowType type)
         {
             if (TryGetWindow(type, out var window))

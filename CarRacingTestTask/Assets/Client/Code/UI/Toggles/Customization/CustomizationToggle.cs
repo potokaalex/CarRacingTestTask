@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Client.Code.UI.Toggles
+namespace Client.Code.UI.Toggles.Customization
 {
     public class CustomizationToggle : ToggleBase
     {
@@ -10,10 +10,6 @@ namespace Client.Code.UI.Toggles
         
         [Inject]
         public void Construct(ICustomizationToggleHandler handler) => _handler = handler;
-
-        public void Set(bool isActive) => BaseToggle.SetIsOnWithoutNotify(isActive);
-
-        public void Lock(bool isLocked) => BaseToggle.interactable = !isLocked;
         
         private protected override void OnToggleValueChanged(bool isActive) => _handler.Handle(_type, isActive);
     }
