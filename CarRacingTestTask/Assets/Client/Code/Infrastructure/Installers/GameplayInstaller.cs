@@ -8,6 +8,9 @@ using Client.Code.Gameplay.Player;
 using Client.Code.Gameplay.Player.Score;
 using Client.Code.Gameplay.Player.Time;
 using Client.Code.Infrastructure.States.Gameplay;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Receiver;
+using Client.Code.Services.Startup.Auto;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.Factory;
@@ -19,7 +22,6 @@ namespace Client.Code.Infrastructure.Installers
     public class GameplayInstaller : MonoInstaller
     {
         [SerializeField] private GameplaySceneData _sceneData;
-        [SerializeField] private GameplayConfig _config;
 
         public override void InstallBindings()
         {
@@ -28,8 +30,10 @@ namespace Client.Code.Infrastructure.Installers
             BindCar();
             BindPlayer();
 
-            Container.Bind<CameraFactory>().AsSingle();
-            Container.BindInterfacesTo<AssetProviderGameplayConfig>().AsSingle().WithArguments(_config);
+            Container.BindInterfacesAndSelfTo<CameraFactory>().AsSingle();
+            
+            Container.BindInterfacesTo<AssetReceiversRegister<GameplayConfig>>().AsSingle();
+            
             Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
         }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Services.AssetProvider;
+using Client.Code.Services.Asset;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

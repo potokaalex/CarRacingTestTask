@@ -1,7 +1,9 @@
-﻿namespace Client.Code.Services.Startup.Runner
+﻿using UnityEngine.SceneManagement;
+
+namespace Client.Code.Services.Startup.Runner
 {
     public interface IStartupRunner
     {
-        void Run(string sceneName);
+        void Run(Scene scene);
     }
 }

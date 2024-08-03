@@ -1,5 +1,7 @@
 ﻿using Client.Code.Data.Gameplay;
 using Client.Code.Gameplay.Car.Controllers;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Receiver;
 using Zenject;
 
 namespace Client.Code.Gameplay.GameplayCamera

@@ -1,6 +1,8 @@
 ﻿using Client.Code.Data.Gameplay;
 using Client.Code.Gameplay.Player;
 using Client.Code.Gameplay.Player.Score;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Receiver;
 using UnityEngine;
 using Zenject;
 

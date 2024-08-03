@@ -1,5 +1,7 @@
 ﻿using Client.Code.Data.Gameplay;
 using Client.Code.Gameplay.Game.Over;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Updater;
 using Zenject;
 

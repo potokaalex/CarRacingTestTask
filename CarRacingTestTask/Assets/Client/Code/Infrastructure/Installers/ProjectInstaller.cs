@@ -1,7 +1,10 @@
 ﻿using System;
 using Client.Code.Data;
+using Client.Code.Data.Gameplay;
 using Client.Code.Services.Ads.Interstitial;
-using Client.Code.Services.AssetProvider;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Loader;
+using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Logger;
 using Client.Code.Services.Logger.Base;
 using Client.Code.Services.SceneLoader;
@@ -17,16 +20,25 @@ namespace Client.Code.Infrastructure.Installers
     public class ProjectInstaller : MonoInstaller
     {
         [SerializeField] private ProjectConfig _config;
+        [SerializeField] private GameplayConfig _gameplayConfig;
 
         public override void InstallBindings()
         {
             BindStateMachine();
-            BindAds();
+            BindAssets();
             BindLogger();
-            Container.BindInterfacesTo<AssetProviderProjectConfig>().AsSingle().WithArguments(_config);
+            BindAds();
+            
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
+        }
+
+        private void BindAssets()
+        {
+            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle().WithArguments(_config);
+            Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle().WithArguments(_gameplayConfig);
+            Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }
 
         private void BindLogger()

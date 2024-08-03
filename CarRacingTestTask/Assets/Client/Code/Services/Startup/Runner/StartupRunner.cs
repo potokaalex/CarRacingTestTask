@@ -10,9 +10,8 @@ namespace Client.Code.Services.Startup.Runner
     {
         private readonly List<GameObject> _sceneRootObjects = new();
 
-        public void Run(string sceneName)
+        public void Run(Scene scene)
         {
-            var scene = SceneManager.GetSceneByName(sceneName);
             scene.GetRootGameObjects(_sceneRootObjects);
 
             foreach (var rootObject in _sceneRootObjects)

@@ -1,7 +1,9 @@
 ﻿using Client.Code.Data;
-using Client.Code.Services.AssetProvider;
-using Client.Code.Services.SceneLoader;
-using Client.Code.Services.Startup.Runner;
+using Client.Code.Infrastructure.States.Gameplay;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Loader;
+using Client.Code.Services.StateMachine;
+using Client.Code.Services.StateMachine.Global;
 using Client.Code.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
 
@@ -9,23 +11,20 @@ namespace Client.Code.Infrastructure.States
 {
     public class ProjectLoadState : IStateAsync
     {
-        private readonly ISceneLoader _sceneLoader;
-        private readonly IStartupRunner _startupRunner;
-        private readonly IAssetProvider<ProjectConfig> _assetProvider;
+        private readonly IAssetLoader<ProjectConfig> _assetLoader;
+        private readonly IGlobalStateMachine _stateMachine;
 
-        public ProjectLoadState(ISceneLoader sceneLoader, IStartupRunner startupRunner, IAssetProvider<ProjectConfig> assetProvider)
+        public ProjectLoadState(IAssetLoader<ProjectConfig> assetLoader, IGlobalStateMachine stateMachine)
         {
-            _sceneLoader = sceneLoader;
-            _startupRunner = startupRunner;
-            _assetProvider = assetProvider;
+            _assetLoader = assetLoader;
+            _stateMachine = stateMachine;
         }
 
-        public async UniTask Enter()
+        public UniTask Enter()
         {
-            var config = _assetProvider.Get();
-            var sceneName = config.SceneNames[SceneName.Gameplay];
-            await _sceneLoader.LoadSceneAsync(sceneName);
-            _startupRunner.Run(sceneName);
+            _assetLoader.Load();
+            _stateMachine.SwitchTo<GameplayLoadState>();
+            return UniTask.CompletedTask;
         }
 
         public UniTask Exit() => UniTask.CompletedTask;

@@ -3,6 +3,8 @@ using Client.Code.Data.Gameplay;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Car.Controllers.Base;
 using Client.Code.Gameplay.GameplaySpawnPoint;
+using Client.Code.Services.Asset;
+using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Updater;
 using Zenject;
 

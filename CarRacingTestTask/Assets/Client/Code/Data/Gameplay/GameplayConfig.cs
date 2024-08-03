@@ -2,7 +2,7 @@
 using Client.Code.Gameplay.Game;
 using Client.Code.Gameplay.Game.Over;
 using Client.Code.Gameplay.GameplayCamera;
-using Client.Code.Services.AssetProvider;
+using Client.Code.Services.Asset;
 using UnityEngine;
 
 namespace Client.Code.Data.Gameplay
