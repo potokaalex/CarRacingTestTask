@@ -65,7 +65,7 @@ MonoBehaviour:
       Data: Client.Code.Services.Shop.Item.ItemPriceData, Assembly-CSharp
     - Name: CoinsCount
       Entry: 3
-      Data: 0
+      Data: 500
     - Name: 
       Entry: 8
       Data: 

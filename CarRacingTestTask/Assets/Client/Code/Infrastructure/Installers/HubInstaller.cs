@@ -3,12 +3,15 @@ using Client.Code.Hub;
 using Client.Code.Hub.Factories;
 using Client.Code.Hub.Presenters;
 using Client.Code.Infrastructure.States.Hub;
+using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Progress;
 using Client.Code.Services.Progress.Register;
+using Client.Code.Services.Startup.Auto;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.Factory;
+using Client.Code.Services.Updater;
 using Zenject;
 
 namespace Client.Code.Infrastructure.Installers
@@ -19,10 +22,17 @@ namespace Client.Code.Infrastructure.Installers
         {
             BindStateMachine();
             BindUI();
+            BindAssets();
             
             Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
+            Container.BindInterfacesTo<AutoStartupper<HubLoadState>>().AsSingle();
+            Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
+        }
+
+        private void BindAssets()
+        {
             Container.BindInterfacesTo<AssetReceiversRegister<HubConfig>>().AsSingle();
-            Container.BindInterfacesTo<DelayedStartupper<HubEnterState>>().AsSingle();
+            Container.BindInterfacesTo<AssetLoader<HubConfig>>().AsSingle();
         }
 
         private void BindUI()

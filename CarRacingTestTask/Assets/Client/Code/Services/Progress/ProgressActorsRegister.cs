@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Client.Code.Services.Progress.Register
 {
-    public class ProgressActorsRegister : IInitializable, IProgressActorsRegister
+    public class ProgressActorsRegister : IInitializable, ILateDisposable
     {
         private readonly IProgressSaver _saver;
         private readonly IProgressLoader _loader;
@@ -29,8 +29,10 @@ namespace Client.Code.Services.Progress.Register
                 _saver.Register(writer);
         }
 
-        public void UnRegister()
+        public void LateDispose()
         {
+            UnityEngine.Debug.Log("ProgressActorsRegister: LateDispose");
+            
             foreach (var reader in _readers)
                 _loader.UnRegister(reader);
 

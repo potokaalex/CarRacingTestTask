@@ -63,9 +63,10 @@ namespace Client.Code.Infrastructure.Installers
 
         private void BindAssets()
         {
-            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle().WithArguments(_config);
-            Container.BindInterfacesTo<AssetLoader<HubConfig>>().AsSingle().WithArguments(_hubConfig);
-            Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle().WithArguments(_gameplayConfig);
+            Container.Bind<AllAssetsProvider>().AsSingle().WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig });
+
+            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle();
+            Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle();
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }
 

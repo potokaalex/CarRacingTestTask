@@ -11,20 +11,17 @@ namespace Client.Code.Infrastructure.States.Gameplay
     {
         private readonly IGlobalStateMachine _stateMachine;
         private readonly IProgressSaver _progressSaver;
-        private readonly IProgressActorsRegister _progressActorsRegister;
 
-        public GameplayExitState(IGlobalStateMachine stateMachine, IProgressSaver progressSaver, IProgressActorsRegister progressActorsRegister)
+        public GameplayExitState(IGlobalStateMachine stateMachine, IProgressSaver progressSaver)
         {
             _stateMachine = stateMachine;
-            _progressSaver = progressSaver;
-            _progressActorsRegister = progressActorsRegister;
         }
 
         public void Enter()
         {
             _progressSaver.Save();
-            _progressActorsRegister.UnRegister();
-            _stateMachine.SwitchTo<HubLoadState>();
+            //_progressActorsRegister.UnRegister();
+            _stateMachine.SwitchTo<HubStateGlobal>();
         }
 
         public void Exit()

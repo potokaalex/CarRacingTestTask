@@ -5,12 +5,12 @@ using UnityEditor;
 
 namespace Client.Code.Infrastructure.States.Project
 {
-    public class ProjectExitState : IState
+    public class ProjectUnloadState : IState
     {
         private readonly IUpdater _updater;
         private readonly IProgressSaver _progressSaver;
 
-        public ProjectExitState(IUpdater updater, IProgressSaver progressSaver)
+        public ProjectUnloadState(IUpdater updater, IProgressSaver progressSaver)
         {
             _updater = updater;
             _progressSaver = progressSaver;

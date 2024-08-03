@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Services.Asset.Receiver;
+using Zenject;
 
 namespace Client.Code.Services.Asset.Loader
 {
-    public class AssetLoader<T> : IAssetLoader<T> where T : IAsset
+    public class AssetLoader<T> : IAssetLoader<T>, IInitializable where T : IAsset
     {
         private readonly List<IAssetReceiver<T>> _receivers = new();
-        private readonly T _asset;
+        private readonly AllAssetsProvider _assetsProvider;
+        private T _asset;
+
+        public AssetLoader(AllAssetsProvider assetsProvider) => _assetsProvider = assetsProvider;
         
-        public AssetLoader(T asset) => _asset = asset;
-        
+        public void Initialize() => _asset = _assetsProvider.Get<T>();
+
         public void Load()
         {
             foreach (var receiver in _receivers)

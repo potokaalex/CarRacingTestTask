@@ -22,11 +22,10 @@ namespace Client.Code.Hub.Presenters
         private readonly ICustomizationWindowFactory _customizationWindowFactory;
         private readonly ISettingsWindowFactory _settingsWindowFactory;
         private readonly IShopWindowFactory _shopWindowFactory;
-        private readonly IStateMachine _stateMachine;
 
         public HubPresenter(HubModel model, ISelectLevelWindowFactory selectLevelWindowFactory, IGlobalStateMachine globalStateMachine,
             ICustomizationWindowFactory customizationWindowFactory, ISettingsWindowFactory settingsWindowFactory,
-            IShopWindowFactory shopWindowFactory, IStateMachine stateMachine)
+            IShopWindowFactory shopWindowFactory)
         {
             _model = model;
             _selectLevelWindowFactory = selectLevelWindowFactory;
@@ -34,19 +33,15 @@ namespace Client.Code.Hub.Presenters
             _customizationWindowFactory = customizationWindowFactory;
             _settingsWindowFactory = settingsWindowFactory;
             _shopWindowFactory = shopWindowFactory;
-            _stateMachine = stateMachine;
         }
 
         public void Handle(LoadButtonType type)
         {
             if (type == LoadButtonType.Gameplay)
-            {
-                _stateMachine.SwitchTo<HubExitState>(); 
                 _globalStateMachine.SwitchTo<GameplayLoadState>();
-            }
         }
 
-        public void Handle() => _globalStateMachine.SwitchTo<ProjectExitState>();
+        public void Handle() => _globalStateMachine.SwitchTo<ProjectUnloadState>();
 
         public void Handle(WindowType type)
         {

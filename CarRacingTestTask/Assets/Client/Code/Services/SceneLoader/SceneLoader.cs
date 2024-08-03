@@ -1,6 +1,4 @@
-﻿using Client.Code.Data;
-using Client.Code.Data.Static.Configs.Project;
-using Client.Code.Services.Asset;
+﻿using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Asset.Receiver;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
@@ -16,6 +14,12 @@ namespace Client.Code.Services.SceneLoader
             var sceneName = _config.SceneNames[name];
             await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single).ToUniTask();
             return SceneManager.GetSceneByName(sceneName);
+        }
+
+        public UniTask UnLoadSceneAsync(SceneName name)
+        {
+            //TODO: unload scene if Addressables
+            return UniTask.CompletedTask;
         }
 
         public void Receive(ProjectConfig asset) => _config = asset;

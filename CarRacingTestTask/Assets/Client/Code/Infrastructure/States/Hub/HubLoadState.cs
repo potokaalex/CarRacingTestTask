@@ -1,40 +1,39 @@
 ﻿using Client.Code.Data.Static.Configs;
-using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.Progress.Loader;
-using Client.Code.Services.Progress.Saver;
-using Client.Code.Services.SceneLoader;
-using Client.Code.Services.Startup.Runner;
+using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.State;
+using Client.Code.Services.Updater;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States.Hub
 {
     public class HubLoadState : IStateAsync
     {
-        private readonly ISceneLoader _sceneLoader;
         private readonly IAssetLoader<HubConfig> _assetLoader;
-        private readonly IStartupRunner _startupRunner;
         private readonly IProgressLoader _progressLoader;
+        private readonly IUpdater _updater;
+        private readonly IStateMachine _stateMachine;
 
-        public HubLoadState(ISceneLoader sceneLoader, IAssetLoader<HubConfig> assetLoader, IStartupRunner startupRunner,
-            IProgressLoader progressLoader)
+        public HubLoadState(IAssetLoader<HubConfig> assetLoader, IProgressLoader progressLoader, IUpdater updater, IStateMachine stateMachine)
         {
-            _sceneLoader = sceneLoader;
             _assetLoader = assetLoader;
-            _startupRunner = startupRunner;
             _progressLoader = progressLoader;
+            _updater = updater;
+            _stateMachine = stateMachine;
         }
 
         public async UniTask Enter()
         {
-            var scene = await _sceneLoader.LoadSceneAsync(SceneName.Hub);
-            await UniTask.Yield(); //await one frame to init services (especially to init registers).
             _assetLoader.Load();
             await _progressLoader.LoadAsync();
-            _startupRunner.Run(scene);
+            _stateMachine.SwitchTo<HubState>();
         }
 
-        public UniTask Exit() => UniTask.CompletedTask;
+        public UniTask Exit()
+        {
+            _updater.OnDispose += () => _stateMachine.SwitchTo<HubUnLoadState>();
+            return UniTask.CompletedTask;
+        }
     }
 }

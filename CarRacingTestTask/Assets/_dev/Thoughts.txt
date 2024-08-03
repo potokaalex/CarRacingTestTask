@@ -1,20 +1,11 @@
-tutorial I used to set up iron source: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
-Load order: BootstrapLoader(optional) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> 
+Load order: BootstrapLoader(editor only) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> 
 
-Naming: 
-    Gameplay:
-        Model - contains data
-        Controller - contains data, logic
-    UI:
-        Model - contains data like in Mvx
-        Presenter - contains business logic like in mvP 
-        UIElement - like view in mVx
-        
 TODO
-    Refactoring: Unity IAP: Unity In-App Purchasing requires Unity Gaming Services to have been initialized before use.
     Refactoring: StartLoadState, EndLoadState 
     Refactoring: assemdef!
     выключен ли звук при просмотре рекламы ?
+    ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
+    load all saved data: audio, customization.
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
@@ -24,19 +15,18 @@ TODO
         Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
         
         
-load all saved data: audio, customization.
+
+Tutorial I used to set up iron source: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
+
 
 Discarded:
         Important car shop
         Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK    
         Optional tyres sound system
-        Engine sound system
-        Leaderboard in room (All players drift points)
+        Optional Engine sound system
+        Optional Leaderboard in room (All players drift points)
 
 
-Обязательно проверьте наличие gradlew.bat в 
-CarRacingTestTask\CarRacingTestTask\Temp\PlayServicesResolverGradle
+Обязательно проверьте наличие gradlew.bat в CarRacingTestTask\CarRacingTestTask\Temp\PlayServicesResolverGradle
 Его можно взять отсюда:
 https://raw.githubusercontent.com/googlesamples/unity-jar-resolver/master/gradlew.bat
-
-ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
