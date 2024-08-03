@@ -1,5 +1,6 @@
 ﻿using Client.Code.Data.Static.Configs;
 using Client.Code.Hub;
+using Client.Code.Hub.Presenters;
 using Client.Code.Infrastructure.States.Hub;
 using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.Progress;
@@ -28,7 +29,9 @@ namespace Client.Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<HubWindowsFactory>().AsSingle();
             
             Container.BindInterfacesAndSelfTo<HubModel>().AsSingle();
+            
             Container.BindInterfacesTo<HubPresenter>().AsSingle();
+            Container.BindInterfacesTo<HubCustomizationPresenter>().AsSingle();
         }
         
         private void BindStateMachine()

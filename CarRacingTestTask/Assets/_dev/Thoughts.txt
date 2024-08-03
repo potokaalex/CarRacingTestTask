@@ -14,12 +14,10 @@ TODO
     выключен ли звук при просмотре рекламы ?
     Refactoring: assemdef!
     garage:
-        cash view +-
         customization menu: upgrade car color & spoiler +-
         IAP shop menu: buy coins, buy car spoiler (IAP SDK ?) +-
         settings menu: (sound check) +-
-    Global: 
-        Save System: save cash, car customizations, settings.
+    Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
     Optional:

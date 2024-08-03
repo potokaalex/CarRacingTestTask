@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 2198575773710792663}
   - component: {fileID: 7660544832433507174}
   - component: {fileID: 1937755996427073355}
+  - component: {fileID: 4773128078781942631}
   m_Layer: 5
   m_Name: ShopWindowToggle
   m_TagString: Untagged
@@ -507,6 +508,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4773128078781942631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961316772187274638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41400eaf88274e59b891e5d54867d5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 3
 --- !u!1 &2780041967508520719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1329,7 @@ GameObject:
   - component: {fileID: 8345975933209548533}
   - component: {fileID: 3276522967000421633}
   - component: {fileID: 4551124188317299704}
+  - component: {fileID: 5488292601820986192}
   m_Layer: 5
   m_Name: CarCustomizationWindowToggle
   m_TagString: Untagged
@@ -1424,6 +1439,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5488292601820986192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504385691153161478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41400eaf88274e59b891e5d54867d5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 2
 --- !u!1 &6986292893014152362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1598,7 @@ GameObject:
   - component: {fileID: 1716216249372407955}
   - component: {fileID: 7961979720629924718}
   - component: {fileID: 252549895576326345}
+  - component: {fileID: 6438628101325659982}
   m_Layer: 5
   m_Name: SettingsWindowToggle
   m_TagString: Untagged
@@ -1679,6 +1708,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6438628101325659982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7896317478213713948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41400eaf88274e59b891e5d54867d5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 4
 --- !u!1 &8355473696778977901
 GameObject:
   m_ObjectHideFlags: 0

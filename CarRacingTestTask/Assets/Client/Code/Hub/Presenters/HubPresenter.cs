@@ -6,6 +6,7 @@ using Client.Code.UI.Buttons.Exit;
 using Client.Code.UI.Buttons.Load;
 using Client.Code.UI.Buttons.Toggle;
 using Client.Code.UI.Windows;
+using Client.Code.UI.Windows.Customization;
 using Client.Code.UI.Windows.SelectLevel;
 
 namespace Client.Code.Hub
@@ -15,12 +16,15 @@ namespace Client.Code.Hub
         private readonly HubModel _model;
         private readonly ISelectLevelWindowFactory _selectLevelWindowFactory;
         private readonly IGlobalStateMachine _stateMachine;
+        private readonly ICustomizationWindowFactory _customizationWindowFactory;
 
-        public HubPresenter(HubModel model, ISelectLevelWindowFactory selectLevelWindowFactory, IGlobalStateMachine stateMachine)
+        public HubPresenter(HubModel model, ISelectLevelWindowFactory selectLevelWindowFactory, IGlobalStateMachine stateMachine,
+            ICustomizationWindowFactory customizationWindowFactory)
         {
             _model = model;
             _selectLevelWindowFactory = selectLevelWindowFactory;
             _stateMachine = stateMachine;
+            _customizationWindowFactory = customizationWindowFactory;
         }
 
         public void Handle(LoadButtonType type)
@@ -39,7 +43,7 @@ namespace Client.Code.Hub
                 return;
             }
 
-            CloseWindow(type);
+            CloseWindow(_model.CurrentWindow);
             OpenWindow(type);
         }
 
@@ -47,7 +51,9 @@ namespace Client.Code.Hub
         {
             if (type == WindowType.SelectLevel)
                 _selectLevelWindowFactory.Destroy();
-            
+            if (type == WindowType.Customization)
+                _customizationWindowFactory.Destroy();
+
             _model.CurrentWindow = WindowType.None;
         }
 
@@ -55,7 +61,9 @@ namespace Client.Code.Hub
         {
             if (type == WindowType.SelectLevel)
                 _selectLevelWindowFactory.Create();
-
+            if (type == WindowType.Customization)
+                _customizationWindowFactory.Create();
+            
             _model.CurrentWindow = type;
         }
     }

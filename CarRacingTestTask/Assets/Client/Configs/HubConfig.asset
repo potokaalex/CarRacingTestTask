@@ -15,11 +15,62 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 3873527847865325042, guid: 77f08e944ac2ebc4aa35571d09dff4b0, type: 3}
+    - {fileID: 4752576663004567865, guid: 2441636012e43664580b86d7644acbe8, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  SelectLevelWindowPrefab: {fileID: 3873527847865325042, guid: 77f08e944ac2ebc4aa35571d09dff4b0, type: 3}
+    SerializationNodes:
+    - Name: Windows
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.UI.Windows.WindowType,
+        Assembly-CSharp],[Client.Code.UI.Windows.WindowBase, Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.UI.Windows.WindowType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   CanvasPrefab: {fileID: 1265308759717201375, guid: 3a8142baeb48c46458254c920f2e052f, type: 3}
