@@ -11,28 +11,27 @@ Naming:
         UIElement - like view in mVx
         
 TODO
-    Refactoring: eventSystem & input
     garage:
         select level menu: offline level, online level
         cash view
         customization menu: upgrade car color & spoiler
         IAP shop menu: buy coins, buy car spoiler
-        - at last! settings menu: (sound check, optional!)
+        settings menu: (sound check)
     Global: 
         Save System: save cash, car customizations, settings.
         Online (Photon): OnlineLevel , sync between players (position, customization )
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
     Optional:
-        Engine sound system, 
-        Levels design
+        Levels design (myself)
         Online sync between players (rotation wheels, steering, engine sound)
-        Leaderboard in room (All players drift points)
         Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
 
 Discarded:
         Important car shop
         Optional SDKs: Facebook SDK, FirebaseSDK, IAP SDK, GameAnalytics SDK    
         Optional tyres sound system
+        Engine sound system
+        Leaderboard in room (All players drift points)
 
 
 Обязательно проверьте наличие gradlew.bat в 

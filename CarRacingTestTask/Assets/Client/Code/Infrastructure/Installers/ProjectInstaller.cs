@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Code.Data;
 using Client.Code.Data.Gameplay;
+using Client.Code.Data.Hub;
 using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Loader;
@@ -21,6 +22,7 @@ namespace Client.Code.Infrastructure.Installers
     public class ProjectInstaller : MonoInstaller
     {
         [SerializeField] private ProjectConfig _config;
+        [SerializeField] private HubConfig _hubConfig;
         [SerializeField] private GameplayConfig _gameplayConfig;
 
         public override void InstallBindings()
@@ -39,6 +41,7 @@ namespace Client.Code.Infrastructure.Installers
         private void BindAssets()
         {
             Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle().WithArguments(_config);
+            Container.BindInterfacesTo<AssetLoader<HubConfig>>().AsSingle().WithArguments(_hubConfig);
             Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle().WithArguments(_gameplayConfig);
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }

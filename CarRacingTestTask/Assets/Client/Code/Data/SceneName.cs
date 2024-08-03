@@ -2,6 +2,7 @@
 {
     public enum SceneName
     {
-        Gameplay = 1
+        Gameplay = 1,
+        Hub = 2
     }
 }

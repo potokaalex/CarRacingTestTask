@@ -1,11 +1,13 @@
-﻿using Client.Code.UI.Buttons.Load;
+﻿using Client.Code.Infrastructure.States;
+using Client.Code.Services.StateMachine.Global;
+using Client.Code.UI.Buttons.Load;
 
 namespace Client.Code.Gameplay.Game
 {
     public class GamePresenter : ILoadButtonHandler
     {
-        public void Handle(LoadButtonType type)
-        {
-        }
+        private IGlobalStateMachine _globalStateMachine;
+        
+        public void Handle(LoadButtonType type) => _globalStateMachine.SwitchTo<HubLoadState>();
     }
 }

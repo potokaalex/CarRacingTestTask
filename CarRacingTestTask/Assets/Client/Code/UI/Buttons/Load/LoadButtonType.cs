@@ -2,6 +2,7 @@
 {
     public enum LoadButtonType
     {
-        Hub = 1
+        Hub = 1,
+        Gameplay = 2
     }
 }

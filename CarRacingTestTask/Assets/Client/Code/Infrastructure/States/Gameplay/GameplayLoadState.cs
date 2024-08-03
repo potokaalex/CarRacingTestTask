@@ -24,7 +24,7 @@ namespace Client.Code.Infrastructure.States.Gameplay
         public async UniTask Enter()
         {
             var scene = await _sceneLoader.LoadSceneAsync(SceneName.Gameplay);
-            await UniTask.Yield(); //await one frame to init services (especially to init registers).
+            await UniTask.Yield();
             _assetLoader.Load();
             _startupRunner.Run(scene);
         }

@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_dev/DemoScene/IronSourceDemo.unity
-    guid: ccc0ac08126704384bdda74c26d99797
   - enabled: 1
     path: Assets/Client/Scenes/Bootstrap.unity
     guid: a12f37103014f9447a1897029c433f9c
+  - enabled: 1
+    path: Assets/Client/Scenes/Hub.unity
+    guid: b0c8c44c76aaff748a148891ec22fdc1
   - enabled: 1
     path: Assets/Client/Scenes/Gameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

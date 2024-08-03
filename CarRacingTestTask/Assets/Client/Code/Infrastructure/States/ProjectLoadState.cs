@@ -24,7 +24,7 @@ namespace Client.Code.Infrastructure.States
         {
             _assetLoader.Load();
             _inputFactory.Create();
-            _stateMachine.SwitchTo<GameplayLoadState>();
+            _stateMachine.SwitchTo<HubLoadState>();
         }
 
         public void Exit()
