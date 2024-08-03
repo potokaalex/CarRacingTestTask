@@ -5,6 +5,7 @@ using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.Asset.Receiver;
+using Client.Code.Services.InputService;
 using Client.Code.Services.Logger;
 using Client.Code.Services.Logger.Base;
 using Client.Code.Services.SceneLoader;
@@ -28,10 +29,11 @@ namespace Client.Code.Infrastructure.Installers
             BindAssets();
             BindLogger();
             BindAds();
-            
+
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
+            Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
         }
 
         private void BindAssets()

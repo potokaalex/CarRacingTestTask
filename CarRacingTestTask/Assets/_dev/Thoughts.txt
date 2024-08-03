@@ -12,7 +12,6 @@ Naming:
         
 TODO
     Refactoring: eventSystem & input
-    Refactoring: Vsync
     garage:
         select level menu: offline level, online level
         cash view
@@ -29,7 +28,6 @@ TODO
         Online sync between players (rotation wheels, steering, engine sound)
         Leaderboard in room (All players drift points)
         Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
-        
 
 Discarded:
         Important car shop

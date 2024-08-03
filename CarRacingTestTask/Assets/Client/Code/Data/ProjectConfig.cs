@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Services.Asset;
+using Client.Code.Services.InputService;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -9,5 +10,6 @@ namespace Client.Code.Data
     public class ProjectConfig : SerializedScriptableObject, IAsset
     {
         public Dictionary<SceneName, string> SceneNames;
+        public InputObject InputPrefab;
     }
 }
