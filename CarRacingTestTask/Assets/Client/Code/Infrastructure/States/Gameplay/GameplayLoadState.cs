@@ -1,5 +1,6 @@
 ﻿using Client.Code.Data;
-using Client.Code.Data.Gameplay;
+using Client.Code.Data.Static.Configs.Gameplay;
+using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;

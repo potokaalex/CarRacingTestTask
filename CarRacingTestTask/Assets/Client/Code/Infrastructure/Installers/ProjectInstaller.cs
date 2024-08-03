@@ -1,7 +1,8 @@
 ﻿using System;
 using Client.Code.Data;
-using Client.Code.Data.Gameplay;
-using Client.Code.Data.Hub;
+using Client.Code.Data.Static.Configs;
+using Client.Code.Data.Static.Configs.Gameplay;
+using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Loader;

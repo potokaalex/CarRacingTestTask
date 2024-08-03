@@ -1,5 +1,4 @@
-﻿using Client.Code.Data.Gameplay;
-using Client.Code.Data.Scene;
+﻿using Client.Code.Data.Scene;
 using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.Game;
 using Client.Code.Gameplay.GameplayCamera;
@@ -10,7 +9,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States.Gameplay
 {
-    public class GameplayState : IState
+    public class GameplayEnterState : IState
     {
         private readonly CarFactory _carFactory;
         private readonly GameplaySceneData _sceneData;
@@ -18,7 +17,7 @@ namespace Client.Code.Infrastructure.States.Gameplay
         private readonly GameFactory _factory;
         private readonly CameraFactory _cameraFactory;
 
-        public GameplayState(CarFactory carFactory, GameplaySceneData sceneData, PlayerFactory playerFactory, GameFactory factory,
+        public GameplayEnterState(CarFactory carFactory, GameplaySceneData sceneData, PlayerFactory playerFactory, GameFactory factory,
             CameraFactory cameraFactory)
         {
             _carFactory = carFactory;

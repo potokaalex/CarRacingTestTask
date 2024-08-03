@@ -1,13 +1,14 @@
-﻿using Client.Code.Data;
-using Client.Code.Data.Hub;
+﻿using Client.Code.Data.Static.Configs;
+using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.Progress.Loader;
+using Client.Code.Services.Progress.Saver;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
 
-namespace Client.Code.Infrastructure.States
+namespace Client.Code.Infrastructure.States.Hub
 {
     public class HubLoadState : IStateAsync
     {

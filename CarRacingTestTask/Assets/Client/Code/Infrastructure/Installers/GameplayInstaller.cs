@@ -1,5 +1,5 @@
-﻿using Client.Code.Data.Gameplay;
-using Client.Code.Data.Scene;
+﻿using Client.Code.Data.Scene;
+using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Game;
@@ -11,6 +11,7 @@ using Client.Code.Gameplay.Player.Time;
 using Client.Code.Infrastructure.States.Gameplay;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Receiver;
+using Client.Code.Services.Progress;
 using Client.Code.Services.Startup.Auto;
 using Client.Code.Services.Startup.Delayed;
 using Client.Code.Services.StateMachine;
@@ -28,13 +29,24 @@ namespace Client.Code.Infrastructure.Installers
         {
             BindStateMachine();
             Game();
+            BindGameplay();
+            BindRegisters();
+            
+            Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
+            Container.BindInterfacesTo<DelayedStartupper<GameplayEnterState>>().AsSingle();
+        }
+
+        private void BindGameplay()
+        {
             BindCar();
             BindPlayer();
-
             Container.BindInterfacesAndSelfTo<CameraFactory>().AsSingle();
+        }
+
+        private void BindRegisters()
+        {
+            Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayConfig>>().AsSingle();
-            Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
-            Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
         }
 
         private void Game()
@@ -57,7 +69,7 @@ namespace Client.Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<PlayerFactory>().AsSingle();
             Container.Bind<PlayerTimeController>().AsSingle();
             Container.Bind<PlayerScoreController>().AsSingle();
-            Container.Bind<PlayerCoinsController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerCoinsController>().AsSingle();
         }
         
         private void BindStateMachine()

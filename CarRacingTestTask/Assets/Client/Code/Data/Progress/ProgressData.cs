@@ -1,4 +1,5 @@
 ﻿using System;
+using Client.Code.Data.Progress.Player;
 
 namespace Client.Code.Data.Progress
 {

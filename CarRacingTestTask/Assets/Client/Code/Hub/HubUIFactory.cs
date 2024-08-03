@@ -1,4 +1,4 @@
-﻿using Client.Code.Data.Hub;
+﻿using Client.Code.Data.Static.Configs;
 using Client.Code.Services.Asset.Receiver;
 using UniRx;
 using Zenject;

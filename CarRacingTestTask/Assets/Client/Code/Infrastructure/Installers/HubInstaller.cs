@@ -1,4 +1,4 @@
-﻿using Client.Code.Data.Hub;
+﻿using Client.Code.Data.Static.Configs;
 using Client.Code.Hub;
 using Client.Code.Infrastructure.States.Hub;
 using Client.Code.Services.Asset.Receiver;

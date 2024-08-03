@@ -1,4 +1,5 @@
 ﻿using Client.Code.Data;
+using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.InputService;
 using Client.Code.Services.StateMachine.Global;

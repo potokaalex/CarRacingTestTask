@@ -1,4 +1,5 @@
 ﻿using Client.Code.Data;
+using Client.Code.Data.Static.Configs.Project;
 using Client.Code.Services.Asset.Receiver;
 using Zenject;
 

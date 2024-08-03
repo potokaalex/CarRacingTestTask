@@ -1,4 +1,5 @@
 ﻿using Client.Code.Data;
+using Client.Code.Data.Static.Configs.Project;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 

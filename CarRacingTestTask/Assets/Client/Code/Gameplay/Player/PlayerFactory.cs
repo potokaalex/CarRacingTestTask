@@ -1,4 +1,4 @@
-﻿using Client.Code.Data.Gameplay;
+﻿using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Gameplay.Player.Score;
 using Client.Code.Gameplay.Player.Time;
 using Client.Code.Services.Asset;

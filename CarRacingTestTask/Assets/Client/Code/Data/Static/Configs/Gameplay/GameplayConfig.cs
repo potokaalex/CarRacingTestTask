@@ -1,11 +1,10 @@
-﻿using Client.Code.Gameplay;
-using Client.Code.Gameplay.Game;
+﻿using Client.Code.Gameplay.Game;
 using Client.Code.Gameplay.Game.Over;
 using Client.Code.Gameplay.GameplayCamera;
 using Client.Code.Services.Asset;
 using UnityEngine;
 
-namespace Client.Code.Data.Gameplay
+namespace Client.Code.Data.Static.Configs.Gameplay
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay", fileName = "GameplayConfig", order = 0)]
     public class GameplayConfig : ScriptableObject, IAsset

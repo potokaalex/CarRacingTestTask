@@ -2,7 +2,7 @@
 using Client.Code.Data.Progress;
 using UnityEngine;
 
-namespace Client.Code.Data.Constants
+namespace Client.Code.Data.Static.Constants
 {
     public static class ProgressStorageConstants
     {

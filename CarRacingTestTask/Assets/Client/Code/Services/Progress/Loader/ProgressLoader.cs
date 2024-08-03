@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Client.Code.Data.Constants;
 using Client.Code.Data.Progress;
+using Client.Code.Data.Static.Constants;
 using Client.Code.Services.Logger.Base;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

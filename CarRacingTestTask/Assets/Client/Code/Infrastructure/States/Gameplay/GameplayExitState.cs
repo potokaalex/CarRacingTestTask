@@ -1,27 +1,27 @@
 ﻿using Client.Code.Infrastructure.States.Hub;
+using Client.Code.Services.Progress.Saver;
 using Client.Code.Services.StateMachine.Global;
 using Client.Code.Services.StateMachine.State;
-using Client.Code.Services.Updater;
 
-namespace Client.Code.Infrastructure.States.Project
+namespace Client.Code.Infrastructure.States.Gameplay
 {
-    public class ProjectEnterState : IState
+    public class GameplayExitState : IState
     {
-        private readonly IUpdater _updater;
         private readonly IGlobalStateMachine _stateMachine;
+        private readonly IProgressSaver _progressSaver;
 
-        public ProjectEnterState(IUpdater updater, IGlobalStateMachine stateMachine)
+        public GameplayExitState(IGlobalStateMachine stateMachine, IProgressSaver progressSaver)
         {
-            _updater = updater;
             _stateMachine = stateMachine;
+            _progressSaver = progressSaver;
         }
 
         public void Enter()
         {
-            _updater.OnExit += () => _stateMachine.SwitchTo<ProjectExitState>();
+            _progressSaver.Save();
             _stateMachine.SwitchTo<HubLoadState>();
         }
-        
+
         public void Exit()
         {
         }

@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Client.Code.Data.Gameplay
+namespace Client.Code.Data.Static.Configs.Gameplay
 {
     [CreateAssetMenu(menuName = "Configs/Car", fileName = "CarConfig", order = 0)]
     public class CarConfig : SerializedScriptableObject

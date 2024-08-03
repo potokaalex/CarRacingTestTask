@@ -1,7 +1,7 @@
 ﻿using System;
 using Client.Code.Gameplay.Car;
 
-namespace Client.Code.Data.Progress
+namespace Client.Code.Data.Progress.Player
 {
     [Serializable]
     public class PlayerProgress

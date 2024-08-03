@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Data.Hub;
 using Client.Code.Data.Scene;
+using Client.Code.Data.Static.Configs;
 using Client.Code.Services.Asset.Receiver;
 using Client.Code.UI.Windows;
 using Client.Code.UI.Windows.SelectLevel;

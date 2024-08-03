@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client.Code.Data.Progress
+namespace Client.Code.Data.Progress.Player
 {
     [Serializable]
     public class ShopProgress

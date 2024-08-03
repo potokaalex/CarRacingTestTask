@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Data.Gameplay;
+using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Car.Controllers.Base;
 using Client.Code.Gameplay.GameplaySpawnPoint;
