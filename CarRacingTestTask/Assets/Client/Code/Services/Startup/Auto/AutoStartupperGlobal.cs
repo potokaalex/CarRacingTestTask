@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Client.Code.Services.Startup.Auto
 {
-    public class AutoStartupperGlobal<T> : IInitializable where T : IStateAsync
+    public class AutoStartupperGlobal<T> : IInitializable where T : IStateBase
     {
         private readonly IGlobalStateMachine _stateMachine;
 

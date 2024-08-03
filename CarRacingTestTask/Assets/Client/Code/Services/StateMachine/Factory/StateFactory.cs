@@ -10,6 +10,6 @@ namespace Client.Code.Services.StateMachine.Factory
 
         public StateFactory(IInstantiator container) => _container = container;
 
-        public IStateAsync Create(Type stateType) => (IStateAsync)_container.Instantiate(stateType);
+        public IStateBase Create(Type stateType) => (IStateBase)_container.Instantiate(stateType);
     }
 }

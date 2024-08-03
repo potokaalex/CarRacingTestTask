@@ -5,21 +5,19 @@ using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States.Gameplay
 {
-    public class GameplayGameOverState : IStateAsync
+    public class GameplayGameOverState : IState
     {
         private readonly GameOverScreenFactory _screenFactory;
 
         public GameplayGameOverState(GameOverScreenFactory screenFactory) => _screenFactory = screenFactory;
 
-        public UniTask Enter()
+        public void Enter()
         {
             _screenFactory.Create();
-            return UniTask.CompletedTask;
         }
 
-        public UniTask Exit()
+        public void Exit()
         {
-            return UniTask.CompletedTask;
         }
     }
 }

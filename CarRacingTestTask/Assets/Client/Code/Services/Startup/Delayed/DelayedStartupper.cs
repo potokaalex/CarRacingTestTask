@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Client.Code.Services.Startup.Delayed
 {
-    public class DelayedStartupper<T> : IInitializable where T : IStateAsync
+    public class DelayedStartupper<T> : IInitializable where T : IStateBase
     {
         private readonly IInstantiator _instantiator;
 

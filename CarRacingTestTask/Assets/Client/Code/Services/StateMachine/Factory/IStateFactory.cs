@@ -5,6 +5,6 @@ namespace Client.Code.Services.StateMachine.Factory
 {
     public interface IStateFactory
     {
-        IStateAsync Create(Type stateType);
+        IStateBase Create(Type stateType);
     }
 }

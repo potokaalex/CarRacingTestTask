@@ -9,7 +9,7 @@ using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States.Gameplay
 {
-    public class GameplayState : IStateAsync
+    public class GameplayState : IState
     {
         private readonly CarFactory _carFactory;
         private readonly GameplaySceneData _sceneData;
@@ -27,24 +27,20 @@ namespace Client.Code.Infrastructure.States.Gameplay
             _cameraFactory = cameraFactory;
         }
 
-        public UniTask Enter()
+        public void Enter()
         {
             _carFactory.Create(_sceneData.CarSpawnPoint.ToSpawnPoint());
             _cameraFactory.Create();
             _playerFactory.Create();
             _factory.Create();
-
-            return UniTask.CompletedTask;
         }
 
-        public UniTask Exit()
+        public void Exit()
         {
             _carFactory.Destroy();
             _cameraFactory.Destroy();
             _playerFactory.Destroy();
             _factory.Destroy();
-
-            return UniTask.CompletedTask;
         }
     }
 }

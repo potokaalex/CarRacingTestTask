@@ -5,7 +5,7 @@ namespace Client.Code.Services.StateMachine
 {
     public interface IStateMachine
     {
-        void SwitchTo<T>() where T : IStateAsync;
+        void SwitchTo<T>() where T : IStateBase;
         void SwitchTo(Type stateType);
     }
 }

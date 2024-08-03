@@ -13,10 +13,7 @@ namespace Client.Code.Services.Asset.Loader
         public void Load()
         {
             foreach (var receiver in _receivers)
-            {
-                UnityEngine.Debug.Log(receiver.GetType().Name);
                 receiver.Receive(_asset);
-            }
         }
 
         public void RegisterReceiver(IAssetReceiver<T> receiver) => _receivers.Add(receiver);

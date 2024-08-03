@@ -8,17 +8,17 @@ namespace Client.Code.Services.StateMachine
     public class StateMachine : IStateMachine, IDisposable
     {
         private readonly IStateFactory _factory;
-        private IStateAsync _currentState;
+        private IStateBase _currentState;
 
         public StateMachine(IStateFactory factory) => _factory = factory;
 
-        public void SwitchTo<T>() where T : IStateAsync => SwitchTo(typeof(T));
+        public void SwitchTo<T>() where T : IStateBase => SwitchTo(typeof(T));
 
         public void SwitchTo(Type stateType) => SwitchToAsync(stateType).Forget();
 
         public void Dispose() => ExitAsync().Forget();
 
-        public async UniTask SwitchToAsync(Type stateType)
+        private async UniTask SwitchToAsync(Type stateType)
         {
             await ExitAsync();
             _currentState = _factory.Create(stateType);
@@ -28,16 +28,23 @@ namespace Client.Code.Services.StateMachine
         private async UniTask EnterAsync()
         {
             DebugOnEnter();
-            await _currentState.Enter();
+
+            if (_currentState is IState state)
+                state.Enter();
+            else if (_currentState is IStateAsync asyncState)
+                await asyncState.Enter();
         }
 
         private async UniTask ExitAsync()
         {
-            if (_currentState != null)
-            {
-                DebugOnExit();
-                await _currentState.Exit();
-            }
+            if (_currentState == null)
+                return;
+
+            DebugOnExit();
+            if (_currentState is IState state)
+                state.Exit();
+            else if (_currentState is IStateAsync asyncState)
+                await asyncState.Exit();
         }
 
         private protected string GetCurrentStateName() => _currentState.GetType().Name; //used in debug!

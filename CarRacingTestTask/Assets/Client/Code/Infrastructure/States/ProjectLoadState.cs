@@ -1,15 +1,12 @@
 ﻿using Client.Code.Data;
 using Client.Code.Infrastructure.States.Gameplay;
-using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Loader;
-using Client.Code.Services.StateMachine;
 using Client.Code.Services.StateMachine.Global;
 using Client.Code.Services.StateMachine.State;
-using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States
 {
-    public class ProjectLoadState : IStateAsync
+    public class ProjectLoadState : IState
     {
         private readonly IAssetLoader<ProjectConfig> _assetLoader;
         private readonly IGlobalStateMachine _stateMachine;
@@ -20,13 +17,14 @@ namespace Client.Code.Infrastructure.States
             _stateMachine = stateMachine;
         }
 
-        public UniTask Enter()
+        public void Enter()
         {
             _assetLoader.Load();
             _stateMachine.SwitchTo<GameplayLoadState>();
-            return UniTask.CompletedTask;
         }
 
-        public UniTask Exit() => UniTask.CompletedTask;
+        public void Exit()
+        {
+        }
     }
 }
