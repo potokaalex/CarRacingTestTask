@@ -11,6 +11,7 @@ Naming:
         UIElement - like view in mVx
         
 TODO
+    Refactoring: assemdef! 
     garage:
         select level menu: offline level, online level
         cash view

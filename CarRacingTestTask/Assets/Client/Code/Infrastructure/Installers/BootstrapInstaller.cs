@@ -1,4 +1,5 @@
 ﻿using Client.Code.Infrastructure.States;
+using Client.Code.Infrastructure.States.Project;
 using Client.Code.Services.Startup.Auto;
 using Zenject;
 

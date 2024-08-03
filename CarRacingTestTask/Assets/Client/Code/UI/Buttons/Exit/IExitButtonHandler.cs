@@ -2,6 +2,6 @@
 {
     public interface IExitButtonHandler
     {
-        void Handle(ExitButtonType type);
+        void Handle();
     }
 }

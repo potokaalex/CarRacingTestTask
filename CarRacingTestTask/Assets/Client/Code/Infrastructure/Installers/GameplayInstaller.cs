@@ -31,9 +31,7 @@ namespace Client.Code.Infrastructure.Installers
             BindPlayer();
 
             Container.BindInterfacesAndSelfTo<CameraFactory>().AsSingle();
-            
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayConfig>>().AsSingle();
-            
             Container.Bind<GameplaySceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<DelayedStartupper<GameplayState>>().AsSingle();
         }
@@ -43,6 +41,7 @@ namespace Client.Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverScreenFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverPresenter>().AsSingle();
+            Container.BindInterfacesTo<GamePresenter>().AsSingle();
         }
 
         private void BindCar()

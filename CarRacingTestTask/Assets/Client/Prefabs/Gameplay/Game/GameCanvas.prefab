@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5709418298914019317}
   - component: {fileID: 8118996151636114600}
   - component: {fileID: 6867592085649485758}
-  - component: {fileID: 7637165279188788880}
+  - component: {fileID: 3847298852124709780}
   m_Layer: 5
-  m_Name: LoadHubButton
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7637165279188788880
+--- !u!114 &3847298852124709780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1270912172342888890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e15e4201dcf141c4abfbd19b092c62bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2af35bcac24849ed8ca704e1cc67f04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 2
 --- !u!1 &2715947009408594894
 GameObject:
   m_ObjectHideFlags: 0

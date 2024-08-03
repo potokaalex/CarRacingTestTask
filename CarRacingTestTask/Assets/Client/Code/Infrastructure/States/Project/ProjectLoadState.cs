@@ -1,11 +1,10 @@
 ﻿using Client.Code.Data;
-using Client.Code.Infrastructure.States.Gameplay;
 using Client.Code.Services.Asset.Loader;
 using Client.Code.Services.InputService;
 using Client.Code.Services.StateMachine.Global;
 using Client.Code.Services.StateMachine.State;
 
-namespace Client.Code.Infrastructure.States
+namespace Client.Code.Infrastructure.States.Project
 {
     public class ProjectLoadState : IState
     {
@@ -24,7 +23,7 @@ namespace Client.Code.Infrastructure.States
         {
             _assetLoader.Load();
             _inputFactory.Create();
-            _stateMachine.SwitchTo<HubLoadState>();
+            _stateMachine.SwitchTo<ProjectEnterState>();
         }
 
         public void Exit()
