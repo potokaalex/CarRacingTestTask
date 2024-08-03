@@ -1,12 +1,16 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using Client.Code.Services.Logger.Base;
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 namespace Client.Code.Services.Ads.Interstitial
 {
     public class AdsInterstitialService : IInitializable, IAdsInterstitialService
     {
+        private readonly ILogReceiver _logReceiver;
         private ShowAdResult _showAdResult;
         private LoadAdResult _loadAdResult;
+
+        public AdsInterstitialService(ILogReceiver logReceiver) => _logReceiver = logReceiver;
 
         public void Initialize()
         {
@@ -43,25 +47,25 @@ namespace Client.Code.Services.Ads.Interstitial
         private void OnAdShowSucceeded(IronSourceAdInfo obj)
         {
             _showAdResult = ShowAdResult.Success;
-            UnityEngine.Debug.Log("Interstitial ad show succeeded."); //TODO: logger
+            _logReceiver.Log(new LogData { Message = "Interstitial ad show succeeded." });
         }
 
         private void OnAdShowFailed(IronSourceError arg1, IronSourceAdInfo arg2)
         {
             _showAdResult = ShowAdResult.Fail;
-            UnityEngine.Debug.Log("Interstitial ad show fail.");
+            _logReceiver.Log(new LogData { Message = "Interstitial ad show fail." });
         }
 
         private void OnAdReady(IronSourceAdInfo obj)
         {
             _loadAdResult = LoadAdResult.Success;
-            UnityEngine.Debug.Log("Interstitial ad load success.");
+            _logReceiver.Log(new LogData { Message = "Interstitial ad load success." });
         }
 
         private void OnAdLoadFailed(IronSourceError obj)
         {
             _loadAdResult = LoadAdResult.Fail;
-            UnityEngine.Debug.Log("Interstitial ad load fail.");
+            _logReceiver.Log(new LogData { Message = "Interstitial ad load fail." });
         }
     }
 }

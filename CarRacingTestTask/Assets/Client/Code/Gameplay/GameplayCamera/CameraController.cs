@@ -3,7 +3,7 @@
 using System;
 using UnityEngine;
 
-namespace Client.Code.Gameplay
+namespace Client.Code.Gameplay.GameplayCamera
 {
     /// <summary>
     /// 3rd person camera controller.

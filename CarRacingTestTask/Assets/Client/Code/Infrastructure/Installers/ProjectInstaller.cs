@@ -1,8 +1,9 @@
 ﻿using System;
 using Client.Code.Data;
-using Client.Code.Services.Ads;
 using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.AssetProvider;
+using Client.Code.Services.Logger;
+using Client.Code.Services.Logger.Base;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
@@ -21,10 +22,18 @@ namespace Client.Code.Infrastructure.Installers
         {
             BindStateMachine();
             BindAds();
+            BindLogger();
             Container.BindInterfacesTo<AssetProviderProjectConfig>().AsSingle().WithArguments(_config);
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
+        }
+
+        private void BindLogger()
+        {
+            Container.BindInterfacesTo<LogReceiver>().AsSingle();
+            Container.BindInterfacesTo<LoggerByUnityLog>().AsSingle();
+            Container.BindInterfacesTo<LogHandlersRegister>().AsSingle();
         }
 
         private void BindStateMachine()
@@ -38,8 +47,8 @@ namespace Client.Code.Infrastructure.Installers
 #if UNITY_EDITOR
             Container.BindInterfacesTo<AdsInterstitialServiceUnityEditor>().AsSingle();
 #else
-            Container.BindInterfacesTo<AdsService>().AsSingle();
-            Container.BindInterfacesTo<AdsInterstitialService>().AsSingle();
+            Container.BindInterfacesTo<Client.Code.Services.Ads.AdsService>().AsSingle();
+            Container.BindInterfacesTo<Client.Code.Services.Ads.Interstitial.AdsInterstitialService>().AsSingle();
 #endif
         }
     }

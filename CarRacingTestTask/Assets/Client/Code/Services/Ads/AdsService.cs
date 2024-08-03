@@ -1,4 +1,5 @@
-﻿using Client.Code.Services.Updater;
+﻿using Client.Code.Services.Logger.Base;
+using Client.Code.Services.Updater;
 using UnityEngine;
 using Zenject;
 
@@ -7,8 +8,13 @@ namespace Client.Code.Services.Ads
     public class AdsService : IInitializable
     {
         private readonly IUpdater _updater;
+        private readonly ILogReceiver _logReceiver;
 
-        public AdsService(IUpdater updater) => _updater = updater;
+        public AdsService(IUpdater updater, ILogReceiver logReceiver)
+        {
+            _updater = updater;
+            _logReceiver = logReceiver;
+        }
 
         public void Initialize()
         {
@@ -18,9 +24,9 @@ namespace Client.Code.Services.Ads
             InitializeIronSource();
         }
 
-        private void OnInitializationCompleted() => Debug.Log("Ads initialization completed."); //TODO: logger
+        private void OnInitializationCompleted() => _logReceiver.Log(new LogData { Message = "Ads service initialization completed." });
 
-        private static void InitializeIronSource()
+        private void InitializeIronSource()
         {
             var settings = Resources.Load<IronSourceMediationSettings>(IronSourceConstants.IRONSOURCE_MEDIATION_SETTING_NAME);
             var appKey = GetAppKey(settings);
@@ -32,7 +38,7 @@ namespace Client.Code.Services.Ads
                 IronSource.Agent.setAdaptersDebug(true);
 
             if (appKey.Equals(string.Empty))
-                Debug.LogWarning("Cannot init ads without AppKey"); //TODO: logger
+                _logReceiver.Log(new LogData { Message = "Cannot init ads without app key." });
             else
             {
                 IronSource.Agent.validateIntegration();
@@ -40,7 +46,7 @@ namespace Client.Code.Services.Ads
             }
         }
 
-        private static string GetAppKey(IronSourceMediationSettings settings)
+        private string GetAppKey(IronSourceMediationSettings settings)
         {
 #if UNITY_ANDROID
             return settings.AndroidAppKey;

@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Services.Ads.Interstitial
+﻿namespace Client.Code.Services.Ads
 {
     public enum LoadAdResult
     {

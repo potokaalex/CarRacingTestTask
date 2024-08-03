@@ -1,6 +1,7 @@
 ﻿using Client.Code.Gameplay;
 using Client.Code.Gameplay.Game;
 using Client.Code.Gameplay.Game.Over;
+using Client.Code.Gameplay.GameplayCamera;
 using Client.Code.Services.AssetProvider;
 using UnityEngine;
 
