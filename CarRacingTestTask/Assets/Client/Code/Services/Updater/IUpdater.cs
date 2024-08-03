@@ -9,7 +9,7 @@ namespace Client.Code.Services.Updater
         event Action OnFixedUpdate;
         event Action<float> OnFixedUpdateWithDelta;
         event Action<bool> OnApplicationPauseChanged;
-        event Action OnExit;
+        event Action OnDispose;
         void ClearAllListeners();
     }
 }

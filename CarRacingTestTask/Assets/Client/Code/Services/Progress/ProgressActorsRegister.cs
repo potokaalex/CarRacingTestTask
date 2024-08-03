@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Client.Code.Services.Progress
 {
-    public class ProgressActorsRegister : IInitializable, IDisposable
+    public class ProgressActorsRegister : IInitializable, ILateDisposable
     {
         private readonly IProgressSaver _saver;
         private readonly IProgressLoader _loader;
@@ -30,7 +30,8 @@ namespace Client.Code.Services.Progress
                 _saver.Register(writer);
         }
 
-        public void Dispose()
+        //when game exit, the save is invoked on Dispose, so actors cleared on LateDispose to save their data
+        public void LateDispose()
         {
             foreach (var reader in _readers)
                 _loader.UnRegister(reader);

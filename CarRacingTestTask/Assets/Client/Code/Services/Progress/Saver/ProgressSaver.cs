@@ -19,7 +19,7 @@ namespace Client.Code.Services.Progress.Saver
 
         public void Save()
         {
-            foreach (var writer in _writers)
+            foreach (var writer in _writers) 
                 writer.OnSave(_progress);
 
             SaveProgress();

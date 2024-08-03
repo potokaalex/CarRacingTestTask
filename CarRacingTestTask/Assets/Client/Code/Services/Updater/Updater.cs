@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Client.Code.Services.Updater
 {
-    public class Updater : MonoBehaviour, IUpdater
+    public class Updater : MonoBehaviour, IUpdater, IDisposable
     {
         public event Action OnUpdate;
         public event Action<float> OnUpdateWithDelta;
         public event Action OnFixedUpdate;
         public event Action<float> OnFixedUpdateWithDelta;
         public event Action<bool> OnApplicationPauseChanged;
-        public event Action OnExit;
+        public event Action OnDispose;
 
         private void Update()
         {
@@ -26,13 +26,13 @@ namespace Client.Code.Services.Updater
 
         public void OnApplicationPause(bool isPaused) => OnApplicationPauseChanged?.Invoke(isPaused);
 
-        private void OnDestroy() => OnExit?.Invoke();
+        public void Dispose() => OnDispose?.Invoke();
 
         public void ClearAllListeners()
         {
             OnUpdate = null;
             OnFixedUpdate = null;
-            OnExit = null;
+            OnDispose = null;
         }
     }
 }

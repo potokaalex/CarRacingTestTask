@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 167553457940114081}
   - component: {fileID: 8037692732337752852}
   - component: {fileID: 4960689582482554749}
+  - component: {fileID: 236981442270207482}
   m_Layer: 5
   m_Name: ShopWindow
   m_TagString: Untagged
@@ -103,6 +104,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &236981442270207482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985679787957232162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9197603b5dec4b998cbacb2044f22624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarSpoilerPurchasedButton: {fileID: 110034155232259472}
 --- !u!1 &4042318435208631002
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +129,7 @@ GameObject:
   - component: {fileID: 5779804161874832605}
   - component: {fileID: 2903514501248665406}
   - component: {fileID: 5818501715926224885}
+  - component: {fileID: 110034155232259472}
   m_Layer: 5
   m_Name: BuySpoilerButton
   m_TagString: Untagged
@@ -224,6 +239,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &110034155232259472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042318435208631002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c50ab12b29941a3b88da9c20ac4af22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!1 &7829829051343353877
 GameObject:
   m_ObjectHideFlags: 0

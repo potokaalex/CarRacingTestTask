@@ -6,15 +6,21 @@ namespace Client.Code.UI.Buttons
     [RequireComponent(typeof(Button))]
     public abstract class ButtonBase : MonoBehaviour
     {
-        private Button _button;
+        private Button _baseButton;
+
+        public void Lock(bool isLocked)
+        {
+            _baseButton.image.color = isLocked ? Color.black : Color.white;
+            _baseButton.interactable = !isLocked;
+        }
 
         private void Awake()
         {
-            _button = gameObject.GetComponent<Button>();
-            _button.onClick.AddListener(OnClick);
+            _baseButton = gameObject.GetComponent<Button>();
+            _baseButton.onClick.AddListener(OnClick);
         }
 
-        private void OnDestroy() => _button.onClick.RemoveListener(OnClick);
+        private void OnDestroy() => _baseButton.onClick.RemoveListener(OnClick);
 
         private protected abstract void OnClick();
     }

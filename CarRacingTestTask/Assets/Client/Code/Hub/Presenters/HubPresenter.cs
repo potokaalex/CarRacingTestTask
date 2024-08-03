@@ -8,6 +8,7 @@ using Client.Code.UI.Windows;
 using Client.Code.UI.Windows.Customization;
 using Client.Code.UI.Windows.SelectLevel;
 using Client.Code.UI.Windows.Settings;
+using Client.Code.UI.Windows.Shop;
 
 namespace Client.Code.Hub.Presenters
 {
@@ -18,15 +19,18 @@ namespace Client.Code.Hub.Presenters
         private readonly IGlobalStateMachine _stateMachine;
         private readonly ICustomizationWindowFactory _customizationWindowFactory;
         private readonly ISettingsWindowFactory _settingsWindowFactory;
+        private readonly IShopWindowFactory _shopWindowFactory;
 
         public HubPresenter(HubModel model, ISelectLevelWindowFactory selectLevelWindowFactory, IGlobalStateMachine stateMachine,
-            ICustomizationWindowFactory customizationWindowFactory, ISettingsWindowFactory settingsWindowFactory)
+            ICustomizationWindowFactory customizationWindowFactory, ISettingsWindowFactory settingsWindowFactory,
+            IShopWindowFactory shopWindowFactory)
         {
             _model = model;
             _selectLevelWindowFactory = selectLevelWindowFactory;
             _stateMachine = stateMachine;
             _customizationWindowFactory = customizationWindowFactory;
             _settingsWindowFactory = settingsWindowFactory;
+            _shopWindowFactory = shopWindowFactory;
         }
 
         public void Handle(LoadButtonType type)
@@ -55,9 +59,9 @@ namespace Client.Code.Hub.Presenters
                 _selectLevelWindowFactory.Destroy();
             if (type == WindowType.Customization)
                 _customizationWindowFactory.Destroy();
-            if (type == WindowType.Settings)
-                _settingsWindowFactory.Destroy();
-            
+            if (type == WindowType.Shop)
+                _shopWindowFactory.Destroy();
+
             _model.CurrentWindow = WindowType.None;
         }
 
@@ -69,7 +73,9 @@ namespace Client.Code.Hub.Presenters
                 _customizationWindowFactory.Create();
             if (type == WindowType.Settings)
                 _settingsWindowFactory.Create();
-            
+            if (type == WindowType.Shop)
+                _shopWindowFactory.Create();
+
             _model.CurrentWindow = type;
         }
     }

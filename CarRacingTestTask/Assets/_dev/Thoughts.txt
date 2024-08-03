@@ -15,7 +15,6 @@ TODO
     Refactoring: assemdef!
     garage:
         IAP shop menu: buy coins, buy car spoiler (IAP SDK ?) +-
-        settings menu: (sound check) +-
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
@@ -23,6 +22,8 @@ TODO
         Levels design (myself)
         Online sync between players (rotation wheels, steering, engine sound)
         Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
+
+load all saved data: audio, customization.
 
 Discarded:
         Important car shop

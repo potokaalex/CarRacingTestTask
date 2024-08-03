@@ -34,6 +34,7 @@ namespace Client.Code.Infrastructure.Installers
             Container.BindInterfacesTo<HubPresenter>().AsSingle();
             Container.BindInterfacesTo<HubCustomizationPresenter>().AsSingle();
             Container.BindInterfacesTo<HubSettingsPresenter>().AsSingle();
+            Container.BindInterfacesTo<HubShopPresenter>().AsSingle();
         }
         
         private void BindStateMachine()

@@ -18,7 +18,7 @@ namespace Client.Code.Infrastructure.States.Project
 
         public void Enter()
         {
-            _updater.OnExit += () => _stateMachine.SwitchTo<ProjectExitState>();
+            _updater.OnDispose += () => _stateMachine.SwitchTo<ProjectExitState>();
             _stateMachine.SwitchTo<HubLoadState>();
         }
         

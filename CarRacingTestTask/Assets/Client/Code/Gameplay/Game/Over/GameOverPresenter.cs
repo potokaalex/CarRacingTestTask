@@ -31,7 +31,7 @@ namespace Client.Code.Gameplay.Game.Over
 
             _playerCoinsController.DoubleSessionsCoins();
             _screen.CoinsView.SetCoinsCount(_playerCoinsController.SessionCoinsCount);
-            _screen.DoubleCoinsButton.Lock();
+            _screen.DoubleCoinsButton.Lock(true);
         }
     }
 }
