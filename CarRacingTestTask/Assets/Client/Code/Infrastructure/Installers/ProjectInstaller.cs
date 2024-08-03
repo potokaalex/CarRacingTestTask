@@ -9,6 +9,8 @@ using Client.Code.Services.Asset.Receiver;
 using Client.Code.Services.InputService;
 using Client.Code.Services.Logger;
 using Client.Code.Services.Logger.Base;
+using Client.Code.Services.Progress.Loader;
+using Client.Code.Services.Progress.Saver;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
@@ -31,11 +33,18 @@ namespace Client.Code.Infrastructure.Installers
             BindAssets();
             BindLogger();
             BindAds();
-
+            BindProgress();
+            
             Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
+        }
+
+        private void BindProgress()
+        {
+            Container.BindInterfacesTo<ProgressSaver>().AsSingle();
+            Container.BindInterfacesTo<ProgressLoader>().AsSingle();
         }
 
         private void BindAssets()

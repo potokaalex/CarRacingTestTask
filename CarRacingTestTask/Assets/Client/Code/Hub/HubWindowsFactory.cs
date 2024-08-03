@@ -1,28 +1,24 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Data;
 using Client.Code.Data.Hub;
-using Client.Code.Infrastructure.Installers;
+using Client.Code.Data.Scene;
 using Client.Code.Services.Asset.Receiver;
 using Client.Code.UI.Windows;
 using Client.Code.UI.Windows.SelectLevel;
-using UnityEngine;
 using Zenject;
 
 namespace Client.Code.Hub
 {
-    public class HubFactory : IAssetReceiver<HubConfig>, ISelectLevelWindowFactory
+    public class HubWindowsFactory : IAssetReceiver<HubConfig>, ISelectLevelWindowFactory
     {
         private readonly List<WindowBase> _windows = new();
-        private readonly HubSceneData _sceneData;
         private readonly IInstantiator _instantiator;
         private HubConfig _config;
+        private HubCanvas _canvas;
 
-        public HubFactory(HubSceneData sceneData, IInstantiator instantiator)
-        {
-            _sceneData = sceneData;
-            _instantiator = instantiator;
-        }
+        public HubWindowsFactory(IInstantiator instantiator) => _instantiator = instantiator;
 
+        public void Initialize(HubCanvas canvas) => _canvas = canvas;
+        
         public void Receive(HubConfig asset) => _config = asset;
 
         void ISelectLevelWindowFactory.Create()
@@ -30,12 +26,12 @@ namespace Client.Code.Hub
             if (TryGetWindow(WindowType.SelectLevel, out var window))
                 window.Open();
             else
-                CreateWindow(_config.SelectLevelWindowPrefab, _sceneData.Canvas.SelectLevelWindowSpawnPoint);
+                CreateWindow(_config.SelectLevelWindowPrefab);
         }
 
-        private void CreateWindow(WindowBase windowPrefab, Transform root)
+        private void CreateWindow(WindowBase windowPrefab)
         {
-            var newWindow = _instantiator.InstantiatePrefabForComponent<SelectLevelWindow>(windowPrefab, root);
+            var newWindow = _instantiator.InstantiatePrefabForComponent<SelectLevelWindow>(windowPrefab, _canvas.WindowsSpawnPoint);
             newWindow.Open();
             _windows.Add(newWindow);
         }

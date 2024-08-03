@@ -22,3 +22,4 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   SelectLevelWindowPrefab: {fileID: 3873527847865325042, guid: 77f08e944ac2ebc4aa35571d09dff4b0, type: 3}
+  CanvasPrefab: {fileID: 1265308759717201375, guid: 3a8142baeb48c46458254c920f2e052f, type: 3}

@@ -40,4 +40,4 @@ CarRacingTestTask\CarRacingTestTask\Temp\PlayServicesResolverGradle
 Его можно взять отсюда:
 https://raw.githubusercontent.com/googlesamples/unity-jar-resolver/master/gradlew.bat
 
-ui текст в gameOverScreen обновляется странно. (unity bug ?)
+ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!

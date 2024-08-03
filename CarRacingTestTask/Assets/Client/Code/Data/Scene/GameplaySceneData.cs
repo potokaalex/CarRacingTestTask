@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Client.Code.Data.Gameplay
+namespace Client.Code.Data.Scene
 {
     [Serializable]
     public class GameplaySceneData

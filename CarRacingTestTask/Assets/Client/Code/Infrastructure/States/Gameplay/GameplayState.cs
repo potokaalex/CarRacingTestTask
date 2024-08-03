@@ -1,4 +1,5 @@
 ﻿using Client.Code.Data.Gameplay;
+using Client.Code.Data.Scene;
 using Client.Code.Gameplay.Car;
 using Client.Code.Gameplay.Game;
 using Client.Code.Gameplay.GameplayCamera;
