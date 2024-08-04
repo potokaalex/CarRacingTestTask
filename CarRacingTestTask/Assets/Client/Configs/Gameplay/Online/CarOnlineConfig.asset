@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae52cbf96ed47f381eedbcd5b5ab1d1, type: 3}
+  m_Name: CarOnlineConfig
+  m_EditorClassIdentifier: Assembly-CSharp:Client.Code.Gameplay:CarConfig
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2100000, guid: 74196cf5d503c14488ae1ef1dbc6c9a4, type: 2}
+    - {fileID: 2100000, guid: 104696f8b5f23d24586d858b68916bdc, type: 2}
+    - {fileID: 2100000, guid: 07f44fe3e9c462146a7769b976c50ec4, type: 2}
+    - {fileID: 2100000, guid: d2344366b80fe3d4f886ec412e0174fa, type: 2}
+    - {fileID: 2100000, guid: c4c2ee3e832cffd48bb9d156c2b21376, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: CarColors
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Common.Data.CarColorType,
+        Common],[UnityEngine.Material, UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Common.Data.CarColorType,
+        Common]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Prefab: {fileID: 3166038427938160214, guid: f9848a7d09106c946b97612d38a60d30, type: 3}
+  SpoilerPrefab: {fileID: 909769191228053628, guid: e6edecc6822cf38439179c30c6f3f45b, type: 3}
+  MotorForce: 1000
+  BrakeForce: 5000000
+  MaxMoveVelocity: 200
+  MaxSteerAngle: 45
+  SteerAngleAccelerationTimeSec: 0.2
+  MinVelocityToDrift: 5
+  MinAngleToDrift: 20

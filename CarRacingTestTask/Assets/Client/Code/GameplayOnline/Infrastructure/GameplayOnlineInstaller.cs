@@ -6,6 +6,7 @@ using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.UI.Presenters;
 using Client.Code.GameplayOnline.Data;
 using Client.Code.GameplayOnline.Data.Static.Configs;
+using Client.Code.GameplayOnline.Game;
 using Client.Code.GameplayOnline.Game.Car;
 using Client.Code.GameplayOnline.Game.GameCamera;
 using Client.Code.GameplayOnline.Infrastructure.States;
@@ -26,6 +27,7 @@ namespace Client.Code.GameplayOnline.Infrastructure
             BindGame();
             
             Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
+            Container.BindInterfacesTo<NetworkEventReceiversRegister>().AsSingle();
             Container.Bind<GameplayOnlineSceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<AutoStartupper<GameplayOnlineLoadState>>().AsSingle();
         }
@@ -34,6 +36,7 @@ namespace Client.Code.GameplayOnline.Infrastructure
         {
             BindCar();
             Container.BindInterfacesTo<CameraFactoryOnline>().AsSingle();
+            Container.Bind<GameStartCheckerOnline>().AsSingle();
         }
 
         private void BindCar()

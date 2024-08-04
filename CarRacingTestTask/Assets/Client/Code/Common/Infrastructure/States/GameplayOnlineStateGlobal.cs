@@ -27,16 +27,14 @@ namespace Client.Code.Common.Infrastructure.States
         public async UniTask Enter()
         {
             var connectionResult = await _networkConnectionService.ConnectToMasterAsync();
-
             if (connectionResult == NetworkConnectionResult.Fail)
                 _stateMachine.SwitchTo<HubStateGlobal>();
 
+            await _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
+            
             var joinRoomResult = await _networkRoomService.JoinRoomAsync();
-
             if (joinRoomResult == NetworkJoinRoomResult.Fail)
                 _stateMachine.SwitchTo<HubStateGlobal>();
-
-            await _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
         }
 
         public UniTask Exit() => UniTask.CompletedTask;

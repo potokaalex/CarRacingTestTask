@@ -83,6 +83,7 @@ namespace Client.Code.Gameplay.Game.GameCamera
             cam = GetComponent<Camera>();
 
             lastUp = rotationSpace != null ? rotationSpace.up : Vector3.up;
+            SetCursor(lockCursor, false);
         }
 
         protected virtual void Update()
@@ -114,10 +115,13 @@ namespace Client.Code.Gameplay.Game.GameCamera
         // Read the user input
         public void UpdateInput()
         {
-            if (!cam.enabled || _isDisposed || _inputService.IsMouseOverUI()) return;
+            if (!cam.enabled || _isDisposed) 
+                return;
 
-            // Cursors
-            SetCursor(lockCursor);
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SetCursor(false, true);
+            if(Input.GetMouseButtonDown(0) && !_inputService.IsMouseOverUI())
+                SetCursor(true, false);
 
             // Should we rotate the camera?
             bool rotate = rotateAlways || (rotateOnLeftButton && Input.GetMouseButton(0)) || (rotateOnRightButton && Input.GetMouseButton(1)) ||
@@ -195,7 +199,7 @@ namespace Client.Code.Gameplay.Game.GameCamera
         public void Dispose()
         {
             _isDisposed = true;
-            SetCursor(false);
+            SetCursor(false, true);
         }
 
         // Zoom input
@@ -218,10 +222,10 @@ namespace Client.Code.Gameplay.Game.GameCamera
             return Mathf.Clamp(angle, min, max);
         }
 
-        private void SetCursor(bool isLock)
+        private void SetCursor(bool isLock, bool isVisible)
         {
-            Cursor.lockState = isLock ? CursorLockMode.Confined : CursorLockMode.None;
-            Cursor.visible = !isLock;
+            Cursor.lockState = isLock ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = isVisible;
         }
     }
 }

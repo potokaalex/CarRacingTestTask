@@ -7,41 +7,45 @@ Load progress order:
 
 связи assemdefs: все знают о common, composRoot знает о всех. 
 
-СОХРАНЯТЬСЯ ТОЛЬКО В 1 МЕСТЕ! 
+когда новый игрок присоединяется к комнате (заходит в комнату) фабрики должны создать новую машину.
 
-UpdaterInstaller!
+СОХРАНЯТЬСЯ ТОЛЬКО В 1 МЕСТЕ! - при выходе из проекта
+
+удалить подписки на выход в Exit методах - т.к. при возникновении ошибок Exit метод неминуемо вызовется!
+при входе нового игрока все запросы (которые я посылал от лица других игроков) должны быть получены и обработаны новым пользователем.
+создание автомобиля - запрос, который посылается игроками
+
+bug save-load place
 
 TODO
     Global:
-        Online (Photon): OnlineLevel , sync between players (position, customization )
-    Refactoring: Windows: Buy coins don't work!
-    Refactoring: ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
-    Refactoring: android iap bug
-    Refactoring: clearProgressButton
-    Refactoring: i can load offline scene when loading network scene.
+        Send request when car create.
+        start when players count is 2 or move. GameStartChecker
+        Sync position & customizations
+        Don't Receive messages if players count less then 2
+    Refactoring: 
+        Windows(only windows!?): Buy coins don't work! - iap service
+        android iap bug - не вызывается iap меню!
+        clearProgressButton - для очистки прогресса
+        ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
+        I can load offline scene when loading network scene. - make loadingScreen ?
     Optional:
-        Levels design (myself)
-        Online sync between players (rotation wheels, steering, engine sound)
+        Levels design (myself) - квадратная коробка с невидимыми стенами + работа с цветом.
+        sync rotation wheels (IPunObservable https://youtu.be/1q2x0IAvLBQ?t=352)
     Global:
-        Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations    
+        Optimization: Texture compression, lights optimizations(bake), see profilers & frame debugger.
         
 Tutorial: 
     IronSource: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
 
-
 Discarded:
-        Important car shop
         Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK    
-        Optional tyres sound system
-        Optional Engine sound system
+        Optional tyres sound system & engine sound system
         Optional Leaderboard in room (All players drift points)
         Optional Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
-
 
 
 audio bug when camera closing
 
 Errors solutions:
     Win32Exception: https://stackoverflow.com/a/77072270/23794352
-
-//по кнопке я создаю-подключаюсь к комнате.
