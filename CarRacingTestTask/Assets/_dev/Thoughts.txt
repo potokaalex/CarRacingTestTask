@@ -5,12 +5,15 @@ Load assets order:
 
 Load progress order:
 
+связи assemdefs: 
+
 TODO
     Refactoring: assemdefs!
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
     Refactoring: ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
     Refactoring: android iap bug
+    Refactoring: clearProgressButton
     Optional:
         Levels design (myself)
         Online sync between players (rotation wheels, steering, engine sound)
