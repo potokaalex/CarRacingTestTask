@@ -13,6 +13,6 @@ namespace Client.Code.Infrastructure.States.Hub
 
         public UniTask Enter() => _sceneLoader.LoadSceneAsync(SceneName.Hub);
 
-        public UniTask Exit() => _sceneLoader.UnLoadSceneAsync(SceneName.Hub);
+        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

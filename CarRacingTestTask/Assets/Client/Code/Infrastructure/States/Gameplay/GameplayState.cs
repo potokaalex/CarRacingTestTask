@@ -5,11 +5,10 @@ using Client.Code.Gameplay.GameplayCamera;
 using Client.Code.Gameplay.GameplaySpawnPoint;
 using Client.Code.Gameplay.Player;
 using Client.Code.Services.StateMachine.State;
-using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Infrastructure.States.Gameplay
 {
-    public class GameplayEnterState : IState
+    public class GameplayState : IState
     {
         private readonly CarFactory _carFactory;
         private readonly GameplaySceneData _sceneData;
@@ -17,7 +16,7 @@ namespace Client.Code.Infrastructure.States.Gameplay
         private readonly GameFactory _factory;
         private readonly CameraFactory _cameraFactory;
 
-        public GameplayEnterState(CarFactory carFactory, GameplaySceneData sceneData, PlayerFactory playerFactory, GameFactory factory,
+        public GameplayState(CarFactory carFactory, GameplaySceneData sceneData, PlayerFactory playerFactory, GameFactory factory,
             CameraFactory cameraFactory)
         {
             _carFactory = carFactory;

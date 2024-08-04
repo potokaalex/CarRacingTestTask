@@ -1,19 +1,25 @@
-Load order: BootstrapLoader(editor only) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> 
+Load order: BootstrapLoader(editor only) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> HubStateGlobal -> HubLoadState -> HubState -> HubUnLoadState (any way) -> :
+    -> GameplayStateGlobal
+
+Load assets order:
+
+Load progress order:
 
 TODO
-    Refactoring: StartLoadState, EndLoadState 
-    Refactoring: assemdef!
-    выключен ли звук при просмотре рекламы ?
-    ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
+    Refactoring: StartLoadState, EndLoadState for gameplay
     load all saved data: audio, customization.
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
-        Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations
+    Refactoring:
+        выключен ли звук при просмотре рекламы ?
+        ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
+        assemdefs!
     Optional:
         Levels design (myself)
         Online sync between players (rotation wheels, steering, engine sound)
         Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
-        
+    Global:
+        Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations    
         
 
 Tutorial I used to set up iron source: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming

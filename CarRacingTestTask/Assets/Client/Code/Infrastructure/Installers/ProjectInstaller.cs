@@ -1,9 +1,7 @@
 ﻿using System;
-using Client.Code.Data;
 using Client.Code.Data.Static.Configs;
 using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Data.Static.Configs.Project;
-using Client.Code.Hub.Presenters;
 using Client.Code.Services.Ads.Interstitial;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Loader;
@@ -16,7 +14,6 @@ using Client.Code.Services.Progress.Saver;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Shop;
 using Client.Code.Services.Shop.IAP;
-using Client.Code.Services.Startup.Runner;
 using Client.Code.Services.StateMachine.Factory;
 using Client.Code.Services.StateMachine.Global;
 using Client.Code.Services.Unity;
@@ -41,7 +38,6 @@ namespace Client.Code.Infrastructure.Installers
             BindProgress();
             BindShop();
 
-            Container.BindInterfacesTo<StartupRunner>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
@@ -64,9 +60,7 @@ namespace Client.Code.Infrastructure.Installers
         private void BindAssets()
         {
             Container.Bind<AllAssetsProvider>().AsSingle().WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig });
-
             Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle();
-            Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle();
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }
 

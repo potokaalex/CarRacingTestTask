@@ -31,8 +31,6 @@ namespace Client.Code.Services.Progress.Register
 
         public void LateDispose()
         {
-            UnityEngine.Debug.Log("ProgressActorsRegister: LateDispose");
-            
             foreach (var reader in _readers)
                 _loader.UnRegister(reader);
 

@@ -9,19 +9,12 @@ namespace Client.Code.Services.SceneLoader
     {
         private ProjectConfig _config;
 
-        public async UniTask<Scene> LoadSceneAsync(SceneName name)
+        public async UniTask LoadSceneAsync(SceneName name)
         {
             var sceneName = _config.SceneNames[name];
             await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single).ToUniTask();
-            return SceneManager.GetSceneByName(sceneName);
         }
-
-        public UniTask UnLoadSceneAsync(SceneName name)
-        {
-            //TODO: unload scene if Addressables
-            return UniTask.CompletedTask;
-        }
-
+        
         public void Receive(ProjectConfig asset) => _config = asset;
     }
 }

@@ -38,7 +38,7 @@ namespace Client.Code.Hub.Presenters
         public void Handle(LoadButtonType type)
         {
             if (type == LoadButtonType.Gameplay)
-                _globalStateMachine.SwitchTo<GameplayLoadState>();
+                _globalStateMachine.SwitchTo<GameplayGlobalState>();
         }
 
         public void Handle() => _globalStateMachine.SwitchTo<ProjectUnloadState>();

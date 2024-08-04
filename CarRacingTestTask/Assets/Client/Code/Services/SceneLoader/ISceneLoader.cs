@@ -7,7 +7,6 @@ namespace Client.Code.Services.SceneLoader
 {
     public interface ISceneLoader
     {
-        UniTask<Scene> LoadSceneAsync(SceneName name);
-        UniTask UnLoadSceneAsync(SceneName name);
+        UniTask LoadSceneAsync(SceneName name);
     }
 }
