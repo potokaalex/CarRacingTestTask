@@ -6,9 +6,8 @@ Load assets order:
 Load progress order:
 
 TODO
-    load all saved data: audio, customization.
     cant back when play
-    bug menu dont destroy!
+    android iap bug
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
     Refactoring:
