@@ -1,7 +1,9 @@
 ﻿//taken from here: https://pastebin.com/L6sVsiW3
 
 using System;
+using Client.Code.Services.InputService;
 using UnityEngine;
+using Zenject;
 
 namespace Client.Code.Gameplay.GameplayCamera
 {
@@ -64,6 +66,10 @@ namespace Client.Code.Gameplay.GameplayCamera
         private Vector3 lastUp;
         private float blockedDistance = 10f, blockedDistanceV;
         private bool _isDisposed;
+        private IInputService _inputService;
+
+        [Inject]
+        public void Construct(IInputService inputService) => _inputService =inputService;
 
         protected virtual void Awake()
         {
@@ -108,7 +114,7 @@ namespace Client.Code.Gameplay.GameplayCamera
         // Read the user input
         public void UpdateInput()
         {
-            if (!cam.enabled || _isDisposed) return;
+            if (!cam.enabled || _isDisposed || _inputService.IsMouseOverUI()) return;
 
             // Cursors
             SetCursor(lockCursor);
@@ -214,7 +220,7 @@ namespace Client.Code.Gameplay.GameplayCamera
         
         private void SetCursor(bool isLock)
         {
-            Cursor.lockState = isLock ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.lockState = isLock ? CursorLockMode.Confined : CursorLockMode.None;
             Cursor.visible = !isLock;
         }
     }

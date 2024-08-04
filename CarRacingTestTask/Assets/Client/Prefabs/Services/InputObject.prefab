@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 6397527267072507373}
   - component: {fileID: 6825997568745556542}
   m_Layer: 0
-  m_Name: InputService
+  m_Name: InputObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,3 +113,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc3c8ff44f34e7caeeb98429ea8c72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventSystem: {fileID: 6741065111928615086}

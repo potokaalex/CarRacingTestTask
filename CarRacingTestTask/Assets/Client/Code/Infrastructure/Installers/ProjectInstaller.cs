@@ -39,13 +39,18 @@ namespace Client.Code.Infrastructure.Installers
             BindAds();
             BindProgress();
             BindShop();
+            BindInput();
 
-            Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
-            
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
+        }
+
+        private void BindInput()
+        {
+            Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
+            Container.BindInterfacesTo<InputService>().AsSingle();
         }
 
         private void BindShop()

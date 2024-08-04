@@ -8,11 +8,20 @@ namespace Client.Code.Services.InputService
     public class InputFactory : IAssetReceiver<ProjectConfig>
     {
         private readonly IInstantiator _instantiator;
+        private readonly IInputService _inputService;
         private ProjectConfig _config;
 
-        public InputFactory(IInstantiator instantiator) => _instantiator = instantiator;
+        public InputFactory(IInstantiator instantiator, IInputService inputService)
+        {
+            _instantiator = instantiator;
+            _inputService = inputService;
+        }
 
-        public void Create() => _instantiator.InstantiatePrefab(_config.InputPrefab);
+        public void Create()
+        {
+            var input = _instantiator.InstantiatePrefabForComponent<InputObject>(_config.InputPrefab);
+            _inputService.Initialize(input);
+        }
 
         public void Receive(ProjectConfig asset) => _config = asset;
     }
