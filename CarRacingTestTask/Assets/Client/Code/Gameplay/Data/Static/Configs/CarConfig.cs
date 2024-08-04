@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Client.Code.Common.Data.Static.Configs.Gameplay
 {
-    [CreateAssetMenu(menuName = "Configs/Car", fileName = "CarConfig", order = 0)]
+    [CreateAssetMenu(menuName = "Configs/Gameplay/Car", fileName = "CarConfig", order = 0)]
     public class CarConfig : SerializedScriptableObject
     {
         public CarObject Prefab;

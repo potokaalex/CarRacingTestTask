@@ -5,7 +5,7 @@ Load assets order:
 
 Load progress order:
 
-связи assemdefs: 
+связи assemdefs: все знают о common, composRoot знает о всех. 
 
 TODO
     Refactoring: assemdefs!

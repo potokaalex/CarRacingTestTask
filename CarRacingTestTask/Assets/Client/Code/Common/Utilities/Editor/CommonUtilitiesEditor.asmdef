@@ -1,5 +1,5 @@
 {
-    "name": "UtilitiesEditor",
+    "name": "CommonUtilitiesEditor",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Client.Code.Common.Data.Static.Configs.Project
 {
-    [CreateAssetMenu(menuName = "Configs/IAP", fileName = "IAPConfig", order = 0)]
+    [CreateAssetMenu(menuName = "Configs/Project/Shop", fileName = "ShopConfig", order = 0)]
     public class ShopConfig : SerializedScriptableObject
     {
         public IAPObject IAPPrefab;

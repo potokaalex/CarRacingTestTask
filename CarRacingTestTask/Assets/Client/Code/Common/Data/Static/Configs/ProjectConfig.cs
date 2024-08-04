@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Client.Code.Common.Data.Static.Configs.Project
 {
-    [CreateAssetMenu(menuName = "Configs/Project", fileName = "ProjectConfig", order = 0)]
+    [CreateAssetMenu(menuName = "Configs/Project/Main", fileName = "ProjectConfig", order = 0)]
     public class ProjectConfig : SerializedScriptableObject, IAsset
     {
         public Dictionary<SceneName, string> SceneNames;

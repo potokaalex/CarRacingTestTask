@@ -92,8 +92,8 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 #if UNITY_EDITOR
             Container.BindInterfacesTo<AdsInterstitialServiceUnityEditor>().AsSingle();
 #else
-            Container.BindInterfacesTo<Client.Code.Services.Ads.AdsService>().AsSingle();
-            Container.BindInterfacesTo<Client.Code.Services.Ads.Interstitial.AdsInterstitialService>().AsSingle();
+            Container.BindInterfacesTo<Client.Code.Common.Services.Ads.AdsService>().AsSingle();
+            Container.BindInterfacesTo<Client.Code.Common.Services.Ads.Interstitial.AdsInterstitialService>().AsSingle();
 #endif
         }
     }

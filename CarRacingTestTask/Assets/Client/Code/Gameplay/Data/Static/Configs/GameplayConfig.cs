@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Client.Code.Common.Data.Static.Configs.Gameplay
 {
-    [CreateAssetMenu(menuName = "Configs/Gameplay", fileName = "GameplayConfig", order = 0)]
+    [CreateAssetMenu(menuName = "Configs/Gameplay/Main", fileName = "GameplayConfig", order = 0)]
     public class GameplayConfig : ScriptableObject, IAsset
     {
         public CarConfig Car;

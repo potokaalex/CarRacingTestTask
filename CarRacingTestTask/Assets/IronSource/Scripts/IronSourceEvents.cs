@@ -1,12 +1,13 @@
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
+using UnityEngine;
 
-public class IronSourceEvents : MonoBehaviour
+namespace IronSourceRoot.IronSource.Scripts
 {
+    public class IronSourceEvents : MonoBehaviour
+    {
 #if UNITY_IPHONE || UNITY_IOS
     delegate void ISUnityBackgroundCallback(string args);
 	[DllImport("__Internal")]
@@ -16,125 +17,125 @@ public class IronSourceEvents : MonoBehaviour
 
 #if UNITY_ANDROID
 #pragma warning disable CS0067
-    public static event Action onSdkInitializationCompletedEvent;
+        public static event Action onSdkInitializationCompletedEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action<IronSourceError> onRewardedVideoAdShowFailedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action onRewardedVideoAdOpenedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action onRewardedVideoAdClosedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action onRewardedVideoAdStartedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action onRewardedVideoAdEndedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action<IronSourcePlacement> onRewardedVideoAdRewardedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action<IronSourcePlacement> onRewardedVideoAdClickedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action<bool> onRewardedVideoAvailabilityChangedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action<IronSourceError> onRewardedVideoAdShowFailedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action onRewardedVideoAdOpenedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action onRewardedVideoAdClosedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action onRewardedVideoAdStartedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action onRewardedVideoAdEndedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action<IronSourcePlacement> onRewardedVideoAdRewardedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action<IronSourcePlacement> onRewardedVideoAdClickedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action<bool> onRewardedVideoAvailabilityChangedEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action<IronSourceError> onRewardedVideoAdLoadFailedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
-    public static event Action onRewardedVideoAdReadyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action<IronSourceError> onRewardedVideoAdLoadFailedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
+        public static event Action onRewardedVideoAdReadyEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onRewardedVideoAdOpenedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onRewardedVideoAdClosedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onRewardedVideoAdLoadedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onRewardedVideoAdRewardedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string, IronSourceError> onRewardedVideoAdShowFailedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onRewardedVideoAdClickedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string, IronSourceError> onRewardedVideoAdLoadFailedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onRewardedVideoAdOpenedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onRewardedVideoAdClosedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onRewardedVideoAdLoadedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onRewardedVideoAdRewardedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string, IronSourceError> onRewardedVideoAdShowFailedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onRewardedVideoAdClickedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string, IronSourceError> onRewardedVideoAdLoadFailedDemandOnlyEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action onInterstitialAdReadyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action<IronSourceError> onInterstitialAdLoadFailedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action onInterstitialAdOpenedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action onInterstitialAdClosedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action onInterstitialAdShowSucceededEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action<IronSourceError> onInterstitialAdShowFailedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
-    public static event Action onInterstitialAdClickedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action onInterstitialAdReadyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action<IronSourceError> onInterstitialAdLoadFailedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action onInterstitialAdOpenedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action onInterstitialAdClosedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action onInterstitialAdShowSucceededEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action<IronSourceError> onInterstitialAdShowFailedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
+        public static event Action onInterstitialAdClickedEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onInterstitialAdReadyDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onInterstitialAdOpenedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onInterstitialAdClosedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string, IronSourceError> onInterstitialAdLoadFailedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string> onInterstitialAdClickedDemandOnlyEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
-    public static event Action<string, IronSourceError> onInterstitialAdShowFailedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onInterstitialAdReadyDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onInterstitialAdOpenedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onInterstitialAdClosedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string, IronSourceError> onInterstitialAdLoadFailedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string> onInterstitialAdClickedDemandOnlyEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
+        public static event Action<string, IronSourceError> onInterstitialAdShowFailedDemandOnlyEvent;
 
-    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
-    public static event Action<bool> onOfferwallAvailableEvent;
-    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
-    public static event Action onOfferwallOpenedEvent;
-    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
-    public static event Action<Dictionary<string, object>> onOfferwallAdCreditedEvent;
-    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
-    public static event Action<IronSourceError> onGetOfferwallCreditsFailedEvent;
-    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
-    public static event Action onOfferwallClosedEvent;
-    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
-    public static event Action<IronSourceError> onOfferwallShowFailedEvent;
+        [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
+        public static event Action<bool> onOfferwallAvailableEvent;
+        [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
+        public static event Action onOfferwallOpenedEvent;
+        [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
+        public static event Action<Dictionary<string, object>> onOfferwallAdCreditedEvent;
+        [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
+        public static event Action<IronSourceError> onGetOfferwallCreditsFailedEvent;
+        [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
+        public static event Action onOfferwallClosedEvent;
+        [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
+        public static event Action<IronSourceError> onOfferwallShowFailedEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
-    public static event Action onBannerAdLoadedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
-    public static event Action onBannerAdLeftApplicationEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
-    public static event Action onBannerAdScreenDismissedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
-    public static event Action onBannerAdScreenPresentedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
-    public static event Action onBannerAdClickedEvent;
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
-    public static event Action<IronSourceError> onBannerAdLoadFailedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
+        public static event Action onBannerAdLoadedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
+        public static event Action onBannerAdLeftApplicationEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
+        public static event Action onBannerAdScreenDismissedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
+        public static event Action onBannerAdScreenPresentedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
+        public static event Action onBannerAdClickedEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
+        public static event Action<IronSourceError> onBannerAdLoadFailedEvent;
 
-    public static event Action<string> onSegmentReceivedEvent;
+        public static event Action<string> onSegmentReceivedEvent;
 
-    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use OnImpressionDataReady instead.")]
-    public static event Action<IronSourceImpressionData> onImpressionSuccessEvent;
+        [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use OnImpressionDataReady instead.")]
+        public static event Action<IronSourceImpressionData> onImpressionSuccessEvent;
 #endif
 
-    private const string ERROR_CODE = "error_code";
-    private const string ERROR_DESCRIPTION = "error_description";
-    private const string INSTANCE_ID_KEY = "instanceId";
-    private const string PLACEMENT_KEY = "placement";
-    #pragma warning disable CS0067
-    public static event Action<IronSourceImpressionData> onImpressionDataReadyEvent;
+        private const string ERROR_CODE = "error_code";
+        private const string ERROR_DESCRIPTION = "error_description";
+        private const string INSTANCE_ID_KEY = "instanceId";
+        private const string PLACEMENT_KEY = "placement";
+#pragma warning disable CS0067
+        public static event Action<IronSourceImpressionData> onImpressionDataReadyEvent;
 
 #if UNITY_ANDROID
-    private IUnityInitialization initializationAndroid;
-    private IUnityRewardedVideo rewardedVideoAndroid;
-    private IUnityRewardedVideoManual rewardedVideoAndroidManual;
-    private IUnityInterstitial interstitialAndroid;
-    private IUnityOfferwall offerwallAndroid;
-    private IUnityBanner bannerAndroid;
-    private IUnitySegment segmentAndroid;
-    private IUnityImpressionData impressionDataAndroid;
+        private IUnityInitialization initializationAndroid;
+        private IUnityRewardedVideo rewardedVideoAndroid;
+        private IUnityRewardedVideoManual rewardedVideoAndroidManual;
+        private IUnityInterstitial interstitialAndroid;
+        private IUnityOfferwall offerwallAndroid;
+        private IUnityBanner bannerAndroid;
+        private IUnitySegment segmentAndroid;
+        private IUnityImpressionData impressionDataAndroid;
 #endif
 
-    void Awake()
-    {
+        void Awake()
+        {
 #if UNITY_ANDROID && !UNITY_EDITOR
         initializationAndroid = new IronSourceInitializationAndroid();//sets this.initialztionAndroid as listener for initialztionAndroid events in the bridge
         registerInitializationEvents(); //subscribe to initialization events from this.initializationAndroid
@@ -162,9 +163,9 @@ public class IronSourceEvents : MonoBehaviour
         RegisterCallback(FireCallback);
     #endif
 #endif
-        gameObject.name = "IronSourceEvents";           //Change the GameObject name to IronSourceEvents.
-        DontDestroyOnLoad(gameObject);                 //Makes the object not be destroyed automatically when loading a new scene.
-    }
+            gameObject.name = "IronSourceEvents";           //Change the GameObject name to IronSourceEvents.
+            DontDestroyOnLoad(gameObject);                 //Makes the object not be destroyed automatically when loading a new scene.
+        }
 
 
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -2098,249 +2099,250 @@ public class IronSourceEvents : MonoBehaviour
 
 #endif
 
-    // ******************************* ConsentView Callbacks *******************************   
+        // ******************************* ConsentView Callbacks *******************************   
 
-    //iOS callbacks only - in order to prevent using macro for iOS it's not only iOS
-    private static event Action<string, IronSourceError> _onConsentViewDidFailToLoadWithErrorEvent;
+        //iOS callbacks only - in order to prevent using macro for iOS it's not only iOS
+        private static event Action<string, IronSourceError> _onConsentViewDidFailToLoadWithErrorEvent;
 
-    public static event Action<string, IronSourceError> onConsentViewDidFailToLoadWithErrorEvent
-    {
-        add
+        public static event Action<string, IronSourceError> onConsentViewDidFailToLoadWithErrorEvent
         {
-            if (_onConsentViewDidFailToLoadWithErrorEvent == null || !_onConsentViewDidFailToLoadWithErrorEvent.GetInvocationList().Contains(value))
+            add
             {
-                _onConsentViewDidFailToLoadWithErrorEvent += value;
+                if (_onConsentViewDidFailToLoadWithErrorEvent == null || !_onConsentViewDidFailToLoadWithErrorEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidFailToLoadWithErrorEvent += value;
+                }
+            }
+
+            remove
+            {
+                if (_onConsentViewDidFailToLoadWithErrorEvent != null && _onConsentViewDidFailToLoadWithErrorEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidFailToLoadWithErrorEvent -= value;
+                }
             }
         }
 
-        remove
+        public void onConsentViewDidFailToLoadWithError(string args)
         {
-            if (_onConsentViewDidFailToLoadWithErrorEvent != null && _onConsentViewDidFailToLoadWithErrorEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidFailToLoadWithErrorEvent != null && !String.IsNullOrEmpty(args))
             {
-                _onConsentViewDidFailToLoadWithErrorEvent -= value;
-            }
-        }
-    }
-
-    public void onConsentViewDidFailToLoadWithError(string args)
-    {
-        if (_onConsentViewDidFailToLoadWithErrorEvent != null && !String.IsNullOrEmpty(args))
-        {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
-            IronSourceError err = getErrorFromErrorObject(argList[1]);
-            string consentViewType = argList[0].ToString();
-            _onConsentViewDidFailToLoadWithErrorEvent(consentViewType, err);
-        }
-    }
-
-    private static event Action<string, IronSourceError> _onConsentViewDidFailToShowWithErrorEvent;
-
-    public static event Action<string, IronSourceError> onConsentViewDidFailToShowWithErrorEvent
-    {
-        add
-        {
-            if (_onConsentViewDidFailToShowWithErrorEvent == null || !_onConsentViewDidFailToShowWithErrorEvent.GetInvocationList().Contains(value))
-            {
-                _onConsentViewDidFailToShowWithErrorEvent += value;
+                List<object> argList = Json.Deserialize(args) as List<object>;
+                IronSourceError err = getErrorFromErrorObject(argList[1]);
+                string consentViewType = argList[0].ToString();
+                _onConsentViewDidFailToLoadWithErrorEvent(consentViewType, err);
             }
         }
 
-        remove
+        private static event Action<string, IronSourceError> _onConsentViewDidFailToShowWithErrorEvent;
+
+        public static event Action<string, IronSourceError> onConsentViewDidFailToShowWithErrorEvent
         {
-            if (_onConsentViewDidFailToShowWithErrorEvent != null && _onConsentViewDidFailToShowWithErrorEvent.GetInvocationList().Contains(value))
+            add
             {
-                _onConsentViewDidFailToShowWithErrorEvent -= value;
+                if (_onConsentViewDidFailToShowWithErrorEvent == null || !_onConsentViewDidFailToShowWithErrorEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidFailToShowWithErrorEvent += value;
+                }
             }
-        }
-    }
 
-    public void onConsentViewDidFailToShowWithError(string args)
-    {
-        if (_onConsentViewDidFailToShowWithErrorEvent != null && !String.IsNullOrEmpty(args))
-        {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
-            IronSourceError err = getErrorFromErrorObject(argList[1]);
-            string consentViewType = argList[0].ToString();
-            _onConsentViewDidFailToShowWithErrorEvent(consentViewType, err);
-        }
-    }
-
-    private static event Action<string> _onConsentViewDidAcceptEvent;
-
-    public static event Action<string> onConsentViewDidAcceptEvent
-    {
-        add
-        {
-            if (_onConsentViewDidAcceptEvent == null || !_onConsentViewDidAcceptEvent.GetInvocationList().Contains(value))
+            remove
             {
-                _onConsentViewDidAcceptEvent += value;
+                if (_onConsentViewDidFailToShowWithErrorEvent != null && _onConsentViewDidFailToShowWithErrorEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidFailToShowWithErrorEvent -= value;
+                }
             }
         }
 
-        remove
+        public void onConsentViewDidFailToShowWithError(string args)
         {
-            if (_onConsentViewDidAcceptEvent != null && _onConsentViewDidAcceptEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidFailToShowWithErrorEvent != null && !String.IsNullOrEmpty(args))
             {
-                _onConsentViewDidAcceptEvent -= value;
-            }
-        }
-    }
-
-    public void onConsentViewDidAccept(string consentViewType)
-    {
-        if (_onConsentViewDidAcceptEvent != null)
-        {
-            _onConsentViewDidAcceptEvent(consentViewType);
-        }
-    }
-
-    private static event Action<string> _onConsentViewDidDismissEvent;
-
-    public static event Action<string> onConsentViewDidDismissEvent
-    {
-        add
-        {
-            if (_onConsentViewDidDismissEvent == null || !_onConsentViewDidDismissEvent.GetInvocationList().Contains(value))
-            {
-                _onConsentViewDidDismissEvent += value;
+                List<object> argList = Json.Deserialize(args) as List<object>;
+                IronSourceError err = getErrorFromErrorObject(argList[1]);
+                string consentViewType = argList[0].ToString();
+                _onConsentViewDidFailToShowWithErrorEvent(consentViewType, err);
             }
         }
 
-        remove
+        private static event Action<string> _onConsentViewDidAcceptEvent;
+
+        public static event Action<string> onConsentViewDidAcceptEvent
         {
-            if (_onConsentViewDidDismissEvent != null && _onConsentViewDidDismissEvent.GetInvocationList().Contains(value))
+            add
             {
-                _onConsentViewDidDismissEvent -= value;
+                if (_onConsentViewDidAcceptEvent == null || !_onConsentViewDidAcceptEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidAcceptEvent += value;
+                }
             }
-        }
-    }
 
-    public void onConsentViewDidDismiss(string consentViewType)
-    {
-        if (_onConsentViewDidDismissEvent != null)
-        {
-            _onConsentViewDidDismissEvent(consentViewType);
-        }
-    }
-
-    private static event Action<string> _onConsentViewDidLoadSuccessEvent;
-
-    public static event Action<string> onConsentViewDidLoadSuccessEvent
-    {
-        add
-        {
-            if (_onConsentViewDidLoadSuccessEvent == null || !_onConsentViewDidLoadSuccessEvent.GetInvocationList().Contains(value))
+            remove
             {
-                _onConsentViewDidLoadSuccessEvent += value;
+                if (_onConsentViewDidAcceptEvent != null && _onConsentViewDidAcceptEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidAcceptEvent -= value;
+                }
             }
         }
 
-        remove
+        public void onConsentViewDidAccept(string consentViewType)
         {
-            if (_onConsentViewDidLoadSuccessEvent != null && _onConsentViewDidLoadSuccessEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidAcceptEvent != null)
             {
-                _onConsentViewDidLoadSuccessEvent -= value;
-            }
-        }
-    }
-
-    public void onConsentViewDidLoadSuccess(string consentViewType)
-    {
-        if (_onConsentViewDidLoadSuccessEvent != null)
-        {
-            _onConsentViewDidLoadSuccessEvent(consentViewType);
-        }
-    }
-
-    private static event Action<string> _onConsentViewDidShowSuccessEvent;
-
-    public static event Action<string> onConsentViewDidShowSuccessEvent
-    {
-        add
-        {
-            if (_onConsentViewDidShowSuccessEvent == null || !_onConsentViewDidShowSuccessEvent.GetInvocationList().Contains(value))
-            {
-                _onConsentViewDidShowSuccessEvent += value;
+                _onConsentViewDidAcceptEvent(consentViewType);
             }
         }
 
-        remove
+        private static event Action<string> _onConsentViewDidDismissEvent;
+
+        public static event Action<string> onConsentViewDidDismissEvent
         {
-            if (_onConsentViewDidShowSuccessEvent != null && _onConsentViewDidShowSuccessEvent.GetInvocationList().Contains(value))
+            add
             {
-                _onConsentViewDidShowSuccessEvent -= value;
+                if (_onConsentViewDidDismissEvent == null || !_onConsentViewDidDismissEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidDismissEvent += value;
+                }
+            }
+
+            remove
+            {
+                if (_onConsentViewDidDismissEvent != null && _onConsentViewDidDismissEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidDismissEvent -= value;
+                }
             }
         }
-    }
 
-    public void onConsentViewDidShowSuccess(string consentViewType)
-    {
-        if (_onConsentViewDidShowSuccessEvent != null)
+        public void onConsentViewDidDismiss(string consentViewType)
         {
-            _onConsentViewDidShowSuccessEvent(consentViewType);
-        }
-    }
-
-
-
-    // ******************************* Helper methods *******************************   
-
-    private IronSourceError getErrorFromErrorObject(object descriptionObject)
-    {
-        Dictionary<string, object> error = null;
-        if (descriptionObject is IDictionary)
-        {
-            error = descriptionObject as Dictionary<string, object>;
-        }
-        else if (descriptionObject is String && !String.IsNullOrEmpty(descriptionObject.ToString()))
-        {
-            error = IronSourceJSON.Json.Deserialize(descriptionObject.ToString()) as Dictionary<string, object>;
+            if (_onConsentViewDidDismissEvent != null)
+            {
+                _onConsentViewDidDismissEvent(consentViewType);
+            }
         }
 
-        IronSourceError sse = new IronSourceError(-1, "");
-        if (error != null && error.Count > 0)
+        private static event Action<string> _onConsentViewDidLoadSuccessEvent;
+
+        public static event Action<string> onConsentViewDidLoadSuccessEvent
         {
-            int eCode = Convert.ToInt32(error[ERROR_CODE].ToString());
-            string eDescription = error[ERROR_DESCRIPTION].ToString();
-            sse = new IronSourceError(eCode, eDescription);
+            add
+            {
+                if (_onConsentViewDidLoadSuccessEvent == null || !_onConsentViewDidLoadSuccessEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidLoadSuccessEvent += value;
+                }
+            }
+
+            remove
+            {
+                if (_onConsentViewDidLoadSuccessEvent != null && _onConsentViewDidLoadSuccessEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidLoadSuccessEvent -= value;
+                }
+            }
         }
 
-        return sse;
-    }
-
-    private IronSourcePlacement getPlacementFromObject(object placementObject)
-    {
-        Dictionary<string, object> placementJSON = null;
-        if (placementObject is IDictionary)
+        public void onConsentViewDidLoadSuccess(string consentViewType)
         {
-            placementJSON = placementObject as Dictionary<string, object>;
-        }
-        else if (placementObject is String)
-        {
-            placementJSON = IronSourceJSON.Json.Deserialize(placementObject.ToString()) as Dictionary<string, object>;
+            if (_onConsentViewDidLoadSuccessEvent != null)
+            {
+                _onConsentViewDidLoadSuccessEvent(consentViewType);
+            }
         }
 
-        IronSourcePlacement ssp = null;
-        if (placementJSON != null && placementJSON.Count > 0)
-        {
-            int rewardAmount = Convert.ToInt32(placementJSON["placement_reward_amount"].ToString());
-            string rewardName = placementJSON["placement_reward_name"].ToString();
-            string placementName = placementJSON["placement_name"].ToString();
+        private static event Action<string> _onConsentViewDidShowSuccessEvent;
 
-            ssp = new IronSourcePlacement(placementName, rewardName, rewardAmount);
+        public static event Action<string> onConsentViewDidShowSuccessEvent
+        {
+            add
+            {
+                if (_onConsentViewDidShowSuccessEvent == null || !_onConsentViewDidShowSuccessEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidShowSuccessEvent += value;
+                }
+            }
+
+            remove
+            {
+                if (_onConsentViewDidShowSuccessEvent != null && _onConsentViewDidShowSuccessEvent.GetInvocationList().Contains(value))
+                {
+                    _onConsentViewDidShowSuccessEvent -= value;
+                }
+            }
         }
 
-        return ssp;
-    }
+        public void onConsentViewDidShowSuccess(string consentViewType)
+        {
+            if (_onConsentViewDidShowSuccessEvent != null)
+            {
+                _onConsentViewDidShowSuccessEvent(consentViewType);
+            }
+        }
+
+
+
+        // ******************************* Helper methods *******************************   
+
+        private IronSourceError getErrorFromErrorObject(object descriptionObject)
+        {
+            Dictionary<string, object> error = null;
+            if (descriptionObject is IDictionary)
+            {
+                error = descriptionObject as Dictionary<string, object>;
+            }
+            else if (descriptionObject is String && !String.IsNullOrEmpty(descriptionObject.ToString()))
+            {
+                error = Json.Deserialize(descriptionObject.ToString()) as Dictionary<string, object>;
+            }
+
+            IronSourceError sse = new IronSourceError(-1, "");
+            if (error != null && error.Count > 0)
+            {
+                int eCode = Convert.ToInt32(error[ERROR_CODE].ToString());
+                string eDescription = error[ERROR_DESCRIPTION].ToString();
+                sse = new IronSourceError(eCode, eDescription);
+            }
+
+            return sse;
+        }
+
+        private IronSourcePlacement getPlacementFromObject(object placementObject)
+        {
+            Dictionary<string, object> placementJSON = null;
+            if (placementObject is IDictionary)
+            {
+                placementJSON = placementObject as Dictionary<string, object>;
+            }
+            else if (placementObject is String)
+            {
+                placementJSON = Json.Deserialize(placementObject.ToString()) as Dictionary<string, object>;
+            }
+
+            IronSourcePlacement ssp = null;
+            if (placementJSON != null && placementJSON.Count > 0)
+            {
+                int rewardAmount = Convert.ToInt32(placementJSON["placement_reward_amount"].ToString());
+                string rewardName = placementJSON["placement_reward_name"].ToString();
+                string placementName = placementJSON["placement_name"].ToString();
+
+                ssp = new IronSourcePlacement(placementName, rewardName, rewardAmount);
+            }
+
+            return ssp;
+        }
 
 
 
 
-    // Invoke ImpressionDataReady Events
+        // Invoke ImpressionDataReady Events
 
-    private static void InvokeEvent(Action<IronSourceImpressionData> evt, String args)
-    {
-        IronSourceImpressionData impressionData = new IronSourceImpressionData(args);
-        evt(impressionData);
+        private static void InvokeEvent(Action<IronSourceImpressionData> evt, String args)
+        {
+            IronSourceImpressionData impressionData = new IronSourceImpressionData(args);
+            evt(impressionData);
+        }
     }
 }

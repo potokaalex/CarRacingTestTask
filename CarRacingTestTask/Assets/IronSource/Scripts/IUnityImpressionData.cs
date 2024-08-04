@@ -1,7 +1,11 @@
 ﻿using System;
-public interface IUnityImpressionData
-{
-    event Action<IronSourceImpressionData> OnImpressionDataReady;
 
-    event Action<IronSourceImpressionData> OnImpressionSuccess;
+namespace IronSourceRoot.IronSource.Scripts
+{
+    public interface IUnityImpressionData
+    {
+        event Action<IronSourceImpressionData> OnImpressionDataReady;
+
+        event Action<IronSourceImpressionData> OnImpressionSuccess;
+    }
 }

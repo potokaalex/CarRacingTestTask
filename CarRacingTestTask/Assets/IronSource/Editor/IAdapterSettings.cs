@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace IronSource.Editor
+namespace IronSourceRoot.IronSource.Editor
 {
 	public interface IAdapterSettings
 	{
