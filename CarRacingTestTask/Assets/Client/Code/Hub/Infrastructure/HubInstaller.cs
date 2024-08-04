@@ -1,11 +1,11 @@
-﻿using Client.Code.Common.Data.Static.Configs;
-using Client.Code.Common.Services.Asset.Loader;
+﻿using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Progress;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.Updater;
+using Client.Code.Hub.Data;
 using Client.Code.Hub.Infrastructure.States;
 using Client.Code.Hub.UI;
 using Client.Code.Hub.UI.Factories;
@@ -18,13 +18,11 @@ namespace Client.Code.Hub.Infrastructure
     {
         public override void InstallBindings()
         {
-            BindStateMachine();
             BindUI();
             BindAssets();
 
             Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
             Container.BindInterfacesTo<AutoStartupper<HubLoadState>>().AsSingle();
-            Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
         }
 
         private void BindAssets()
@@ -44,12 +42,6 @@ namespace Client.Code.Hub.Infrastructure
             Container.BindInterfacesTo<HubCustomizationPresenter>().AsSingle();
             Container.BindInterfacesTo<HubSettingsPresenter>().AsSingle();
             Container.BindInterfacesTo<HubShopPresenter>().AsSingle();
-        }
-
-        private void BindStateMachine()
-        {
-            Container.BindInterfacesTo<StateFactory>().AsSingle();
-            Container.BindInterfacesTo<StateMachine>().AsSingle();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Data.Static.Configs.Project;
+﻿using Client.Code.Common.Data.Static.Configs;
 using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.AudioService;

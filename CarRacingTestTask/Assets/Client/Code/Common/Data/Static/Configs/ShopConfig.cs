@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
-namespace Client.Code.Common.Data.Static.Configs.Project
+namespace Client.Code.Common.Data.Static.Configs
 {
     [CreateAssetMenu(menuName = "Configs/Project/Shop", fileName = "ShopConfig", order = 0)]
     public class ShopConfig : SerializedScriptableObject

@@ -1,5 +1,5 @@
 ﻿using Client.Code.Common.Data.Progress;
-using Client.Code.Common.Data.Static.Configs.Project;
+using Client.Code.Common.Data.Static.Configs;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Progress.Loader;
 

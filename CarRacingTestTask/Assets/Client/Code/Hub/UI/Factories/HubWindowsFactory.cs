@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Common.Data.Static.Configs;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.Shop.Item;
@@ -8,6 +7,7 @@ using Client.Code.Common.UI.Windows.Customization;
 using Client.Code.Common.UI.Windows.SelectLevel;
 using Client.Code.Common.UI.Windows.Settings;
 using Client.Code.Common.UI.Windows.Shop;
+using Client.Code.Hub.Data;
 using UniRx;
 using Zenject;
 

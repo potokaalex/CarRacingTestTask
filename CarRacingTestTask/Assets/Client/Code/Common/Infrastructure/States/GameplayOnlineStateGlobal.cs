@@ -1,9 +1,10 @@
-﻿using Client.Code.Common.Data.Static.Configs.Project;
+﻿using Client.Code.Common.Data;
+using Client.Code.Common.Services.Network.Connection;
+using Client.Code.Common.Services.Network.Room;
 using Client.Code.Common.Services.SceneLoader;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
-using ExitGames.Client.Photon;
 
 namespace Client.Code.Common.Infrastructure.States
 {
@@ -36,10 +37,6 @@ namespace Client.Code.Common.Infrastructure.States
                 _stateMachine.SwitchTo<HubStateGlobal>();
 
             await _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
-            
-            //UnityEngine.Debug.Log("Connection ready !");
-            
-            //load scene ?
         }
 
         public UniTask Exit() => UniTask.CompletedTask;

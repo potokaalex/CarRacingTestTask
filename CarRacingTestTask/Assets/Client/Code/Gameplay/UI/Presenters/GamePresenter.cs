@@ -3,7 +3,7 @@ using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.UI.Buttons.Exit;
 
-namespace Client.Code.Gameplay.UI
+namespace Client.Code.Gameplay.UI.Presenters
 {
     public class GamePresenter : IExitButtonHandler
     {

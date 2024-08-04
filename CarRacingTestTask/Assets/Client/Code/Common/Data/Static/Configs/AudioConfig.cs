@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Client.Code.Common.Data.Static.Configs.Project
+namespace Client.Code.Common.Data.Static.Configs
 {
     [CreateAssetMenu(menuName = "Configs/Project/Audio", fileName = "AudioConfig", order = 0)]
     public class AudioConfig : SerializedScriptableObject

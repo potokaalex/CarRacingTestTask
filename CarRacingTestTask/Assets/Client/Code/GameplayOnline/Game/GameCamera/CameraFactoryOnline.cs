@@ -1,18 +1,20 @@
-﻿using Client.Code.Common.Data.Static.Configs.Gameplay;
-using Client.Code.Common.Services.Asset.Receiver;
+﻿using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Gameplay.Game.Car.Controllers;
+using Client.Code.Gameplay.Game.GameCamera;
+using Client.Code.Gameplay.Game.GameCamera.Factory;
+using Client.Code.GameplayOnline.Data.Static.Configs;
 using Zenject;
 
-namespace Client.Code.Gameplay.Game.GameCamera
+namespace Client.Code.GameplayOnline.Game.GameCamera
 {
-    public class CameraFactory : IAssetReceiver<GameplayConfig>
+    public class CameraFactoryOnline : IAssetReceiver<GameplayOnlineConfig>, ICameraFactory
     {
         private readonly IInstantiator _instantiator;
         private readonly CarController _carController;
-        private GameplayConfig _config;
+        private GameplayOnlineConfig _config;
         private CameraController _controller;
 
-        public CameraFactory(IInstantiator instantiator, CarController carController)
+        public CameraFactoryOnline(IInstantiator instantiator, CarController carController)
         {
             _instantiator = instantiator;
             _carController = carController;
@@ -26,6 +28,6 @@ namespace Client.Code.Gameplay.Game.GameCamera
 
         public void Destroy() => _controller.Dispose();
 
-        public void Receive(GameplayConfig asset) => _config = asset;
+        public void Receive(GameplayOnlineConfig asset) => _config = asset;
     }
 }

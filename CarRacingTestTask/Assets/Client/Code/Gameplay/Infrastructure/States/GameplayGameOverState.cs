@@ -1,5 +1,5 @@
 ﻿using Client.Code.Common.Services.StateMachine.State;
-using Client.Code.Gameplay.UI.GameOver;
+using Client.Code.Gameplay.UI.Factories;
 
 namespace Client.Code.Gameplay.Infrastructure.States
 {

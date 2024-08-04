@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Zenject;
 
-namespace Client.Code.Common.Infrastructure.States
+namespace Client.Code.Common.Services.Network.Room
 {
     public class NetworkRoomService : INetworkRoomService, IMatchmakingCallbacks, IInitializable, IDisposable
     {

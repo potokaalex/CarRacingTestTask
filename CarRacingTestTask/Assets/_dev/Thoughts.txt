@@ -7,6 +7,10 @@ Load progress order:
 
 связи assemdefs: все знают о common, composRoot знает о всех. 
 
+СОХРАНЯТЬСЯ ТОЛЬКО В 1 МЕСТЕ! 
+
+UpdaterInstaller!
+
 TODO
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
@@ -33,6 +37,9 @@ Discarded:
         Optional Leaderboard in room (All players drift points)
         Optional Web request (ex: get image from url and place on car body, or ex: stream radio music into the game)
 
+
+
+audio bug when camera closing
 
 Errors solutions:
     Win32Exception: https://stackoverflow.com/a/77072270/23794352

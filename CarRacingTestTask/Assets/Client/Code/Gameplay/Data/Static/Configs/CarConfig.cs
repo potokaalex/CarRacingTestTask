@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Client.Code.Common.Data;
 using Client.Code.Gameplay.Game.Car;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Client.Code.Common.Data.Static.Configs.Gameplay
+namespace Client.Code.Gameplay.Data.Static.Configs
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Car", fileName = "CarConfig", order = 0)]
     public class CarConfig : SerializedScriptableObject

@@ -1,4 +1,4 @@
-﻿using Client.Code.Gameplay.Game.Car;
+﻿using Client.Code.Common.Data;
 
 namespace Client.Code.Common.UI.Dropdowns.Car
 {

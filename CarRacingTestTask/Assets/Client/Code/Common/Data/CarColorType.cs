@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Gameplay.Game.Car
+﻿namespace Client.Code.Common.Data
 {
     public enum CarColorType
     {

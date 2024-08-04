@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Data.Progress;
-using Client.Code.Common.Data.Static.Configs.Gameplay;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.Updater;
+using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Controllers.Base;
 using Client.Code.Gameplay.Game.GameSpawnPoint;
 using Zenject;
 
-namespace Client.Code.Gameplay.Game.Car
+namespace Client.Code.Gameplay.Game.Car.Factory
 {
-    public class CarFactory : IAssetReceiver<GameplayConfig>, IProgressReader
+    public class CarFactory : IAssetReceiver<GameplayConfig>, IProgressReader, ICarFactory
     {
+        private readonly List<ICarUpdateController> _physicsControllers = new();
+        private readonly List<ICarUpdateController> _graphicsControllers = new();
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
         private readonly CarDriftChecker _driftChecker;
         private readonly CarController _controller;
-        private readonly List<ICarUpdateController> _physicsControllers = new();
-        private readonly List<ICarUpdateController> _graphicsControllers = new();
         private CarConfig _config;
         private ProgressData _progress;
 
@@ -38,11 +38,20 @@ namespace Client.Code.Gameplay.Game.Car
             _updater.OnUpdateWithDelta += UpdateGraphicsControllers;
         }
 
+        public void Destroy()
+        {
+            _updater.OnFixedUpdateWithDelta -= UpdatePhysicsControllers;
+            _updater.OnUpdateWithDelta -= UpdateGraphicsControllers;
+        }
+
+        public void Receive(GameplayConfig asset) => _config = asset.Car;
+
+        public void OnLoad(ProgressData progress) => _progress = progress;
+        
         private void CreateControllers(CarObject car)
         {
             _physicsControllers.Add(_instantiator.Instantiate<CarMoveController>());
             _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
-            _physicsControllers.Add(_instantiator.Instantiate<CarDriftChecker>());
             _physicsControllers.Add(_driftChecker);
 
             _graphicsControllers.Add(_instantiator.Instantiate<CarInputController>());
@@ -55,16 +64,6 @@ namespace Client.Code.Gameplay.Game.Car
 
             _controller.Initialize(car);
         }
-
-        public void Destroy()
-        {
-            _updater.OnFixedUpdateWithDelta -= UpdatePhysicsControllers;
-            _updater.OnUpdateWithDelta -= UpdateGraphicsControllers;
-        }
-
-        public void Receive(GameplayConfig asset) => _config = asset.Car;
-
-        public void OnLoad(ProgressData progress) => _progress = progress;
 
         private CarObject CreateObject(SpawnPoint spawnPoint)
         {

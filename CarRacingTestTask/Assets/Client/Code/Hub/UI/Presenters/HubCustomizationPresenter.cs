@@ -1,6 +1,6 @@
-﻿using Client.Code.Common.UI.Dropdowns.Car;
+﻿using Client.Code.Common.Data;
+using Client.Code.Common.UI.Dropdowns.Car;
 using Client.Code.Common.UI.Toggles.Customization;
-using Client.Code.Gameplay.Game.Car;
 
 namespace Client.Code.Hub.UI.Presenters
 {

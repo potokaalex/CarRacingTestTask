@@ -6,7 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Zenject;
 
-namespace Client.Code.Common.Infrastructure.States
+namespace Client.Code.Common.Services.Network.Connection
 {
     public class NetworkConnectionService : INetworkConnectionService, IConnectionCallbacks, IInitializable, IDisposable
     {

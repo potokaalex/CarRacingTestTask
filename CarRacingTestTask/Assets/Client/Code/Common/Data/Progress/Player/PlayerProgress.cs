@@ -1,5 +1,4 @@
 ﻿using System;
-using Client.Code.Gameplay.Game.Car;
 
 namespace Client.Code.Common.Data.Progress.Player
 {

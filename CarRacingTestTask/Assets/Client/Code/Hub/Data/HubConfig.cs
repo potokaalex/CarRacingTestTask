@@ -5,7 +5,7 @@ using Client.Code.Hub.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Client.Code.Common.Data.Static.Configs
+namespace Client.Code.Hub.Data
 {
     [CreateAssetMenu(menuName = "Configs/Hub", fileName = "HubConfig", order = 0)]
     public class HubConfig : SerializedScriptableObject, IAsset

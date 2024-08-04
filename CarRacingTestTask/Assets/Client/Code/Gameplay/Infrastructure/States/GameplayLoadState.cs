@@ -1,9 +1,9 @@
-﻿using Client.Code.Common.Data.Static.Configs.Gameplay;
-using Client.Code.Common.Services.Asset.Loader;
+﻿using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Updater;
+using Client.Code.Gameplay.Data.Static.Configs;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Gameplay.Infrastructure.States

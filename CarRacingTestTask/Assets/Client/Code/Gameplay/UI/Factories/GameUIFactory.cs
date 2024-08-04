@@ -1,19 +1,18 @@
-﻿using Client.Code.Common.Data.Static.Configs.Gameplay;
-using Client.Code.Common.Services.Asset.Receiver;
+﻿using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game;
-using Client.Code.Gameplay.UI.GameOver;
 using Zenject;
 
-namespace Client.Code.Gameplay.UI
+namespace Client.Code.Gameplay.UI.Factories
 {
-    public class GameFactory : IAssetReceiver<GameplayConfig>
+    public class GameUIFactory : IAssetReceiver<GameplayConfig>
     {
         private readonly IInstantiator _instantiation;
         private readonly GameOverScreenFactory _gameOverScreenFactory;
         private GameplayConfig _config;
         private GameOverChecker _gameOverChecker;
 
-        public GameFactory(IInstantiator instantiation, GameOverScreenFactory gameOverScreenFactory)
+        public GameUIFactory(IInstantiator instantiation, GameOverScreenFactory gameOverScreenFactory)
         {
             _instantiation = instantiation;
             _gameOverScreenFactory = gameOverScreenFactory;

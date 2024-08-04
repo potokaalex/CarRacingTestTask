@@ -4,7 +4,7 @@ using Client.Code.Common.UI.Buttons.DoubleCoins;
 using Client.Code.Gameplay.Game.Player;
 using Cysharp.Threading.Tasks;
 
-namespace Client.Code.Gameplay.UI.GameOver
+namespace Client.Code.Gameplay.UI.Presenters
 {
     public class GameOverPresenter : IDoubleCoinsButtonHandler
     {

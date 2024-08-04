@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Data.Static.Configs.Project
+﻿namespace Client.Code.Common.Data
 {
     public enum SceneName
     {

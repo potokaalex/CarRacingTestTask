@@ -1,7 +1,5 @@
 ﻿using System;
 using Client.Code.Common.Data.Static.Configs;
-using Client.Code.Common.Data.Static.Configs.Gameplay;
-using Client.Code.Common.Data.Static.Configs.Project;
 using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Ads.Interstitial;
 using Client.Code.Common.Services.Asset;
@@ -11,6 +9,8 @@ using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.InputService;
 using Client.Code.Common.Services.Logger;
 using Client.Code.Common.Services.Logger.Base;
+using Client.Code.Common.Services.Network.Connection;
+using Client.Code.Common.Services.Network.Room;
 using Client.Code.Common.Services.Progress;
 using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.Progress.Saver;
@@ -21,6 +21,9 @@ using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Updater;
+using Client.Code.Gameplay.Data.Static.Configs;
+using Client.Code.GameplayOnline.Data.Static.Configs;
+using Client.Code.Hub.Data;
 using UnityEngine;
 using Zenject;
 
@@ -31,6 +34,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
         [SerializeField] private ProjectConfig _config;
         [SerializeField] private HubConfig _hubConfig;
         [SerializeField] private GameplayConfig _gameplayConfig;
+        [SerializeField] private GameplayOnlineConfig _gameplayOnlineConfig;
 
         public override void InstallBindings()
         {
@@ -42,8 +46,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
             BindShop();
             BindInput();
             BindNetwork();
-            
-            Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
+
             Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
@@ -77,7 +80,8 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 
         private void BindAssets()
         {
-            Container.Bind<AllAssetsProvider>().AsSingle().WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig });
+            Container.Bind<AllAssetsProvider>().AsSingle()
+                .WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig, _gameplayOnlineConfig });
             Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle();
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }

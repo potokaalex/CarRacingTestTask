@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Infrastructure.States
+﻿namespace Client.Code.Common.Services.Network.Room
 {
     public enum NetworkJoinRoomResult
     {

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Gameplay.Game.Car;
+using Client.Code.Common.Data;
 using UnityEngine;
 using Zenject;
 

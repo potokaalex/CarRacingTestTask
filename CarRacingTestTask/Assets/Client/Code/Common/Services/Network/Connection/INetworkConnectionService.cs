@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace Client.Code.Common.Infrastructure.States
+namespace Client.Code.Common.Services.Network.Connection
 {
     public interface INetworkConnectionService
     {

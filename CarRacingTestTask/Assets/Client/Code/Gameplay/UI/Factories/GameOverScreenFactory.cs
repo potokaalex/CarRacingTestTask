@@ -1,10 +1,11 @@
-﻿using Client.Code.Common.Data.Static.Configs.Gameplay;
-using Client.Code.Common.Services.Asset.Receiver;
+﻿using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Player;
+using Client.Code.Gameplay.UI.Presenters;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Gameplay.UI.GameOver
+namespace Client.Code.Gameplay.UI.Factories
 {
     public class GameOverScreenFactory : IAssetReceiver<GameplayConfig>
     {

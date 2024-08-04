@@ -1,5 +1,5 @@
-﻿using Client.Code.Common.Data.Static.Configs;
-using Client.Code.Common.Services.Asset.Receiver;
+﻿using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Hub.Data;
 using UniRx;
 using Zenject;
 
