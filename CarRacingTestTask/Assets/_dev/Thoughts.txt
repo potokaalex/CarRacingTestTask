@@ -8,7 +8,6 @@ Load progress order:
 связи assemdefs: все знают о common, composRoot знает о всех. 
 
 TODO
-    Refactoring: assemdefs!
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
     Refactoring: ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
@@ -36,3 +35,5 @@ Discarded:
 Errors solutions:
     Execution failed for task ':launcher:checkDebugDuplicateClasses'. : https://github.com/googlesamples/unity-jar-resolver/issues/626#issuecomment-1644108629 or https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
     Win32Exception: https://stackoverflow.com/a/77072270/23794352
+
+//по кнопке я создаю-подключаюсь к комнате.

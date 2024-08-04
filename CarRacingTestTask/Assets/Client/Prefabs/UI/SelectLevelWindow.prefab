@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3963376527680018501}
   - component: {fileID: 3978731979836537213}
   - component: {fileID: 8681087404139215493}
+  - component: {fileID: 1719232314323643346}
   m_Layer: 5
   m_Name: LoadOnlineLevelButton
   m_TagString: Untagged
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1719232314323643346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608278379092456004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15e4201dcf141c4abfbd19b092c62bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 3
 --- !u!1 &2847131801677470849
 GameObject:
   m_ObjectHideFlags: 0

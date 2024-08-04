@@ -2,6 +2,7 @@
 using Client.Code.Common.Data.Static.Configs;
 using Client.Code.Common.Data.Static.Configs.Gameplay;
 using Client.Code.Common.Data.Static.Configs.Project;
+using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Ads.Interstitial;
 using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Loader;
@@ -40,11 +41,18 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
             BindProgress();
             BindShop();
             BindInput();
-
+            BindNetwork();
+            
             Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
+        }
+
+        private void BindNetwork()
+        {
+            Container.BindInterfacesTo<NetworkConnectionService>().AsSingle();
+            Container.BindInterfacesTo<NetworkRoomService>().AsSingle();
         }
 
         private void BindInput()

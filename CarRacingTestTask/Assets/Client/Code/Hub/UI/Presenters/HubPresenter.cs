@@ -36,6 +36,8 @@ namespace Client.Code.Hub.UI.Presenters
         {
             if (type == LoadButtonType.Gameplay)
                 _globalStateMachine.SwitchTo<GameplayStateGlobal>();
+            else if(type == LoadButtonType.GameplayOnline)
+                _globalStateMachine.SwitchTo<GameplayOnlineStateGlobal>();
         }
 
         public void Handle() => _globalStateMachine.SwitchTo<ProjectUnloadState>();

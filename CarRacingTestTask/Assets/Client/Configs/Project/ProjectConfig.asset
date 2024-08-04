@@ -23,12 +23,12 @@ MonoBehaviour:
     SerializationNodes:
     - Name: SceneNames
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Data.Static.Configs.Project.SceneName,
-        Assembly-CSharp],[System.String, mscorlib]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Common.Data.Static.Configs.Project.SceneName,
+        Common],[System.String, mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Data.Static.Configs.Project.SceneName,
-        Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Common.Data.Static.Configs.Project.SceneName,
+        Common]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -62,6 +62,18 @@ MonoBehaviour:
     - Name: $v
       Entry: 1
       Data: Hub
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 1
+      Data: GameplayOnline
     - Name: 
       Entry: 8
       Data: 
