@@ -97,7 +97,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 
         private void BindAds()
         {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || (!UNITY_ANDROID && !UNITY_IOS)
             Container.BindInterfacesTo<AdsInterstitialServiceUnityEditor>().AsSingle();
 #else
             Container.BindInterfacesTo<Client.Code.Common.Services.Ads.AdsService>().AsSingle();

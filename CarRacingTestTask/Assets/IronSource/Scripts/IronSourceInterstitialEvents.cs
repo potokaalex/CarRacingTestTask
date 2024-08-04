@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace IronSourceRoot.IronSource.Scripts
@@ -303,7 +304,7 @@ namespace IronSourceRoot.IronSource.Scripts
     {
         if (_onAdShowFailedEvent != null)
         {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
+            List<object> argList = Json.Deserialize(args) as List<object>;
             IronSourceError err = getErrorFromErrorObject(argList[0]);
             IronSourceAdInfo adInfo = new IronSourceAdInfo(argList[1].ToString());
             _onAdShowFailedEvent(err, adInfo);

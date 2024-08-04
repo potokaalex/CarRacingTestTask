@@ -10,9 +10,11 @@ Load progress order:
 TODO
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
+    Refactoring: Windows: Buy coins don't work!
     Refactoring: ui текст в gameOverScreen обновляется странно. (unity bug ?) - надо решить!
     Refactoring: android iap bug
     Refactoring: clearProgressButton
+    Refactoring: i can load offline scene when loading network scene.
     Optional:
         Levels design (myself)
         Online sync between players (rotation wheels, steering, engine sound)
@@ -33,7 +35,6 @@ Discarded:
 
 
 Errors solutions:
-    Execution failed for task ':launcher:checkDebugDuplicateClasses'. : https://github.com/googlesamples/unity-jar-resolver/issues/626#issuecomment-1644108629 or https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
     Win32Exception: https://stackoverflow.com/a/77072270/23794352
 
 //по кнопке я создаю-подключаюсь к комнате.

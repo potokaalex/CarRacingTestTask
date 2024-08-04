@@ -35,9 +35,9 @@ namespace Client.Code.Common.Infrastructure.States
             if (joinRoomResult == NetworkJoinRoomResult.Fail)
                 _stateMachine.SwitchTo<HubStateGlobal>();
 
-            _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
+            await _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
             
-            UnityEngine.Debug.Log("Connection ready !");
+            //UnityEngine.Debug.Log("Connection ready !");
             
             //load scene ?
         }

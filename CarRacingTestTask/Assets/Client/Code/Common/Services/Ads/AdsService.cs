@@ -53,6 +53,8 @@ namespace Client.Code.Common.Services.Ads
             return settings.AndroidAppKey;
 #elif UNITY_IOS
             return settings.IOSAppKey;
+#else
+            return AdsConstants.UndefinedPlatformAppKey;
 #endif
         }
     }

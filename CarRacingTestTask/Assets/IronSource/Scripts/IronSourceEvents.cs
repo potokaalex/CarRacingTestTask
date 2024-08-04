@@ -1061,7 +1061,7 @@ namespace IronSourceRoot.IronSource.Scripts
     {
         if (_onRewardedVideoAdLoadFailedDemandOnlyEvent != null && !String.IsNullOrEmpty(args))
         {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
+            List<object> argList = Json.Deserialize(args) as List<object>;
             IronSourceError err = getErrorFromErrorObject(argList[1]);
             string instanceId = argList[0].ToString();
             _onRewardedVideoAdLoadFailedDemandOnlyEvent(instanceId, err);
@@ -1184,7 +1184,7 @@ namespace IronSourceRoot.IronSource.Scripts
     {
         if (_onRewardedVideoAdShowFailedDemandOnlyEvent != null && !String.IsNullOrEmpty(args))
         {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
+            List<object> argList = Json.Deserialize(args) as List<object>;
             IronSourceError err = getErrorFromErrorObject(argList[1]);
             string instanceId = argList[0].ToString();
             _onRewardedVideoAdShowFailedDemandOnlyEvent(instanceId, err);
@@ -1516,7 +1516,7 @@ namespace IronSourceRoot.IronSource.Scripts
     {
         if (_onInterstitialAdLoadFailedDemandOnlyEvent != null && !String.IsNullOrEmpty(args))
         {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
+            List<object> argList = Json.Deserialize(args) as List<object>;
             IronSourceError err = getErrorFromErrorObject(argList[1]);
             string instanceId = argList[0].ToString();
             _onInterstitialAdLoadFailedDemandOnlyEvent(instanceId, err);
@@ -1609,7 +1609,7 @@ namespace IronSourceRoot.IronSource.Scripts
     {
         if (_onInterstitialAdLoadFailedDemandOnlyEvent != null && !String.IsNullOrEmpty(args))
         {
-            List<object> argList = IronSourceJSON.Json.Deserialize(args) as List<object>;
+            List<object> argList = Json.Deserialize(args) as List<object>;
             IronSourceError sse = getErrorFromErrorObject(argList[1]);
             string instanceId = argList[0].ToString();
             _onInterstitialAdShowFailedDemandOnlyEvent(instanceId, sse);
@@ -1796,7 +1796,7 @@ namespace IronSourceRoot.IronSource.Scripts
     public void onOfferwallAdCredited(string json)
     {
         if (_onOfferwallAdCreditedEvent != null)
-            _onOfferwallAdCreditedEvent(IronSourceJSON.Json.Deserialize(json) as Dictionary<string, object>);
+            _onOfferwallAdCreditedEvent(Json.Deserialize(json) as Dictionary<string, object>);
     }
 
     private static event Action<bool> _onOfferwallAvailableEvent;
