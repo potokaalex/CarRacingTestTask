@@ -1,4 +1,5 @@
 ﻿using System;
+using Client.Code.AudioManagerService;
 using Client.Code.Data.Static.Configs;
 using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Data.Static.Configs.Project;
@@ -10,6 +11,7 @@ using Client.Code.Services.InputService;
 using Client.Code.Services.Logger;
 using Client.Code.Services.Logger.Base;
 using Client.Code.Services.Progress.Loader;
+using Client.Code.Services.Progress.Register;
 using Client.Code.Services.Progress.Saver;
 using Client.Code.Services.SceneLoader;
 using Client.Code.Services.Shop;
@@ -38,10 +40,12 @@ namespace Client.Code.Infrastructure.Installers
             BindProgress();
             BindShop();
 
-            Container.BindInterfacesTo<SceneLoader>().AsSingle();
-            Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesAndSelfTo<InputFactory>().AsSingle();
+            
+            Container.BindInterfacesTo<Updater>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
+            Container.BindInterfacesTo<SceneLoader>().AsSingle();
+            Container.BindInterfacesTo<AudioService>().AsSingle();
         }
 
         private void BindShop()
@@ -55,6 +59,7 @@ namespace Client.Code.Infrastructure.Installers
         {
             Container.BindInterfacesTo<ProgressSaver>().AsSingle();
             Container.BindInterfacesTo<ProgressLoader>().AsSingle();
+            Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
         }
 
         private void BindAssets()

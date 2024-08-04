@@ -73,3 +73,4 @@ MonoBehaviour:
       Data: 
   InputPrefab: {fileID: 6825997568745556542, guid: 0a8f726693f86e949bbbaa5fb0b2c729, type: 3}
   Shop: {fileID: 11400000, guid: c05fea745be5e12428eed0c9dd26f2e9, type: 2}
+  Audio: {fileID: 11400000, guid: 9e792587a3a52504c9836be081ef6e46, type: 2}

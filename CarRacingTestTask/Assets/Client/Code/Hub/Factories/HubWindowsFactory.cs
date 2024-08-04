@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Client.Code.AudioManagerService;
 using Client.Code.Data.Static.Configs;
 using Client.Code.Hub.Presenters;
 using Client.Code.Services.Asset.Receiver;
@@ -20,13 +21,15 @@ namespace Client.Code.Hub.Factories
         private readonly List<WindowBase> _windows = new();
         private readonly IInstantiator _instantiator;
         private readonly HubModel _model;
+        private readonly IAudioService _audioService;
         private HubConfig _config;
         private HubCanvas _canvas;
 
-        public HubWindowsFactory(IInstantiator instantiator, HubModel model)
+        public HubWindowsFactory(IInstantiator instantiator, HubModel model, IAudioService audioService)
         {
             _instantiator = instantiator;
             _model = model;
+            _audioService = audioService;
         }
 
         public void Initialize(HubCanvas canvas) => _canvas = canvas;
@@ -57,6 +60,7 @@ namespace Client.Code.Hub.Factories
         {
             var window = (SettingsWindow)CreateWindow(WindowType.Settings);
             window.MasterAudioToggle.SetWithoutNotify(_model.IsMasterAudioEnabled.Value);
+            _model.IsMasterAudioEnabled.Subscribe(_audioService.SetMasterActive);
         }
 
         void ISettingsWindowFactory.Destroy() => DestroyWindow(WindowType.Settings);

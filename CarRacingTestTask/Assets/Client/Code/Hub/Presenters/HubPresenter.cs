@@ -61,6 +61,8 @@ namespace Client.Code.Hub.Presenters
                 _selectLevelWindowFactory.Destroy();
             if (type == WindowType.Customization)
                 _customizationWindowFactory.Destroy();
+            if (type == WindowType.Settings)
+                _settingsWindowFactory.Destroy();
             if (type == WindowType.Shop)
                 _shopWindowFactory.Destroy();
 

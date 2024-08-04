@@ -6,8 +6,9 @@ Load assets order:
 Load progress order:
 
 TODO
-    Refactoring: StartLoadState, EndLoadState for gameplay
     load all saved data: audio, customization.
+    cant back when play
+    bug menu dont destroy!
     Global:
         Online (Photon): OnlineLevel , sync between players (position, customization )
     Refactoring:
@@ -22,7 +23,8 @@ TODO
         Optimization: Texture compression, Occlusion Culling, lights optimizations - bake, “void Update() / void FixedUpdate()” optimizations    
         
 
-Tutorial I used to set up iron source: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
+Tutorial: 
+    IronSource: https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
 
 
 Discarded:
@@ -33,6 +35,6 @@ Discarded:
         Optional Leaderboard in room (All players drift points)
 
 
-Обязательно проверьте наличие gradlew.bat в CarRacingTestTask\CarRacingTestTask\Temp\PlayServicesResolverGradle
-Его можно взять отсюда:
-https://raw.githubusercontent.com/googlesamples/unity-jar-resolver/master/gradlew.bat
+Errors solutions:
+    Execution failed for task ':launcher:checkDebugDuplicateClasses'. : https://github.com/googlesamples/unity-jar-resolver/issues/626#issuecomment-1644108629 or https://www.youtube.com/watch?v=-P5QcjUV72U&ab_channel=NichathanGaming
+    Win32Exception: https://stackoverflow.com/a/77072270/23794352

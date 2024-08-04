@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
+using Client.Code.Data.Progress;
 using Client.Code.Data.Static.Configs.Gameplay;
 using Client.Code.Gameplay.Car.Controllers;
 using Client.Code.Gameplay.Car.Controllers.Base;
 using Client.Code.Gameplay.GameplaySpawnPoint;
 using Client.Code.Services.Asset;
 using Client.Code.Services.Asset.Receiver;
+using Client.Code.Services.Progress.Loader;
 using Client.Code.Services.Updater;
+using UnityEngine;
 using Zenject;
 
 namespace Client.Code.Gameplay.Car
 {
-    public class CarFactory : IAssetReceiver<GameplayConfig>
+    public class CarFactory : IAssetReceiver<GameplayConfig>, IProgressReader
     {
         private readonly IInstantiator _instantiator;
         private readonly IUpdater _updater;
@@ -19,6 +22,7 @@ namespace Client.Code.Gameplay.Car
         private readonly List<ICarUpdateController> _physicsControllers = new();
         private readonly List<ICarUpdateController> _graphicsControllers = new();
         private CarConfig _config;
+        private ProgressData _progress;
 
         public CarFactory(IInstantiator instantiator, IUpdater updater, CarDriftChecker driftChecker, CarController controller)
         {
@@ -50,10 +54,10 @@ namespace Client.Code.Gameplay.Car
                 controller.Initialize(car);
             foreach (var controller in _graphicsControllers)
                 controller.Initialize(car);
-            
+
             _controller.Initialize(car);
         }
-        
+
         public void Destroy()
         {
             _updater.OnFixedUpdateWithDelta -= UpdatePhysicsControllers;
@@ -61,6 +65,8 @@ namespace Client.Code.Gameplay.Car
         }
 
         public void Receive(GameplayConfig asset) => _config = asset.Car;
+
+        public void OnLoad(ProgressData progress) => _progress = progress;
 
         private CarObject CreateObject(SpawnPoint spawnPoint)
         {
@@ -70,12 +76,16 @@ namespace Client.Code.Gameplay.Car
             car.Rigidbody.centerOfMass = car.CenterOfMass.position;
             car.Config = _config;
 
+            if (_progress.Player.IsCarSpoilerEnabled)
+                _instantiator.InstantiatePrefab(_config.SpoilerPrefab, car.SpoilerSpawnPoint);
+            
+            car.Mesh.material = _config.CarColors[_progress.Player.CarColor];
             return car;
         }
 
         private void UpdatePhysicsControllers(float deltaTime)
         {
-            foreach (var controller in _physicsControllers) 
+            foreach (var controller in _physicsControllers)
                 controller.OnUpdate(deltaTime);
         }
 

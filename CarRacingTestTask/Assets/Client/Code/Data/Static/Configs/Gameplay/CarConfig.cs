@@ -1,4 +1,5 @@
-﻿using Client.Code.Gameplay.Car;
+﻿using System.Collections.Generic;
+using Client.Code.Gameplay.Car;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Client.Code.Data.Static.Configs.Gameplay
     public class CarConfig : SerializedScriptableObject
     {
         public CarObject Prefab;
+        public SpoilerObject SpoilerPrefab;
+        public Dictionary<CarColorType, Material> CarColors;
 
         public float MotorForce;
         public float BrakeForce;

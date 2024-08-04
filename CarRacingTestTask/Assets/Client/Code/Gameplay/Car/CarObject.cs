@@ -10,6 +10,8 @@ namespace Client.Code.Gameplay.Car
         [Title("Static")] public Rigidbody Rigidbody;
         public Transform CenterOfMass;
         public WheelController[] Wheels;
+        public Transform SpoilerSpawnPoint;
+        public MeshRenderer Mesh;
         
         [Title("Runtime")] public CarConfig Config;
         public float MoveDirection;
