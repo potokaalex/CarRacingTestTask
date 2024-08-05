@@ -37,7 +37,8 @@ namespace Client.Code.GameplayOnline.Game.Car
 
         public void Create(SpawnPoint spawnPoint)
         {
-            var createData = new CarCreateData { SpawnPoint = spawnPoint, IsCarSpoilerEnabled = _progress.Player.IsCarSpoilerEnabled };
+            var createData = new CarCreateData
+                { SpawnPoint = spawnPoint, IsCarSpoilerEnabled = _progress.Player.IsCarSpoilerEnabled, ColorType = _progress.Player.CarColor };
             var car = CreateObject(createData);
             CreateControllers(car);
             _updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
@@ -63,7 +64,6 @@ namespace Client.Code.GameplayOnline.Game.Car
 
             var data = (CarCreateData)photonEvent.CustomData;
             CreateObject(data);
-            UnityEngine.Debug.Log(photonEvent.Sender);
         }
 
         private CarObject CreateObject(CarCreateData data)
@@ -77,7 +77,7 @@ namespace Client.Code.GameplayOnline.Game.Car
             if (data.IsCarSpoilerEnabled)
                 _instantiator.InstantiatePrefab(_config.SpoilerPrefab, car.SpoilerSpawnPoint);
 
-            car.Mesh.material = _config.CarColors[_progress.Player.CarColor];
+            car.Mesh.material = _config.CarColors[data.ColorType];
             return car;
         }
 

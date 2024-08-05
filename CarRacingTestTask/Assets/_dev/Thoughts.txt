@@ -19,8 +19,6 @@ bug save-load place
 
 TODO
     Global:
-        Send request when car create.
-        start when players count is 2 or move. GameStartChecker
         Sync position & customizations
         Don't Receive messages if players count less then 2
     Refactoring: 
