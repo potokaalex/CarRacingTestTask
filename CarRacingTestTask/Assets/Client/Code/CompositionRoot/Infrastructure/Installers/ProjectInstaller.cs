@@ -1,6 +1,5 @@
 ﻿using System;
 using Client.Code.Common.Data.Static.Configs;
-using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Ads.Interstitial;
 using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Loader;
@@ -20,7 +19,6 @@ using Client.Code.Common.Services.Shop.IAP;
 using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
-using Client.Code.Common.Services.Updater;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.GameplayOnline.Data.Static.Configs;
 using Client.Code.Hub.Data;

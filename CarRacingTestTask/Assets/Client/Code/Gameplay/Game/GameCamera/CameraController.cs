@@ -115,12 +115,12 @@ namespace Client.Code.Gameplay.Game.GameCamera
         // Read the user input
         public void UpdateInput()
         {
-            if (!cam.enabled || _isDisposed) 
+            if (!cam.enabled || _isDisposed)
                 return;
 
             if (Input.GetKeyDown(KeyCode.Escape))
                 SetCursor(false, true);
-            if(Input.GetMouseButtonDown(0) && !_inputService.IsMouseOverUI())
+            if (Input.GetMouseButtonDown(0) && !_inputService.IsMouseOverUI())
                 SetCursor(true, false);
 
             // Should we rotate the camera?

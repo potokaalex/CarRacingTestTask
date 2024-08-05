@@ -29,12 +29,9 @@ namespace Client.Code.Gameplay.Infrastructure.States
             _assetLoader.Load();
             await _progressLoader.LoadAsync();
             _stateMachine.SwitchTo<GameplayState>();
+            _updater.OnDispose += () => _stateMachine.SwitchTo<GameplayUnLoadState>();
         }
 
-        public UniTask Exit()
-        {
-            _updater.OnDispose += () => _stateMachine.SwitchTo<GameplayUnLoadState>();
-            return UniTask.CompletedTask;
-        }
+        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

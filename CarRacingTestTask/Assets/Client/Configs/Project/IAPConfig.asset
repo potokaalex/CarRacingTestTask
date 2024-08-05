@@ -23,13 +23,12 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Items
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Services.Shop.Item.ShopItemType,
-        Assembly-CSharp],[Client.Code.Services.Shop.Item.ShopItemData, Assembly-CSharp]],
-        mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Common.Services.Shop.Item.ShopItemType,
+        Common],[Client.Code.Common.Services.Shop.Item.ShopItemData, Common]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Services.Shop.Item.ShopItemType,
-        Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Common.Services.Shop.Item.ShopItemType,
+        Common]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -50,7 +49,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 2|Client.Code.Services.Shop.Item.ShopItemData, Assembly-CSharp
+      Data: 2|Client.Code.Common.Services.Shop.Item.ShopItemData, Common
     - Name: IsIAP
       Entry: 5
       Data: false
@@ -62,7 +61,7 @@ MonoBehaviour:
       Data: false
     - Name: Price
       Entry: 7
-      Data: Client.Code.Services.Shop.Item.ItemPriceData, Assembly-CSharp
+      Data: Client.Code.Common.Services.Shop.Item.ItemPriceData, Common
     - Name: CoinsCount
       Entry: 3
       Data: 500
@@ -83,7 +82,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 3|Client.Code.Services.Shop.Item.ShopItemData, Assembly-CSharp
+      Data: 3|Client.Code.Common.Services.Shop.Item.ShopItemData, Common
     - Name: IsIAP
       Entry: 5
       Data: true
@@ -95,7 +94,7 @@ MonoBehaviour:
       Data: true
     - Name: Price
       Entry: 7
-      Data: Client.Code.Services.Shop.Item.ItemPriceData, Assembly-CSharp
+      Data: Client.Code.Common.Services.Shop.Item.ItemPriceData, Common
     - Name: CoinsCount
       Entry: 3
       Data: -250

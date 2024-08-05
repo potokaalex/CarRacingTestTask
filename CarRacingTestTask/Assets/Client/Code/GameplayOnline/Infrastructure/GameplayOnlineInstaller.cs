@@ -1,5 +1,6 @@
 ﻿using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Common.Services.Network.Events;
 using Client.Code.Common.Services.Progress;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Gameplay.Game.Car.Controllers;
@@ -19,13 +20,13 @@ namespace Client.Code.GameplayOnline.Infrastructure
     public class GameplayOnlineInstaller : MonoInstaller
     {
         [SerializeField] private GameplayOnlineSceneData _sceneData;
-        
+
         public override void InstallBindings()
         {
             BindAssets();
             BindUI();
             BindGame();
-            
+
             Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
             Container.BindInterfacesTo<NetworkEventReceiversRegister>().AsSingle();
             Container.Bind<GameplayOnlineSceneData>().FromInstance(_sceneData).AsSingle();
@@ -44,7 +45,7 @@ namespace Client.Code.GameplayOnline.Infrastructure
             Container.BindInterfacesTo<CarFactoryOnline>().AsSingle();
             Container.Bind<CarController>().AsSingle();
         }
-        
+
         private void BindUI()
         {
             Container.BindInterfacesAndSelfTo<GameUIFactoryOnline>().AsSingle();

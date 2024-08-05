@@ -1,8 +1,7 @@
-﻿using System;
-using Client.Code.Gameplay.Game.GameSpawnPoint;
+﻿using Client.Code.Gameplay.Game.GameSpawnPoint;
 using ExitGames.Client.Photon;
 
-namespace Client.Code.GameplayOnline.Infrastructure.States
+namespace Client.Code.GameplayOnline.Data.Network
 {
     public static class NetworkSpawnPointSerializer
     {
@@ -19,7 +18,7 @@ namespace Client.Code.GameplayOnline.Infrastructure.States
         {
             var data = (SpawnPoint)obj;
             var index = outOffset;
-            
+
             Protocol.Serialize(data.Position.x, outArray, ref index);
             Protocol.Serialize(data.Position.y, outArray, ref index);
             Protocol.Serialize(data.Position.z, outArray, ref index);
@@ -44,7 +43,7 @@ namespace Client.Code.GameplayOnline.Infrastructure.States
             var data = new SpawnPoint();
             if (length != _buffer.Length)
                 return data;
-            
+
             var index = inOffset;
             Protocol.Deserialize(out data.Position.x, inArray, ref index);
             Protocol.Deserialize(out data.Position.y, inArray, ref index);

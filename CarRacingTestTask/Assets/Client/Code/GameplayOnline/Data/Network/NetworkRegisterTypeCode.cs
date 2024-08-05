@@ -1,4 +1,4 @@
-﻿namespace Client.Code.GameplayOnline.Infrastructure.States
+﻿namespace Client.Code.GameplayOnline.Data.Network
 {
     public enum NetworkRegisterTypeCode : byte
     {

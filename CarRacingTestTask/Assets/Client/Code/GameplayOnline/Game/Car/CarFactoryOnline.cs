@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Common.Services.Network.Events;
 using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.Updater;
 using Client.Code.Gameplay.Data.Static.Configs;
@@ -9,8 +10,8 @@ using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Controllers.Base;
 using Client.Code.Gameplay.Game.Car.Factory;
 using Client.Code.Gameplay.Game.GameSpawnPoint;
+using Client.Code.GameplayOnline.Data.Network;
 using Client.Code.GameplayOnline.Data.Static.Configs;
-using Client.Code.GameplayOnline.Infrastructure.States;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -18,7 +19,7 @@ using Zenject;
 
 namespace Client.Code.GameplayOnline.Game.Car
 {
-    public class CarFactoryOnline : IAssetReceiver<GameplayOnlineConfig>, IProgressReader, ICarFactory, INetworkEventReceiver
+    public class CarFactoryOnline : IAssetReceiver<GameplayOnlineConfig>, IProgressReader, ICarFactory, INetworkInstantiateReceiver
     {
         private readonly List<ICarUpdateController> _physicsControllers = new();
         private readonly List<ICarUpdateController> _graphicsControllers = new();
@@ -41,6 +42,7 @@ namespace Client.Code.GameplayOnline.Game.Car
                 { SpawnPoint = spawnPoint, IsCarSpoilerEnabled = _progress.Player.IsCarSpoilerEnabled, ColorType = _progress.Player.CarColor };
             var car = CreateObject(createData);
             CreateControllers(car);
+            _controller.Initialize(car);
             _updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
             _updater.OnUpdateWithDelta += UpdateGraphicsControllers;
             RaiseEvent(createData);
@@ -56,29 +58,35 @@ namespace Client.Code.GameplayOnline.Game.Car
 
         public void OnLoad(ProgressData progress) => _progress = progress;
 
-        public void Receive(EventData photonEvent)
+        public void Receive(PhotonMessageInfo info)
         {
-            var code = (NetworkEventCode)photonEvent.Code;
-            if (code != NetworkEventCode.CreateCar)
+            if (info.Sender.IsLocal)
                 return;
 
-            var data = (CarCreateData)photonEvent.CustomData;
-            CreateObject(data);
+            var car = info.photonView.GetComponent<CarObject>();
+            var data = (CarCreateData)info.photonView.InstantiationData[0];
+            ApplyCustomizations(car, data);
         }
 
         private CarObject CreateObject(CarCreateData data)
         {
-            var car = _instantiator.InstantiatePrefabForComponent<CarObject>(_config.Prefab);
-            car.transform.position = data.SpawnPoint.Position;
-            car.transform.rotation = data.SpawnPoint.Rotation;
+            var gameObject = PhotonNetwork.Instantiate(_config.Prefab.name, data.SpawnPoint.Position, data.SpawnPoint.Rotation, 0,
+                new object[] { data });
+            var car = gameObject.GetComponent<CarObject>();
             car.Rigidbody.centerOfMass = car.CenterOfMass.position;
             car.Config = _config;
 
+            ApplyCustomizations(car, data);
+            return car;
+        }
+
+        private void ApplyCustomizations(CarObject car, CarCreateData data)
+        {
             if (data.IsCarSpoilerEnabled)
                 _instantiator.InstantiatePrefab(_config.SpoilerPrefab, car.SpoilerSpawnPoint);
 
             car.Mesh.material = _config.CarColors[data.ColorType];
-            return car;
+            car.Rigidbody.transform.position = data.SpawnPoint.Position;
         }
 
         private void CreateControllers(CarObject car)
@@ -110,7 +118,7 @@ namespace Client.Code.GameplayOnline.Game.Car
 
         private void RaiseEvent(CarCreateData createData)
         {
-            var eventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others, CachingOption = EventCaching.AddToRoomCache };
+            var eventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All, CachingOption = EventCaching.AddToRoomCache };
             PhotonNetwork.RaiseEvent((byte)NetworkEventCode.CreateCar, createData, eventOptions, SendOptions.SendReliable);
         }
     }

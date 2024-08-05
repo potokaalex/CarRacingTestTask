@@ -47,7 +47,7 @@ namespace Client.Code.Gameplay.Game.Car.Factory
         public void Receive(GameplayConfig asset) => _config = asset.Car;
 
         public void OnLoad(ProgressData progress) => _progress = progress;
-        
+
         private void CreateControllers(CarObject car)
         {
             _physicsControllers.Add(_instantiator.Instantiate<CarMoveController>());

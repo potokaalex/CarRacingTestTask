@@ -1,6 +1,7 @@
 ﻿using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Hub.Data;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Client.Code.Hub.UI.Factories
@@ -23,7 +24,7 @@ namespace Client.Code.Hub.UI.Factories
         {
             var canvas = _instantiator.InstantiatePrefabForComponent<HubCanvas>(_config.CanvasPrefab);
             _model.CoinsCount.Subscribe(canvas.CoinsView.SetCoinsCount);
-
+            _model.CoinsCount.Subscribe((_) => Debug.Log("UpdateProp"));
             _windowsFactory.Initialize(canvas);
         }
 

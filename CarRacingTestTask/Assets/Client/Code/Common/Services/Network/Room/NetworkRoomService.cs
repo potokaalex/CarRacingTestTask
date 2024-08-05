@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Client.Code.Common.Services.Logger.Base;
 using Cysharp.Threading.Tasks;
-using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using Zenject;
@@ -29,7 +28,7 @@ namespace Client.Code.Common.Services.Network.Room
             await UniTask.WaitUntil(() => _joinResult != NetworkJoinRoomResult.None);
             return _joinResult;
         }
-        
+
         public void OnCreateRoomFailed(short returnCode, string message) => _logReceiver.Log(new LogData { Message = message });
 
         public void OnJoinedRoom() => _joinResult = NetworkJoinRoomResult.Success;
@@ -39,7 +38,7 @@ namespace Client.Code.Common.Services.Network.Room
             _joinResult = NetworkJoinRoomResult.Fail;
             _logReceiver.Log(new LogData { Message = message });
         }
-  
+
         public void OnFriendListUpdate(List<FriendInfo> friendList)
         {
         }

@@ -2,21 +2,15 @@
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Progress;
 using Client.Code.Common.Services.Startup;
-using Client.Code.Common.Services.StateMachine;
-using Client.Code.Common.Services.StateMachine.Factory;
-using Client.Code.Common.Services.Updater;
 using Client.Code.Gameplay.Data;
 using Client.Code.Gameplay.Data.Static.Configs;
-using Client.Code.Gameplay.Game.Car;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Factory;
-using Client.Code.Gameplay.Game.GameCamera;
 using Client.Code.Gameplay.Game.GameCamera.Factory;
 using Client.Code.Gameplay.Game.Player;
 using Client.Code.Gameplay.Game.Player.Score;
 using Client.Code.Gameplay.Game.Player.Time;
 using Client.Code.Gameplay.Infrastructure.States;
-using Client.Code.Gameplay.UI;
 using Client.Code.Gameplay.UI.Factories;
 using Client.Code.Gameplay.UI.Presenters;
 using UnityEngine;
@@ -56,7 +50,7 @@ namespace Client.Code.Gameplay.Infrastructure
         {
             Container.BindInterfacesAndSelfTo<GameUIFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverScreenFactory>().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<GameOverPresenter>().AsSingle();
             Container.BindInterfacesTo<GamePresenter>().AsSingle();
         }

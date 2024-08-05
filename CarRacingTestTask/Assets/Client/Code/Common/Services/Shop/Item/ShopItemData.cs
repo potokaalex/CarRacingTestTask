@@ -1,15 +1,18 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 namespace Client.Code.Common.Services.Shop.Item
 {
     [Serializable]
     public class ShopItemData
     {
-        public bool IsIAP;
-        [ShowIf(nameof(IsIAP))] public string ID;
+        [NonSerialized] [OdinSerialize] public bool IsIAP;
 
-        public bool IsConsumable;
-        public ItemPriceData Price;
+        [ShowIf(nameof(IsIAP))] [NonSerialized] [OdinSerialize]
+        public string ID;
+
+        [NonSerialized] [OdinSerialize] public bool IsConsumable;
+        [NonSerialized] [OdinSerialize] public ItemPriceData Price;
     }
 }

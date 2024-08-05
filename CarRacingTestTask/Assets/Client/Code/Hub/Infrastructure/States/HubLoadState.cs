@@ -28,12 +28,9 @@ namespace Client.Code.Hub.Infrastructure.States
             _assetLoader.Load();
             await _progressLoader.LoadAsync();
             _stateMachine.SwitchTo<HubState>();
+            _updater.OnDispose += () => _stateMachine.SwitchTo<HubUnLoadState>();
         }
 
-        public UniTask Exit()
-        {
-            _updater.OnDispose += () => _stateMachine.SwitchTo<HubUnLoadState>();
-            return UniTask.CompletedTask;
-        }
+        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

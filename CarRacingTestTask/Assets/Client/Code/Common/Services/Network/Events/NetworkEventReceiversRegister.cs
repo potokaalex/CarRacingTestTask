@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using ExitGames.Client.Photon;
 using Photon.Pun;
-using Photon.Realtime;
 using Zenject;
 
-namespace Client.Code.GameplayOnline.Game.Car
+namespace Client.Code.Common.Services.Network.Events
 {
-    public class NetworkEventReceiversRegister : IInitializable, IDisposable, IOnEventCallback
+    public class NetworkEventReceiversRegister : IInitializable, IDisposable, IPunInstantiateMagicCallback
     {
-        private readonly List<INetworkEventReceiver> _receivers;
+        private readonly List<INetworkInstantiateReceiver> _receivers;
 
-        public NetworkEventReceiversRegister(List<INetworkEventReceiver> receivers) => _receivers = receivers;
+        public NetworkEventReceiversRegister(List<INetworkInstantiateReceiver> receivers) => _receivers = receivers;
 
         public void Initialize() => PhotonNetwork.AddCallbackTarget(this);
 
         public void Dispose() => PhotonNetwork.RemoveCallbackTarget(this);
 
-        public void OnEvent(EventData photonEvent)
+        public void OnPhotonInstantiate(PhotonMessageInfo info)
         {
-            foreach(var receiver in _receivers)
-                receiver.Receive(photonEvent);
+            foreach (var receiver in _receivers)
+                receiver.Receive(info);
         }
     }
 }

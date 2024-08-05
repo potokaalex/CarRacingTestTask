@@ -1,12 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using Client.Code.Common.Data;
+﻿using Client.Code.Common.Data;
 using Client.Code.Common.Services.Network;
 using Client.Code.Gameplay.Game.GameSpawnPoint;
 using Client.Code.GameplayOnline.Game.Car;
 using ExitGames.Client.Photon;
 
-namespace Client.Code.GameplayOnline.Infrastructure.States
+namespace Client.Code.GameplayOnline.Data.Network
 {
     public static class NetworkCarCreateDataSerializer
     {

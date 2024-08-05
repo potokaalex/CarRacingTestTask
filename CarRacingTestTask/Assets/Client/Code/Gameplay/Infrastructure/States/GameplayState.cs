@@ -1,12 +1,9 @@
 ﻿using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Gameplay.Data;
-using Client.Code.Gameplay.Game.Car;
 using Client.Code.Gameplay.Game.Car.Factory;
-using Client.Code.Gameplay.Game.GameCamera;
 using Client.Code.Gameplay.Game.GameCamera.Factory;
 using Client.Code.Gameplay.Game.GameSpawnPoint;
 using Client.Code.Gameplay.Game.Player;
-using Client.Code.Gameplay.UI;
 using Client.Code.Gameplay.UI.Factories;
 
 namespace Client.Code.Gameplay.Infrastructure.States

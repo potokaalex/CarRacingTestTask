@@ -5,6 +5,7 @@ using Client.Code.Common.Services.SceneLoader;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
+using Photon.Pun;
 
 namespace Client.Code.Common.Infrastructure.States
 {
@@ -26,12 +27,15 @@ namespace Client.Code.Common.Infrastructure.States
 
         public async UniTask Enter()
         {
-            var connectionResult = await _networkConnectionService.ConnectToMasterAsync();
-            if (connectionResult == NetworkConnectionResult.Fail)
-                _stateMachine.SwitchTo<HubStateGlobal>();
+            if (!PhotonNetwork.IsConnected)
+            {
+                var connectionResult = await _networkConnectionService.ConnectToMasterAsync();
+                if (connectionResult == NetworkConnectionResult.Fail)
+                    _stateMachine.SwitchTo<HubStateGlobal>();
+            }
 
             await _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
-            
+
             var joinRoomResult = await _networkRoomService.JoinRoomAsync();
             if (joinRoomResult == NetworkJoinRoomResult.Fail)
                 _stateMachine.SwitchTo<HubStateGlobal>();
