@@ -33,9 +33,9 @@ namespace Client.Code.Gameplay.Game.Car.Factory
         public void Create(SpawnPoint spawnPoint)
         {
             var car = CreateObject(spawnPoint);
-            CreateControllers(car);
-            _updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
-            _updater.OnUpdateWithDelta += UpdateGraphicsControllers;
+            //CreateControllers(car);
+            //_updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
+            //_updater.OnUpdateWithDelta += UpdateGraphicsControllers;
         }
 
         public void Destroy()
@@ -70,7 +70,7 @@ namespace Client.Code.Gameplay.Game.Car.Factory
             var car = _instantiator.InstantiatePrefabForComponent<CarObject>(_config.Prefab);
             car.transform.position = spawnPoint.Position;
             car.transform.rotation = spawnPoint.Rotation;
-            car.Rigidbody.centerOfMass = car.CenterOfMass.position;
+            car.Rigidbody.centerOfMass = car.CenterOfMass.localPosition;
             car.Config = _config;
 
             if (_progress.Player.IsCarSpoilerEnabled)

@@ -24,6 +24,7 @@ TODO:
         UI layout items are not updated on time (unity bug ?).                
         Audio bug when camera closing.
         Android iap bug (iap is not fully configured?).
+    Refactoring: infrastructure 
     Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK
     Make loadingScreen (I can load offline scene when loading network scene).
     Make new Car systems:
