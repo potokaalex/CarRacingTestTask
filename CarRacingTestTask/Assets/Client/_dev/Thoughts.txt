@@ -1,0 +1,39 @@
+Load order: BootstrapLoader(editor only) -> ProjectInstaller -> BootstrapInstaller -> AutoStartupperGlobal -> ProjectLoadState -> HubStateGlobal -> HubLoadState -> HubState  ->:
+    -> HubUnLoadState (anyway)
+    
+    -> GameplayStateGlobal -> GameplayLoadState -> GameplayState ->:
+        -> GameplayUnLoadState(anyway)
+        -> GameplayGameOverState
+    
+    -> GameplayOnlineStateGlobal -> GameplayOnlineLoadState -> GameplayOnlineState ->:
+        -> GameplayOnlineUnLoadState(anyway)
+    
+    -> ProjectUnloadState(anyway)
+
+Assemdefs connections: 
+    Common <- nothing. -> everything
+    CompositionRoot <- everything. -> nothing
+    Gameplay <- Common. -> GameplayOnline, CompositionRoot
+    GameplayOnline <- Common, Gameplay. -> CompositionRoot
+
+TODO:
+    Planing
+    BugFix:
+        Car spawn bug.
+        SaveLoader the same place to save the editor and the Windows progress. (hard to test!)
+        UI layout items are not updated on time (unity bug ?).                
+        Audio bug when camera closing.
+        Android iap bug (iap is not fully configured?).
+    Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK
+    Make loadingScreen (I can load offline scene when loading network scene).
+    Make new Car systems:
+        design references: 
+        optional: tyres sound system & engine sound system
+        optional: get image from url and place on car body
+        prevent: bug if the car does not have velocity, then brake does not work correctly!, bug: at high speed, the car breaks off from a straight line
+    Leaderboard in room (All players drift points)
+    Web request: stream radio music into the game
+    Important: Network
+
+Errors:
+    Win32Exception: https://stackoverflow.com/a/77072270/23794352
