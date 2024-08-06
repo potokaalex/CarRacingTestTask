@@ -3,6 +3,7 @@ using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.Updater;
+using Client.Code.Common.Utilities.Extensions;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Controllers.Base;
@@ -33,9 +34,9 @@ namespace Client.Code.Gameplay.Game.Car.Factory
         public void Create(SpawnPoint spawnPoint)
         {
             var car = CreateObject(spawnPoint);
-            //CreateControllers(car);
-            //_updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
-            //_updater.OnUpdateWithDelta += UpdateGraphicsControllers;
+            CreateControllers(car);
+            _updater.OnFixedUpdateWithDelta += UpdatePhysicsControllers;
+            _updater.OnUpdateWithDelta += UpdateGraphicsControllers;
         }
 
         public void Destroy()
@@ -76,7 +77,8 @@ namespace Client.Code.Gameplay.Game.Car.Factory
             if (_progress.Player.IsCarSpoilerEnabled)
                 _instantiator.InstantiatePrefab(_config.SpoilerPrefab, car.SpoilerSpawnPoint);
 
-            car.Mesh.material = _config.CarColors[_progress.Player.CarColor];
+            var material = _config.CarColors[_progress.Player.CarColor];
+            car.Mesh.ChangeSharedMaterials(material, 0);
             return car;
         }
 

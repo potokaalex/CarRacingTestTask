@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using Client.Code.Common.Utilities;
+using Client.Code.Common.Utilities.Extensions;
 using TMPro;
 using UnityEngine;
 

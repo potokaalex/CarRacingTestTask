@@ -24,7 +24,6 @@ namespace Client.Code.Hub.UI.Factories
         {
             var canvas = _instantiator.InstantiatePrefabForComponent<HubCanvas>(_config.CanvasPrefab);
             _model.CoinsCount.Subscribe(canvas.CoinsView.SetCoinsCount);
-            _model.CoinsCount.Subscribe((_) => Debug.Log("UpdateProp"));
             _windowsFactory.Initialize(canvas);
         }
 
