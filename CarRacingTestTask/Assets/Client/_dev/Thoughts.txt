@@ -18,9 +18,8 @@ Assemdefs connections:
 
 TODO:
     BugFix:
-        SaveLoader the same place to save the editor and the Windows progress. (hard to test!)
         UI layout items are not updated on time (unity bug ?).                
-        Audio bug when camera closing.
+        SaveLoader the same place to save the editor and the Windows progress. (hard to test!)
         Android iap bug (iap is not fully configured?).
     Refactoring: infrastructure 
     Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK
