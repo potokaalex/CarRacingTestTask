@@ -17,8 +17,7 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    BugFix:
-        UI layout items are not updated on time (unity bug ?).                
+    BugFix:     
         SaveLoader the same place to save the editor and the Windows progress. (hard to test!)
         Android iap bug (iap is not fully configured?).
     Refactoring: infrastructure 
