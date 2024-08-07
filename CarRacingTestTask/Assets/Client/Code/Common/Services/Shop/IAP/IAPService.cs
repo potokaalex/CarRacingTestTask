@@ -23,11 +23,7 @@ namespace Client.Code.Common.Services.Shop.IAP
         public async UniTask<IAPInitializationResult> InitializeAsync()
         {
             var purchasingModule = CreatePurchasingModule();
-            var builder = ConfigurationBuilder.Instance(purchasingModule);
-
-            foreach (var item in _config.Shop.Items.Values)
-                if (item.IsIAP)
-                    builder.AddProduct(item.ID, item.Type);
+            var builder = CreateBuilder(purchasingModule);
 
             _initializeResult = IAPInitializationResult.None;
             UnityPurchasing.Initialize(this, builder);
@@ -78,7 +74,7 @@ namespace Client.Code.Common.Services.Shop.IAP
             }
         }
 
-        private static StandardPurchasingModule CreatePurchasingModule()
+        private StandardPurchasingModule CreatePurchasingModule()
         {
             var module = StandardPurchasingModule.Instance();
             if (ShopConstants.IsDebug)
@@ -87,6 +83,13 @@ namespace Client.Code.Common.Services.Shop.IAP
                 module.useFakeStoreAlways = true;
             }
             return module;
+        }
+        
+        private ConfigurationBuilder CreateBuilder(StandardPurchasingModule purchasingModule)
+        {
+            var builder = ConfigurationBuilder.Instance(purchasingModule);
+            IAPConfigurationHelper.PopulateConfigurationBuilder(ref builder, ProductCatalog.LoadDefaultCatalog());
+            return builder;
         }
     }
 }

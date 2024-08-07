@@ -17,8 +17,8 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    Refactoring: dont use condition compilation, use constants instead.  
     Refactoring: change iap items ids to: com.alenya.ITEM_ID
+    Refactoring: ironSource initialization
     Refactoring: restructure services folder
     Refactoring: add addressables
     Refactoring: loading states;

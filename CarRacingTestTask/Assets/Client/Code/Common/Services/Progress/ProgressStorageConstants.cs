@@ -9,19 +9,20 @@ namespace Client.Code.Common.Services.Progress
     {
         private const string FilesExtension = "data";
         private const string SaveFolderName = "Saves";
-        
-        private static readonly string _fileName = Path.ChangeExtension(nameof(ProgressData), FilesExtension);
-        private static readonly string _baseDirectoryPath;
-        
-        public static readonly string DirectoryPath = Path.Combine(_baseDirectoryPath, SaveFolderName);
-        public static readonly string FilePath = Path.Combine(DirectoryPath, _fileName);
+
+        public static readonly string DirectoryPath;
+        public static readonly string FilePath;
 
         static ProgressStorageConstants()
         {
-            if (PlatformsConstants.IsEditor)
-                _baseDirectoryPath = Directory.GetParent(Application.dataPath)?.FullName;
-            else
-                _baseDirectoryPath = Application.persistentDataPath;
+            var baseDirectoryPath = PlatformsConstants.IsEditor
+                ? Directory.GetParent(Application.dataPath).FullName
+                : Application.persistentDataPath;
+            
+            DirectoryPath = Path.Combine(baseDirectoryPath, SaveFolderName);
+            
+            var fileName = Path.ChangeExtension(nameof(ProgressData), FilesExtension);
+            FilePath = Path.Combine(DirectoryPath, fileName);
         }
     }
 }
