@@ -16,10 +16,6 @@ Assemdefs connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
-shop item data - поправить выравнивание rider`а 
-Методы должные генерироваться в конце файла!
-
-
 TODO:
     Refactoring: remove init success message from ads 
     Refactoring: dont use condition compilation, use constants instead.  

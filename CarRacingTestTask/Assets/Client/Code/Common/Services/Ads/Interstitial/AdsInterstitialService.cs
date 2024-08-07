@@ -45,11 +45,7 @@ namespace Client.Code.Common.Services.Ads.Interstitial
             return _loadAdResult;
         }
 
-        private void OnAdShowSucceeded(IronSourceAdInfo obj)
-        {
-            _showAdResult = ShowAdResult.Success;
-            _logReceiver.Log(new LogData { Message = "Interstitial ad show succeeded." });
-        }
+        private void OnAdShowSucceeded(IronSourceAdInfo obj) => _showAdResult = ShowAdResult.Success;
 
         private void OnAdShowFailed(IronSourceError arg1, IronSourceAdInfo arg2)
         {
@@ -57,11 +53,7 @@ namespace Client.Code.Common.Services.Ads.Interstitial
             _logReceiver.Log(new LogData { Message = "Interstitial ad show fail." });
         }
 
-        private void OnAdReady(IronSourceAdInfo obj)
-        {
-            _loadAdResult = LoadAdResult.Success;
-            _logReceiver.Log(new LogData { Message = "Interstitial ad load success." });
-        }
+        private void OnAdReady(IronSourceAdInfo obj) => _loadAdResult = LoadAdResult.Success;
 
         private void OnAdLoadFailed(IronSourceError obj)
         {

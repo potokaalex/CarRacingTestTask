@@ -1,4 +1,5 @@
 ﻿using Client.Code.Common.Services.Logger.Base;
+using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Updater;
 using IronSourceRoot.IronSource.Scripts;
 using UnityEngine;
@@ -20,12 +21,9 @@ namespace Client.Code.Common.Services.Ads
         public void Initialize()
         {
             _updater.OnApplicationPauseChanged += isPaused => IronSource.Agent.onApplicationPause(isPaused);
-            IronSourceEvents.onSdkInitializationCompletedEvent += OnInitializationCompleted;
 
             InitializeIronSource();
         }
-
-        private void OnInitializationCompleted() => _logReceiver.Log(new LogData { Message = "Ads service initialization completed." });
 
         private void InitializeIronSource()
         {
@@ -49,13 +47,11 @@ namespace Client.Code.Common.Services.Ads
 
         private string GetAppKey(IronSourceMediationSettings settings)
         {
-#if UNITY_ANDROID
-            return settings.AndroidAppKey;
-#elif UNITY_IOS
-            return settings.IOSAppKey;
-#else
+            if (PlatformsConstants.IsAndroid)
+                return settings.AndroidAppKey;
+            if (PlatformsConstants.IsIOS)
+                return settings.IOSAppKey;
             return AdsConstants.UndefinedPlatformAppKey;
-#endif
         }
     }
 }

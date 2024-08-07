@@ -9,9 +9,7 @@ namespace Client.Code.Common.Services.Shop.Item
     public class ShopItemData
     {
         [NonSerialized] [OdinSerialize] public bool IsIAP;
-
-        [ShowIf(nameof(IsIAP))] [NonSerialized] [OdinSerialize]
-        public string ID;
+        [ShowIf(nameof(IsIAP))] [NonSerialized] [OdinSerialize] public string ID;
 
         [NonSerialized] [OdinSerialize] public ProductType Type;
         [NonSerialized] [OdinSerialize] public ItemPriceData Price;

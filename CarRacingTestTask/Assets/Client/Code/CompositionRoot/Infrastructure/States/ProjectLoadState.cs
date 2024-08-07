@@ -10,7 +10,6 @@ using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Updater;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace Client.Code.CompositionRoot.Infrastructure.States
 {
@@ -43,14 +42,12 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
         {
             _assetLoader.Load();
             await _progressLoader.LoadAsync();
-            
+
             _inputFactory.Create();
             await _unityServicesInitializer.InitializeAsync();
             await _iap.InitializeAsync();
             _audioService.Initialize();
-            
-            Application.targetFrameRate = int.MaxValue;
-            
+
             _stateMachine.SwitchTo<HubStateGlobal>();
         }
 
