@@ -18,17 +18,16 @@ Assemdefs connections:
 
 shop item data - поправить выравнивание rider`а 
 Методы должные генерироваться в конце файла!
-Не использовать условную компиляцию, т.к. её сложно поддерживать ? 
-remove init success message from ads 
+
 
 TODO:
-    BugFix:     
-        Android iap bug (iap is not fully configured?).
-        vertical sync
+    Refactoring: remove init success message from ads 
+    Refactoring: dont use condition compilation, use constants instead.  
     Refactoring: change iap items ids to: com.alenya.ITEM_ID
     Refactoring: restructure services folder
     Refactoring: add addressables
     Refactoring: loading states;
+    Make ui safe area 
     Make loadingScreen (I can load offline scene when loading network scene).
     Level design
     Restore progress button
