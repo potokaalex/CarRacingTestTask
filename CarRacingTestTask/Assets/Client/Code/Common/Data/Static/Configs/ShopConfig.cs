@@ -11,7 +11,6 @@ namespace Client.Code.Common.Data.Static.Configs
     [CreateAssetMenu(menuName = "Configs/Project/Shop", fileName = "ShopConfig", order = 0)]
     public class ShopConfig : SerializedScriptableObject
     {
-        public IAPObject IAPPrefab;
         [OdinSerialize] [NonSerialized] public Dictionary<ShopItemType, ShopItemData> Items;
     }
 }

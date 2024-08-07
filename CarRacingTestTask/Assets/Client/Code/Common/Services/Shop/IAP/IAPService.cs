@@ -1,53 +1,92 @@
-﻿using Client.Code.Common.Services.Logger.Base;
+﻿using Client.Code.Common.Data.Static.Configs;
+using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Common.Services.Logger.Base;
+using Client.Code.Common.Services.Shop.Item;
 using Cysharp.Threading.Tasks;
 using UnityEngine.Purchasing;
 
 namespace Client.Code.Common.Services.Shop.IAP
 {
-    public class IAPService : IIAPService
+    public class IAPService : IIAPService, IStoreListener, IAssetReceiver<ProjectConfig>
     {
         private readonly ILogReceiver _logReceiver;
-        private IAPObject _iap;
-        private PurchaseResult _purchaseResult;
+        private ProjectConfig _config;
+        private IAPInitializationResult _initializeResult;
+        private AIPPurchaseResult _purchaseResult;
+        private IStoreController _controller;
         private string _productId;
 
         public IAPService(ILogReceiver logReceiver) => _logReceiver = logReceiver;
 
-        public void Initialize(IAPObject iap)
-        {
-            _iap = iap;
+        public void Receive(ProjectConfig asset) => _config = asset;
 
-            _iap.Listener.onPurchaseComplete.AddListener(OnPurchaseComplete);
-            _iap.Listener.onPurchaseFailed.AddListener(OnPurchaseFailed);
+        public async UniTask<IAPInitializationResult> InitializeAsync()
+        {
+            var purchasingModule = CreatePurchasingModule();
+            var builder = ConfigurationBuilder.Instance(purchasingModule);
+
+            foreach (var item in _config.Shop.Items.Values)
+                if (item.IsIAP)
+                    builder.AddProduct(item.ID, item.Type);
+
+            _initializeResult = IAPInitializationResult.None;
+            UnityPurchasing.Initialize(this, builder);
+
+            await UniTask.WaitUntil(() => _initializeResult != IAPInitializationResult.None);
+            return _initializeResult;
         }
 
-        public async UniTask<PurchaseResult> BuyAsync(string itemID)
+        public async UniTask<AIPPurchaseResult> BuyAsync(ShopItemType type)
         {
-            _purchaseResult = PurchaseResult.None;
-            _productId = itemID;
+            _purchaseResult = AIPPurchaseResult.None;
+            _productId = _config.Shop.Items[type].ID;
 
-            CodelessIAPStoreListener.Instance.InitiatePurchase(_productId);
+            _controller.InitiatePurchase(_productId);
 
-            await UniTask.WaitUntil(() => _purchaseResult != PurchaseResult.None);
+            await UniTask.WaitUntil(() => _purchaseResult != AIPPurchaseResult.None);
             return _purchaseResult;
         }
 
-        private void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
+        public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+        {
+            _controller = controller;
+            _initializeResult = IAPInitializationResult.Success;
+        }
+
+        public void OnInitializeFailed(InitializationFailureReason error) => OnInitializeFailed(error, string.Empty);
+
+        public void OnInitializeFailed(InitializationFailureReason error, string message)
+        {
+            _initializeResult = IAPInitializationResult.Fail;
+            _logReceiver.Log(new LogData { Message = $"IAP initialize failed, error: {error}. {message}" });
+        }
+
+        public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
+        {
+            if (args.purchasedProduct.definition.id == _productId)
+                _purchaseResult = AIPPurchaseResult.Success;
+
+            return PurchaseProcessingResult.Complete;
+        }
+
+        public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
         {
             if (product.definition.id == _productId)
             {
-                _purchaseResult = PurchaseResult.Fail;
+                _purchaseResult = AIPPurchaseResult.Fail;
                 _logReceiver.Log(new LogData { Message = $"IAP purchase failed because: {failureReason}." });
             }
         }
 
-        private void OnPurchaseComplete(Product product)
+        private static StandardPurchasingModule CreatePurchasingModule()
         {
-            if (product.definition.id == _productId)
+            var module = StandardPurchasingModule.Instance();
+            if (ShopConstants.IsDebug)
             {
-                _purchaseResult = PurchaseResult.Success;
-                _logReceiver.Log(new LogData { Message = $"IAP purchase complete success." });
+                module.useFakeStoreUIMode = FakeStoreUIMode.StandardUser;
+                module.useFakeStoreAlways = true;
             }
+            return module;
         }
     }
 }

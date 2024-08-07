@@ -64,7 +64,6 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 
         private void BindShop()
         {
-            Container.BindInterfacesAndSelfTo<IAPFactory>().AsSingle();
             Container.BindInterfacesTo<IAPService>().AsSingle();
             Container.BindInterfacesTo<ShopService>().AsSingle();
         }

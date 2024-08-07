@@ -22,9 +22,9 @@ namespace Client.Code.Common.Services.Shop
             if (!item.IsIAP)
                 return ShopResult.Success;
 
-            var iapResult = await _iap.BuyAsync(item.ID);
+            var iapResult = await _iap.BuyAsync(type);
 
-            if (iapResult == PurchaseResult.Success)
+            if (iapResult == AIPPurchaseResult.Success)
                 return ShopResult.Success;
 
             return ShopResult.Fail;

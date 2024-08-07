@@ -7,6 +7,7 @@ using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.Shop.IAP;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
+using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Updater;
 using Cysharp.Threading.Tasks;
 
@@ -17,29 +18,35 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
         private readonly IAssetLoader<ProjectConfig> _assetLoader;
         private readonly IGlobalStateMachine _stateMachine;
         private readonly InputFactory _inputFactory;
-        private readonly IAPFactory _iapFactory;
         private readonly IUpdater _updater;
         private readonly IProgressLoader _progressLoader;
         private readonly IAudioService _audioService;
+        private readonly IUnityServicesInitializer _unityServicesInitializer;
+        private readonly IIAPService _iap;
 
         public ProjectLoadState(IAssetLoader<ProjectConfig> assetLoader, IGlobalStateMachine stateMachine, InputFactory inputFactory,
-            IAPFactory iapFactory, IUpdater updater, IProgressLoader progressLoader, IAudioService audioService)
+            IUpdater updater, IProgressLoader progressLoader, IAudioService audioService,
+            IUnityServicesInitializer unityServicesInitializer, IIAPService iap)
         {
             _assetLoader = assetLoader;
             _stateMachine = stateMachine;
             _inputFactory = inputFactory;
-            _iapFactory = iapFactory;
             _updater = updater;
             _progressLoader = progressLoader;
             _audioService = audioService;
+            _unityServicesInitializer = unityServicesInitializer;
+            _iap = iap;
         }
 
         public async UniTask Enter()
         {
             _assetLoader.Load();
             await _progressLoader.LoadAsync();
+            
             _inputFactory.Create();
-            _iapFactory.Create();
+            await _unityServicesInitializer.InitializeAsync();
+            await _iap.InitializeAsync();
+            
             _audioService.Initialize();
             _stateMachine.SwitchTo<HubStateGlobal>();
         }

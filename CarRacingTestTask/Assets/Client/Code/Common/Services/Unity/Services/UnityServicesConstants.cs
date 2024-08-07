@@ -2,6 +2,6 @@
 {
     public static class UnityServicesConstants
     {
-        public static string Environment = "production";
+        public static readonly string Environment = "production";
     }
 }

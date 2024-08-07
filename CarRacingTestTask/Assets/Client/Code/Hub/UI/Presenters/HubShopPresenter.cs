@@ -2,6 +2,7 @@
 using Client.Code.Common.Services.Shop.Item;
 using Client.Code.Common.UI.Buttons.Shop;
 using Cysharp.Threading.Tasks;
+using UnityEngine.Purchasing;
 
 namespace Client.Code.Hub.UI.Presenters
 {
@@ -30,7 +31,7 @@ namespace Client.Code.Hub.UI.Presenters
             if (result != ShopResult.Success)
                 return;
 
-            if (!item.IsConsumable)
+            if (item.Type == ProductType.NonConsumable)
                 _model.PurchasedItems.Add(type);
 
             _model.CoinsCount.Value -= item.Price.CoinsCount;

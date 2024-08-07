@@ -1,6 +1,6 @@
 ﻿namespace Client.Code.Common.Services.Shop.IAP
 {
-    public enum PurchaseResult
+    public enum IAPInitializationResult
     {
         None = 1,
         Success = 2,

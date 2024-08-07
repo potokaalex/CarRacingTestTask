@@ -16,21 +16,32 @@ Assemdefs connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
+shop item data - поправить выравнивание rider`а 
+Методы должные генерироваться в конце файла!
+Не использовать условную компиляцию, т.к. её сложно поддерживать ? 
+remove init success message from ads 
+
 TODO:
     BugFix:     
-        SaveLoader the same place to save the editor and the Windows progress. (hard to test!)
         Android iap bug (iap is not fully configured?).
-    Refactoring: infrastructure 
-    Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK
+        vertical sync
+    Refactoring: change iap items ids to: com.alenya.ITEM_ID
+    Refactoring: restructure services folder
+    Refactoring: add addressables
+    Refactoring: loading states;
     Make loadingScreen (I can load offline scene when loading network scene).
+    Level design
+    Restore progress button
+    Refactoring: Camera controller
     Make new Car systems:
         design references: 
         optional: tyres sound system & engine sound system
         optional: get image from url and place on car body
         prevent: bug if the car does not have velocity, then brake does not work correctly!, bug: at high speed, the car breaks off from a straight line
+    Important: Network
     Leaderboard in room (All players drift points)
     Web request: stream radio music into the game
-    Important: Network
+    Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK
 
 Errors:
     Win32Exception: https://stackoverflow.com/a/77072270/23794352

@@ -1,6 +1,7 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityEngine.Purchasing;
 
 namespace Client.Code.Common.Services.Shop.Item
 {
@@ -12,7 +13,7 @@ namespace Client.Code.Common.Services.Shop.Item
         [ShowIf(nameof(IsIAP))] [NonSerialized] [OdinSerialize]
         public string ID;
 
-        [NonSerialized] [OdinSerialize] public bool IsConsumable;
+        [NonSerialized] [OdinSerialize] public ProductType Type;
         [NonSerialized] [OdinSerialize] public ItemPriceData Price;
     }
 }
