@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Services.Unity
+﻿namespace Client.Code.Common.Services.Unity.Services
 {
     public static class UnityServicesConstants
     {

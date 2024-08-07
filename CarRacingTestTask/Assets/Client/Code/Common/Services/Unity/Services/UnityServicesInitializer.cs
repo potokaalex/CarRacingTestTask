@@ -2,7 +2,7 @@
 using Unity.Services.Core;
 using Unity.Services.Core.Environments;
 
-namespace Client.Code.Common.Services.Unity
+namespace Client.Code.Common.Services.Unity.Services
 {
     public class UnityServicesInitializer : IUnityServicesInitializer
     {

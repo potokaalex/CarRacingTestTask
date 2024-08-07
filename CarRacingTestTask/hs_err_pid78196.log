@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes for Failed to commit area from 0x0000000701400000 to 0x0000000711400000 of length 268435456.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3387), pid=78196, tid=5276
+#
+# JRE version:  (11.0.14.1+1) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.14.1+1, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 
+
+Host: Intel(R) Xeon(R) CPU E5-2640 0 @ 2.50GHz, 12 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.4597)
+Time: Wed Aug  7 18:14:04 2024 Russia TZ 2 Standard Time elapsed time: 0.016055 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001cc6696e800):  JavaThread "Unknown thread" [_thread_in_vm, id=5276, stack(0x0000007b58f00000,0x0000007b59000000)]
+
+Stack: [0x0000007b58f00000,0x0000007b59000000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x61e59a]
+V  [jvm.dll+0x7aaca9]
+V  [jvm.dll+0x7ac398]
+V  [jvm.dll+0x7aca73]
+V  [jvm.dll+0x24f9b8]
+V  [jvm.dll+0x61b83a]
+V  [jvm.dll+0x6100c5]
+V  [jvm.dll+0x30772c]
+V  [jvm.dll+0x3075b2]
+V  [jvm.dll+0x30c2d6]
+V  [jvm.dll+0x35272f]
+V  [jvm.dll+0x352160]
+V  [jvm.dll+0x2e4728]
+V  [jvm.dll+0x2e5886]
+V  [jvm.dll+0x784b07]
+V  [jvm.dll+0x78628f]
+V  [jvm.dll+0x35f479]
+V  [jvm.dll+0x767aa0]
+V  [jvm.dll+0x3ccf1f]
+V  [jvm.dll+0x3cf2b1]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17374]
+C  [ntdll.dll+0x4cc91]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001cc66894360, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001cc66a8c000 GCTaskThread "GC Thread#0" [stack: 0x0000007b59000000,0x0000007b59100000] [id=36512]
+  0x000001cc66ae9000 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000007b59100000,0x0000007b59200000] [id=25576]
+  0x000001cc66aec800 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000007b59200000,0x0000007b59300000] [id=47672]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffe1d493ef7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001cc66a6fd90] Heap_lock - owner thread: 0x000001cc6696e800
+
+Heap address: 0x0000000701400000, size: 4076 MB, Compressed Oops mode: Non-zero based: 0x0000000701400000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.009 Loaded shared library C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff68be60000 - 0x00007ff68be6d000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe
+0x00007ffe896d0000 - 0x00007ffe898c8000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffe883e0000 - 0x00007ffe884a1000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffe86f60000 - 0x00007ffe87256000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffe87580000 - 0x00007ffe87680000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffe83b40000 - 0x00007ffe83b57000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\jli.dll
+0x00007ffe555e0000 - 0x00007ffe555f5000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\VCRUNTIME140.dll
+0x00007ffe88b40000 - 0x00007ffe88cdf000 	C:\Windows\System32\USER32.dll
+0x00007ffe79ea0000 - 0x00007ffe7a13a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ffe876d0000 - 0x00007ffe876f2000 	C:\Windows\System32\win32u.dll
+0x00007ffe87f90000 - 0x00007ffe8802e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffe88b10000 - 0x00007ffe88b3b000 	C:\Windows\System32\GDI32.dll
+0x00007ffe87260000 - 0x00007ffe87377000 	C:\Windows\System32\gdi32full.dll
+0x00007ffe86d80000 - 0x00007ffe86e1d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffe89660000 - 0x00007ffe8968f000 	C:\Windows\System32\IMM32.DLL
+0x00007ffe4d140000 - 0x00007ffe4d1db000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\msvcp140.dll
+0x00007ffe1d1a0000 - 0x00007ffe1dd21000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\server\jvm.dll
+0x00007ffe88210000 - 0x00007ffe882c0000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffe87700000 - 0x00007ffe877a0000 	C:\Windows\System32\sechost.dll
+0x00007ffe894a0000 - 0x00007ffe895c3000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffe87550000 - 0x00007ffe87577000 	C:\Windows\System32\bcrypt.dll
+0x00007ffe89430000 - 0x00007ffe89438000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffe654d0000 - 0x00007ffe654d9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffe7d020000 - 0x00007ffe7d047000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffe81700000 - 0x00007ffe8170a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffe88a40000 - 0x00007ffe88aab000 	C:\Windows\System32\WS2_32.dll
+0x00007ffe84b30000 - 0x00007ffe84b42000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffe64ac0000 - 0x00007ffe64ad0000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\verify.dll
+0x00007ffe7ae60000 - 0x00007ffe7b044000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffe7b440000 - 0x00007ffe7b474000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffe86e20000 - 0x00007ffe86ea2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffe555b0000 - 0x00007ffe555d8000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.dll
+0x00007ffe534e0000 - 0x00007ffe534ea000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\jimage.dll
+0x00007ffe534c0000 - 0x00007ffe534d8000 	C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: <unknown>
+java_class_path (initial): <not set>
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4273995776                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Unity\Hub\Editor\2022.3.40f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK
+JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;D:\Program\Matlab\runtime\win64;D:\Program\Matlab\bin;C:\Program Files\Wolfram Research\WolframScript\;C:\NASM\;C:\Program Files\dotnet\;C:\Users\Alenya\platform-tools;C:\Program Files\Git\cmd;C:\Users\Alenya\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\JetBrains Rider 2023.3.2\bin;;C:\Users\Alenya\.dotnet\tools;C:\Program Files\Microsoft VS Code\bin;
+USERNAME=Alenya
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 45 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.4597)
+OS uptime: 4 days 0:46 hours
+
+CPU:total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 45 stepping 7 microcode 0x714, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, system-wide physical 16302M (7793M free)
+TotalPageFile size 22446M (AvailPageFile size 31M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 64M, peak: 320M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.14.1+1) for windows-amd64 JRE (11.0.14.1+1), built on Feb  9 2022 01:48:27 by "" with unknown MS VC++:1916
+
+END.

@@ -1,4 +1,5 @@
 ﻿using System;
+using Client.Code.Common.Services.Logger.Base;
 using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
@@ -8,9 +9,14 @@ namespace Client.Code.Common.Services.StateMachine
     public class StateMachine : IStateMachine, IDisposable
     {
         private readonly IStateFactory _factory;
+        private readonly ILogReceiver _logReceiver;
         private IStateBase _currentState;
 
-        public StateMachine(IStateFactory factory) => _factory = factory;
+        public StateMachine(IStateFactory factory, ILogReceiver logReceiver)
+        {
+            _factory = factory;
+            _logReceiver = logReceiver;
+        }
 
         public void SwitchTo<T>() where T : IStateBase => SwitchTo(typeof(T));
 
@@ -27,7 +33,8 @@ namespace Client.Code.Common.Services.StateMachine
 
         private async UniTask EnterAsync()
         {
-            DebugOnEnter();
+            if (StateMachineConstants.IsDebug)
+                DebugOnEnter();
 
             if (_currentState is IState state)
                 state.Enter();
@@ -40,27 +47,19 @@ namespace Client.Code.Common.Services.StateMachine
             if (_currentState == null)
                 return;
 
-            DebugOnExit();
+            if (StateMachineConstants.IsDebug)
+                DebugOnExit();
+
             if (_currentState is IState state)
                 state.Exit();
             else if (_currentState is IStateAsync asyncState)
                 await asyncState.Exit();
         }
 
-        private protected string GetCurrentStateName() => _currentState.GetType().Name; //used in debug!
+        private protected string GetCurrentStateName() => _currentState.GetType().Name;
 
-        private protected virtual void DebugOnExit()
-        {
-#if DEBUG_STATE_MACHINE
-            UnityEngine.Debug.Log($"Exit: {GetCurrentStateName()}");
-#endif
-        }
+        private protected virtual void DebugOnExit() => _logReceiver.Log(new LogData { Message = $"Exit: {GetCurrentStateName()}" });
 
-        private protected virtual void DebugOnEnter()
-        {
-#if DEBUG_STATE_MACHINE
-            UnityEngine.Debug.Log($"Enter: {GetCurrentStateName()}");
-#endif
-        }
+        private protected virtual void DebugOnEnter() => _logReceiver.Log(new LogData { Message = $"Enter: {GetCurrentStateName()}" });
     }
 }

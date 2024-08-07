@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Data.Static.Configs;
+﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.AudioService;
@@ -8,6 +8,7 @@ using Client.Code.Common.Services.Shop.IAP;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Unity;
+using Client.Code.Common.Services.Unity.Services;
 using Client.Code.Common.Services.Updater;
 using Cysharp.Threading.Tasks;
 

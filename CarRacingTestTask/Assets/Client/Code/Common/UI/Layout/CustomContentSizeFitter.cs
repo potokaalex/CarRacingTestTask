@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Client.Code.Common.Services.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -31,9 +32,7 @@ namespace Client.Code.Common.UI.Layout
 
         protected override void OnRectTransformDimensionsChange() => SetDirty();
 
-#if UNITY_EDITOR
         protected override void OnValidate() => SetDirty();
-#endif
 
         public void SetLayoutHorizontal() => HandleFittingAlongAxis(Axis.Horizontal);
 

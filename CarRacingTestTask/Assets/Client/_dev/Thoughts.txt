@@ -17,7 +17,6 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    Refactoring: remove init success message from ads 
     Refactoring: dont use condition compilation, use constants instead.  
     Refactoring: change iap items ids to: com.alenya.ITEM_ID
     Refactoring: restructure services folder

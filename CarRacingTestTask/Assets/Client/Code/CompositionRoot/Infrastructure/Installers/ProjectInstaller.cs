@@ -1,5 +1,6 @@
 ﻿using System;
-using Client.Code.Common.Data.Static.Configs;
+using Client.Code.Common.Data.Configs;
+using Client.Code.Common.Services.Ads;
 using Client.Code.Common.Services.Ads.Interstitial;
 using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Loader;
@@ -19,6 +20,7 @@ using Client.Code.Common.Services.Shop.IAP;
 using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
+using Client.Code.Common.Services.Unity.Services;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.GameplayOnline.Data.Static.Configs;
 using Client.Code.Hub.Data;
@@ -98,12 +100,13 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 
         private void BindAds()
         {
-#if UNITY_EDITOR || (!UNITY_ANDROID && !UNITY_IOS)
-            Container.BindInterfacesTo<AdsInterstitialServiceUnityEditor>().AsSingle();
-#else
-            Container.BindInterfacesTo<Client.Code.Common.Services.Ads.AdsService>().AsSingle();
-            Container.BindInterfacesTo<Client.Code.Common.Services.Ads.Interstitial.AdsInterstitialService>().AsSingle();
-#endif
+            if (PlatformsConstants.IsAndroid || PlatformsConstants.IsIOS)
+            {
+                Container.BindInterfacesTo<AdsService>().AsSingle();
+                Container.BindInterfacesTo<AdsInterstitialService>().AsSingle();
+            }
+            else
+                Container.BindInterfacesTo<AdsInterstitialServiceUnityEditor>().AsSingle();
         }
     }
 }

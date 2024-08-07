@@ -1,25 +1,16 @@
-﻿using Client.Code.Common.Services.StateMachine.Factory;
+﻿using Client.Code.Common.Services.Logger.Base;
+using Client.Code.Common.Services.StateMachine.Factory;
 
 namespace Client.Code.Common.Services.StateMachine.Global
 {
     public class GlobalStateMachine : StateMachine, IGlobalStateMachine
     {
-        public GlobalStateMachine(IStateFactory factory) : base(factory)
-        {
-        }
+        private readonly ILogReceiver _logReceiver;
 
-        private protected override void DebugOnExit()
-        {
-#if DEBUG_STATE_MACHINE
-            UnityEngine.Debug.Log($"Exit: {GetCurrentStateName()}-global");
-#endif
-        }
+        public GlobalStateMachine(IStateFactory factory, ILogReceiver logReceiver) : base(factory, logReceiver) => _logReceiver = logReceiver;
 
-        private protected override void DebugOnEnter()
-        {
-#if DEBUG_STATE_MACHINE
-            UnityEngine.Debug.Log($"Enter: {GetCurrentStateName()}-global");
-#endif
-        }
+        private protected override void DebugOnExit() => _logReceiver.Log(new LogData { Message = $"Exit: {GetCurrentStateName()}-global" });
+
+        private protected override void DebugOnEnter() => _logReceiver.Log(new LogData { Message = $"Enter: {GetCurrentStateName()}-global" });
     }
 }
