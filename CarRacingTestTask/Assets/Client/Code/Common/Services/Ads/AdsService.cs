@@ -21,7 +21,6 @@ namespace Client.Code.Common.Services.Ads
         public void Initialize()
         {
             _updater.OnApplicationPauseChanged += isPaused => IronSource.Agent.onApplicationPause(isPaused);
-
             InitializeIronSource();
         }
 

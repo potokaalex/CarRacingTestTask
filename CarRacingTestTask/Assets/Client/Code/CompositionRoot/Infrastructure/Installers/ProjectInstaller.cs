@@ -34,7 +34,6 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
         [SerializeField] private ProjectConfig _config;
         [SerializeField] private HubConfig _hubConfig;
         [SerializeField] private GameplayConfig _gameplayConfig;
-        [SerializeField] private GameplayOnlineConfig _gameplayOnlineConfig;
 
         public override void InstallBindings()
         {
@@ -80,7 +79,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
         private void BindAssets()
         {
             Container.Bind<AllAssetsProvider>().AsSingle()
-                .WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig, _gameplayOnlineConfig });
+                .WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig });
             Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle();
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }

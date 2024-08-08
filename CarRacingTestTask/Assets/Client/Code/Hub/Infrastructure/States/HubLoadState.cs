@@ -30,7 +30,5 @@ namespace Client.Code.Hub.Infrastructure.States
             _stateMachine.SwitchTo<HubState>();
             _updater.OnDispose += () => _stateMachine.SwitchTo<HubUnLoadState>();
         }
-
-        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

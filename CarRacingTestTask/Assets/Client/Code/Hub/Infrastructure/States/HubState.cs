@@ -10,9 +10,5 @@ namespace Client.Code.Hub.Infrastructure.States
         public HubState(HubUIFactory uiFactory) => _uiFactory = uiFactory;
 
         public void Enter() => _uiFactory.Create();
-
-        public void Exit()
-        {
-        }
     }
 }

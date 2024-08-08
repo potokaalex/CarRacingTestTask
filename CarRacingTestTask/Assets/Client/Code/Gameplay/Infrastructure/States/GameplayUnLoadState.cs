@@ -10,9 +10,5 @@ namespace Client.Code.Gameplay.Infrastructure.States
         public GameplayUnLoadState(IProgressSaver progressSaver) => _progressSaver = progressSaver;
 
         public void Enter() => _progressSaver.Save();
-
-        public void Exit()
-        {
-        }
     }
 }

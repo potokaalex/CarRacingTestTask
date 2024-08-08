@@ -16,12 +16,16 @@ Assemdefs connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
+стейты загрузки должны быть локальными, т.к. они требуют доступ к локальным сервисам.
+но что насчёт загрузки сцен ? Что насчёт экрана загрузки ?
+глобальная машина состояний стоит под вопросом. - или нет ?)
+
 TODO:
-    Refactoring: change iap items ids to: com.alenya.ITEM_ID
-    Refactoring: ironSource initialization
-    Refactoring: restructure services folder
-    Refactoring: add addressables
     Refactoring: loading states;
+    Refactoring: progress save-load
+    Refactoring: add addressables to assets
+    Refactoring: update by interfaces to simplify code
+    Refactoring: input system.
     Make ui safe area 
     Make loadingScreen (I can load offline scene when loading network scene).
     Level design

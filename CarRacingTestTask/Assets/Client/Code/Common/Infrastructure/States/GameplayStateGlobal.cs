@@ -11,7 +11,5 @@ namespace Client.Code.Common.Infrastructure.States
         public GameplayStateGlobal(ISceneLoader sceneLoader) => _sceneLoader = sceneLoader;
 
         public UniTask Enter() => _sceneLoader.LoadSceneAsync(SceneName.Gameplay);
-
-        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

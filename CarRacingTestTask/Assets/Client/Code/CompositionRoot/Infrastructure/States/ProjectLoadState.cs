@@ -7,7 +7,6 @@ using Client.Code.Common.Services.Progress.Loader;
 using Client.Code.Common.Services.Shop.IAP;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
-using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Unity.Services;
 using Client.Code.Common.Services.Updater;
 using Cysharp.Threading.Tasks;
@@ -17,7 +16,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
     public class ProjectLoadState : IStateAsync
     {
         private readonly IAssetLoader<ProjectConfig> _assetLoader;
-        private readonly IGlobalStateMachine _stateMachine;
+        private readonly IGlobalStateMachine _globalStateMachine;
         private readonly InputFactory _inputFactory;
         private readonly IUpdater _updater;
         private readonly IProgressLoader _progressLoader;
@@ -25,12 +24,12 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
         private readonly IUnityServicesInitializer _unityServicesInitializer;
         private readonly IIAPService _iap;
 
-        public ProjectLoadState(IAssetLoader<ProjectConfig> assetLoader, IGlobalStateMachine stateMachine, InputFactory inputFactory,
-            IUpdater updater, IProgressLoader progressLoader, IAudioService audioService,
-            IUnityServicesInitializer unityServicesInitializer, IIAPService iap)
+        public ProjectLoadState(IAssetLoader<ProjectConfig> assetLoader, IGlobalStateMachine globalStateMachine, InputFactory inputFactory,
+            IUpdater updater, IProgressLoader progressLoader, IAudioService audioService, IUnityServicesInitializer unityServicesInitializer,
+            IIAPService iap)
         {
             _assetLoader = assetLoader;
-            _stateMachine = stateMachine;
+            _globalStateMachine = globalStateMachine;
             _inputFactory = inputFactory;
             _updater = updater;
             _progressLoader = progressLoader;
@@ -45,17 +44,13 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
             await _progressLoader.LoadAsync();
 
             _inputFactory.Create();
+
             await _unityServicesInitializer.InitializeAsync();
             await _iap.InitializeAsync();
             _audioService.Initialize();
 
-            _stateMachine.SwitchTo<HubStateGlobal>();
-        }
-
-        public UniTask Exit()
-        {
-            _updater.OnDispose += () => _stateMachine.SwitchTo<ProjectUnloadState>();
-            return UniTask.CompletedTask;
+            _updater.OnDispose += () => _globalStateMachine.SwitchTo<ProjectUnloadState>();
+            _globalStateMachine.SwitchTo<HubStateGlobal>();
         }
     }
 }

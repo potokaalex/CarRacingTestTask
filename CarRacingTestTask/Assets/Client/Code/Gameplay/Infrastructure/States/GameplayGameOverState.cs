@@ -10,9 +10,5 @@ namespace Client.Code.Gameplay.Infrastructure.States
         public GameplayGameOverState(GameOverScreenFactory screenFactory) => _screenFactory = screenFactory;
 
         public void Enter() => _screenFactory.Create();
-
-        public void Exit()
-        {
-        }
     }
 }

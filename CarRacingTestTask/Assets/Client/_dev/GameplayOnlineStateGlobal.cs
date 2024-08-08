@@ -40,7 +40,5 @@ namespace Client.Code.Common.Infrastructure.States
             if (joinRoomResult == NetworkJoinRoomResult.Fail)
                 _stateMachine.SwitchTo<HubStateGlobal>();
         }
-
-        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

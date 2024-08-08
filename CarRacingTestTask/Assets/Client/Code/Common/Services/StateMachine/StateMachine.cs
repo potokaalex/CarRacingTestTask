@@ -50,9 +50,9 @@ namespace Client.Code.Common.Services.StateMachine
             if (StateMachineConstants.IsDebug)
                 DebugOnExit();
 
-            if (_currentState is IState state)
+            if (_currentState is IStateWithExit state)
                 state.Exit();
-            else if (_currentState is IStateAsync asyncState)
+            else if (_currentState is IStateWithExitAsync asyncState)
                 await asyncState.Exit();
         }
 

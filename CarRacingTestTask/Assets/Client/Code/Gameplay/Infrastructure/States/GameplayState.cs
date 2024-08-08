@@ -8,7 +8,7 @@ using Client.Code.Gameplay.UI.Factories;
 
 namespace Client.Code.Gameplay.Infrastructure.States
 {
-    public class GameplayState : IState
+    public class GameplayState : IStateWithExit
     {
         private readonly ICarFactory _carFactory;
         private readonly GameplaySceneData _sceneData;

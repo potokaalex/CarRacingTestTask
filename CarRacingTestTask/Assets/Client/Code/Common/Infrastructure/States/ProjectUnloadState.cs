@@ -25,10 +25,6 @@ namespace Client.Code.Common.Infrastructure.States
             Quit();
         }
 
-        public void Exit()
-        {
-        }
-
         private void Quit()
         {
             if(PlatformsConstants.IsEditor)

@@ -10,9 +10,5 @@ namespace Client.Code.Hub.Infrastructure.States
         public HubUnLoadState(IProgressSaver progressSaver) => _progressSaver = progressSaver;
 
         public void Enter() => _progressSaver.Save();
-
-        public void Exit()
-        {
-        }
     }
 }

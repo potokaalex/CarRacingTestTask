@@ -31,7 +31,5 @@ namespace Client.Code.Gameplay.Infrastructure.States
             _stateMachine.SwitchTo<GameplayState>();
             _updater.OnDispose += () => _stateMachine.SwitchTo<GameplayUnLoadState>();
         }
-
-        public UniTask Exit() => UniTask.CompletedTask;
     }
 }

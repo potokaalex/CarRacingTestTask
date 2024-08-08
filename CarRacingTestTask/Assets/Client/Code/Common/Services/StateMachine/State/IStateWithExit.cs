@@ -1,7 +1,7 @@
 ﻿namespace Client.Code.Common.Services.StateMachine.State
 {
-    public interface IState : IStateBase
+    public interface IStateWithExit : IState
     {
-        void Enter();
+        void Exit();
     }
 }
