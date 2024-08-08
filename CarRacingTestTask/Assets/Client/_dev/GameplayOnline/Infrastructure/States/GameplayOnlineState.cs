@@ -1,10 +1,10 @@
-﻿using Client.Code.Common.Services.StateMachine.State;
+﻿using Client._dev.GameplayOnline.Data;
+using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Gameplay.Game.Car.Factory;
 using Client.Code.Gameplay.Game.GameCamera.Factory;
 using Client.Code.Gameplay.Game.GameSpawnPoint;
-using Client.Code.GameplayOnline.Data;
 
-namespace Client.Code.GameplayOnline.Infrastructure.States
+namespace Client._dev.GameplayOnline.Infrastructure.States
 {
     public class GameplayOnlineState : IState
     {

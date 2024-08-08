@@ -1,8 +1,8 @@
-﻿using Client.Code.Common.Services.StateMachine;
-using Client.Code.GameplayOnline.Infrastructure.States;
+﻿using Client._dev.GameplayOnline.Infrastructure.States;
+using Client.Code.Common.Services.StateMachine;
 using Photon.Pun;
 
-namespace Client.Code.GameplayOnline.Game
+namespace Client._dev.GameplayOnline.Game
 {
     public class GameStartCheckerOnline
     {

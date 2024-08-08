@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: fab154a2cfae9154a939dcf01fb5b12a
+  m_SerializeEntries:
+  - m_GUID: 0d69d846e907e754baf95c696ee26968
+    m_Address: Assets/Client/Configs/Gameplay/GameplayConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1415c6026b63bb146bb3239c2206d165
+    m_Address: Assets/Client/Configs/Project/ProjectConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ee27e82255947c4e9421c43ecaafb5d
+    m_Address: Assets/Client/Configs/Gameplay/Online/GameplayOnlineConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24d4e1efe045b4e49a6041c3c02ebba3
+    m_Address: Assets/Client/Configs/Hub/HubConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 15c617cacf165bb40bb5f0b6588b70ae, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e1fa6617de3d1864393d476b8ae45496, type: 2}
+    - {fileID: 11400000, guid: 976eba139e278424794f224a3cb5cb79, type: 2}

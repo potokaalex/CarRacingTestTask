@@ -1,7 +1,7 @@
 ﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Asset.Receiver;
-using Client.Code.Common.Services.Progress.Loader;
+using Client.Code.Common.Services.ProgressService.Loader;
 
 namespace Client.Code.Common.Services.AudioService
 {

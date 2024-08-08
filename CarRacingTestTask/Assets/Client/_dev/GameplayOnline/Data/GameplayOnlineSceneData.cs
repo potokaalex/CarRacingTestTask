@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Client.Code.GameplayOnline.Data
+namespace Client._dev.GameplayOnline.Data
 {
     [Serializable]
     public class GameplayOnlineSceneData

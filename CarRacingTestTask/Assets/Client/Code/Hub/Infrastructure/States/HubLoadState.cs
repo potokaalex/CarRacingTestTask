@@ -1,5 +1,5 @@
 ﻿using Client.Code.Common.Services.Asset.Loader;
-using Client.Code.Common.Services.Progress.Loader;
+using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Updater;
@@ -25,7 +25,7 @@ namespace Client.Code.Hub.Infrastructure.States
 
         public async UniTask Enter()
         {
-            _assetLoader.Load();
+            await _assetLoader.LoadAsync();
             await _progressLoader.LoadAsync();
             _stateMachine.SwitchTo<HubState>();
             _updater.OnDispose += () => _stateMachine.SwitchTo<HubUnLoadState>();

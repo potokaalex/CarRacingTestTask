@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Services.Progress.Saver;
+﻿using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.StateMachine.State;
 
 namespace Client.Code.Hub.Infrastructure.States

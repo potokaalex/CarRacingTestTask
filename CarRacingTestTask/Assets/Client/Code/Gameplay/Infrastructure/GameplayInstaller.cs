@@ -1,6 +1,7 @@
-﻿using Client.Code.Common.Services.Asset.Loader;
+﻿using Client.Code.Common.Services.Asset;
+using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
-using Client.Code.Common.Services.Progress;
+using Client.Code.Common.Services.ProgressService;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Gameplay.Data;
 using Client.Code.Gameplay.Data.Static.Configs;
@@ -36,7 +37,7 @@ namespace Client.Code.Gameplay.Infrastructure
         private void BindAssets()
         {
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayConfig>>().AsSingle();
-            Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle();
+            Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle().WithArguments(AssetType.Gameplay);
         }
 
         private void BindGame()

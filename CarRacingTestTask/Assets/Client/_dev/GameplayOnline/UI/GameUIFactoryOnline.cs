@@ -1,9 +1,9 @@
-﻿using Client.Code.Common.Services.Asset.Receiver;
+﻿using Client._dev.GameplayOnline.Data.Static.Configs;
+using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Gameplay.UI;
-using Client.Code.GameplayOnline.Data.Static.Configs;
 using Zenject;
 
-namespace Client.Code.GameplayOnline.UI
+namespace Client._dev.GameplayOnline.UI
 {
     public class GameUIFactoryOnline : IAssetReceiver<GameplayOnlineConfig>
     {

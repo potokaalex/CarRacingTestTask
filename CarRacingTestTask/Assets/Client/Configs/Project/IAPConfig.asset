@@ -58,7 +58,7 @@ MonoBehaviour:
       Data: 
     - Name: Type
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Price
       Entry: 7
       Data: Client.Code.Common.Services.Shop.Item.ItemPriceData, Common

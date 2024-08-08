@@ -3,7 +3,7 @@ using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.InputService;
-using Client.Code.Common.Services.Progress.Loader;
+using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.Shop.IAP;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
@@ -40,7 +40,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
 
         public async UniTask Enter()
         {
-            _assetLoader.Load();
+            await _assetLoader.LoadAsync();
             await _progressLoader.LoadAsync();
 
             _inputFactory.Create();

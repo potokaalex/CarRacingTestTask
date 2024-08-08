@@ -3,6 +3,7 @@ using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Services.Ads;
 using Client.Code.Common.Services.Ads.Interstitial;
 using Client.Code.Common.Services.Asset;
+using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.AudioService;
@@ -11,9 +12,9 @@ using Client.Code.Common.Services.Logger;
 using Client.Code.Common.Services.Logger.Base;
 using Client.Code.Common.Services.Network.Connection;
 using Client.Code.Common.Services.Network.Room;
-using Client.Code.Common.Services.Progress;
-using Client.Code.Common.Services.Progress.Loader;
-using Client.Code.Common.Services.Progress.Saver;
+using Client.Code.Common.Services.ProgressService;
+using Client.Code.Common.Services.ProgressService.Loader;
+using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.SceneLoader;
 using Client.Code.Common.Services.Shop;
 using Client.Code.Common.Services.Shop.IAP;
@@ -22,7 +23,6 @@ using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Unity.Services;
 using Client.Code.Gameplay.Data.Static.Configs;
-using Client.Code.GameplayOnline.Data.Static.Configs;
 using Client.Code.Hub.Data;
 using UnityEngine;
 using Zenject;
@@ -31,9 +31,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 {
     public class ProjectInstaller : MonoInstaller
     {
-        [SerializeField] private ProjectConfig _config;
-        [SerializeField] private HubConfig _hubConfig;
-        [SerializeField] private GameplayConfig _gameplayConfig;
+        [SerializeField] private AssetsConfig _assetsConfig;
 
         public override void InstallBindings()
         {
@@ -78,9 +76,8 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 
         private void BindAssets()
         {
-            Container.Bind<AllAssetsProvider>().AsSingle()
-                .WithArguments(new IAsset[] { _config, _hubConfig, _gameplayConfig });
-            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle();
+            Container.Bind<AssetsConfigProvider>().AsSingle().WithArguments(_assetsConfig);
+            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle().WithArguments(AssetType.Project);
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }
 

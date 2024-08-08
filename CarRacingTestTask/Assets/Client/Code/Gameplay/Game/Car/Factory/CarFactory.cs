@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Asset.Receiver;
-using Client.Code.Common.Services.Progress.Loader;
+using Client.Code.Common.Services.Extensions;
+using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.Updater;
-using Client.Code.Common.Utilities.Extensions;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Controllers.Base;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Client.Code.Common.Utilities.Extensions
+namespace Client.Code.Common.Services.Extensions
 {
     public static class MeshRendererExtensions
     {

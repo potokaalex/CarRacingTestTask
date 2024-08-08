@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client.Code.Common.Utilities.Extensions
+namespace Client.Code.Common.Services.Extensions
 {
     public static class MathfExtensions
     {

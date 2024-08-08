@@ -1,5 +1,5 @@
 ﻿using Client.Code.Common.Data.Progress;
-using Client.Code.Common.Services.Progress.Saver;
+using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Gameplay.Game.Player.Score;
 
 namespace Client.Code.Gameplay.Game.Player

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using Client._dev.GameplayOnline.Data.Network;
+using Client._dev.GameplayOnline.Data.Static.Configs;
 using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Network.Events;
-using Client.Code.Common.Services.Progress.Loader;
+using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.Updater;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car;
@@ -10,14 +12,12 @@ using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Controllers.Base;
 using Client.Code.Gameplay.Game.Car.Factory;
 using Client.Code.Gameplay.Game.GameSpawnPoint;
-using Client.Code.GameplayOnline.Data.Network;
-using Client.Code.GameplayOnline.Data.Static.Configs;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using Zenject;
 
-namespace Client.Code.GameplayOnline.Game.Car
+namespace Client._dev.GameplayOnline.Game.Car
 {
     public class CarFactoryOnline : IAssetReceiver<GameplayOnlineConfig>, IProgressReader, ICarFactory, INetworkInstantiateReceiver
     {

@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Services.Progress.Saver;
+﻿using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Updater;

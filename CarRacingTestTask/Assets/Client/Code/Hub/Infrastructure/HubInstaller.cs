@@ -1,6 +1,7 @@
-﻿using Client.Code.Common.Services.Asset.Loader;
+﻿using Client.Code.Common.Services.Asset;
+using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
-using Client.Code.Common.Services.Progress;
+using Client.Code.Common.Services.ProgressService;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Hub.Data;
 using Client.Code.Hub.Infrastructure.States;
@@ -25,7 +26,7 @@ namespace Client.Code.Hub.Infrastructure
         private void BindAssets()
         {
             Container.BindInterfacesTo<AssetReceiversRegister<HubConfig>>().AsSingle();
-            Container.BindInterfacesTo<AssetLoader<HubConfig>>().AsSingle();
+            Container.BindInterfacesTo<AssetLoader<HubConfig>>().AsSingle().WithArguments(AssetType.Hub);
         }
 
         private void BindUI()

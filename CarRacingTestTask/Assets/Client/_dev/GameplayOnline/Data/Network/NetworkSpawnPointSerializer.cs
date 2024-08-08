@@ -1,7 +1,7 @@
 ﻿using Client.Code.Gameplay.Game.GameSpawnPoint;
 using ExitGames.Client.Photon;
 
-namespace Client.Code.GameplayOnline.Data.Network
+namespace Client._dev.GameplayOnline.Data.Network
 {
     public static class NetworkSpawnPointSerializer
     {

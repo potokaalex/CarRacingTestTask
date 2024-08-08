@@ -1,17 +1,17 @@
-﻿using Client.Code.Common.Services.Asset.Loader;
-using Client.Code.Common.Services.Progress.Loader;
+﻿using Client._dev.GameplayOnline.Data.Network;
+using Client._dev.GameplayOnline.Data.Static.Configs;
+using Client._dev.GameplayOnline.Game;
+using Client._dev.GameplayOnline.Game.Car;
+using Client._dev.GameplayOnline.UI;
+using Client.Code.Common.Services.Asset.Loader;
+using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Updater;
-using Client.Code.GameplayOnline.Data.Network;
-using Client.Code.GameplayOnline.Data.Static.Configs;
-using Client.Code.GameplayOnline.Game;
-using Client.Code.GameplayOnline.Game.Car;
-using Client.Code.GameplayOnline.UI;
 using Cysharp.Threading.Tasks;
 using ExitGames.Client.Photon;
 
-namespace Client.Code.GameplayOnline.Infrastructure.States
+namespace Client._dev.GameplayOnline.Infrastructure.States
 {
     public class GameplayOnlineLoadState : IStateAsync
     {
@@ -38,7 +38,7 @@ namespace Client.Code.GameplayOnline.Infrastructure.States
             PhotonPeer.RegisterType(typeof(CarCreateData), (byte)NetworkRegisterTypeCode.CarCreateData,
                 NetworkCarCreateDataSerializer.Serialize, NetworkCarCreateDataSerializer.DeSerialize);
 
-            _assetLoader.Load();
+            await _assetLoader.LoadAsync();
             await _progressLoader.LoadAsync();
             _uiFactory.Create();
             _updater.OnUpdate += _gameStartChecker.Check;

@@ -1,21 +1,22 @@
-﻿using Client.Code.Common.Services.Asset.Loader;
+﻿using Client._dev.GameplayOnline.Data;
+using Client._dev.GameplayOnline.Data.Static.Configs;
+using Client._dev.GameplayOnline.Game;
+using Client._dev.GameplayOnline.Game.Car;
+using Client._dev.GameplayOnline.Game.GameCamera;
+using Client._dev.GameplayOnline.Infrastructure.States;
+using Client._dev.GameplayOnline.UI;
+using Client.Code.Common.Services.Asset;
+using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Network.Events;
-using Client.Code.Common.Services.Progress;
+using Client.Code.Common.Services.ProgressService;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.UI.Presenters;
-using Client.Code.GameplayOnline.Data;
-using Client.Code.GameplayOnline.Data.Static.Configs;
-using Client.Code.GameplayOnline.Game;
-using Client.Code.GameplayOnline.Game.Car;
-using Client.Code.GameplayOnline.Game.GameCamera;
-using Client.Code.GameplayOnline.Infrastructure.States;
-using Client.Code.GameplayOnline.UI;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Code.GameplayOnline.Infrastructure
+namespace Client._dev.GameplayOnline.Infrastructure
 {
     public class GameplayOnlineInstaller : MonoInstaller
     {
@@ -55,7 +56,7 @@ namespace Client.Code.GameplayOnline.Infrastructure
         private void BindAssets()
         {
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayOnlineConfig>>().AsSingle();
-            Container.BindInterfacesTo<AssetLoader<GameplayOnlineConfig>>().AsSingle();
+            Container.BindInterfacesTo<AssetLoader<GameplayOnlineConfig>>().AsSingle().WithArguments(AssetType.GameplayOnline);
         }
     }
 }
