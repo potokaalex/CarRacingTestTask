@@ -3,6 +3,7 @@ using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Network.Connection;
 using Client.Code.Common.Services.Network.Room;
 using Client.Code.Common.Services.SceneLoader;
+using Client.Code.Common.Services.SceneLoader.Data;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;

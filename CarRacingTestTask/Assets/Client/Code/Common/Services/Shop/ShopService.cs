@@ -1,7 +1,8 @@
 ﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Common.Services.Shop.Data;
+using Client.Code.Common.Services.Shop.Data.Item;
 using Client.Code.Common.Services.Shop.IAP;
-using Client.Code.Common.Services.Shop.Item;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Common.Services.Shop

@@ -1,5 +1,6 @@
 ﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Infrastructure.States;
+using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.InputService;
@@ -23,10 +24,11 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
         private readonly IAudioService _audioService;
         private readonly IUnityServicesInitializer _unityServicesInitializer;
         private readonly IIAPService _iap;
+        private readonly AddressablesInitializer _addressablesInitializer;
 
         public ProjectLoadState(IAssetLoader<ProjectConfig> assetLoader, IGlobalStateMachine globalStateMachine, InputFactory inputFactory,
             IUpdater updater, IProgressLoader progressLoader, IAudioService audioService, IUnityServicesInitializer unityServicesInitializer,
-            IIAPService iap)
+            IIAPService iap, AddressablesInitializer addressablesInitializer)
         {
             _assetLoader = assetLoader;
             _globalStateMachine = globalStateMachine;
@@ -36,10 +38,12 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
             _audioService = audioService;
             _unityServicesInitializer = unityServicesInitializer;
             _iap = iap;
+            _addressablesInitializer = addressablesInitializer;
         }
 
         public async UniTask Enter()
         {
+            await _addressablesInitializer.InitializeAsync();
             await _assetLoader.LoadAsync();
             await _progressLoader.LoadAsync();
 

@@ -6,6 +6,7 @@ using Client._dev.GameplayOnline.Game.GameCamera;
 using Client._dev.GameplayOnline.Infrastructure.States;
 using Client._dev.GameplayOnline.UI;
 using Client.Code.Common.Services.Asset;
+using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Network.Events;
@@ -56,7 +57,7 @@ namespace Client._dev.GameplayOnline.Infrastructure
         private void BindAssets()
         {
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayOnlineConfig>>().AsSingle();
-            Container.BindInterfacesTo<AssetLoader<GameplayOnlineConfig>>().AsSingle().WithArguments(AssetType.GameplayOnline);
+            Container.BindInterfacesTo<AssetLoader<GameplayOnlineConfig>>().AsSingle().WithArguments(AssetLabelType.GameplayOnline);
         }
     }
 }

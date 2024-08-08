@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Services.Shop.Item;
+﻿using Client.Code.Common.Services.Shop.Data.Item;
 
 namespace Client.Code.Common.UI.Buttons.Shop
 {

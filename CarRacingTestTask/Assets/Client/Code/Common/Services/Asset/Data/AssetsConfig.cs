@@ -8,6 +8,6 @@ namespace Client.Code.Common.Services.Asset.Data
     [CreateAssetMenu(menuName = "Configs/Project/Assets", fileName = "AssetsConfig", order = 0)]
     public class AssetsConfig : SerializedScriptableObject
     {
-        public Dictionary<AssetType, AssetReference> References;
+        public Dictionary<AssetLabelType, AssetLabelReference> Labels;
     }
 }

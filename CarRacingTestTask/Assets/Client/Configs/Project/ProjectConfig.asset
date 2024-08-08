@@ -20,69 +20,8 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: SceneNames
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Common.Data.Static.Configs.Project.SceneName,
-        Common],[System.String, mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Common.Data.Static.Configs.Project.SceneName,
-        Common]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 1
-      Data: Gameplay
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 1
-      Data: Hub
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 1
-      Data: GameplayOnline
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  InputPrefab: {fileID: 6825997568745556542, guid: 0a8f726693f86e949bbbaa5fb0b2c729, type: 3}
+    SerializationNodes: []
   Shop: {fileID: 11400000, guid: c05fea745be5e12428eed0c9dd26f2e9, type: 2}
   Audio: {fileID: 11400000, guid: 9e792587a3a52504c9836be081ef6e46, type: 2}
+  Scene: {fileID: 11400000, guid: 35211c95896f75d4da84050de5f6d7f9, type: 2}
+  InputPrefab: {fileID: 6825997568745556542, guid: 0a8f726693f86e949bbbaa5fb0b2c729, type: 3}

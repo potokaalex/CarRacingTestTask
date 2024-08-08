@@ -15,15 +15,15 @@ namespace Client.Code.Common.Services.Asset.Loader
         private readonly List<IAssetReceiver<T>> _receivers = new();
         private readonly AssetsConfigProvider _configProvider;
         private readonly ILogReceiver _logReceiver;
-        private readonly AssetType _type;
+        private readonly AssetLabelType _labelType;
         private AssetsConfig _config;
-        private AsyncOperationHandle<T> _handle;
+        private AsyncOperationHandle<IList<object>> _handle;
 
-        public AssetLoader(AssetsConfigProvider configProvider, ILogReceiver logReceiver, AssetType type)
+        public AssetLoader(AssetsConfigProvider configProvider, ILogReceiver logReceiver, AssetLabelType labelType)
         {
             _configProvider = configProvider;
             _logReceiver = logReceiver;
-            _type = type;
+            _labelType = labelType;
         }
 
         public void Initialize() => _config = _configProvider.Get();
@@ -32,14 +32,9 @@ namespace Client.Code.Common.Services.Asset.Loader
         {
             try
             {
-                var progress = Progress.Create(progressReceiver);
-
-                _handle = Addressables.LoadAssetAsync<T>(_config.References[_type]);
-                var asset = await _handle.ToUniTask(progress: progress);
-
-                foreach (var receiver in _receivers)
-                    receiver.Receive(asset);
-
+                _handle = Addressables.LoadAssetsAsync<object>(_config.Labels[_labelType], OnAssetLoad, true);
+                await _handle.ToUniTask();
+                progressReceiver?.Invoke(1);
                 return LoadAssetResult.Success;
             }
             catch (Exception exception)
@@ -54,5 +49,15 @@ namespace Client.Code.Common.Services.Asset.Loader
         public void RegisterReceiver(IAssetReceiver<T> receiver) => _receivers.Add(receiver);
 
         public void UnRegisterReceiver(IAssetReceiver<T> receiver) => _receivers.Remove(receiver);
+
+        private void OnAssetLoad(object asset)
+        {
+            if (asset == null)
+                return;
+
+            foreach (var receiver in _receivers)
+                if (asset is T typedAsset)
+                    receiver.Receive(typedAsset);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.AudioService;
-using Client.Code.Common.Services.Shop.Item;
+using Client.Code.Common.Services.Shop.Data.Item;
 using Client.Code.Common.UI.Windows;
 using Client.Code.Common.UI.Windows.Customization;
 using Client.Code.Common.UI.Windows.SelectLevel;

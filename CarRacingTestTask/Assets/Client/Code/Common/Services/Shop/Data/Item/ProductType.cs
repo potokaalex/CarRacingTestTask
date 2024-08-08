@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Services.Shop.Item
+﻿namespace Client.Code.Common.Services.Shop.Data.Item
 {
     public enum ProductType
     {

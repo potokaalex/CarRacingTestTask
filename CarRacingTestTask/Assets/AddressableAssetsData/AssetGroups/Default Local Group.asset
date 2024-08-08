@@ -18,20 +18,39 @@ MonoBehaviour:
   - m_GUID: 0d69d846e907e754baf95c696ee26968
     m_Address: Assets/Client/Configs/Gameplay/GameplayConfig.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Gameplay
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1415c6026b63bb146bb3239c2206d165
     m_Address: Assets/Client/Configs/Project/ProjectConfig.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Project
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ee27e82255947c4e9421c43ecaafb5d
     m_Address: Assets/Client/Configs/Gameplay/Online/GameplayOnlineConfig.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - GameplayOnline
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24d4e1efe045b4e49a6041c3c02ebba3
     m_Address: Assets/Client/Configs/Hub/HubConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hub
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90067390d0a86f94f82cac5b61d1c058
+    m_Address: Assets/Client/Scenes/GameplayOnline.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Assets/Client/Scenes/Gameplay.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0c8c44c76aaff748a148891ec22fdc1
+    m_Address: Assets/Client/Scenes/Hub.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

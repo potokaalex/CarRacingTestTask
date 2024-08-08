@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Services.Asset.Loader
+﻿namespace Client.Code.Common.Services.Asset.Data
 {
     public enum LoadAssetResult
     {

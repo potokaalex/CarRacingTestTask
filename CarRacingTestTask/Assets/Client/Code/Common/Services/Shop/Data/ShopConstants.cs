@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Services.Shop
+﻿namespace Client.Code.Common.Services.Shop.Data
 {
     public static class ShopConstants
     {

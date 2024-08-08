@@ -1,5 +1,6 @@
 ﻿using Client.Code.Common.Services.Shop;
-using Client.Code.Common.Services.Shop.Item;
+using Client.Code.Common.Services.Shop.Data;
+using Client.Code.Common.Services.Shop.Data.Item;
 using Client.Code.Common.UI.Buttons.Shop;
 using Cysharp.Threading.Tasks;
 

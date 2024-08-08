@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client.Code.Common.Services.Shop.Item
+namespace Client.Code.Common.Services.Shop.Data.Item
 {
     [Serializable]
     public struct ItemPriceData

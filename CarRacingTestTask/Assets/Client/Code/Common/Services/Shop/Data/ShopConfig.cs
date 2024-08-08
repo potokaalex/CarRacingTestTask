@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Client.Code.Common.Services.Shop.Item;
+﻿using System.Collections.Generic;
+using Client.Code.Common.Services.Shop.Data.Item;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
-namespace Client.Code.Common.Services.Shop
+namespace Client.Code.Common.Services.Shop.Data
 {
     [CreateAssetMenu(menuName = "Configs/Project/Shop", fileName = "ShopConfig", order = 0)]
     public class ShopConfig : SerializedScriptableObject

@@ -21,14 +21,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: References
+    - Name: Labels
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Common.Services.Asset.AssetType,
-        Common],[UnityEngine.AddressableAssets.AssetReference, Unity.Addressables]],
+      Data: 0|System.Collections.Generic.Dictionary`2[[Client.Code.Common.Services.Asset.AssetLabelType,
+        Common],[UnityEngine.AddressableAssets.AssetLabelReference, Unity.Addressables]],
         mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Common.Services.Asset.AssetType,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Client.Code.Common.Services.Asset.AssetLabelType,
         Common]], mscorlib
     - Name: 
       Entry: 12
@@ -50,22 +50,10 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 2|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
-    - Name: m_AssetGUID
+      Data: 2|UnityEngine.AddressableAssets.AssetLabelReference, Unity.Addressables
+    - Name: m_LabelString
       Entry: 1
-      Data: 1415c6026b63bb146bb3239c2206d165
-    - Name: m_SubObjectName
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectGUID
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectType
-      Entry: 6
-      Data: 
-    - Name: m_EditorAssetChanged
-      Entry: 5
-      Data: false
+      Data: Project
     - Name: 
       Entry: 8
       Data: 
@@ -80,22 +68,10 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 3|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
-    - Name: m_AssetGUID
+      Data: 3|UnityEngine.AddressableAssets.AssetLabelReference, Unity.Addressables
+    - Name: m_LabelString
       Entry: 1
-      Data: 24d4e1efe045b4e49a6041c3c02ebba3
-    - Name: m_SubObjectName
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectGUID
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectType
-      Entry: 6
-      Data: 
-    - Name: m_EditorAssetChanged
-      Entry: 5
-      Data: false
+      Data: Hub
     - Name: 
       Entry: 8
       Data: 
@@ -110,22 +86,10 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 4|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
-    - Name: m_AssetGUID
+      Data: 4|UnityEngine.AddressableAssets.AssetLabelReference, Unity.Addressables
+    - Name: m_LabelString
       Entry: 1
-      Data: 0d69d846e907e754baf95c696ee26968
-    - Name: m_SubObjectName
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectGUID
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectType
-      Entry: 6
-      Data: 
-    - Name: m_EditorAssetChanged
-      Entry: 5
-      Data: false
+      Data: Gameplay
     - Name: 
       Entry: 8
       Data: 
@@ -140,22 +104,10 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 5|UnityEngine.AddressableAssets.AssetReference, Unity.Addressables
-    - Name: m_AssetGUID
+      Data: 5|UnityEngine.AddressableAssets.AssetLabelReference, Unity.Addressables
+    - Name: m_LabelString
       Entry: 1
-      Data: 1ee27e82255947c4e9421c43ecaafb5d
-    - Name: m_SubObjectName
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectGUID
-      Entry: 6
-      Data: 
-    - Name: m_SubObjectType
-      Entry: 6
-      Data: 
-    - Name: m_EditorAssetChanged
-      Entry: 5
-      Data: false
+      Data: GameplayOnline
     - Name: 
       Entry: 8
       Data: 

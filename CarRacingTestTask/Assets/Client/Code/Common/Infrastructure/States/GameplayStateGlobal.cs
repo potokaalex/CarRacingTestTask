@@ -1,5 +1,6 @@
 ﻿using Client.Code.Common.Data;
 using Client.Code.Common.Services.SceneLoader;
+using Client.Code.Common.Services.SceneLoader.Data;
 using Client.Code.Common.Services.StateMachine.State;
 using Cysharp.Threading.Tasks;
 

@@ -1,9 +1,7 @@
 ﻿using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.StateMachine.State;
-using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Updater;
 using UnityEditor;
-using UnityEngine;
 
 namespace Client.Code.Common.Infrastructure.States
 {
@@ -27,10 +25,11 @@ namespace Client.Code.Common.Infrastructure.States
 
         private void Quit()
         {
-            if(PlatformsConstants.IsEditor)
-                EditorApplication.isPlaying = false;
-            else
-                Application.Quit();
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#else
+            UnityEngine.Application.Quit();
+#endif
         }
     }
 }

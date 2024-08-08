@@ -1,6 +1,6 @@
-﻿namespace Client.Code.Common.Services.Asset
+﻿namespace Client.Code.Common.Services.Asset.Data
 {
-    public enum AssetType
+    public enum AssetLabelType
     {
         Project = 1,
         Hub = 2,

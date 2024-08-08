@@ -77,7 +77,8 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
         private void BindAssets()
         {
             Container.Bind<AssetsConfigProvider>().AsSingle().WithArguments(_assetsConfig);
-            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle().WithArguments(AssetType.Project);
+            Container.Bind<AddressablesInitializer>().AsSingle();
+            Container.BindInterfacesTo<AssetLoader<ProjectConfig>>().AsSingle().WithArguments(AssetLabelType.Project);
             Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
         }
 

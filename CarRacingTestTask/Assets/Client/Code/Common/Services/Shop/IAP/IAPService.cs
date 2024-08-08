@@ -1,7 +1,8 @@
 ﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Logger.Base;
-using Client.Code.Common.Services.Shop.Item;
+using Client.Code.Common.Services.Shop.Data;
+using Client.Code.Common.Services.Shop.Data.Item;
 using Cysharp.Threading.Tasks;
 using UnityEngine.Purchasing;
 

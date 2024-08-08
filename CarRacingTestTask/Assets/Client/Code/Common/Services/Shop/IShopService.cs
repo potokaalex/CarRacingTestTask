@@ -1,4 +1,5 @@
-﻿using Client.Code.Common.Services.Shop.Item;
+﻿using Client.Code.Common.Services.Shop.Data;
+using Client.Code.Common.Services.Shop.Data.Item;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Common.Services.Shop
