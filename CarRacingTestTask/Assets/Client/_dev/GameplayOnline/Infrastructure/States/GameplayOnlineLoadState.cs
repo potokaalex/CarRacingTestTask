@@ -3,6 +3,7 @@ using Client._dev.GameplayOnline.Data.Static.Configs;
 using Client._dev.GameplayOnline.Game;
 using Client._dev.GameplayOnline.Game.Car;
 using Client._dev.GameplayOnline.UI;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.StateMachine;
@@ -18,12 +19,12 @@ namespace Client._dev.GameplayOnline.Infrastructure.States
         private readonly IAssetLoader<GameplayOnlineConfig> _assetLoader;
         private readonly IUpdater _updater;
         private readonly IStateMachine _stateMachine;
-        private readonly IProgressLoader _progressLoader;
+        private readonly IProgressLoader<PlayerProgress> _progressLoader;
         private readonly GameStartCheckerOnline _gameStartChecker;
         private readonly GameUIFactoryOnline _uiFactory;
 
         public GameplayOnlineLoadState(IAssetLoader<GameplayOnlineConfig> assetLoader, IUpdater updater, IStateMachine stateMachine,
-            IProgressLoader progressLoader, GameStartCheckerOnline gameStartChecker, GameUIFactoryOnline uiFactory)
+            IProgressLoader<PlayerProgress> progressLoader, GameStartCheckerOnline gameStartChecker, GameUIFactoryOnline uiFactory)
         {
             _assetLoader = assetLoader;
             _updater = updater;

@@ -1,4 +1,5 @@
 ﻿using Client.Code.Common.Data.Configs;
+using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Loader;
@@ -20,15 +21,15 @@ namespace Client.Code.CompositionRoot.Infrastructure.States
         private readonly IGlobalStateMachine _globalStateMachine;
         private readonly InputFactory _inputFactory;
         private readonly IUpdater _updater;
-        private readonly IProgressLoader _progressLoader;
+        private readonly IProgressLoader<ProjectProgress> _progressLoader;
         private readonly IAudioService _audioService;
         private readonly IUnityServicesInitializer _unityServicesInitializer;
         private readonly IIAPService _iap;
         private readonly AddressablesInitializer _addressablesInitializer;
 
         public ProjectLoadState(IAssetLoader<ProjectConfig> assetLoader, IGlobalStateMachine globalStateMachine, InputFactory inputFactory,
-            IUpdater updater, IProgressLoader progressLoader, IAudioService audioService, IUnityServicesInitializer unityServicesInitializer,
-            IIAPService iap, AddressablesInitializer addressablesInitializer)
+            IUpdater updater, IProgressLoader<ProjectProgress> progressLoader, IAudioService audioService, IIAPService iap,
+            IUnityServicesInitializer unityServicesInitializer, AddressablesInitializer addressablesInitializer)
         {
             _assetLoader = assetLoader;
             _globalStateMachine = globalStateMachine;

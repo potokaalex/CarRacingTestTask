@@ -16,13 +16,8 @@ Assemdefs connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
-//загрузка и выгрузка ассетов.
-//загрузка и выгрузка сцен.
-//полное управление ресурсами проекта.  - оптимизация на оперативку
-//загрузка по меткам нужна для загрузки многих ассетов
-
 TODO:
-    Refactoring: progress save-load
+    
     Refactoring: update by interfaces to simplify code
     Refactoring: input system.
     Make ui safe area 

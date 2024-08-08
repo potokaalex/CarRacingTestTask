@@ -1,4 +1,5 @@
-﻿using Client.Code.Common.Services.Asset.Loader;
+﻿using Client.Code.Common.Data.Progress.Player;
+using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.State;
@@ -11,12 +12,12 @@ namespace Client.Code.Gameplay.Infrastructure.States
     public class GameplayLoadState : IStateAsync
     {
         private readonly IAssetLoader<GameplayConfig> _assetLoader;
-        private readonly IProgressLoader _progressLoader;
+        private readonly IProgressLoader<PlayerProgress> _progressLoader;
         private readonly IStateMachine _stateMachine;
         private readonly IUpdater _updater;
 
-        public GameplayLoadState(IAssetLoader<GameplayConfig> assetLoader, IProgressLoader progressLoader, IStateMachine stateMachine,
-            IUpdater updater)
+        public GameplayLoadState(IAssetLoader<GameplayConfig> assetLoader, IProgressLoader<PlayerProgress> progressLoader, IUpdater updater,
+            IStateMachine stateMachine)
         {
             _assetLoader = assetLoader;
             _progressLoader = progressLoader;

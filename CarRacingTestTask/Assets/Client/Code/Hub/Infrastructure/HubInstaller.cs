@@ -1,8 +1,11 @@
-﻿using Client.Code.Common.Services.Asset;
+﻿using Client.Code.Common.Data.Progress;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.ProgressService;
+using Client.Code.Common.Services.ProgressService.Loader;
+using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Hub.Data;
 using Client.Code.Hub.Infrastructure.States;
@@ -19,9 +22,18 @@ namespace Client.Code.Hub.Infrastructure
         {
             BindUI();
             BindAssets();
+            BindProgress();
 
-            Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
             Container.BindInterfacesTo<AutoStartupper<HubLoadState>>().AsSingle();
+        }
+
+        private void BindProgress()
+        {
+            Container.BindInterfacesTo<ProgressSaver<PlayerProgress>>().AsSingle();
+            Container.BindInterfacesTo<ProgressLoader<PlayerProgress>>().AsSingle();
+            
+            Container.BindInterfacesTo<ProgressActorsRegister<PlayerProgress>>().AsSingle();
+            Container.BindInterfacesTo<ProgressActorsRegister<ProjectProgress>>().AsSingle();
         }
 
         private void BindAssets()

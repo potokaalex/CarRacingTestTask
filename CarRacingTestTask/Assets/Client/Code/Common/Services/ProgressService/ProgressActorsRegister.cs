@@ -5,14 +5,15 @@ using Zenject;
 
 namespace Client.Code.Common.Services.ProgressService
 {
-    public class ProgressActorsRegister : IInitializable, ILateDisposable
+    public class ProgressActorsRegister<T> : IInitializable, ILateDisposable where T : IProgress
     {
-        private readonly IProgressSaver _saver;
-        private readonly IProgressLoader _loader;
-        private readonly List<IProgressReader> _readers;
-        private readonly List<IProgressWriter> _writers;
+        private readonly IProgressSaver<T> _saver;
+        private readonly IProgressLoader<T> _loader;
+        private readonly List<IProgressReader<T>> _readers;
+        private readonly List<IProgressWriter<T>> _writers;
 
-        public ProgressActorsRegister(IProgressSaver saver, IProgressLoader loader, List<IProgressReader> readers, List<IProgressWriter> writers)
+        public ProgressActorsRegister(IProgressSaver<T> saver, IProgressLoader<T> loader, List<IProgressReader<T>> readers,
+            List<IProgressWriter<T>> writers)
         {
             _saver = saver;
             _loader = loader;

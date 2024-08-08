@@ -1,4 +1,6 @@
-﻿using Client.Code.Common.Services.Asset.Loader;
+﻿using Client.Code.Common.Data.Progress;
+using Client.Code.Common.Data.Progress.Player;
+using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.State;
@@ -11,11 +13,11 @@ namespace Client.Code.Hub.Infrastructure.States
     public class HubLoadState : IStateAsync
     {
         private readonly IAssetLoader<HubConfig> _assetLoader;
-        private readonly IProgressLoader _progressLoader;
+        private readonly IProgressLoader<ProjectProgress> _progressLoader;
         private readonly IUpdater _updater;
         private readonly IStateMachine _stateMachine;
 
-        public HubLoadState(IAssetLoader<HubConfig> assetLoader, IProgressLoader progressLoader, IUpdater updater, IStateMachine stateMachine)
+        public HubLoadState(IAssetLoader<HubConfig> assetLoader, IProgressLoader<ProjectProgress> progressLoader, IUpdater updater, IStateMachine stateMachine)
         {
             _assetLoader = assetLoader;
             _progressLoader = progressLoader;

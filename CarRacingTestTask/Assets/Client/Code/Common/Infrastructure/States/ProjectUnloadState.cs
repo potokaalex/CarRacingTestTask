@@ -1,4 +1,5 @@
-﻿using Client.Code.Common.Services.ProgressService.Saver;
+﻿using Client.Code.Common.Data.Progress;
+using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Updater;
 using UnityEditor;
@@ -8,9 +9,9 @@ namespace Client.Code.Common.Infrastructure.States
     public class ProjectUnloadState : IState
     {
         private readonly IUpdater _updater;
-        private readonly IProgressSaver _progressSaver;
+        private readonly IProgressSaver<ProjectProgress> _progressSaver;
 
-        public ProjectUnloadState(IUpdater updater, IProgressSaver progressSaver)
+        public ProjectUnloadState(IUpdater updater, IProgressSaver<ProjectProgress> progressSaver)
         {
             _updater = updater;
             _progressSaver = progressSaver;

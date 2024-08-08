@@ -1,10 +1,10 @@
-﻿using Client.Code.Common.Data.Progress;
+﻿using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Gameplay.Game.Player.Score;
 
 namespace Client.Code.Gameplay.Game.Player
 {
-    public class PlayerCoinsController : IProgressWriter
+    public class PlayerCoinsController : IProgressWriter<PlayerProgress>
     {
         private readonly PlayerScoreController _playerScoreController;
 
@@ -16,6 +16,6 @@ namespace Client.Code.Gameplay.Game.Player
 
         public void DoubleSessionsCoins() => SessionCoinsCount *= 2;
 
-        public void OnSave(ProgressData progress) => progress.Player.CoinsCount += SessionCoinsCount;
+        public void OnSave(PlayerProgress progress) => progress.CoinsCount += SessionCoinsCount;
     }
 }

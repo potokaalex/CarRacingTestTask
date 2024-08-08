@@ -1,5 +1,6 @@
 ﻿using System;
 using Client.Code.Common.Data.Configs;
+using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Ads;
 using Client.Code.Common.Services.Ads.Interstitial;
 using Client.Code.Common.Services.Asset;
@@ -22,8 +23,6 @@ using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Unity.Services;
-using Client.Code.Gameplay.Data.Static.Configs;
-using Client.Code.Hub.Data;
 using UnityEngine;
 using Zenject;
 
@@ -69,9 +68,9 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
 
         private void BindProgress()
         {
-            Container.BindInterfacesTo<ProgressSaver>().AsSingle();
-            Container.BindInterfacesTo<ProgressLoader>().AsSingle();
-            Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
+            Container.BindInterfacesTo<ProgressSaver<ProjectProgress>>().AsSingle();
+            Container.BindInterfacesTo<ProgressLoader<ProjectProgress>>().AsSingle();
+            Container.BindInterfacesTo<ProgressActorsRegister<ProjectProgress>>().AsSingle();
         }
 
         private void BindAssets()

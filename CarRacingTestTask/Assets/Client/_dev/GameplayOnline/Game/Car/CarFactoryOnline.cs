@@ -2,6 +2,7 @@
 using Client._dev.GameplayOnline.Data.Network;
 using Client._dev.GameplayOnline.Data.Static.Configs;
 using Client.Code.Common.Data.Progress;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Network.Events;
 using Client.Code.Common.Services.ProgressService.Loader;
@@ -19,7 +20,7 @@ using Zenject;
 
 namespace Client._dev.GameplayOnline.Game.Car
 {
-    public class CarFactoryOnline : IAssetReceiver<GameplayOnlineConfig>, IProgressReader, ICarFactory, INetworkInstantiateReceiver
+    public class CarFactoryOnline : IAssetReceiver<GameplayOnlineConfig>, IProgressReader<PlayerProgress>, ICarFactory, INetworkInstantiateReceiver
     {
         private readonly List<ICarUpdateController> _physicsControllers = new();
         private readonly List<ICarUpdateController> _graphicsControllers = new();
@@ -27,7 +28,7 @@ namespace Client._dev.GameplayOnline.Game.Car
         private readonly IUpdater _updater;
         private readonly CarController _controller;
         private CarConfig _config;
-        private ProgressData _progress;
+        private PlayerProgress _progress;
 
         public CarFactoryOnline(IInstantiator instantiator, IUpdater updater, CarController controller)
         {
@@ -39,7 +40,7 @@ namespace Client._dev.GameplayOnline.Game.Car
         public void Create(SpawnPoint spawnPoint)
         {
             var createData = new CarCreateData
-                { SpawnPoint = spawnPoint, IsCarSpoilerEnabled = _progress.Player.IsCarSpoilerEnabled, ColorType = _progress.Player.CarColor };
+                { SpawnPoint = spawnPoint, IsCarSpoilerEnabled = _progress.IsCarSpoilerEnabled, ColorType = _progress.CarColor };
             var car = CreateObject(createData);
             CreateControllers(car);
             _controller.Initialize(car);
@@ -56,7 +57,7 @@ namespace Client._dev.GameplayOnline.Game.Car
 
         public void Receive(GameplayOnlineConfig asset) => _config = asset.Car;
 
-        public void OnLoad(ProgressData progress) => _progress = progress;
+        public void OnLoad(PlayerProgress progress) => _progress = progress;
 
         public void Receive(PhotonMessageInfo info)
         {

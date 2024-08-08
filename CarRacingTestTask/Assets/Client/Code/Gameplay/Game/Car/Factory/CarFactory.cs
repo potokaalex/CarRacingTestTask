@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Data.Progress;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Extensions;
 using Client.Code.Common.Services.ProgressService.Loader;
@@ -12,7 +13,7 @@ using Zenject;
 
 namespace Client.Code.Gameplay.Game.Car.Factory
 {
-    public class CarFactory : IAssetReceiver<GameplayConfig>, IProgressReader, ICarFactory
+    public class CarFactory : IAssetReceiver<GameplayConfig>, IProgressReader<PlayerProgress>, ICarFactory
     {
         private readonly List<ICarUpdateController> _physicsControllers = new();
         private readonly List<ICarUpdateController> _graphicsControllers = new();
@@ -21,7 +22,7 @@ namespace Client.Code.Gameplay.Game.Car.Factory
         private readonly CarDriftChecker _driftChecker;
         private readonly CarController _controller;
         private CarConfig _config;
-        private ProgressData _progress;
+        private PlayerProgress _progress;
 
         public CarFactory(IInstantiator instantiator, IUpdater updater, CarDriftChecker driftChecker, CarController controller)
         {
@@ -47,7 +48,7 @@ namespace Client.Code.Gameplay.Game.Car.Factory
 
         public void Receive(GameplayConfig asset) => _config = asset.Car;
 
-        public void OnLoad(ProgressData progress) => _progress = progress;
+        public void OnLoad(PlayerProgress progress) => _progress = progress;
 
         private void CreateControllers(CarObject car)
         {
@@ -74,10 +75,10 @@ namespace Client.Code.Gameplay.Game.Car.Factory
             car.Rigidbody.centerOfMass = car.CenterOfMass.localPosition;
             car.Config = _config;
 
-            if (_progress.Player.IsCarSpoilerEnabled)
+            if (_progress.IsCarSpoilerEnabled)
                 _instantiator.InstantiatePrefab(_config.SpoilerPrefab, car.SpoilerSpawnPoint);
 
-            var material = _config.CarColors[_progress.Player.CarColor];
+            var material = _config.CarColors[_progress.CarColor];
             car.Mesh.ChangeSharedMaterials(material, 0);
             return car;
         }

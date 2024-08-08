@@ -5,12 +5,12 @@ using Client.Code.Common.Services.ProgressService.Loader;
 
 namespace Client.Code.Common.Services.AudioService
 {
-    public class AudioService : IAudioService, IAssetReceiver<ProjectConfig>, IProgressReader
+    public class AudioService : IAudioService, IAssetReceiver<ProjectConfig>, IProgressReader<ProjectProgress>
     {
         private ProjectConfig _config;
-        private ProgressData _progress;
+        private ProjectProgress _progress;
 
-        public void Initialize() => SetMasterActive(_progress.Project.IsMasterAudioEnabled);
+        public void Initialize() => SetMasterActive(_progress.IsMasterAudioEnabled);
 
         public void SetMasterActive(bool isActive) =>
             _config.Audio.MixerGroup.audioMixer.SetFloat(_config.Audio.MasterVolumeName,
@@ -18,6 +18,6 @@ namespace Client.Code.Common.Services.AudioService
 
         public void Receive(ProjectConfig asset) => _config = asset;
 
-        public void OnLoad(ProgressData progress) => _progress = progress;
+        public void OnLoad(ProjectProgress progress) => _progress = progress;
     }
 }

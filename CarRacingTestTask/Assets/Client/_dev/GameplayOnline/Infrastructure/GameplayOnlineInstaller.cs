@@ -5,6 +5,7 @@ using Client._dev.GameplayOnline.Game.Car;
 using Client._dev.GameplayOnline.Game.GameCamera;
 using Client._dev.GameplayOnline.Infrastructure.States;
 using Client._dev.GameplayOnline.UI;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
@@ -29,7 +30,7 @@ namespace Client._dev.GameplayOnline.Infrastructure
             BindUI();
             BindGame();
 
-            Container.BindInterfacesTo<ProgressActorsRegister>().AsSingle();
+            Container.BindInterfacesTo<ProgressActorsRegister<PlayerProgress>>().AsSingle();
             Container.BindInterfacesTo<NetworkEventReceiversRegister>().AsSingle();
             Container.Bind<GameplayOnlineSceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<AutoStartupper<GameplayOnlineLoadState>>().AsSingle();
