@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Client.Code.Common.Services.Unity;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,34 +16,42 @@ namespace Client.Code.Common.UI.Layout
         private DrivenRectTransformTracker _tracker;
         private RectTransform _rect;
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            SetDirty();
-        }
+        protected override void OnEnable() => SetDirty();
 
         protected override void OnDisable()
         {
             _tracker.Clear();
             LayoutRebuilder.MarkLayoutForRebuild(GetRect());
-            base.OnDisable();
         }
-
-        protected override void OnRectTransformDimensionsChange() => SetDirty();
 
 #if UNITY_EDITOR
         protected override void OnValidate() => SetDirty();
 #endif
+
+        protected override void OnRectTransformDimensionsChange() => SetDirty();
+
         public void SetLayoutHorizontal() => HandleFittingAlongAxis(Axis.Horizontal);
 
         public void SetLayoutVertical() => HandleFittingAlongAxis(Axis.Vertical);
+
+        private RectTransform GetRect()
+        {
+            if (!_rect)
+                _rect = gameObject.GetComponent<RectTransform>();
+
+            return _rect;
+        }
+
+        private void SetDirty()
+        {
+            if (IsActive())
+                UILayoutTools.SetDirty(GetRect());
+        }
 
         private void HandleFittingAlongAxis(Axis axis)
         {
             var fitting = axis == Axis.Horizontal ? _horizontalFitting : _verticalFitting;
             var rect = GetRect();
-
-            HandleTracker(axis, fitting, rect);
 
             if (fitting == FitMode.Unconstrained)
                 return;
@@ -52,6 +60,9 @@ namespace Client.Code.Common.UI.Layout
                 rect.SetSizeWithCurrentAnchors(axis, LayoutUtility.GetMinSize(rect, (int)axis));
             else
                 rect.SetSizeWithCurrentAnchors(axis, LayoutUtility.GetPreferredSize(rect, (int)axis));
+            
+            if (PlatformsConstants.IsEditor)
+                HandleTracker(axis, fitting, rect);
         }
 
         private void HandleTracker(Axis axis, FitMode fitting, RectTransform rect)
@@ -68,32 +79,6 @@ namespace Client.Code.Common.UI.Layout
                 ? DrivenTransformProperties.SizeDeltaX
                 : DrivenTransformProperties.SizeDeltaY;
             _tracker.Add(this, rect, drivenProperties);
-        }
-
-        private void SetDirty()
-        {
-            if (!IsActive())
-                return;
-
-            var rect = GetRect();
-            if (!CanvasUpdateRegistry.IsRebuildingLayout())
-                LayoutRebuilder.MarkLayoutForRebuild(rect);
-            else
-                StartCoroutine(DelayedSetDirty(rect));
-        }
-
-        private IEnumerator DelayedSetDirty(RectTransform rectTransform)
-        {
-            yield return null;
-            LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
-        }
-
-        private RectTransform GetRect()
-        {
-            if (!_rect)
-                _rect = gameObject.GetComponent<RectTransform>();
-
-            return _rect;
         }
     }
 }

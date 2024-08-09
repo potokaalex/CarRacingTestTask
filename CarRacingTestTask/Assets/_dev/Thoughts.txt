@@ -18,6 +18,7 @@ Assemdefs connections:
 
 TODO:
     Make ui safe area
+    Fix save progress
     Check is "enable spoiler" toggle locks after window opened ? 
     Optimize Loading states.
     Make loadingScreen (I can load offline scene when loading network scene).
