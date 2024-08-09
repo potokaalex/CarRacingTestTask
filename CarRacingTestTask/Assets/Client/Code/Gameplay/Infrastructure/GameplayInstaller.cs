@@ -1,4 +1,5 @@
-﻿using Client.Code.Common.Data.Progress.Player;
+﻿using Client.Code.Common.Data.Configs;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
@@ -48,6 +49,7 @@ namespace Client.Code.Gameplay.Infrastructure
 
         private void BindAssets()
         {
+            Container.BindInterfacesTo<AssetReceiversRegister<ProjectConfig>>().AsSingle();
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayConfig>>().AsSingle();
             Container.BindInterfacesTo<AssetLoader<GameplayConfig>>().AsSingle().WithArguments(AssetLabelType.Gameplay);
         }

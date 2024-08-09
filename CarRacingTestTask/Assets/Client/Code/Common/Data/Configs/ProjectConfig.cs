@@ -1,8 +1,6 @@
 ﻿using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.AudioService;
-using Client.Code.Common.Services.InputService;
 using Client.Code.Common.Services.SceneLoader.Data;
-using Client.Code.Common.Services.Shop;
 using Client.Code.Common.Services.Shop.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,6 +13,6 @@ namespace Client.Code.Common.Data.Configs
         public ShopConfig Shop;
         public AudioConfig Audio;
         public SceneConfig Scene;
-        public InputObject InputPrefab;
+        public InputConfig Input;
     }
 }

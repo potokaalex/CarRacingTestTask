@@ -55,8 +55,8 @@ namespace Client.Code.Gameplay.Game.Car.Factory
             _physicsControllers.Add(_instantiator.Instantiate<CarMoveController>());
             _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
             _physicsControllers.Add(_driftChecker);
-
-            _graphicsControllers.Add(_instantiator.Instantiate<CarInputController>());
+            _physicsControllers.Add(_instantiator.Instantiate<CarInputController>());
+            
             _graphicsControllers.Add(_instantiator.Instantiate<CarGraphicsController>());
 
             foreach (var controller in _physicsControllers)

@@ -17,16 +17,15 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    
-    Refactoring: update by interfaces to simplify code
-    Refactoring: input system.
-    Make ui safe area 
+    Make ui safe area
+    Check is "enable spoiler" toggle locks after window opened ? 
+    Optimize Loading states.
     Make loadingScreen (I can load offline scene when loading network scene).
     Level design
     Restore progress button
     Refactoring: Camera controller
     Make new Car systems:
-        design references: 
+        design references: -
         optional: tyres sound system & engine sound system
         optional: get image from url and place on car body
         prevent: bug if the car does not have velocity, then brake does not work correctly!, bug: at high speed, the car breaks off from a straight line

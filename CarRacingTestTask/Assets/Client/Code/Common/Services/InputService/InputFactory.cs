@@ -18,7 +18,7 @@ namespace Client.Code.Common.Services.InputService
 
         public void Create()
         {
-            var input = _instantiator.InstantiatePrefabForComponent<InputObject>(_config.InputPrefab);
+            var input = _instantiator.InstantiatePrefabForComponent<InputObject>(_config.Input.InputPrefab);
             _inputService.Initialize(input);
         }
 
