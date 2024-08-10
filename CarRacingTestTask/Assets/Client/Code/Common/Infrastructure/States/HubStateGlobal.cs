@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Data;
+﻿using Client.Code.Common.Services.LoadingScreen;
 using Client.Code.Common.Services.SceneLoader;
 using Client.Code.Common.Services.SceneLoader.Data;
 using Client.Code.Common.Services.StateMachine.State;
@@ -9,9 +9,18 @@ namespace Client.Code.Common.Infrastructure.States
     public class HubStateGlobal : IStateAsync
     {
         private readonly ISceneLoader _sceneLoader;
+        private readonly ILoadingScreenFactory _loadingScreenFactory;
 
-        public HubStateGlobal(ISceneLoader sceneLoader) => _sceneLoader = sceneLoader;
+        public HubStateGlobal(ISceneLoader sceneLoader, ILoadingScreenFactory loadingScreenFactory)
+        {
+            _sceneLoader = sceneLoader;
+            _loadingScreenFactory = loadingScreenFactory;
+        }
 
-        public UniTask Enter() => _sceneLoader.LoadSceneAsync(SceneName.Hub);
+        public UniTask Enter()
+        {
+            _loadingScreenFactory.Create();
+            return _sceneLoader.LoadSceneAsync(SceneName.Hub);
+        }
     }
 }

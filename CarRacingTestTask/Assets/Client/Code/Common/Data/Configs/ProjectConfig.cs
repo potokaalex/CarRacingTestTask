@@ -1,6 +1,7 @@
 ﻿using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.InputService;
+using Client.Code.Common.Services.LoadingScreen;
 using Client.Code.Common.Services.SceneLoader.Data;
 using Client.Code.Common.Services.Shop.Data;
 using Sirenix.OdinInspector;
@@ -15,5 +16,6 @@ namespace Client.Code.Common.Data.Configs
         public AudioConfig Audio;
         public SceneConfig Scene;
         public InputConfig Input;
+        public LoadingScreen LoadingScreenPrefab;
     }
 }

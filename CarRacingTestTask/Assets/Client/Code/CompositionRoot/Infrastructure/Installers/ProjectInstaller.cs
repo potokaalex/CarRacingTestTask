@@ -9,6 +9,7 @@ using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.InputService;
+using Client.Code.Common.Services.LoadingScreen;
 using Client.Code.Common.Services.Logger;
 using Client.Code.Common.Services.Logger.Base;
 using Client.Code.Common.Services.Network.Connection;
@@ -42,10 +43,11 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
             BindShop();
             BindInput();
             BindNetwork();
-
+            
             Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
+            Container.BindInterfacesTo<LoadingScreenFactory>().AsSingle();
         }
 
         private void BindNetwork()

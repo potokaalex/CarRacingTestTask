@@ -25,3 +25,4 @@ MonoBehaviour:
   Audio: {fileID: 11400000, guid: 9e792587a3a52504c9836be081ef6e46, type: 2}
   Scene: {fileID: 11400000, guid: 35211c95896f75d4da84050de5f6d7f9, type: 2}
   Input: {fileID: 11400000, guid: 906565d45b09e094aa584d7f699ff2b1, type: 2}
+  LoadingScreenPrefab: {fileID: 3642857023461968958, guid: f11ebaf0499307c45a5bcbc867473c21, type: 3}

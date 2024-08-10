@@ -6,6 +6,6 @@
         SelectLevel = 1,
         Customization = 2,
         Shop = 3,
-        Settings
+        Settings = 4
     }
 }

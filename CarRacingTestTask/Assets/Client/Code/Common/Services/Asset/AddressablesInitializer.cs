@@ -5,6 +5,6 @@ namespace Client.Code.Common.Services.Asset
 {
     public class AddressablesInitializer
     {
-        public async UniTask InitializeAsync() => await Addressables.InitializeAsync(false);
+        public async UniTask InitializeAsync() => await Addressables.InitializeAsync(false).ToUniTask();
     }
 }
