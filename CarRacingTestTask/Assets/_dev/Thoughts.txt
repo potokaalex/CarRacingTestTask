@@ -17,7 +17,6 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    Make loadingScreen (I can load offline scene when loading network scene).
     Level design
     Restore progress button
     Refactoring: Camera controller
