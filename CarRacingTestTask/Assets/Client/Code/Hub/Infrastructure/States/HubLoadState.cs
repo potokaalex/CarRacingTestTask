@@ -16,19 +16,23 @@ namespace Client.Code.Hub.Infrastructure.States
         private readonly IProgressLoader<ProjectProgress> _progressLoader;
         private readonly IUpdater _updater;
         private readonly IStateMachine _stateMachine;
+        private readonly IProgressLoader<PlayerProgress> _playerProgressLoader;
 
-        public HubLoadState(IAssetLoader<HubConfig> assetLoader, IProgressLoader<ProjectProgress> progressLoader, IUpdater updater, IStateMachine stateMachine)
+        public HubLoadState(IAssetLoader<HubConfig> assetLoader, IProgressLoader<ProjectProgress> progressLoader, IUpdater updater,
+            IStateMachine stateMachine, IProgressLoader<PlayerProgress> playerProgressLoader)
         {
             _assetLoader = assetLoader;
             _progressLoader = progressLoader;
             _updater = updater;
             _stateMachine = stateMachine;
+            _playerProgressLoader = playerProgressLoader;
         }
 
         public async UniTask Enter()
         {
             await _assetLoader.LoadAsync();
             await _progressLoader.LoadAsync();
+            await _playerProgressLoader.LoadAsync();
             _stateMachine.SwitchTo<HubState>();
             _updater.OnDispose += () => _stateMachine.SwitchTo<HubUnLoadState>();
         }
