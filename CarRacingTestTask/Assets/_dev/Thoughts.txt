@@ -17,7 +17,6 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    
     Check is "enable spoiler" toggle locks after window opened ? 
     Optimize Loading states.
     Make loadingScreen (I can load offline scene when loading network scene).

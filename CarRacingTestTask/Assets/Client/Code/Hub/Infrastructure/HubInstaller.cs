@@ -46,7 +46,11 @@ namespace Client.Code.Hub.Infrastructure
         {
             Container.BindInterfacesAndSelfTo<HubUIFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<HubWindowsFactory>().AsSingle();
-
+            Container.BindInterfacesTo<HubSelectLevelWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<HubCustomizationWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<HubShopWindowFactory>().AsSingle();
+            Container.BindInterfacesTo<HubSettingsWindowFactory>().AsSingle();
+            
             Container.BindInterfacesAndSelfTo<HubModel>().AsSingle();
 
             Container.BindInterfacesTo<HubPresenter>().AsSingle();
