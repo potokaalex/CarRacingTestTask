@@ -1,8 +1,8 @@
-﻿using Client.Code.Common.UI.Windows;
+﻿using Client.Code.Common.UI.Elements.Windows;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Client.Code.Common.Services.LoadingScreen
+namespace Client.Code.Common.Services.LoadingScreen.UI
 {
     public class LoadingScreen : WindowBase, ILoadingScreen
     {
@@ -11,7 +11,7 @@ namespace Client.Code.Common.Services.LoadingScreen
         public void Initialize() => _slider.value = 0;
 
         public void SetProgress(float value, float startValue, float endValue) => _slider.value = Mathf.Lerp(startValue, endValue, value);
-        
+
         public override WindowType GetBaseType() => WindowType.None;
     }
 }

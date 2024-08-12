@@ -1,11 +1,10 @@
-﻿using Client.Code.Common.Services.InputService;
-using Client.Code.Common.Services.StateMachine;
+﻿using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.Updater;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Player.Time;
 using Client.Code.Gameplay.Infrastructure.States;
 
-namespace Client.Code.Gameplay.Game
+namespace Client.Code.Gameplay.Game.Check
 {
     public class GameOverChecker
     {
@@ -35,26 +34,6 @@ namespace Client.Code.Gameplay.Game
 
             if (elapsedTime >= _config.LevelTimeSec)
                 _stateMachine.SwitchTo<GameplayGameOverState>();
-        }
-    }
-
-    public class GamePauseChecker
-    {
-        private readonly IInputService _inputService;
-
-        public GamePauseChecker(IInputService inputService)
-        {
-            _inputService = inputService;
-        }
-
-        public void Initialize()
-        {
-            //_inputService.
-        }
-        
-        private void Check()
-        {
-            
         }
     }
 }

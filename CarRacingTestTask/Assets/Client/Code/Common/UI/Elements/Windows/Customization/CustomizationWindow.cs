@@ -1,7 +1,7 @@
-﻿using Client.Code.Common.UI.Dropdowns.Car;
-using Client.Code.Common.UI.Toggles.Customization;
+﻿using Client.Code.Common.UI.Elements.Dropdowns.Car;
+using Client.Code.Common.UI.Elements.Toggles.Customization;
 
-namespace Client.Code.Common.UI.Windows.Customization
+namespace Client.Code.Common.UI.Elements.Windows.Customization
 {
     public class CustomizationWindow : WindowBase
     {

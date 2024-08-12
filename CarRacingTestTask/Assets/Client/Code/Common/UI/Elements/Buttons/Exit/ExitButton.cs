@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Client.Code.Common.UI.Buttons.Exit
+namespace Client.Code.Common.UI.Elements.Buttons.Exit
 {
     public class ExitButton : ButtonBase
     {

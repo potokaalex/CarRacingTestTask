@@ -3,10 +3,8 @@ using Client.Code.Common.Services.InputService;
 using Client.Code.Common.Services.Updater;
 using Client.Code.Gameplay.Data.Static.Configs;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
-namespace Client.Code.Gameplay.Game.GameCamera
+namespace Client.Code.Gameplay.Game.GameCamera.Controllers
 {
     public class CameraInputController : IAssetReceiver<GameplayConfig>
     {

@@ -1,7 +1,7 @@
 ﻿using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.AudioService;
 using Client.Code.Common.Services.InputService;
-using Client.Code.Common.Services.LoadingScreen;
+using Client.Code.Common.Services.LoadingScreen.UI;
 using Client.Code.Common.Services.SceneLoader.Data;
 using Client.Code.Common.Services.Shop.Data;
 using Sirenix.OdinInspector;

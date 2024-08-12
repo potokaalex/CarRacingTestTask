@@ -83,9 +83,10 @@ namespace Client.Code.Common.Services.Shop.IAP
                 module.useFakeStoreUIMode = FakeStoreUIMode.StandardUser;
                 module.useFakeStoreAlways = true;
             }
+
             return module;
         }
-        
+
         private ConfigurationBuilder CreateBuilder(StandardPurchasingModule purchasingModule)
         {
             var builder = ConfigurationBuilder.Instance(purchasingModule);

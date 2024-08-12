@@ -1,5 +1,4 @@
 ﻿using Client.Code.Common.Services.Asset.Data;
-using Client.Code.Common.Services.Asset.Loader;
 
 namespace Client.Code.Common.Services.Asset
 {

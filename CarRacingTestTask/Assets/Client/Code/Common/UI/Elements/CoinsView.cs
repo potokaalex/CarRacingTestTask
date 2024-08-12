@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Client.Code.Common.UI
+namespace Client.Code.Common.UI.Elements
 {
     public class CoinsView : MonoBehaviour
     {

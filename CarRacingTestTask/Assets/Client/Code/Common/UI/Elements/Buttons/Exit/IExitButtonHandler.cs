@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Buttons.Exit
+﻿namespace Client.Code.Common.UI.Elements.Buttons.Exit
 {
     public interface IExitButtonHandler
     {

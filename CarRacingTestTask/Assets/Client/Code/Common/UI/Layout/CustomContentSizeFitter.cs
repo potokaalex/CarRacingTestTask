@@ -60,7 +60,7 @@ namespace Client.Code.Common.UI.Layout
                 rect.SetSizeWithCurrentAnchors(axis, LayoutUtility.GetMinSize(rect, (int)axis));
             else
                 rect.SetSizeWithCurrentAnchors(axis, LayoutUtility.GetPreferredSize(rect, (int)axis));
-            
+
             if (PlatformsConstants.IsEditor)
                 HandleTracker(axis, fitting, rect);
         }

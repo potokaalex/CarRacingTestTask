@@ -1,13 +1,13 @@
 ﻿using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.StateMachine.Global;
-using Client.Code.Common.UI.Buttons.Exit;
-using Client.Code.Common.UI.Buttons.Load;
-using Client.Code.Common.UI.Buttons.Toggle;
-using Client.Code.Common.UI.Windows;
-using Client.Code.Common.UI.Windows.Customization;
-using Client.Code.Common.UI.Windows.SelectLevel;
-using Client.Code.Common.UI.Windows.Settings;
-using Client.Code.Common.UI.Windows.Shop;
+using Client.Code.Common.UI.Elements.Buttons.Exit;
+using Client.Code.Common.UI.Elements.Buttons.Load;
+using Client.Code.Common.UI.Elements.Buttons.Toggle;
+using Client.Code.Common.UI.Elements.Windows;
+using Client.Code.Common.UI.Elements.Windows.Customization;
+using Client.Code.Common.UI.Elements.Windows.SelectLevel;
+using Client.Code.Common.UI.Elements.Windows.Settings;
+using Client.Code.Common.UI.Elements.Windows.Shop;
 
 namespace Client.Code.Hub.UI.Presenters
 {

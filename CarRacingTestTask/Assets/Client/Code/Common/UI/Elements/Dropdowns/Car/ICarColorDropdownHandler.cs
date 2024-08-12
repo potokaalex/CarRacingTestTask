@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Data;
 
-namespace Client.Code.Common.UI.Dropdowns.Car
+namespace Client.Code.Common.UI.Elements.Dropdowns.Car
 {
     public interface ICarColorDropdownHandler
     {

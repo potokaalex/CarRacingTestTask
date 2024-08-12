@@ -1,5 +1,4 @@
 ﻿using Client.Code.Common.Services.Asset;
-using Client.Code.Gameplay.Game.GameCamera;
 using Client.Code.Gameplay.UI;
 using UnityEngine;
 

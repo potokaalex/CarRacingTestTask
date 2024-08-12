@@ -3,7 +3,7 @@ using Client.Code.Common.Data;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Common.UI.Dropdowns.Car
+namespace Client.Code.Common.UI.Elements.Dropdowns.Car
 {
     public class CarColorDropdown : DropdownBase
     {

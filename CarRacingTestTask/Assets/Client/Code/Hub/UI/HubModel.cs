@@ -5,7 +5,7 @@ using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.Shop.Data.Item;
-using Client.Code.Common.UI.Windows;
+using Client.Code.Common.UI.Elements.Windows;
 using UniRx;
 
 namespace Client.Code.Hub.UI

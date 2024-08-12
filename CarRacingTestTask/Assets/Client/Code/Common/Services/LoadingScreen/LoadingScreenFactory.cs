@@ -1,5 +1,6 @@
 ﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Services.Asset.Receiver;
+using Client.Code.Common.Services.LoadingScreen.UI;
 using Zenject;
 
 namespace Client.Code.Common.Services.LoadingScreen
@@ -8,7 +9,7 @@ namespace Client.Code.Common.Services.LoadingScreen
     {
         private readonly IInstantiator _instantiator;
         private ProjectConfig _config;
-        private LoadingScreen _screen;
+        private UI.LoadingScreen _screen;
 
         public LoadingScreenFactory(IInstantiator instantiator) => _instantiator = instantiator;
 
@@ -27,6 +28,6 @@ namespace Client.Code.Common.Services.LoadingScreen
 
         public void Destroy() => _screen.Close();
 
-        private LoadingScreen CreateNewScreen() => _instantiator.InstantiatePrefabForComponent<LoadingScreen>(_config.LoadingScreenPrefab);
+        private UI.LoadingScreen CreateNewScreen() => _instantiator.InstantiatePrefabForComponent<UI.LoadingScreen>(_config.LoadingScreenPrefab);
     }
 }

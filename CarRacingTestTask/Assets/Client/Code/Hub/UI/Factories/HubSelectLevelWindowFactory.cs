@@ -1,5 +1,5 @@
-﻿using Client.Code.Common.UI.Windows;
-using Client.Code.Common.UI.Windows.SelectLevel;
+﻿using Client.Code.Common.UI.Elements.Windows;
+using Client.Code.Common.UI.Elements.Windows.SelectLevel;
 
 namespace Client.Code.Hub.UI.Factories
 {

@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Buttons.DoubleCoins
+﻿namespace Client.Code.Common.UI.Elements.Buttons.DoubleCoins
 {
     public interface IDoubleCoinsButtonHandler
     {

@@ -2,7 +2,6 @@
 using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.StateMachine.State;
-using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Hub.Infrastructure.States
 {

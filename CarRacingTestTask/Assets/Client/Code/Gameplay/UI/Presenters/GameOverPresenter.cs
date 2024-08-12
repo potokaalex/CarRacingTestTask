@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Services.Ads;
 using Client.Code.Common.Services.Ads.Interstitial;
-using Client.Code.Common.UI.Buttons.DoubleCoins;
+using Client.Code.Common.UI.Elements.Buttons.DoubleCoins;
 using Client.Code.Gameplay.Game.Player;
 using Cysharp.Threading.Tasks;
 

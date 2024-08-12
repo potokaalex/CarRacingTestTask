@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Services.Shop.Data.Item;
-using Client.Code.Common.UI.Windows;
-using Client.Code.Common.UI.Windows.Shop;
+using Client.Code.Common.UI.Elements.Windows;
+using Client.Code.Common.UI.Elements.Windows.Shop;
 using UniRx;
 
 namespace Client.Code.Hub.UI.Factories

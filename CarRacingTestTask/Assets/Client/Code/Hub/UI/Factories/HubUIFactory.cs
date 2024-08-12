@@ -1,7 +1,6 @@
 ﻿using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Hub.Data;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Client.Code.Hub.UI.Factories

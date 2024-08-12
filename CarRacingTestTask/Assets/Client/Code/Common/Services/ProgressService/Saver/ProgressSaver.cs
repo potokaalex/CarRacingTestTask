@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Services.Logger.Base;
 using Client.Code.Common.Services.ProgressService.Loader;
 using UnityEngine;

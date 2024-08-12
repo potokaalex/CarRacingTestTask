@@ -1,5 +1,4 @@
 ﻿using Client.Code.Common.Data.Configs;
-using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.LoadingScreen;
@@ -39,7 +38,7 @@ namespace Client.Code.Gameplay.Infrastructure.States
             await _assetLoader.LoadAsync(f => screen.SetProgress(f, 2 / 4f, 3 / 4f));
             await _progressLoader.LoadAsync(f => screen.SetProgress(f, 3 / 4f, 4 / 4f));
             _loadingScreenFactory.Destroy();
-            
+
             _stateMachine.SwitchTo<GameplayState>();
             _updater.OnDispose += () => _stateMachine.SwitchTo<GameplayUnLoadState>();
         }

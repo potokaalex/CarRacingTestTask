@@ -1,6 +1,6 @@
-﻿using Client.Code.Common.UI.Buttons.Shop;
+﻿using Client.Code.Common.UI.Elements.Buttons.Shop;
 
-namespace Client.Code.Common.UI.Windows.Shop
+namespace Client.Code.Common.UI.Elements.Windows.Shop
 {
     public class ShopWindow : WindowBase
     {

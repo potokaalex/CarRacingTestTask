@@ -1,6 +1,5 @@
 ﻿using Client.Code.Common.Data.Configs;
 using Client.Code.Common.Data.Progress.Player;
-using Client.Code.Common.Services.Asset;
 using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
@@ -12,8 +11,9 @@ using Client.Code.Gameplay.Data;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Factory;
-using Client.Code.Gameplay.Game.GameCamera;
+using Client.Code.Gameplay.Game.GameCamera.Controllers;
 using Client.Code.Gameplay.Game.GameCamera.Factory;
+using Client.Code.Gameplay.Game.GameCursor;
 using Client.Code.Gameplay.Game.Player;
 using Client.Code.Gameplay.Game.Player.Score;
 using Client.Code.Gameplay.Game.Player.Time;

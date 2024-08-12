@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.Unity;
 using UnityEngine;
 
@@ -17,10 +16,10 @@ namespace Client.Code.Common.Services.ProgressService
             var baseDirectoryPath = PlatformsConstants.IsEditor
                 ? Directory.GetParent(Application.dataPath).FullName
                 : Application.persistentDataPath;
-            
+
             DirectoryPath = Path.Combine(baseDirectoryPath, SaveFolderName);
         }
-        
+
         public static string CreateFilePath<T>() where T : IProgress
         {
             var fileName = Path.ChangeExtension(typeof(T).Name, FilesExtension);

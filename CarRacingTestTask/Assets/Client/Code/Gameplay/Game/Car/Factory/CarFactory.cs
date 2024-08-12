@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Extensions;
@@ -56,7 +55,7 @@ namespace Client.Code.Gameplay.Game.Car.Factory
             _physicsControllers.Add(_instantiator.Instantiate<CarSteerController>());
             _physicsControllers.Add(_driftChecker);
             _physicsControllers.Add(_instantiator.Instantiate<CarInputController>());
-            
+
             _graphicsControllers.Add(_instantiator.Instantiate<CarGraphicsController>());
 
             foreach (var controller in _physicsControllers)

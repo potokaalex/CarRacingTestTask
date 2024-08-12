@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Gameplay.Data.Static.Configs;
-using Client.Code.Gameplay.Game;
+using Client.Code.Gameplay.Game.Check;
 using Zenject;
 
 namespace Client.Code.Gameplay.UI.Factories

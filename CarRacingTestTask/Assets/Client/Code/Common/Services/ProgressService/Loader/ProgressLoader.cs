@@ -13,7 +13,7 @@ namespace Client.Code.Common.Services.ProgressService.Loader
         private readonly List<IProgressReader<T>> _readers = new();
         private readonly ILogReceiver _logReceiver;
         private T _progress;
-        
+
         private ProgressLoader(ILogReceiver logReceiver) => _logReceiver = logReceiver;
 
         public async UniTask LoadAsync(Action<float> progressReceiver = null)

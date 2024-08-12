@@ -1,7 +1,7 @@
 ﻿using Client.Code.Common.Services.Shop;
 using Client.Code.Common.Services.Shop.Data;
 using Client.Code.Common.Services.Shop.Data.Item;
-using Client.Code.Common.UI.Buttons.Shop;
+using Client.Code.Common.UI.Elements.Buttons.Shop;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Hub.UI.Presenters

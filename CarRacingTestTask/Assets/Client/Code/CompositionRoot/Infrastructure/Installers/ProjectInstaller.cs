@@ -43,7 +43,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
             BindShop();
             BindInput();
             BindNetwork();
-            
+
             Container.BindInterfacesTo<UnityServicesInitializer>().AsSingle();
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();

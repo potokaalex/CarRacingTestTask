@@ -1,6 +1,4 @@
-﻿using Client.Code.Common.Services.ProgressService.Loader;
-
-namespace Client.Code.Common.Services.ProgressService.Saver
+﻿namespace Client.Code.Common.Services.ProgressService.Saver
 {
     public interface IProgressSaver<out T> where T : IProgress
     {

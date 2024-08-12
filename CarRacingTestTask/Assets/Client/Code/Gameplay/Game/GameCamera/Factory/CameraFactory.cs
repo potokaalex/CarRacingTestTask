@@ -1,6 +1,7 @@
 ﻿using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car.Controllers;
+using Client.Code.Gameplay.Game.GameCamera.Controllers;
 using Zenject;
 
 namespace Client.Code.Gameplay.Game.GameCamera.Factory

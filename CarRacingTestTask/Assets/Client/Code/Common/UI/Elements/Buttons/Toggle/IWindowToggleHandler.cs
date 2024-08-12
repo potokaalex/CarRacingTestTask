@@ -1,6 +1,6 @@
-﻿using Client.Code.Common.UI.Windows;
+﻿using Client.Code.Common.UI.Elements.Windows;
 
-namespace Client.Code.Common.UI.Buttons.Toggle
+namespace Client.Code.Common.UI.Elements.Buttons.Toggle
 {
     public interface IWindowToggleHandler
     {

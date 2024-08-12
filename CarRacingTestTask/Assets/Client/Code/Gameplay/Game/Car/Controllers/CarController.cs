@@ -11,7 +11,7 @@ namespace Client.Code.Gameplay.Game.Car.Controllers
         public Transform CarTransform => _car.Rigidbody.transform;
 
         public void Initialize(CarObject car) => _car = car;
-        
+
         public Vector3 GetPosition() => _car.Rigidbody.transform.position;
     }
 }

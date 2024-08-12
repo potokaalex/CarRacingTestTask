@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Common.UI.Toggles.Customization
+namespace Client.Code.Common.UI.Elements.Toggles.Customization
 {
     public class CustomizationToggle : ToggleBase
     {

@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Client.Code.Common.UI.Dropdowns
+namespace Client.Code.Common.UI.Elements.Dropdowns
 {
     [RequireComponent(typeof(TMP_Dropdown))]
     public abstract class DropdownBase : SerializedMonoBehaviour

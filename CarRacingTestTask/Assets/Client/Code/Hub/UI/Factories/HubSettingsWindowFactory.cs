@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Services.AudioService;
-using Client.Code.Common.UI.Windows;
-using Client.Code.Common.UI.Windows.Settings;
+using Client.Code.Common.UI.Elements.Windows;
+using Client.Code.Common.UI.Elements.Windows.Settings;
 using UniRx;
 
 namespace Client.Code.Hub.UI.Factories

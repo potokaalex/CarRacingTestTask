@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Client.Code.Common.UI.Toggles
+namespace Client.Code.Common.UI.Elements.Toggles
 {
     [RequireComponent(typeof(Toggle))]
     public abstract class ToggleBase : MonoBehaviour

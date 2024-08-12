@@ -1,7 +1,8 @@
-﻿using Sirenix.OdinInspector;
+﻿using Client.Code.Gameplay.Game.GameCamera;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Client.Code.Gameplay.Game.GameCamera
+namespace Client.Code.Gameplay.Data.Static.Configs
 {
     [CreateAssetMenu(menuName = "Configs/Gameplay/Camera", fileName = "CameraConfig", order = 0)]
     public class CameraConfig : ScriptableObject

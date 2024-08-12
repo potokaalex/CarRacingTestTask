@@ -10,23 +10,24 @@ Load order: BootstrapLoader(editor only) -> ProjectInstaller -> BootstrapInstall
     
     -> ProjectUnloadState(anyway)
 
-Assemdefs connections: 
+Assembly definitions connections: 
     Common <- nothing. -> everything
     CompositionRoot <- everything. -> nothing
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
-TODO:
-    Refactoring: Camera controller
-    .Хочу сделать меню паузы: при нажатии на esc я отключаю любые обновления и перевожу игру в режим паузы. появляется курсор и меню паузы
-    Move configs from gameplay/data/static/configs
-    починить дебагер!
+Discarded:
+    Rename gameplay to game & game to gameplay
+    Create services folder in Game
+    Create game input
+    Create pause menu
+    Move configs from game/data/static/configs
+    fix debugger!
     Make new Car systems:
-        design references: -
         optional: tyres sound system & engine sound system
         optional: get image from url and place on car body
         prevent: bug if the car does not have velocity, then brake does not work correctly!, bug: at high speed, the car breaks off from a straight line
-    Important: Network
+    Network
     Leaderboard in room (All players drift points)
     Web request: stream radio music into the game
     Optional SDKs: Facebook SDK, FirebaseSDK, GameAnalytics SDK

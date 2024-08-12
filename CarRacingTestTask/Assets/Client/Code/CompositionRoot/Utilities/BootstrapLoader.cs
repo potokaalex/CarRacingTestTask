@@ -10,9 +10,9 @@ namespace Client.Code.CompositionRoot.Utilities
 
         private void Awake()
         {
-            if(!PlatformsConstants.IsEditor)
+            if (!PlatformsConstants.IsEditor)
                 return;
-            
+
             if (SceneManager.GetActiveScene().name != _bootstrapSceneName)
                 SceneManager.LoadScene(_bootstrapSceneName);
         }

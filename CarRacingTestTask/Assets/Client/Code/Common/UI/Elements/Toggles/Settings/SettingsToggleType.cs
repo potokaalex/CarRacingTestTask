@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Toggles.Settings
+﻿namespace Client.Code.Common.UI.Elements.Toggles.Settings
 {
     public enum SettingsToggleType
     {

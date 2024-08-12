@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Services.Asset;
-using Client.Code.Common.UI.Windows;
+using Client.Code.Common.UI.Elements.Windows;
 using Client.Code.Hub.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;

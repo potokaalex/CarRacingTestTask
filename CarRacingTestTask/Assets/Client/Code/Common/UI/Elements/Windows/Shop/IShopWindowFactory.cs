@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Windows.Shop
+﻿namespace Client.Code.Common.UI.Elements.Windows.Shop
 {
     public interface IShopWindowFactory
     {

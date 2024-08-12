@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Buttons.Load
+﻿namespace Client.Code.Common.UI.Elements.Buttons.Load
 {
     public interface ILoadButtonHandler
     {

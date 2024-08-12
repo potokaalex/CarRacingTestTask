@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.UI.Toggles.Settings;
+﻿using Client.Code.Common.UI.Elements.Toggles.Settings;
 
 namespace Client.Code.Hub.UI.Presenters
 {

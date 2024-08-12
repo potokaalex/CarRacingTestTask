@@ -40,10 +40,10 @@ namespace Client.Code.Common.UI.Layout
         private bool IsSafeAreaChanged()
         {
             var safeArea = Screen.safeArea;
-            
+
             if (_safeArea == safeArea)
                 return false;
-            
+
             _safeArea = safeArea;
             return true;
         }
@@ -51,14 +51,14 @@ namespace Client.Code.Common.UI.Layout
         private bool IsScreenSizeChanged()
         {
             var screenSize = new Vector2(Screen.width, Screen.height);
-            
+
             if (_screenSize == screenSize)
                 return false;
-            
+
             _screenSize = screenSize;
             return true;
         }
-        
+
         private void HandleTracker(RectTransform rect)
         {
             _tracker.Clear();

@@ -20,7 +20,7 @@ namespace Client.Code.Common.Services.Updater
         }
 
         private void LateUpdate() => OnLateUpdateWithDelta?.Invoke(Time.deltaTime);
-        
+
         private void FixedUpdate()
         {
             OnFixedUpdate?.Invoke();

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Common.UI.Toggles.Settings
+namespace Client.Code.Common.UI.Elements.Toggles.Settings
 {
     public class SettingsToggle : ToggleBase
     {

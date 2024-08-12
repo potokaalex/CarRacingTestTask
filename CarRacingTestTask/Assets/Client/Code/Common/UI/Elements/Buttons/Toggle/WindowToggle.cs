@@ -1,8 +1,8 @@
-﻿using Client.Code.Common.UI.Windows;
+﻿using Client.Code.Common.UI.Elements.Windows;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Common.UI.Buttons.Toggle
+namespace Client.Code.Common.UI.Elements.Buttons.Toggle
 {
     public class WindowToggle : ButtonBase
     {

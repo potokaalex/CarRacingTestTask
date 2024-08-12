@@ -2,7 +2,7 @@
 using Client.Code.Gameplay.Data.Static.Configs;
 using UnityEngine;
 
-namespace Client.Code.Gameplay.Game.GameCamera
+namespace Client.Code.Gameplay.Game.GameCamera.Controllers
 {
     public class CameraPositionController : IAssetReceiver<GameplayConfig>
     {

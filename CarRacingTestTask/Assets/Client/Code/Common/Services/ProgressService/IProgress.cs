@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Services.ProgressService.Loader
+﻿namespace Client.Code.Common.Services.ProgressService
 {
     public interface IProgress
     {

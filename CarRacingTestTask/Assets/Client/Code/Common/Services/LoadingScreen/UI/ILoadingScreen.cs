@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Services.LoadingScreen
+﻿namespace Client.Code.Common.Services.LoadingScreen.UI
 {
     public interface ILoadingScreen
     {

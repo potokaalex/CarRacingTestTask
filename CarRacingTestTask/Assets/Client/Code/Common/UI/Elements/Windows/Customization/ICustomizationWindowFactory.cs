@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Windows.Customization
+﻿namespace Client.Code.Common.UI.Elements.Windows.Customization
 {
     public interface ICustomizationWindowFactory
     {

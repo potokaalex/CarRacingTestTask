@@ -1,5 +1,5 @@
 ﻿using System;
-using Client.Code.Common.Services.ProgressService.Loader;
+using Client.Code.Common.Services.ProgressService;
 
 namespace Client.Code.Common.Data.Progress.Player
 {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Common.UI.Buttons.Shop
+namespace Client.Code.Common.UI.Elements.Buttons.Shop
 {
     public class ShopPurchasedItemButton : ButtonBase
     {

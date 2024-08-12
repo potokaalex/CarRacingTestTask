@@ -1,5 +1,4 @@
 ﻿using System;
-using Client.Code.Common.Data;
 using Client.Code.Common.Services.SceneLoader.Data;
 using Cysharp.Threading.Tasks;
 

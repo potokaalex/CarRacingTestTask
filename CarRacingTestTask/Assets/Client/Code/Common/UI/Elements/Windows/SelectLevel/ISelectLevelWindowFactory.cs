@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.UI.Windows.SelectLevel
+﻿namespace Client.Code.Common.UI.Elements.Windows.SelectLevel
 {
     public interface ISelectLevelWindowFactory
     {

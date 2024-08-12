@@ -31,7 +31,7 @@ namespace Client.Code.Hub.Infrastructure
         {
             Container.BindInterfacesTo<ProgressSaver<PlayerProgress>>().AsSingle();
             Container.BindInterfacesTo<ProgressLoader<PlayerProgress>>().AsSingle();
-            
+
             Container.BindInterfacesTo<ProgressActorsRegister<PlayerProgress>>().AsSingle();
             Container.BindInterfacesTo<ProgressActorsRegister<ProjectProgress>>().AsSingle();
         }
@@ -50,7 +50,7 @@ namespace Client.Code.Hub.Infrastructure
             Container.BindInterfacesTo<HubCustomizationWindowFactory>().AsSingle();
             Container.BindInterfacesTo<HubShopWindowFactory>().AsSingle();
             Container.BindInterfacesTo<HubSettingsWindowFactory>().AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<HubModel>().AsSingle();
 
             Container.BindInterfacesTo<HubPresenter>().AsSingle();

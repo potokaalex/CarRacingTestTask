@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.UI;
+﻿using Client.Code.Common.UI.Elements;
 using UnityEngine;
 
 namespace Client.Code.Hub.UI

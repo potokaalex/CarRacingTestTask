@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Client.Code.Common.UI.Buttons.Load
+namespace Client.Code.Common.UI.Elements.Buttons.Load
 {
     public class LoadButton : ButtonBase
     {

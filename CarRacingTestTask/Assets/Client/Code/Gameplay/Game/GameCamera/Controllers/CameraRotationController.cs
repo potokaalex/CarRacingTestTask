@@ -2,7 +2,7 @@
 using Client.Code.Gameplay.Data.Static.Configs;
 using UnityEngine;
 
-namespace Client.Code.Gameplay.Game.GameCamera
+namespace Client.Code.Gameplay.Game.GameCamera.Controllers
 {
     public class CameraRotationController : IAssetReceiver<GameplayConfig>
     {
@@ -13,12 +13,12 @@ namespace Client.Code.Gameplay.Game.GameCamera
         public void Initialize(CameraObject camera) => _camera = camera;
 
         public void Receive(GameplayConfig asset) => _config = asset.Camera;
-        
+
         public void Rotate(Vector2 deltaRotation)
         {
             _rotation.y += deltaRotation.x;
             _rotation.x = ClampAngle(_rotation.x + deltaRotation.y, _config.MinAngleY, _config.MaxAngleY);
-            
+
             var rotation = Quaternion.AngleAxis(_rotation.y, Vector3.up) * Quaternion.AngleAxis(_rotation.x, Vector3.right);
             _camera.transform.rotation = rotation;
         }
@@ -28,7 +28,7 @@ namespace Client.Code.Gameplay.Game.GameCamera
             angle = NormalizeAngle(angle);
             return Mathf.Clamp(angle, min, max);
         }
-        
+
         private float NormalizeAngle(float angle)
         {
             angle %= 360;
