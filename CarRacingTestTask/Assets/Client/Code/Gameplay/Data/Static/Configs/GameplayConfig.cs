@@ -14,6 +14,6 @@ namespace Client.Code.Gameplay.Data.Static.Configs
         public float LevelTimeSec;
         public GameCanvas CanvasPrefab;
         public GameOverScreen GameOverScreenPrefab;
-        public CameraController CameraPrefab;
+        public CameraConfig Camera;
     }
 }

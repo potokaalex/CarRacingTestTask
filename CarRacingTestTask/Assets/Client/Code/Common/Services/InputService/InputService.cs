@@ -4,12 +4,12 @@
     {
         private InputObject _input;
 
-        public InputControls Controls { get; private set; }
+        public GameInputControls GameControls { get; private set; }
 
         public void Initialize(InputObject input)
         {
             _input = input;
-            Controls = new InputControls();
+            GameControls = new GameInputControls();
         }
 
         public bool IsMouseOverUI() => _input.EventSystem.IsPointerOverGameObject();

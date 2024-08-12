@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8127656864094414476}
   - component: {fileID: 7519979868371659357}
   - component: {fileID: 6631692090664662729}
-  - component: {fileID: 54084737953187676}
+  - component: {fileID: 5440625967174063187}
   m_Layer: 0
-  m_Name: CameraController
+  m_Name: CameraObject
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2978020711590036206}
   m_Enabled: 1
---- !u!114 &54084737953187676
+--- !u!114 &5440625967174063187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,32 +102,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2978020711590036206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a7417c6fbe540a984b2120834facab4, type: 3}
+  m_Script: {fileID: 11500000, guid: 02c2282e83fa4717a1ac641780635943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  rotationSpace: {fileID: 0}
-  updateMode: 2
-  lockCursor: 1
-  smoothFollow: 0
-  offset: {x: 0, y: 1.5, z: 0.5}
-  followSpeed: 10
-  rotationSensitivity: 3.5
-  yMinLimit: -7
-  yMaxLimit: 80
-  rotateAlways: 1
-  rotateOnLeftButton: 0
-  rotateOnRightButton: 0
-  rotateOnMiddleButton: 0
-  distance: 10
-  minDistance: 4
-  maxDistance: 10
-  zoomSpeed: 10
-  zoomSensitivity: 1
-  blockingLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  blockingRadius: 1
-  blockingSmoothTime: 0.1
-  blockingOriginOffset: 0
-  blockedOffset: 0.5

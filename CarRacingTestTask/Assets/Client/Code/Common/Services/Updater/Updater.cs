@@ -7,6 +7,7 @@ namespace Client.Code.Common.Services.Updater
     {
         public event Action OnUpdate;
         public event Action<float> OnUpdateWithDelta;
+        public event Action<float> OnLateUpdateWithDelta;
         public event Action OnFixedUpdate;
         public event Action<float> OnFixedUpdateWithDelta;
         public event Action<bool> OnApplicationPauseChanged;
@@ -18,6 +19,8 @@ namespace Client.Code.Common.Services.Updater
             OnUpdateWithDelta?.Invoke(Time.deltaTime);
         }
 
+        private void LateUpdate() => OnLateUpdateWithDelta?.Invoke(Time.deltaTime);
+        
         private void FixedUpdate()
         {
             OnFixedUpdate?.Invoke();

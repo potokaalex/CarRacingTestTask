@@ -6,6 +6,7 @@ namespace Client.Code.Common.Services.Updater
     {
         event Action OnUpdate;
         event Action<float> OnUpdateWithDelta;
+        event Action<float> OnLateUpdateWithDelta;
         event Action OnFixedUpdate;
         event Action<float> OnFixedUpdateWithDelta;
         event Action<bool> OnApplicationPauseChanged;

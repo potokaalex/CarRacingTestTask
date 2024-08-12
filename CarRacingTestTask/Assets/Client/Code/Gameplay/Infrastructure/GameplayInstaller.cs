@@ -12,6 +12,7 @@ using Client.Code.Gameplay.Data;
 using Client.Code.Gameplay.Data.Static.Configs;
 using Client.Code.Gameplay.Game.Car.Controllers;
 using Client.Code.Gameplay.Game.Car.Factory;
+using Client.Code.Gameplay.Game.GameCamera;
 using Client.Code.Gameplay.Game.GameCamera.Factory;
 using Client.Code.Gameplay.Game.Player;
 using Client.Code.Gameplay.Game.Player.Score;
@@ -43,7 +44,7 @@ namespace Client.Code.Gameplay.Infrastructure
         {
             Container.BindInterfacesTo<ProgressSaver<PlayerProgress>>().AsSingle();
             Container.BindInterfacesTo<ProgressLoader<PlayerProgress>>().AsSingle();
-            
+
             Container.BindInterfacesTo<ProgressActorsRegister<PlayerProgress>>().AsSingle();
         }
 
@@ -58,7 +59,17 @@ namespace Client.Code.Gameplay.Infrastructure
         {
             BindCar();
             BindPlayer();
+            BindCamera();
+
+            Container.BindInterfacesAndSelfTo<CursorController>().AsSingle();
+        }
+
+        private void BindCamera()
+        {
             Container.BindInterfacesTo<CameraFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraInputController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraRotationController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraPositionController>().AsSingle();
         }
 
         private void BindUI()

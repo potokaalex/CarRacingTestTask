@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfd10aa8373446db343674dd89d48d4, type: 3}
+  m_Name: CameraConfig
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 5440625967174063187, guid: 7e125c2f19acf4b4c9073017730174da, type: 3}
+  RotationInputSensitivity: 0.08
+  ZoomInputSensitivity: 0.01
+  MinAngleY: -7
+  MaxAngleY: 80
+  InitialDistanceToTarget: 10
+  MinDistanceToTarget: 4
+  MaxDistanceToTarget: 10
+  ZoomVelocity: 10
+  FollowVelocity: 10
+  TargetOffsetRelativeToCameraRotation: {x: 0, y: 1.5, z: 0.5}

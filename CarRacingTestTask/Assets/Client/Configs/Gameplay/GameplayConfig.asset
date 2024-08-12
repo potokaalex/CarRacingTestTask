@@ -17,4 +17,4 @@ MonoBehaviour:
   LevelTimeSec: 120
   CanvasPrefab: {fileID: 7545471867776401576, guid: f68dfce098f5fa74d90004cceb68a1bb, type: 3}
   GameOverScreenPrefab: {fileID: 4823452167346483223, guid: 03aaddeba96ed0e4b9d9429c5615f9f9, type: 3}
-  CameraPrefab: {fileID: 54084737953187676, guid: 7e125c2f19acf4b4c9073017730174da, type: 3}
+  Camera: {fileID: 11400000, guid: 03fcad2b5aca32a4b831b698f4e71788, type: 2}

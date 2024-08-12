@@ -17,9 +17,10 @@ Assemdefs connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    Level design
-    Restore progress button
     Refactoring: Camera controller
+    .Хочу сделать меню паузы: при нажатии на esc я отключаю любые обновления и перевожу игру в режим паузы. появляется курсор и меню паузы
+    Move configs from gameplay/data/static/configs
+    починить дебагер!
     Make new Car systems:
         design references: -
         optional: tyres sound system & engine sound system

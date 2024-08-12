@@ -8,24 +8,33 @@ namespace Client.Code.Gameplay.Game.GameCamera.Factory
     public class CameraFactory : IAssetReceiver<GameplayConfig>, ICameraFactory
     {
         private readonly IInstantiator _instantiator;
+        private readonly CameraInputController _inputController;
+        private readonly CameraRotationController _rotationController;
+        private readonly CameraPositionController _positionController;
         private readonly CarController _carController;
-        private GameplayConfig _config;
-        private CameraController _controller;
+        private CameraConfig _config;
 
-        public CameraFactory(IInstantiator instantiator, CarController carController)
+        public CameraFactory(IInstantiator instantiator, CameraInputController inputController, CameraRotationController rotationController,
+            CameraPositionController positionController, CarController carController)
         {
             _instantiator = instantiator;
+            _inputController = inputController;
+            _rotationController = rotationController;
+            _positionController = positionController;
             _carController = carController;
         }
 
+        public void Receive(GameplayConfig asset) => _config = asset.Camera;
+
         public void Create()
         {
-            _controller = _instantiator.InstantiatePrefabForComponent<CameraController>(_config.CameraPrefab);
-            _controller.target = _carController.CarTransform;
+            var camera = _instantiator.InstantiatePrefabForComponent<CameraObject>(_config.Prefab);
+            _inputController.Initialize();
+            _rotationController.Initialize(camera);
+            _positionController.Initialize(camera);
+            _positionController.SetTarget(_carController);
         }
 
-        public void Destroy() => _controller.Dispose();
-
-        public void Receive(GameplayConfig asset) => _config = asset;
+        public void Destroy() => _inputController.Dispose();
     }
 }
