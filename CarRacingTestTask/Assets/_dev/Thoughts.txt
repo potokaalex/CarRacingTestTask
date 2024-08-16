@@ -21,8 +21,6 @@ Assembly definitions connections:
 
 TODO:
     create game factory
-    remove checker folder
-    remove cursorController
     remove input object from input service
     Move configs from game/data/static/configs
     fix debugger!

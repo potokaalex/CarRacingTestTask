@@ -18,7 +18,6 @@ using Client.Code.Game.Gameplay.Player.Score;
 using Client.Code.Game.Gameplay.Player.Time;
 using Client.Code.Game.Infrastructure.States;
 using Client.Code.Game.Services;
-using Client.Code.Game.Services.GameCursor;
 using Client.Code.Game.Services.Pause;
 using Client.Code.Game.UI.Factories;
 using Client.Code.Game.UI.Presenters;
@@ -40,7 +39,6 @@ namespace Client.Code.Game.Infrastructure
 
             Container.Bind<PauseService>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CursorController>().AsSingle();//TODO: remove!
 
             Container.Bind<GameSceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<AutoStartupper<GameLoadState>>().AsSingle();
