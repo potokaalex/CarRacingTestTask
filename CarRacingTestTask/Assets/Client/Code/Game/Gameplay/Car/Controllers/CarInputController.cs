@@ -7,14 +7,14 @@ namespace Client.Code.Game.Gameplay.Car.Controllers
     {
         private readonly IInputService _inputService;
         private CarObject _car;
-        private GameInputControls.CarActions _controls;
+        private GameplayInputControls.CarActions _controls;
 
         public CarInputController(IInputService inputService) => _inputService = inputService;
 
         public void Initialize(CarObject car)
         {
             _car = car;
-            _controls = _inputService.GameControls.Car;
+            _controls = _inputService.GameplayControls.Car;
             _controls.Enable();
         }
 

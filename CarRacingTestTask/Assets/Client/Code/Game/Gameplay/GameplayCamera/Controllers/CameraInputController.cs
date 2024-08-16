@@ -12,7 +12,7 @@ namespace Client.Code.Game.Gameplay.GameplayCamera.Controllers
         private readonly CameraRotationController _rotationController;
         private readonly IUpdater _updater;
         private readonly CameraPositionController _positionController;
-        private GameInputControls.CameraActions _controls;
+        private GameplayInputControls.CameraActions _controls;
         private CameraConfig _config;
 
         public CameraInputController(IInputService inputService, CameraRotationController rotationController, IUpdater updater,
@@ -28,7 +28,7 @@ namespace Client.Code.Game.Gameplay.GameplayCamera.Controllers
 
         public void Initialize()
         {
-            _controls = _inputService.GameControls.Camera;
+            _controls = _inputService.GameplayControls.Camera;
             _updater.OnFixedUpdateWithDelta += OnUpdate;
             _controls.Enable();
         }
