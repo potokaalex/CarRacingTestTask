@@ -17,9 +17,8 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    rename gameCamera to GameplayCamera
-    create gameFactory
     create ui/Elements folder
+    create gameFactory
     Create game input
     Create pause menu
     Move configs from game/data/static/configs

@@ -2,7 +2,7 @@
 using Client.Code.Common.UI.Elements.Buttons.DoubleCoins;
 using UnityEngine;
 
-namespace Client.Code.Game.UI
+namespace Client.Code.Game.UI.Elements
 {
     public class GameOverScreen : MonoBehaviour
     {
