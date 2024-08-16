@@ -36,7 +36,7 @@ namespace Client._dev
                     _stateMachine.SwitchTo<HubStateGlobal>();
             }
 
-            await _sceneLoader.LoadSceneAsync(SceneName.GameplayOnline);
+            await _sceneLoader.LoadSceneAsync(SceneName.GameOnline);
 
             var joinRoomResult = await _networkRoomService.JoinRoomAsync();
             if (joinRoomResult == NetworkJoinRoomResult.Fail)

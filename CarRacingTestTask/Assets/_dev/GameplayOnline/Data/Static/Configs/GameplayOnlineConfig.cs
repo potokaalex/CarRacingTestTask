@@ -1,7 +1,6 @@
 ﻿using Client.Code.Common.Services.Asset;
-using Client.Code.Gameplay.Data.Static.Configs;
-using Client.Code.Gameplay.Game.GameCamera;
-using Client.Code.Gameplay.UI;
+using Client.Code.Game.Data.Static.Configs;
+using Client.Code.Game.UI;
 using UnityEngine;
 
 namespace Client._dev.GameplayOnline.Data.Static.Configs

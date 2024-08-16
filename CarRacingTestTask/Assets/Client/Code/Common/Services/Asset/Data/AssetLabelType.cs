@@ -4,7 +4,7 @@
     {
         Project = 1,
         Hub = 2,
-        Gameplay = 3,
-        GameplayOnline = 4
+        Game = 3,
+        GameOnline = 4
     }
 }

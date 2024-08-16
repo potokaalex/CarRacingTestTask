@@ -1,8 +1,7 @@
 ﻿using Client._dev.GameplayOnline.Data.Static.Configs;
 using Client.Code.Common.Services.Asset.Receiver;
-using Client.Code.Gameplay.Game.Car.Controllers;
-using Client.Code.Gameplay.Game.GameCamera;
-using Client.Code.Gameplay.Game.GameCamera.Factory;
+using Client.Code.Game.Gameplay.Car.Controllers;
+using Client.Code.Game.Gameplay.GameCamera.Factory;
 using Zenject;
 
 namespace Client._dev.GameplayOnline.Game.GameCamera

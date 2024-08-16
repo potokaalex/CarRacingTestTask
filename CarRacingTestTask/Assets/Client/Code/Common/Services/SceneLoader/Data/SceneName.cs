@@ -2,8 +2,8 @@
 {
     public enum SceneName
     {
-        Gameplay = 1,
+        Game = 1,
         Hub = 2,
-        GameplayOnline = 3
+        GameOnline = 3
     }
 }

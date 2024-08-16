@@ -34,8 +34,8 @@ namespace Client.Code.Hub.UI.Presenters
 
         public void Handle(LoadButtonType type)
         {
-            if (type == LoadButtonType.Gameplay)
-                _globalStateMachine.SwitchTo<GameplayStateGlobal>();
+            if (type == LoadButtonType.Game)
+                _globalStateMachine.SwitchTo<GameStateGlobal>();
             //else if (type == LoadButtonType.GameplayOnline)
             //    _globalStateMachine.SwitchTo<GameplayOnlineStateGlobal>();
         }

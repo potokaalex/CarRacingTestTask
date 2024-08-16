@@ -13,8 +13,8 @@ using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Network.Events;
 using Client.Code.Common.Services.ProgressService;
 using Client.Code.Common.Services.Startup;
-using Client.Code.Gameplay.Game.Car.Controllers;
-using Client.Code.Gameplay.UI.Presenters;
+using Client.Code.Game.Gameplay.Car.Controllers;
+using Client.Code.Game.UI.Presenters;
 using UnityEngine;
 using Zenject;
 
@@ -58,7 +58,7 @@ namespace Client._dev.GameplayOnline.Infrastructure
         private void BindAssets()
         {
             Container.BindInterfacesTo<AssetReceiversRegister<GameplayOnlineConfig>>().AsSingle();
-            Container.BindInterfacesTo<AssetLoader<GameplayOnlineConfig>>().AsSingle().WithArguments(AssetLabelType.GameplayOnline);
+            Container.BindInterfacesTo<AssetLoader<GameplayOnlineConfig>>().AsSingle().WithArguments(AssetLabelType.GameOnline);
         }
     }
 }

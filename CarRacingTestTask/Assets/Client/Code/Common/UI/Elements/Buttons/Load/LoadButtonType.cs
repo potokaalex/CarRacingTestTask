@@ -3,7 +3,7 @@
     public enum LoadButtonType
     {
         Hub = 1,
-        Gameplay = 2,
-        GameplayOnline = 3
+        Game = 2,
+        GameOnline = 3
     }
 }

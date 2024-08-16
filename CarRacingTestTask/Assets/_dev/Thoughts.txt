@@ -16,7 +16,7 @@ Assembly definitions connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
-Discarded:
+TODO:
     Rename gameplay to game & game to gameplay
     Create services folder in Game
     Create game input

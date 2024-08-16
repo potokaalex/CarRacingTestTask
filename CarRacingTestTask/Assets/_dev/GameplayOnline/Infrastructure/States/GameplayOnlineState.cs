@@ -1,8 +1,8 @@
 ﻿using Client._dev.GameplayOnline.Data;
 using Client.Code.Common.Services.StateMachine.State;
-using Client.Code.Gameplay.Game.Car.Factory;
-using Client.Code.Gameplay.Game.GameCamera.Factory;
-using Client.Code.Gameplay.Game.GameSpawnPoint;
+using Client.Code.Game.Gameplay.Car.Factory;
+using Client.Code.Game.Gameplay.GameCamera.Factory;
+using Client.Code.Game.Gameplay.GameSpawnPoint;
 
 namespace Client._dev.GameplayOnline.Infrastructure.States
 {
