@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.Updater;
-using Client.Code.Game.Data.Static.Configs;
+using Client.Code.Game.Data;
 using Client.Code.Game.Gameplay.Player.Time;
 using Client.Code.Game.Infrastructure.States;
 

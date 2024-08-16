@@ -1,5 +1,6 @@
 ﻿using Client.Code.Common.Data;
-using Client.Code.Game.Data.GameSpawnPoint;
+using Client.Code.Common.Data.Progress.Player;
+using Client.Code.Game.Data;
 
 namespace Client._dev.GameplayOnline.Game.Car
 {

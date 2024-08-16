@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Client.Code.Common.Data;
+using Client.Code.Common.Data.Progress.Player;
 using UnityEngine;
 using Zenject;
 

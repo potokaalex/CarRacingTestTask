@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Common.Data
+﻿namespace Client.Code.Common.Data.Progress.Player
 {
     public enum CarColorType
     {

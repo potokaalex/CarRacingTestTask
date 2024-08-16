@@ -1,5 +1,5 @@
 ﻿using Client.Code.Common.Services.Asset;
-using Client.Code.Game.Data.Static.Configs;
+using Client.Code.Game.Gameplay.Car;
 using Client.Code.Game.UI;
 using Client.Code.Game.UI.Elements;
 using UnityEngine;

@@ -7,7 +7,7 @@ using Client.Code.Common.Services.Shop.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Client.Code.Common.Data.Configs
+namespace Client.Code.Common.Data
 {
     [CreateAssetMenu(menuName = "Configs/Project/Main", fileName = "ProjectConfig", order = 0)]
     public class ProjectConfig : SerializedScriptableObject, IAsset

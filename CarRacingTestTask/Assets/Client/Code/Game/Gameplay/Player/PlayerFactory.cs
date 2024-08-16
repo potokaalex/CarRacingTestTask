@@ -1,6 +1,6 @@
 ﻿using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Updater;
-using Client.Code.Game.Data.Static.Configs;
+using Client.Code.Game.Data;
 using Client.Code.Game.Gameplay.Player.Score;
 using Client.Code.Game.Gameplay.Player.Time;
 using Zenject;

@@ -1,4 +1,4 @@
-﻿using Client.Code.Game.Data.GameSpawnPoint;
+﻿using Client.Code.Game.Data;
 using ExitGames.Client.Photon;
 
 namespace Client._dev.GameplayOnline.Data.Network

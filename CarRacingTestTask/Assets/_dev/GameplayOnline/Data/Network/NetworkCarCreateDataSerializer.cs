@@ -1,7 +1,8 @@
 ﻿using Client._dev.GameplayOnline.Game.Car;
 using Client.Code.Common.Data;
+using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Network;
-using Client.Code.Game.Data.GameSpawnPoint;
+using Client.Code.Game.Data;
 using ExitGames.Client.Photon;
 
 namespace Client._dev.GameplayOnline.Data.Network

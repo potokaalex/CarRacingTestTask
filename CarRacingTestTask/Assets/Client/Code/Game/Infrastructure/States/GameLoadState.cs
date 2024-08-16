@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Data.Configs;
+﻿using Client.Code.Common.Data;
 using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.LoadingScreen;
@@ -6,7 +6,7 @@ using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.StateMachine;
 using Client.Code.Common.Services.StateMachine.State;
 using Client.Code.Common.Services.Updater;
-using Client.Code.Game.Data.Static.Configs;
+using Client.Code.Game.Data;
 using Cysharp.Threading.Tasks;
 
 namespace Client.Code.Game.Infrastructure.States

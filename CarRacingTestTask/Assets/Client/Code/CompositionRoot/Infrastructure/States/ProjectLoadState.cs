@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Data.Configs;
+﻿using Client.Code.Common.Data;
 using Client.Code.Common.Data.Progress;
 using Client.Code.Common.Infrastructure.States;
 using Client.Code.Common.Services.Asset;

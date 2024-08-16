@@ -1,4 +1,4 @@
-﻿using Client.Code.Game.Data.GameSpawnPoint;
+﻿using Client.Code.Game.Data;
 using UnityEngine;
 
 namespace Client.Code.Game.Services.Extensions

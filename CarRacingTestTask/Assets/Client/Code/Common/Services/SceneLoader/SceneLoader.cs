@@ -1,5 +1,5 @@
 ﻿using System;
-using Client.Code.Common.Data.Configs;
+using Client.Code.Common.Data;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Logger.Base;
 using Client.Code.Common.Services.SceneLoader.Data;

@@ -1,7 +1,6 @@
-﻿using Client.Code.Game.Gameplay.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Client.Code.Game.Data.Static.Configs
+namespace Client.Code.Game.Gameplay.Player
 {
     [CreateAssetMenu(menuName = "Configs/Game/Player", fileName = "PlayerConfig", order = 0)]
     public class PlayerConfig : ScriptableObject

@@ -17,10 +17,10 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    create game factory
     Move configs from game/data/static/configs
-    fix debugger!
+    refactoring gameState
     fix hub ui when game scene loading
+    fix debugger!
     Make new Car systems:
         optional: tyres sound system & engine sound system
         optional: get image from url and place on car body

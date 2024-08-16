@@ -1,5 +1,5 @@
 ﻿using Client.Code.Common.Services.Asset.Receiver;
-using Client.Code.Game.Data.Static.Configs;
+using Client.Code.Game.Data;
 using Client.Code.Game.Gameplay.Car.Controllers;
 using Client.Code.Game.Gameplay.GameplayCamera.Controllers;
 using Zenject;

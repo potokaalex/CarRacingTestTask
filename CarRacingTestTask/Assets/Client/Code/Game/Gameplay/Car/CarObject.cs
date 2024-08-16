@@ -1,5 +1,4 @@
-﻿using Client.Code.Game.Data.Static.Configs;
-using Client.Code.Game.Gameplay.Wheel;
+﻿using Client.Code.Game.Gameplay.Wheel;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

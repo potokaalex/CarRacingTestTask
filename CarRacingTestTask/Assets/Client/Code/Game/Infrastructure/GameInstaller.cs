@@ -1,4 +1,4 @@
-﻿using Client.Code.Common.Data.Configs;
+﻿using Client.Code.Common.Data;
 using Client.Code.Common.Data.Progress.Player;
 using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
@@ -8,7 +8,6 @@ using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Game.Data;
-using Client.Code.Game.Data.Static.Configs;
 using Client.Code.Game.Gameplay.Car.Controllers;
 using Client.Code.Game.Gameplay.Car.Factory;
 using Client.Code.Game.Gameplay.GameplayCamera.Controllers;
