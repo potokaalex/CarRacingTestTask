@@ -8,6 +8,7 @@ using Client.Code.Common.Services.Asset.Data;
 using Client.Code.Common.Services.Asset.Loader;
 using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.AudioService;
+using Client.Code.Common.Services.CursorService;
 using Client.Code.Common.Services.InputService;
 using Client.Code.Common.Services.LoadingScreen;
 using Client.Code.Common.Services.Logger;
@@ -24,8 +25,10 @@ using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Unity.Services;
+using Client.Code.Game.Services.Checker;
 using UnityEngine;
 using Zenject;
+using Cursor = UnityEngine.UIElements.Cursor;
 
 namespace Client.Code.CompositionRoot.Infrastructure.Installers
 {
@@ -48,6 +51,7 @@ namespace Client.Code.CompositionRoot.Infrastructure.Installers
             Container.BindInterfacesTo<SceneLoader>().AsSingle();
             Container.BindInterfacesTo<AudioService>().AsSingle();
             Container.BindInterfacesTo<LoadingScreenFactory>().AsSingle();
+            Container.Bind<ICursorService>().To<CursorService>().AsSingle();
         }
 
         private void BindNetwork()

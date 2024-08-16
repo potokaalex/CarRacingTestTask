@@ -20,9 +20,10 @@ Assembly definitions connections:
 
 
 TODO:
+    create game factory
+    remove checker folder
+    remove cursorController
     remove input object from input service
-    Create game input
-    Create pause menu
     Move configs from game/data/static/configs
     fix debugger!
     fix hub ui when game scene loading

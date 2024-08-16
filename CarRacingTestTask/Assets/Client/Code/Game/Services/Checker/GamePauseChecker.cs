@@ -1,4 +1,5 @@
 ﻿using Client.Code.Common.Services.InputService;
+using Client.Code.Game.Services.Pause;
 using UnityEngine.InputSystem;
 
 namespace Client.Code.Game.Services.Checker
@@ -6,44 +7,40 @@ namespace Client.Code.Game.Services.Checker
     public class GamePauseChecker
     {
         private readonly IInputService _inputService;
-        private GameControls.PauseActions _pause;
-        private bool _isPaused;
+        private readonly GamePauseService _pause;
+        private GameControls.PauseActions _actions;
 
-        public GamePauseChecker(IInputService inputService) => _inputService = inputService;
+        public GamePauseChecker(IInputService inputService, GamePauseService pause)
+        {
+            _inputService = inputService;
+            _pause = pause;
+        }
 
         public void Initialize()
         {
-            _pause = _inputService.GameControls.Pause;
-            _pause.EnablePause.performed += EnablePause;
-            _pause.DisablePause.performed += DisablePause;
-            _pause.Enable();
+            _actions = _inputService.GameControls.Pause;
+            _actions.EnablePause.performed += EnablePause;
+            _actions.DisablePause.performed += DisablePause;
+            _actions.Enable();
         }
 
         public void Dispose()
         {
-            _pause.EnablePause.performed -= EnablePause;
-            _pause.DisablePause.performed -= DisablePause;
-            _pause.Disable();
+            _actions.EnablePause.performed -= EnablePause;
+            _actions.DisablePause.performed -= DisablePause;
+            _actions.Disable();
         }
 
         private void EnablePause(InputAction.CallbackContext context)
         {
-            if(_isPaused)
-                return;
-            
-            _isPaused = true;
-            UnityEngine.Debug.Log("Unlock cursor");
-            //unlock cursor.
+            if(!_pause.IsPaused)
+                _pause.Enable();
         }
 
         private void DisablePause(InputAction.CallbackContext context)
         {
-            if(!_isPaused || _inputService.IsMouseOverUI())
-                return;
-            
-            _isPaused = false;
-            UnityEngine.Debug.Log("Lock cursor");
-            //lock cursor.
+            if(_pause.IsPaused && !_inputService.IsMouseOverUI())
+                _pause.Disable();
         }
     }
 }
