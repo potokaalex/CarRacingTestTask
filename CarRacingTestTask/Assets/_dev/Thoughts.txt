@@ -16,12 +16,16 @@ Assembly definitions connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
+при нажатии на определённую кнопку открывается определённое меню - как это сделать ? 
+
+
 TODO:
-    fix hub ui when game scene loading
+    remove input object from input service
     Create game input
     Create pause menu
     Move configs from game/data/static/configs
     fix debugger!
+    fix hub ui when game scene loading
     Make new Car systems:
         optional: tyres sound system & engine sound system
         optional: get image from url and place on car body

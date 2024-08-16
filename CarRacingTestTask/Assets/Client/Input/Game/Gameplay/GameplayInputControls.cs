@@ -156,15 +156,6 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""LockCursor"",
-                    ""type"": ""Value"",
-                    ""id"": ""3befe7fe-3267-45c1-95a2-b4a691c4028f"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -255,39 +246,6 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""0d29498c-1b60-4cf4-9883-065797abebe4"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LockCursor"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""48622bb3-2095-4b53-94ad-83e2bb3faecf"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardAndMouse"",
-                    ""action"": ""LockCursor"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""bf6bfcc1-68cd-4e3b-9742-906d8933ae6d"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardAndMouse"",
-                    ""action"": ""LockCursor"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -320,7 +278,6 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Rotate = m_Camera.FindAction("Rotate", throwIfNotFound: true);
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
-        m_Camera_LockCursor = m_Camera.FindAction("LockCursor", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -446,14 +403,12 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
     private readonly InputAction m_Camera_Rotate;
     private readonly InputAction m_Camera_Zoom;
-    private readonly InputAction m_Camera_LockCursor;
     public struct CameraActions
     {
         private @GameplayInputControls m_Wrapper;
         public CameraActions(@GameplayInputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Rotate => m_Wrapper.m_Camera_Rotate;
         public InputAction @Zoom => m_Wrapper.m_Camera_Zoom;
-        public InputAction @LockCursor => m_Wrapper.m_Camera_LockCursor;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -469,9 +424,6 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
-            @LockCursor.started += instance.OnLockCursor;
-            @LockCursor.performed += instance.OnLockCursor;
-            @LockCursor.canceled += instance.OnLockCursor;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
@@ -482,9 +434,6 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
-            @LockCursor.started -= instance.OnLockCursor;
-            @LockCursor.performed -= instance.OnLockCursor;
-            @LockCursor.canceled -= instance.OnLockCursor;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -521,6 +470,5 @@ public partial class @GameplayInputControls: IInputActionCollection2, IDisposabl
     {
         void OnRotate(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
-        void OnLockCursor(InputAction.CallbackContext context);
     }
 }

@@ -1,6 +1,55 @@
 {
-    "name": "GameplayControls",
-    "maps": [],
+    "name": "GameControls",
+    "maps": [
+        {
+            "name": "Pause",
+            "id": "7a02f16f-587f-4403-997e-7aabeae34df2",
+            "actions": [
+                {
+                    "name": "EnablePause",
+                    "type": "Button",
+                    "id": "03b00233-c703-4917-a8bf-4142d4c602ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DisablePause",
+                    "type": "Button",
+                    "id": "aed63fdb-6646-4c41-acfd-9a8316f71af8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3a4d0003-9a9d-44f1-b192-33d732723306",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "EnablePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2adc89f-4f9b-482c-a200-1a1f6a713aa9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "DisablePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
     "controlSchemes": [
         {
             "name": "KeyboardAndMouse",

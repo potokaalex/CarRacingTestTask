@@ -2,6 +2,7 @@
 {
     public interface IInputService
     {
+        GameControls GameControls { get; }
         GameplayInputControls GameplayControls { get; }
         void Initialize(InputObject input);
         bool IsMouseOverUI();
