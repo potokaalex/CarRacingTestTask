@@ -17,12 +17,10 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    fix hub ui when game scene loading
-    fix debugger!
     Make new Car systems:
         optional: tyres sound system & engine sound system
         optional: get image from url and place on car body
-        prevent: bug if the car does not have velocity, then brake does not work correctly!, bug: at high speed, the car breaks off from a straight line
+        prevent: bug: at high speed, the car breaks off from a straight line
     Network
     Leaderboard in room (All players drift points)
     Web request: stream radio music into the game
