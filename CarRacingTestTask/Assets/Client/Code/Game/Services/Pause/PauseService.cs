@@ -2,12 +2,12 @@
 
 namespace Client.Code.Game.Services.Pause
 {
-    public class GamePauseService
+    public class PauseService
     {
         private readonly ICursorService _cursor;
         public bool IsPaused { get; private set; }
 
-        public GamePauseService(ICursorService cursor) => _cursor = cursor;
+        public PauseService(ICursorService cursor) => _cursor = cursor;
 
         public void Enable()
         {
@@ -20,18 +20,5 @@ namespace Client.Code.Game.Services.Pause
             IsPaused = false;
             _cursor.Set(true);
         }
-
-        /*
-             public void Set(bool isLocked)
-    {
-        if (_isLocked == isLocked)
-            return;
-
-        _isLocked = isLocked;
-
-        Cursor.lockState = isLocked ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !isLocked;
-    }
-         */
     }
 }

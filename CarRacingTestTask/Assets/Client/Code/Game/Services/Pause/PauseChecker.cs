@@ -4,13 +4,13 @@ using UnityEngine.InputSystem;
 
 namespace Client.Code.Game.Services.Checker
 {
-    public class GamePauseChecker
+    public class PauseChecker
     {
         private readonly IInputService _inputService;
-        private readonly GamePauseService _pause;
+        private readonly PauseService _pause;
         private GameControls.PauseActions _actions;
 
-        public GamePauseChecker(IInputService inputService, GamePauseService pause)
+        public PauseChecker(IInputService inputService, PauseService pause)
         {
             _inputService = inputService;
             _pause = pause;

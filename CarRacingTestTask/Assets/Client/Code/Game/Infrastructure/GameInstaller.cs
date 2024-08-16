@@ -39,8 +39,8 @@ namespace Client.Code.Game.Infrastructure
             BindAssets();
             BindProgress();
 
-            Container.Bind<GamePauseService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GameCheckersFactory>().AsSingle();
+            Container.Bind<PauseService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<CursorController>().AsSingle();//TODO: remove!
 
             Container.Bind<GameSceneData>().FromInstance(_sceneData).AsSingle();
