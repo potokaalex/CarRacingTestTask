@@ -8,6 +8,7 @@ using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.ProgressService.Saver;
 using Client.Code.Common.Services.Startup;
 using Client.Code.Game.Data;
+using Client.Code.Game.Gameplay;
 using Client.Code.Game.Gameplay.Car.Controllers;
 using Client.Code.Game.Gameplay.Car.Factory;
 using Client.Code.Game.Gameplay.GameplayCamera.Controllers;
@@ -76,6 +77,8 @@ namespace Client.Code.Game.Infrastructure
             BindCar();
             BindPlayer();
             BindCamera();
+            
+            Container.Bind<GameplayFactory>().AsSingle();
         }
 
         private void BindCamera()

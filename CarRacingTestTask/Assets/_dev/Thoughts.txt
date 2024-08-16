@@ -17,7 +17,6 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    refactoring gameState
     fix hub ui when game scene loading
     fix debugger!
     Make new Car systems:
