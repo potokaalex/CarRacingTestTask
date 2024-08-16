@@ -1,8 +1,7 @@
 ﻿using Client.Code.Common.Services.InputService;
-using Client.Code.Game.Services.Pause;
 using UnityEngine.InputSystem;
 
-namespace Client.Code.Game.Services.Checker
+namespace Client.Code.Game.Services.Pause
 {
     public class PauseChecker
     {

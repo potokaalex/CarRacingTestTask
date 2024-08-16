@@ -1,5 +1,4 @@
-﻿using Client.Code.Game.Services.Checker;
-using Zenject;
+﻿using Zenject;
 
 namespace Client.Code.Game.Services.Pause
 {
@@ -9,7 +8,7 @@ namespace Client.Code.Game.Services.Pause
         private PauseChecker _checker;
 
         public PauseFactory(IInstantiator instantiation) => _instantiation = instantiation;
-        
+
         public void Create()
         {
             _checker = _instantiation.Instantiate<PauseChecker>();

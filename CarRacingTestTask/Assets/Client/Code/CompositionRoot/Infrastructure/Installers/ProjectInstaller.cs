@@ -25,7 +25,6 @@ using Client.Code.Common.Services.StateMachine.Factory;
 using Client.Code.Common.Services.StateMachine.Global;
 using Client.Code.Common.Services.Unity;
 using Client.Code.Common.Services.Unity.Services;
-using Client.Code.Game.Services.Checker;
 using UnityEngine;
 using Zenject;
 using Cursor = UnityEngine.UIElements.Cursor;

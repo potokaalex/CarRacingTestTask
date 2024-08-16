@@ -4,7 +4,7 @@ using Client.Code.Game.Data;
 using Client.Code.Game.Gameplay.Car.Factory;
 using Client.Code.Game.Gameplay.GameplayCamera.Factory;
 using Client.Code.Game.Gameplay.Player;
-using Client.Code.Game.Services.Checker;
+using Client.Code.Game.Services;
 using Client.Code.Game.Services.Extensions;
 using Client.Code.Game.UI.Factories;
 

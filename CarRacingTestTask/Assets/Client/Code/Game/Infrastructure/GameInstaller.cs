@@ -18,7 +18,6 @@ using Client.Code.Game.Gameplay.Player.Score;
 using Client.Code.Game.Gameplay.Player.Time;
 using Client.Code.Game.Infrastructure.States;
 using Client.Code.Game.Services;
-using Client.Code.Game.Services.Checker;
 using Client.Code.Game.Services.GameCursor;
 using Client.Code.Game.Services.Pause;
 using Client.Code.Game.UI.Factories;
