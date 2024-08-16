@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Client.Code.Game.Data.GameSpawnPoint;
+using UnityEngine;
 
-namespace Client.Code.Game.Gameplay.GameSpawnPoint
+namespace Client.Code.Game.Services.Extensions
 {
     public static class SpawnPointExtensions
     {

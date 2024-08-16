@@ -1,4 +1,4 @@
-﻿using Client.Code.Game.Gameplay.GameSpawnPoint;
+﻿using Client.Code.Game.Data.GameSpawnPoint;
 
 namespace Client.Code.Game.Gameplay.Car.Factory
 {

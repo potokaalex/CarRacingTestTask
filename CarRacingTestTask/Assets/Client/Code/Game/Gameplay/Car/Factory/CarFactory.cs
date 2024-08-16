@@ -4,10 +4,10 @@ using Client.Code.Common.Services.Asset.Receiver;
 using Client.Code.Common.Services.Extensions;
 using Client.Code.Common.Services.ProgressService.Loader;
 using Client.Code.Common.Services.Updater;
+using Client.Code.Game.Data.GameSpawnPoint;
 using Client.Code.Game.Data.Static.Configs;
 using Client.Code.Game.Gameplay.Car.Controllers;
 using Client.Code.Game.Gameplay.Car.Controllers.Base;
-using Client.Code.Game.Gameplay.GameSpawnPoint;
 using Zenject;
 
 namespace Client.Code.Game.Gameplay.Car.Factory

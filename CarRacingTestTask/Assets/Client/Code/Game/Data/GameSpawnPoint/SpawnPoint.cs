@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Client.Code.Game.Gameplay.GameSpawnPoint
+namespace Client.Code.Game.Data.GameSpawnPoint
 {
     public struct SpawnPoint
     {

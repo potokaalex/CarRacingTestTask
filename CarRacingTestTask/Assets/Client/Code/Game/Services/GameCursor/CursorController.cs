@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Client.Code.Game.Gameplay.GameCursor
+namespace Client.Code.Game.Services.GameCursor
 {
     public class CursorController
     {
