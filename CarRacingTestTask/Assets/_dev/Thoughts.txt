@@ -16,12 +16,8 @@ Assembly definitions connections:
     Gameplay <- Common. -> GameplayOnline, CompositionRoot
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
-при нажатии на определённую кнопку открывается определённое меню - как это сделать ? 
-
-
 TODO:
     create game factory
-    remove input object from input service
     Move configs from game/data/static/configs
     fix debugger!
     fix hub ui when game scene loading

@@ -4,7 +4,7 @@
     {
         GameControls GameControls { get; }
         GameplayInputControls GameplayControls { get; }
-        void Initialize(InputObject input);
+        void Initialize();
         bool IsMouseOverUI();
     }
 }

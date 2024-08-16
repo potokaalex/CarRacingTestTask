@@ -8,15 +8,13 @@ namespace Client.Code.Common.Services.InputService
     public class InputService : IInputService
     {
         private readonly List<RaycastResult> _raycastResultsBuffer = new();
-        private InputObject _input;
         
         public GameControls GameControls { get; private set; }
         
         public GameplayInputControls GameplayControls { get; private set; }
 
-        public void Initialize(InputObject input)
+        public void Initialize()
         {
-            _input = input;
             GameControls = new GameControls();
             GameplayControls = new GameplayInputControls();
         }
