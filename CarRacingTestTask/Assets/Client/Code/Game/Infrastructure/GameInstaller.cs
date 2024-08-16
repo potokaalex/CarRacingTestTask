@@ -17,6 +17,7 @@ using Client.Code.Game.Gameplay.Player;
 using Client.Code.Game.Gameplay.Player.Score;
 using Client.Code.Game.Gameplay.Player.Time;
 using Client.Code.Game.Infrastructure.States;
+using Client.Code.Game.Services.Checker;
 using Client.Code.Game.Services.GameCursor;
 using Client.Code.Game.UI.Factories;
 using Client.Code.Game.UI.Presenters;
@@ -36,6 +37,7 @@ namespace Client.Code.Game.Infrastructure
             BindAssets();
             BindProgress();
 
+            Container.BindInterfacesAndSelfTo<GameCheckersFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<CursorController>().AsSingle();
 
             Container.Bind<GameSceneData>().FromInstance(_sceneData).AsSingle();

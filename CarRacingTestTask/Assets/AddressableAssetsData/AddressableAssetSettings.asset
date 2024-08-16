@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: fab154a2cfae9154a939dcf01fb5b12a
   m_currentHash:
     serializedVersion: 2
-    Hash: 2a205c5803a7cfb12fbce49a8edbb480
+    Hash: cf44ec0ac4336ed84290948ca99a38dd
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
     - default
     - Project
     - Hub
-    - Gameplay
-    - GameplayOnline
+    - Game
+    - GameOnline
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 496d19e9005e8fc41aff2d08043291be, type: 2}

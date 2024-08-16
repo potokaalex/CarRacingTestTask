@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Address: Assets/Client/Configs/Gameplay/GameplayConfig.asset
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Gameplay
+    - Game
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1415c6026b63bb146bb3239c2206d165
     m_Address: Assets/Client/Configs/Project/ProjectConfig.asset
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Address: Assets/Client/Configs/Gameplay/Online/GameplayOnlineConfig.asset
     m_ReadOnly: 0
     m_SerializedLabels:
-    - GameplayOnline
+    - GameOnline
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24d4e1efe045b4e49a6041c3c02ebba3
     m_Address: Assets/Client/Configs/Hub/HubConfig.asset

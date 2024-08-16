@@ -4,7 +4,7 @@ using Client.Code.Game.Data.Static.Configs;
 using Client.Code.Game.Gameplay.Player.Time;
 using Client.Code.Game.Infrastructure.States;
 
-namespace Client.Code.Game.Gameplay.Check
+namespace Client.Code.Game.Services.Checker
 {
     public class GameOverChecker
     {

@@ -17,7 +17,7 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    create gameFactory
+    fix hub ui when game scene loading
     Create game input
     Create pause menu
     Move configs from game/data/static/configs

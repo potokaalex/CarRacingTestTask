@@ -3,6 +3,7 @@ using Client.Code.Game.Data;
 using Client.Code.Game.Gameplay.Car.Factory;
 using Client.Code.Game.Gameplay.GameplayCamera.Factory;
 using Client.Code.Game.Gameplay.Player;
+using Client.Code.Game.Services.Checker;
 using Client.Code.Game.Services.Extensions;
 using Client.Code.Game.UI.Factories;
 
@@ -15,15 +16,17 @@ namespace Client.Code.Game.Infrastructure.States
         private readonly PlayerFactory _playerFactory;
         private readonly GameUIFactory _uiFactory;
         private readonly ICameraFactory _cameraFactory;
+        private readonly GameCheckersFactory _checkersFactory;
 
         public GameState(ICarFactory carFactory, GameSceneData sceneData, PlayerFactory playerFactory, GameUIFactory uiFactory,
-            ICameraFactory cameraFactory)
+            ICameraFactory cameraFactory, GameCheckersFactory checkersFactory)
         {
             _carFactory = carFactory;
             _sceneData = sceneData;
             _playerFactory = playerFactory;
             _uiFactory = uiFactory;
             _cameraFactory = cameraFactory;
+            _checkersFactory = checkersFactory;
         }
 
         public void Enter()
@@ -32,6 +35,7 @@ namespace Client.Code.Game.Infrastructure.States
             _cameraFactory.Create();
             _playerFactory.Create();
             _uiFactory.Create();
+            _checkersFactory.Create();
         }
 
         public void Exit()
@@ -39,7 +43,7 @@ namespace Client.Code.Game.Infrastructure.States
             _carFactory.Destroy();
             _cameraFactory.Destroy();
             _playerFactory.Destroy();
-            _uiFactory.Destroy();
+            _checkersFactory.Destroy();
         }
     }
 }
