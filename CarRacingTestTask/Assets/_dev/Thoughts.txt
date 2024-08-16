@@ -17,7 +17,6 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    Create services folder in Game
     rename gameCamera to GameplayCamera
     create gameFactory
     create ui/Elements folder

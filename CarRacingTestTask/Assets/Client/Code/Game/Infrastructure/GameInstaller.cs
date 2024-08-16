@@ -32,9 +32,11 @@ namespace Client.Code.Game.Infrastructure
         public override void InstallBindings()
         {
             BindUI();
-            BindGame();
+            BindGameplay();
             BindAssets();
             BindProgress();
+
+            Container.BindInterfacesAndSelfTo<CursorController>().AsSingle();
 
             Container.Bind<GameSceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<AutoStartupper<GameLoadState>>().AsSingle();
@@ -55,13 +57,11 @@ namespace Client.Code.Game.Infrastructure
             Container.BindInterfacesTo<AssetLoader<GameConfig>>().AsSingle().WithArguments(AssetLabelType.Game);
         }
 
-        private void BindGame()
+        private void BindGameplay()
         {
             BindCar();
             BindPlayer();
             BindCamera();
-
-            Container.BindInterfacesAndSelfTo<CursorController>().AsSingle();
         }
 
         private void BindCamera()

@@ -28,7 +28,7 @@ namespace Client._dev.GameplayOnline.Infrastructure
         {
             BindAssets();
             BindUI();
-            BindGame();
+            BindGameplay();
 
             Container.BindInterfacesTo<ProgressActorsRegister<PlayerProgress>>().AsSingle();
             Container.BindInterfacesTo<NetworkEventReceiversRegister>().AsSingle();
@@ -36,7 +36,7 @@ namespace Client._dev.GameplayOnline.Infrastructure
             Container.BindInterfacesTo<AutoStartupper<GameplayOnlineLoadState>>().AsSingle();
         }
 
-        private void BindGame()
+        private void BindGameplay()
         {
             BindCar();
             Container.BindInterfacesTo<CameraFactoryOnline>().AsSingle();
