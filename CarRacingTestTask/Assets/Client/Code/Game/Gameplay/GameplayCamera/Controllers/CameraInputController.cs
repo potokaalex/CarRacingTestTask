@@ -4,7 +4,7 @@ using Client.Code.Common.Services.Updater;
 using Client.Code.Game.Data.Static.Configs;
 using UnityEngine;
 
-namespace Client.Code.Game.Gameplay.GameCamera.Controllers
+namespace Client.Code.Game.Gameplay.GameplayCamera.Controllers
 {
     public class CameraInputController : IAssetReceiver<GameConfig>
     {

@@ -1,5 +1,5 @@
 ﻿using Client.Code.Game.Gameplay.Car.Controllers.Base;
-using Client.Code.Game.Gameplay.GameCamera;
+using Client.Code.Game.Gameplay.GameplayCamera;
 using UnityEngine;
 
 namespace Client.Code.Game.Gameplay.Car.Controllers

@@ -1,4 +1,4 @@
-﻿using Client.Code.Game.Gameplay.GameCamera;
+﻿using Client.Code.Game.Gameplay.GameplayCamera;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

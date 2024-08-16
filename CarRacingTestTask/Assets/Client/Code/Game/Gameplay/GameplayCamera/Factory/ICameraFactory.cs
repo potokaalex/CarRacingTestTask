@@ -1,4 +1,4 @@
-﻿namespace Client.Code.Game.Gameplay.GameCamera.Factory
+﻿namespace Client.Code.Game.Gameplay.GameplayCamera.Factory
 {
     public interface ICameraFactory
     {

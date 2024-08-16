@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Client.Code.Game.Gameplay.GameCamera
+namespace Client.Code.Game.Gameplay.GameplayCamera
 {
     public interface ICameraTarget
     {
