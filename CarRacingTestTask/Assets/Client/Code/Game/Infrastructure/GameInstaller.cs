@@ -17,6 +17,7 @@ using Client.Code.Game.Gameplay.Player.Score;
 using Client.Code.Game.Gameplay.Player.Time;
 using Client.Code.Game.Infrastructure.States;
 using Client.Code.Game.Services;
+using Client.Code.Game.Services.Gameover;
 using Client.Code.Game.Services.Pause;
 using Client.Code.Game.UI.Factories;
 using Client.Code.Game.UI.Presenters;
@@ -31,16 +32,28 @@ namespace Client.Code.Game.Infrastructure
 
         public override void InstallBindings()
         {
-            BindUI();
-            BindGameplay();
             BindAssets();
             BindProgress();
-
-            Container.Bind<PauseService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
-
+            BindGameplay();
+            BindGame();
+            
             Container.Bind<GameSceneData>().FromInstance(_sceneData).AsSingle();
             Container.BindInterfacesTo<AutoStartupper<GameLoadState>>().AsSingle();
+        }
+
+        private void BindGame()
+        {
+            BindUI();
+            BindPause();
+            
+            Container.Bind<GameFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverFactory>().AsSingle();
+        }
+
+        private void BindPause()
+        {
+            Container.Bind<PauseFactory>().AsSingle();
+            Container.Bind<PauseService>().AsSingle();
         }
 
         private void BindProgress()

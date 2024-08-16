@@ -34,9 +34,12 @@ namespace Client.Code.Game.Infrastructure.States
 
         public void Enter()
         {
+            //gameplayFactory.Create();
             _carFactory.Create(_sceneData.CarSpawnPoint.ToSpawnPoint());
             _cameraFactory.Create();
             _playerFactory.Create();
+            
+            //gameFactory.Create();
             _uiFactory.Create();
             _factory.Create();
             _cursorService.Set(true);
@@ -44,9 +47,12 @@ namespace Client.Code.Game.Infrastructure.States
 
         public void Exit()
         {
+            //gameplayFactory.Create();
             _carFactory.Destroy();
             _cameraFactory.Destroy();
             _playerFactory.Destroy();
+            
+            //gameFactory.Create();
             _factory.Destroy();
             _cursorService.Set(false);
         }

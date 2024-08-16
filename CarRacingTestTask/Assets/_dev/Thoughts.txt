@@ -17,7 +17,6 @@ Assembly definitions connections:
     GameplayOnline <- Common, Gameplay. -> CompositionRoot
 
 TODO:
-    Move configs from game/data/static/configs
     refactoring gameState
     fix hub ui when game scene loading
     fix debugger!
